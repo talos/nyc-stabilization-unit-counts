@@ -45,7 +45,7 @@ def main(houseNumber, street, borough):
     if os.path.exists(filename):
       continue
 
-    resp = session.get(statement_url, stream=True)
+    resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
 
     chunk_size = 1024
     with open(filename, 'wb') as fd:
@@ -54,6 +54,29 @@ def main(houseNumber, street, borough):
 
     time.sleep(1)
 
+  for statement in soup.select('a[href^="soalist.jsp"]'):
+    link_text = statement.text.strip()
+    href = statement.get('href')
+    link_url = urlparse.urljoin(list_url, href)
+    sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
+
+    filename = os.path.join('data', bbl, link_text)
+    if os.path.exists(filename):
+      continue
+
+    link_resp = session.get(link_url, headers={'Referer': list_url})
+    link_soup = bs4.BeautifulSoup(link_resp.text)
+
+    statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
+    statement_url = urlparse.urljoin(list_url, statement_href)
+    resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
+
+    chunk_size = 1024
+    with open(filename, 'wb') as fd:
+      for chunk in resp.iter_content(chunk_size):
+        fd.write(chunk)
+
+    time.sleep(1)
 
 if __name__ == '__main__':
   if len(sys.argv) == 2:
