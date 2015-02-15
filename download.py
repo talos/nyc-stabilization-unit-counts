@@ -56,4 +56,19 @@ def main(houseNumber, street, borough):
 
 
 if __name__ == '__main__':
-  main(sys.argv[1], sys.argv[2], sys.argv[3])
+  if len(sys.argv) == 2:
+    with open(sys.argv[1]) as infile:
+      for line in infile:
+        args = line.strip().split('\t')
+        main(args[0], args[1], args[2])
+  elif len(sys.argv) == 4:
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
+  else:
+    sys.stderr.write(u'''
+
+    Should be called with one arg for tab-delimited file, three args for
+    housenum/streetname/borough number.
+
+''')
+    sys.exit(1)
+
