@@ -29,8 +29,8 @@ def main(houseNumber, street, borough):
   bbl = '{}-{}-{}'.format(form['q49_boro'],
                           form['q49_block_id'],
                           form['q49_lot'])
-  if not os.path.exists(bbl):
-    os.mkdir(bbl)
+  if not os.path.exists(os.path.join('data', bbl)):
+    os.mkdir(os.path.join('data', bbl))
   resp = session.post(list_url, data=form)
 
   soup = bs4.BeautifulSoup(resp.text)
@@ -41,7 +41,7 @@ def main(houseNumber, street, borough):
     statement_url = urlparse.urljoin(list_url, href)
     sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
 
-    filename = os.path.join(bbl, link_text)
+    filename = os.path.join('data', bbl, link_text)
     if os.path.exists(filename):
       continue
 
