@@ -39,13 +39,15 @@ def strainSoup(search_value):
 
         test = requests.get(statement_url, stream=True)
         content_type = test.headers['Content-Type']
-      
+
         if re.search(r'html', content_type, re.M|re.I):          
-          filename = os.path.join('data', bbl, link_text + '.html')            
+          filename = os.path.join('data', bbl, link_text + '.html')
+          if os.path.exists(filename):
+            continue                   
         elif re.search(r'pdf', content_type, re.M|re.I):
-          filename = os.path.join('data', bbl, link_text + '.pdf')                                          
-        if os.path.exists(filename):
-          continue
+          filename = os.path.join('data', bbl, link_text + '.pdf')
+          if os.path.exists(filename):
+            continue                                                             
         
         resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
 
