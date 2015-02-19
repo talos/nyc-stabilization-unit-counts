@@ -11,52 +11,52 @@ import re
 FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 
 def strainSoup(search_value):
-    '''
-    iterate over html based on an href value
-    '''
+  '''
+  iterate over html based on an href value
+  '''
+  if search_value == 'first':
+      target = 'a[href^="../../"]'
+  elif search_value == 'second':
+      target = 'a[href^="soalist.jsp"]'
+
+  for statement in soup.select(target):        
+    link_text = statement.text.strip()
+    href = statement.get('href')
+    
     if search_value == 'first':
-        target = 'a[href^="../../"]'
+      statement_url = urlparse.urljoin(list_url, href)          
+      sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
+    
     elif search_value == 'second':
-        target = 'a[href^="soalist.jsp"]'
-
-    for statement in soup.select(target):        
-        link_text = statement.text.strip()
-        href = statement.get('href')
-
-        if search_value == 'first':
-          statement_url = urlparse.urljoin(list_url, href)          
-          sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
-
-        elif search_value == 'second':
-          link_url = urlparse.urljoin(list_url, href)
-          sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
-
-          link_resp = session.get(link_url, headers={'Referer': list_url})
-          link_soup = bs4.BeautifulSoup(link_resp.text)
-
-          statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
-          statement_url = urlparse.urljoin(list_url, statement_href)          
-
-        test = requests.get(statement_url, stream=True)
-        content_type = test.headers['Content-Type']
-
-        if re.search(r'html', content_type, re.M|re.I):          
-          filename = os.path.join('data', bbl, link_text + '.html')
-          if os.path.exists(filename):
-            continue                   
-        elif re.search(r'pdf', content_type, re.M|re.I):
-          filename = os.path.join('data', bbl, link_text + '.pdf')
-          if os.path.exists(filename):
-            continue                                                             
-        
-        resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
-
-        chunk_size = 1024
-        with open(filename, 'wb') as fd:
-          for chunk in resp.iter_content(chunk_size):
-            fd.write(chunk)
-
-        time.sleep(1)
+      link_url = urlparse.urljoin(list_url, href)
+      sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
+      
+      link_resp = session.get(link_url, headers={'Referer': list_url})
+      link_soup = bs4.BeautifulSoup(link_resp.text)
+      
+      statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
+      statement_url = urlparse.urljoin(list_url, statement_href)          
+    
+    test = session.get(statement_url, stream=True)
+    content_type = test.headers['Content-Type']
+    
+    if re.search(r'html', content_type, re.M|re.I):          
+      filename = os.path.join('data', bbl, link_text + '.html')
+      if os.path.exists(filename):
+        continue                   
+    elif re.search(r'pdf', content_type, re.M|re.I):
+      filename = os.path.join('data', bbl, link_text + '.pdf')
+      if os.path.exists(filename):
+        continue                                                             
+    
+    resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
+    
+    chunk_size = 1024
+    with open(filename, 'wb') as fd:
+      for chunk in resp.iter_content(chunk_size):
+        fd.write(chunk)
+    
+    time.sleep(1)
 
 def main(houseNumber, street, borough):
   global soup
