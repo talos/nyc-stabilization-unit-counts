@@ -3,24 +3,17 @@ Liberate NYC DOF tax documents to a machine readable format.
 
 ## Dependencies
 - Python 2.6 or greater
-- libmagic file type identification library
 
-If on Mac OS X install Python and Libmagic via homebrew:
-
-```
-brew install python libmagic
-```
-
-
-The following python libraries:
+\+ The following python libraries:
 
 - BeautifulSoup4
 - requests
-- lxml
-- python-magic
+- sys
+- urlparse
+- os
 - re
 
-Use `pip install <library name>` to install python libraries.
+Use `pip install beautifulsoup4` to install BeautifulSoup4, other modules exist natively in Python.
 
 
 ## Usage
@@ -40,5 +33,5 @@ python download.py addresses.tsv
 ```
 
 ## To Do
-- [ ] Scrape PDFs and HTML files after downloading them.
+- [ ] Scrape PDF and HTML files after downloading them.
 - [ ] Host scraped data online
