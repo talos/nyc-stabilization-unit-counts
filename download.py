@@ -6,13 +6,61 @@ import bs4
 import urlparse
 import time
 import os
-import magic
 import re
 
 FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 
+def strainSoup(search_value):
+    '''
+    iterate over html based on an href value
+    '''
+    if search_value == 'first':
+        target = 'a[href^="../../"]'
+    elif search_value == 'second':
+        target = 'a[href^="soalist.jsp"]'
+
+    for statement in soup.select(target):        
+        link_text = statement.text.strip()
+        href = statement.get('href')
+
+        if search_value == 'first':
+          statement_url = urlparse.urljoin(list_url, href)          
+          sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
+
+        elif search_value == 'second':
+          link_url = urlparse.urljoin(list_url, href)
+          sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
+
+          link_resp = session.get(link_url, headers={'Referer': list_url})
+          link_soup = bs4.BeautifulSoup(link_resp.text)
+
+          statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
+          statement_url = urlparse.urljoin(list_url, statement_href)          
+
+        test = requests.get(statement_url, stream=True)
+        content_type = test.headers['Content-Type']
+      
+        if re.search(r'html', content_type, re.M|re.I):          
+          filename = os.path.join('data', bbl, link_text + '.html')            
+        elif re.search(r'pdf', content_type, re.M|re.I):
+          filename = os.path.join('data', bbl, link_text + '.pdf')                                          
+        if os.path.exists(filename):
+          continue
+        
+        resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
+
+        chunk_size = 1024
+        with open(filename, 'wb') as fd:
+          for chunk in resp.iter_content(chunk_size):
+            fd.write(chunk)
+
+        time.sleep(1)
 
 def main(houseNumber, street, borough):
+  global soup
+  global list_url
+  global bbl
+  global session
   sys.stderr.write(u'{0} {1}, {2}\n'.format(houseNumber, street, borough))
   session = requests.session()
   resp = session.post(FIND_BBL_URL, data={
@@ -32,72 +80,12 @@ def main(houseNumber, street, borough):
                           form['q49_lot'])
   if not os.path.exists(os.path.join('data', bbl)):
     os.makedirs(os.path.join('data', bbl))
+  
   resp = session.post(list_url, data=form)
-
   soup = bs4.BeautifulSoup(resp.text)
 
-  for statement in soup.select('a[href^="../../"]'):
-    link_text = statement.text.strip()
-    href = statement.get('href')
-    statement_url = urlparse.urljoin(list_url, href)
-    sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
-
-    filename = os.path.join('data', bbl, link_text)
-    print "filename 1 %s" % filename
-    if os.path.exists(filename):
-      continue
-
-    resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
-
-    chunk_size = 1024
-    with open(filename, 'wb') as fd:
-      for chunk in resp.iter_content(chunk_size):
-        fd.write(chunk)
-
-    fileName, ext = os.path.splitext(filename)
-    
-    if ext != '':
-        pass
-    elif  re.match(r'HTML', magic.from_file(fileName), re.M|re.I):
-        os.rename(fileName, fileName + '.html')                
-    elif  re.match(r'PDF', magic.from_file(fileName), re.M|re.I):
-        os.rename(fileName, fileName + '.pdf')        
-
-    time.sleep(1)
-
-  for statement in soup.select('a[href^="soalist.jsp"]'):
-    link_text = statement.text.strip()
-    href = statement.get('href')
-    link_url = urlparse.urljoin(list_url, href)
-    sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
-
-    filename = os.path.join('data', bbl, link_text)
-    print "filename 2 %s" % filename
-    if os.path.exists(filename):
-      continue
-
-    link_resp = session.get(link_url, headers={'Referer': list_url})
-    link_soup = bs4.BeautifulSoup(link_resp.text)
-
-    statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
-    statement_url = urlparse.urljoin(list_url, statement_href)
-    resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
-
-    chunk_size = 1024
-    with open(filename, 'wb') as fd:
-      for chunk in resp.iter_content(chunk_size):
-        fd.write(chunk)
-
-    fileName, ext = os.path.splitext(filename)
-    
-    if ext != '':
-        pass
-    elif  re.match(r'HTML', magic.from_file(fileName), re.M|re.I):
-        os.rename(fileName, fileName + '.html')                
-    elif  re.match(r'PDF', magic.from_file(fileName), re.M|re.I):
-        os.rename(fileName, fileName + '.pdf')
-
-    time.sleep(1)
+  strainSoup('first')
+  strainSoup('second')
 
 if __name__ == '__main__':
   if len(sys.argv) == 2:
