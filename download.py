@@ -6,6 +6,9 @@ import bs4
 import urlparse
 import time
 import os
+import magic
+import re
+from sys import argv
 
 
 FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
@@ -30,7 +33,7 @@ def main(houseNumber, street, borough):
                           form['q49_block_id'],
                           form['q49_lot'])
   if not os.path.exists(os.path.join('data', bbl)):
-    os.mkdir(os.path.join('data', bbl))
+    os.makedirs(os.path.join('data', bbl))
   resp = session.post(list_url, data=form)
 
   soup = bs4.BeautifulSoup(resp.text)
@@ -42,6 +45,7 @@ def main(houseNumber, street, borough):
     sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
 
     filename = os.path.join('data', bbl, link_text)
+    print "filename 1 %s" % filename
     if os.path.exists(filename):
       continue
 
@@ -52,6 +56,15 @@ def main(houseNumber, street, borough):
       for chunk in resp.iter_content(chunk_size):
         fd.write(chunk)
 
+    fileName, ext = os.path.splitext(filename)
+    
+    if ext != '':
+        pass
+    elif  re.match(r'HTML', magic.from_file(fileName), re.M|re.I):
+        os.rename(fileName, fileName + '.html')                
+    elif  re.match(r'PDF', magic.from_file(fileName), re.M|re.I):
+        os.rename(fileName, fileName + '.pdf')        
+
     time.sleep(1)
 
   for statement in soup.select('a[href^="soalist.jsp"]'):
@@ -61,6 +74,7 @@ def main(houseNumber, street, borough):
     sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
 
     filename = os.path.join('data', bbl, link_text)
+    print "filename 2 %s" % filename
     if os.path.exists(filename):
       continue
 
@@ -75,6 +89,15 @@ def main(houseNumber, street, borough):
     with open(filename, 'wb') as fd:
       for chunk in resp.iter_content(chunk_size):
         fd.write(chunk)
+
+    fileName, ext = os.path.splitext(filename)
+    
+    if ext != '':
+        pass
+    elif  re.match(r'HTML', magic.from_file(fileName), re.M|re.I):
+        os.rename(fileName, fileName + '.html')                
+    elif  re.match(r'PDF', magic.from_file(fileName), re.M|re.I):
+        os.rename(fileName, fileName + '.pdf')
 
     time.sleep(1)
 
@@ -94,4 +117,3 @@ if __name__ == '__main__':
 
 ''')
     sys.exit(1)
-
