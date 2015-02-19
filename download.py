@@ -8,8 +8,6 @@ import time
 import os
 import magic
 import re
-from sys import argv
-
 
 FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 
