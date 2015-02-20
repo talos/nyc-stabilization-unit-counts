@@ -13,7 +13,8 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 
-def strainSoup(list_url, bbl, session, soup, search_value):
+
+def strain_soup(list_url, bbl, session, soup, search_value):
   '''
   iterate over html based on an href value
   '''
@@ -28,11 +29,11 @@ def strainSoup(list_url, bbl, session, soup, search_value):
 
     if search_value == 'first':
       statement_url = urlparse.urljoin(list_url, href)
-      LOGGER.info('{0}: {1}'.format(link_text, statement_url))
+      LOGGER.info('Downloading {0}: {1}'.format(link_text, statement_url))
 
     elif search_value == 'second':
       link_url = urlparse.urljoin(list_url, href)
-      LOGGER.info(u'{0}: {1}'.format(link_text, link_url))
+      LOGGER.info(u'Downloading {0}: {1}'.format(link_text, link_url))
 
       link_resp = session.get(link_url, headers={'Referer': list_url})
       link_soup = bs4.BeautifulSoup(link_resp.text)
@@ -86,8 +87,8 @@ def main(houseNumber, street, borough):
   resp = session.post(list_url, data=form)
   soup = bs4.BeautifulSoup(resp.text)
 
-  strainSoup(list_url, bbl, session, soup, 'first')
-  strainSoup(list_url, bbl, session, soup, 'second')
+  strain_soup(list_url, bbl, session, soup, 'first')
+  strain_soup(list_url, bbl, session, soup, 'second')
 
 if __name__ == '__main__':
   if len(sys.argv) == 2:
