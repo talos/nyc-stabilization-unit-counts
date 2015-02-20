@@ -19,43 +19,43 @@ def strainSoup(search_value):
   elif search_value == 'second':
       target = 'a[href^="soalist.jsp"]'
 
-  for statement in soup.select(target):        
+  for statement in soup.select(target):
     link_text = statement.text.strip()
     href = statement.get('href')
-    
+
     if search_value == 'first':
-      statement_url = urlparse.urljoin(list_url, href)          
+      statement_url = urlparse.urljoin(list_url, href)
       sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
-    
+
     elif search_value == 'second':
       link_url = urlparse.urljoin(list_url, href)
       sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
-      
+
       link_resp = session.get(link_url, headers={'Referer': list_url})
       link_soup = bs4.BeautifulSoup(link_resp.text)
-      
+
       statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
-      statement_url = urlparse.urljoin(list_url, statement_href)          
-    
+      statement_url = urlparse.urljoin(list_url, statement_href)
+
     test = session.get(statement_url, stream=True)
     content_type = test.headers['Content-Type']
-    
-    if re.search(r'html', content_type, re.M|re.I):          
+
+    if re.search(r'html', content_type, re.M|re.I):
       filename = os.path.join('data', bbl, link_text + '.html')
       if os.path.exists(filename):
-        continue                   
+        continue
     elif re.search(r'pdf', content_type, re.M|re.I):
       filename = os.path.join('data', bbl, link_text + '.pdf')
       if os.path.exists(filename):
-        continue                                                             
-    
+        continue
+
     resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
-    
+
     chunk_size = 1024
     with open(filename, 'wb') as fd:
       for chunk in resp.iter_content(chunk_size):
         fd.write(chunk)
-    
+
     time.sleep(1)
 
 def main(houseNumber, street, borough):
@@ -82,7 +82,7 @@ def main(houseNumber, street, borough):
                           form['q49_lot'])
   if not os.path.exists(os.path.join('data', bbl)):
     os.makedirs(os.path.join('data', bbl))
-  
+
   resp = session.post(list_url, data=form)
   soup = bs4.BeautifulSoup(resp.text)
 
