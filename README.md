@@ -33,6 +33,15 @@ Make sure to put the street name in single quotes.
 
        python download.py addresses.tsv
 
+## Sample
+
+You can see a sample of data being collected [here](http://104.236.234.7/).
+
+These are raw records being pulled from all buildings with ten or more units in
+CB 8 (Upper East Side) in Manhattan, CBs 8 & 9 in Brooklyn (Lefferts/Crown
+Heights), CB4 in the Bronx (Concourse), CBs 1 & 2 in Queens (Astoria & LIC),
+and CB1 in Staten Island (North Shore.)
+
 ## To Do
 
 - [ ] Scrape PDF and HTML files after downloading them.
