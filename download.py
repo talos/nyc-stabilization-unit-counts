@@ -13,6 +13,18 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 SESSION = requests.session()
+DOCS_TO_DOWNLOAD = [
+    u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
+                                        # charges, mailing address
+    u'Quarterly Property Tax Bill',  # Amounts paid, stabilized fees, other
+                                     # charges, mailing address, mortgagee
+                                     # payer
+    u'SCRIE Statement of Account',  # SCRIE amounts, mailing address
+    u'Notice of Property Value',  # Estimated sq. footage, gross income,
+                                  # expenses, RoI
+    u'Tentative Assessment Roll',  # Real Estate billing name and address
+                                   # (mortgagee payer)
+]
 
 
 def handle_double_dot(list_url, href):
@@ -59,6 +71,10 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
     """
     for statement in soup.select(target):
         docname = statement.text.strip()
+        if docname.split(' - ')[1] not in DOCS_TO_DOWNLOAD:
+            LOGGER.info(u'Not worried about doctype "%s" for BBL %s, skipping',
+                        docname, bbl)
+            continue
 
         bbldir = os.path.join('data', bbl)
         filenames = ['.'.join(f.split('.')[:-1]) for f in os.listdir(bbldir)]
