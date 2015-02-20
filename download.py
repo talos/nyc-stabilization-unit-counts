@@ -19,7 +19,8 @@ DOCS_TO_DOWNLOAD = [
     u'Quarterly Property Tax Bill',  # Amounts paid, stabilized fees, other
                                      # charges, mailing address, mortgagee
                                      # payer
-    u'SCRIE Statement of Account',  # SCRIE amounts, mailing address
+    # u'SCRIE Statement of Account',  # SCRIE amounts, mailing address
+    # skipping this because they're very, very slow
     u'Notice of Property Value',  # Estimated sq. footage, gross income,
                                   # expenses, RoI
     u'Tentative Assessment Roll',  # Real Estate billing name and address
