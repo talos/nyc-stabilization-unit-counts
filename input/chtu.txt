@@ -1,0 +1,24 @@
+1153	President St	3
+1159	President St	3
+1059	Union St	3
+1115	Union St	3
+805	St. Marks Ave	3
+951	Carroll St	3
+990	President St	3
+1020	President St	3
+1045	Union St	3
+1048	Union St	3
+1171	President St	3
+1597	Bedford Ave	3
+993	Carroll St	3
+1004	Union St	3
+594	Park Pl	3
+523	Prospect Pl	3
+777	St Marks Ave	3
+930-940	Prospect Pl	3
+1580	President St	3
+1038	Union St	3
+1600	Bedford Ave	3
+85	Eastern Parkway	3
+897	St. Johns Pl	3
+225	Eastern Pkwy	3
