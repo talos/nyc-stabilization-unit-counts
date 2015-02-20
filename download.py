@@ -8,7 +8,7 @@ import time
 import os
 import logging
 
-FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
+SEARCH_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
@@ -97,12 +97,20 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
         time.sleep(1)
 
 
-def main(houseNumber, street, borough):
-    LOGGER.info(u'Pulling down %s %s, %s', houseNumber, street, borough)
-    resp = SESSION.post(FIND_BBL_URL, data={
+def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
+    data = {
         'FBORO': borough,
-        'FSTNAME': street,
-        'FHOUSENUM': houseNumber})
+    }
+    if block and lot:
+        data['FBLOCK'] = ('00000%s' % block)[-5:]
+        data['FLOT'] = ('0000%s' % lot)[-4:]
+        data['FEASE'] = ''
+        data['FFUNC'] = 'C'
+    elif street and houseNumber:
+        data['FSTNAME'] = street
+        data['FHOUSENUM'] = houseNumber
+    resp = SESSION.post(SEARCH_URL, data=data)
+    # LOGGER.info(u'Pulling down %s %s, %s', houseNumber, street, borough)
 
     # Extract necessary form content based off of address
     soup = bs4.BeautifulSoup(resp.text)
@@ -124,12 +132,18 @@ def main(houseNumber, street, borough):
     strain_soup(list_url, bbl, soup, 'a[href^="soalist.jsp"]', handle_soalist)
 
 
+def main(*args):
+    try:
+        search(borough=args[0], block=int(args[1]), lot=int(args[2]))
+    except ValueError:
+        search(houseNumber=args[0], street=args[1], borough=args[2])
+
+
 if __name__ == '__main__':
     if len(sys.argv) == 2:
         with open(sys.argv[1]) as infile:
             for line in infile:
-                args = line.strip().split('\t')
-                main(args[0], args[1], args[2])
+                main(*line.strip().split('\t'))
     elif len(sys.argv) == 4:
         main(sys.argv[1], sys.argv[2], sys.argv[3])
     else:
