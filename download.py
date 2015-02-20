@@ -7,6 +7,7 @@ import urlparse
 import time
 import os
 import logging
+import traceback
 
 SEARCH_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 LOGGER = logging.getLogger(__name__)
@@ -143,6 +144,9 @@ def main(*args):
         search(borough=args[0], block=int(args[1]), lot=int(args[2]))
     except ValueError:
         search(houseNumber=args[0], street=args[1], borough=args[2])
+    except Exception as e:
+        LOGGER.error(traceback.format_exc())
+        LOGGER.error(e)
 
 
 if __name__ == '__main__':
