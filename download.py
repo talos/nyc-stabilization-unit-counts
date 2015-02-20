@@ -14,40 +14,38 @@ LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 
 
-def strain_soup(list_url, bbl, session, soup, search_value):
+def handle_double_dot(session, link_text, list_url, href):
+  return urlparse.urljoin(list_url, href)
+
+
+def handle_soalist(session, link_text, list_url, href):
+  link_url = urlparse.urljoin(list_url, href)
+
+  link_resp = session.get(link_url, headers={'Referer': list_url})
+  link_soup = bs4.BeautifulSoup(link_resp.text)
+
+  statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
+  return urlparse.urljoin(list_url, statement_href)
+
+
+def strain_soup(list_url, bbl, session, soup, target, get_statement_url):
   '''
   iterate over html based on an href value
   '''
-  if search_value == 'first':
-      target = 'a[href^="../../"]'
-  elif search_value == 'second':
-      target = 'a[href^="soalist.jsp"]'
-
   for statement in soup.select(target):
     link_text = statement.text.strip()
     href = statement.get('href')
-
-    if search_value == 'first':
-      statement_url = urlparse.urljoin(list_url, href)
-      LOGGER.info('Downloading {0}: {1}'.format(link_text, statement_url))
-
-    elif search_value == 'second':
-      link_url = urlparse.urljoin(list_url, href)
-      LOGGER.info(u'Downloading {0}: {1}'.format(link_text, link_url))
-
-      link_resp = session.get(link_url, headers={'Referer': list_url})
-      link_soup = bs4.BeautifulSoup(link_resp.text)
-
-      statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
-      statement_url = urlparse.urljoin(list_url, statement_href)
-
     bbldir = os.path.join('data', bbl)
-    filename = os.path.join(bbldir, link_text)
+
     if link_text in os.listdir(bbldir):
       LOGGER.info(u'Already downloaded "{}" for BBL {}, skipping'.format(
         link_text, bbl))
       continue
 
+    statement_url = get_statement_url(session, link_text, list_url, href)
+    LOGGER.info(u'Downloading {0}: {1}'.format(link_text, statement_url))
+
+    filename = os.path.join(bbldir, link_text)
     resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
     content_type = resp.headers['Content-Type']
 
@@ -62,6 +60,7 @@ def strain_soup(list_url, bbl, session, soup, search_value):
         fd.write(chunk)
 
     time.sleep(1)
+
 
 def main(houseNumber, street, borough):
   LOGGER.info(u'Pulling down {0} {1}, {2}'.format(houseNumber, street, borough))
@@ -87,8 +86,8 @@ def main(houseNumber, street, borough):
   resp = session.post(list_url, data=form)
   soup = bs4.BeautifulSoup(resp.text)
 
-  strain_soup(list_url, bbl, session, soup, 'first')
-  strain_soup(list_url, bbl, session, soup, 'second')
+  strain_soup(list_url, bbl, session, soup, 'a[href^="../../"]', handle_double_dot)
+  strain_soup(list_url, bbl, session, soup, 'a[href^="soalist.jsp"]', handle_soalist)
 
 if __name__ == '__main__':
   if len(sys.argv) == 2:
