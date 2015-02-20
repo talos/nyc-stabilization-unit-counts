@@ -6,11 +6,14 @@ import bs4
 import urlparse
 import time
 import os
-import re
+import logging
 
 FIND_BBL_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.INFO)
+LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 
-def strainSoup(search_value):
+def strainSoup(list_url, bbl, session, soup, search_value):
   '''
   iterate over html based on an href value
   '''
@@ -25,11 +28,11 @@ def strainSoup(search_value):
 
     if search_value == 'first':
       statement_url = urlparse.urljoin(list_url, href)
-      sys.stderr.write(u'{0}: {1}\n'.format(link_text, statement_url))
+      LOGGER.info('{0}: {1}'.format(link_text, statement_url))
 
     elif search_value == 'second':
       link_url = urlparse.urljoin(list_url, href)
-      sys.stderr.write(u'{0}: {1}\n'.format(link_text, link_url))
+      LOGGER.info(u'{0}: {1}'.format(link_text, link_url))
 
       link_resp = session.get(link_url, headers={'Referer': list_url})
       link_soup = bs4.BeautifulSoup(link_resp.text)
@@ -37,33 +40,30 @@ def strainSoup(search_value):
       statement_href = link_soup.select('a[href^="../../StatementSearch"]')[0].get('href')
       statement_url = urlparse.urljoin(list_url, statement_href)
 
-    test = session.get(statement_url, stream=True)
-    content_type = test.headers['Content-Type']
-
-    if re.search(r'html', content_type, re.M|re.I):
-      filename = os.path.join('data', bbl, link_text + '.html')
-      if os.path.exists(filename):
-        continue
-    elif re.search(r'pdf', content_type, re.M|re.I):
-      filename = os.path.join('data', bbl, link_text + '.pdf')
-      if os.path.exists(filename):
-        continue
+    bbldir = os.path.join('data', bbl)
+    filename = os.path.join(bbldir, link_text)
+    if link_text in os.listdir(bbldir):
+      LOGGER.info(u'Already downloaded "{}" for BBL {}, skipping'.format(
+        link_text, bbl))
+      continue
 
     resp = session.get(statement_url, headers={'Referer': list_url}, stream=True)
+    content_type = resp.headers['Content-Type']
+
+    if 'html' in content_type:
+      extension = 'html'
+    elif 'pdf' in content_type:
+      extension = 'pdf'
 
     chunk_size = 1024
-    with open(filename, 'wb') as fd:
+    with open(filename + '.' + extension, 'wb') as fd:
       for chunk in resp.iter_content(chunk_size):
         fd.write(chunk)
 
     time.sleep(1)
 
 def main(houseNumber, street, borough):
-  global soup
-  global list_url
-  global bbl
-  global session
-  sys.stderr.write(u'{0} {1}, {2}\n'.format(houseNumber, street, borough))
+  LOGGER.info(u'Pulling down {0} {1}, {2}'.format(houseNumber, street, borough))
   session = requests.session()
   resp = session.post(FIND_BBL_URL, data={
     'FBORO':borough,
@@ -86,8 +86,8 @@ def main(houseNumber, street, borough):
   resp = session.post(list_url, data=form)
   soup = bs4.BeautifulSoup(resp.text)
 
-  strainSoup('first')
-  strainSoup('second')
+  strainSoup(list_url, bbl, session, soup, 'first')
+  strainSoup(list_url, bbl, session, soup, 'second')
 
 if __name__ == '__main__':
   if len(sys.argv) == 2:
