@@ -77,7 +77,9 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
             continue
 
         bbldir = os.path.join('data', bbl)
-        filenames = ['.'.join(f.split('.')[:-1]) for f in os.listdir(bbldir)]
+        filenames = ['.'.join(f.split('.')[:-1]) or f
+                     for f in os.listdir(bbldir)]
+
         if docname in filenames:
             LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                         docname, bbl)
