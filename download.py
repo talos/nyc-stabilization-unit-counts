@@ -110,7 +110,6 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
         data['FSTNAME'] = street
         data['FHOUSENUM'] = houseNumber
     resp = SESSION.post(SEARCH_URL, data=data)
-    # LOGGER.info(u'Pulling down %s %s, %s', houseNumber, street, borough)
 
     # Extract necessary form content based off of address
     soup = bs4.BeautifulSoup(resp.text)
@@ -119,9 +118,15 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
     form = dict([(i.get('name'), i.get('value')) for i in inputs])
 
     # Get property tax info page
-    bbl = '{}-{}-{}'.format(form['q49_boro'],
-                            form['q49_block_id'],
-                            form['q49_lot'])
+    try:
+        bbl = '{}-{}-{}'.format(form['q49_boro'],
+                                form['q49_block_id'],
+                                form['q49_lot'])
+    except KeyError:
+        LOGGER.error(u'No BBL found for %s', data)
+        return
+
+    LOGGER.info(u'Pulling down %s', bbl)
     if not os.path.exists(os.path.join('data', bbl)):
         os.makedirs(os.path.join('data', bbl))
 
