@@ -1,0 +1,20 @@
+{
+    "thumbnailUrl": "http://upload.wikimedia.org/wikipedia/commons/d/d0/Msgpack-json_copy.png",
+    "status": "Beta",
+    "geography": "NYC",
+    "name": "nyc-stabilization-unit-counts",
+    "bornAt": "Code Across NYC 2015",
+    "politicalEntity":"",
+    "type": "Web & PDF scraper",
+    "needs": [
+      {"need" : "web interface"}
+    ],
+    "categories" : [
+      {"category":"Housing"},
+      {"category":"Rent Stabilization"},
+      {"category":"Department of Finance"},
+      {"category":"Tax Bills"},
+      {"category":"Gross Rent Income"},
+      {"category": "Open Data"}
+    ]
+}
