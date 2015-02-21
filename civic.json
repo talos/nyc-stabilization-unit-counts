@@ -1,5 +1,11 @@
 {
-    "thumbnailUrl": "http://upload.wikimedia.org/wikipedia/commons/d/d0/Msgpack-json_copy.png",
+    "thumbnailUrl": "",
+    "contributors" : [
+      "@talos",
+      "@aepyornis",
+      "@clhenrick",
+      "@romeboards"
+    ],
     "status": "Beta",
     "geography": "NYC",
     "name": "nyc-stabilization-unit-counts",
