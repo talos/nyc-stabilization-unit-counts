@@ -5,7 +5,7 @@ var pathToPdf = __dirname + "/" + process.argv[2];
  
 pdfText(pathToPdf, function(err, chunks) {
     if (err) { console.log(err); }
-    console.log(chunks);
+    // console.log(chunks);
     console.log(to_json(chunks));
 })
  
@@ -41,7 +41,6 @@ function to_json(chunks) {
     }
     else {}
   });
-
 
   var property = {
     activityThrough: activityThrough,
