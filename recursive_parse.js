@@ -29,7 +29,9 @@ function parse_pdf(arr) {
     ownerName: '',
     propertyAddress: '',
     bbl: '',
-    mailingAddress: ''
+    mailingAddress: '',
+    rentStabilized: null,
+    units: null
   }
   parsing(arr);
   // additional taxDoc formating here
@@ -46,7 +48,23 @@ function parse_pdf(arr) {
       parsing(arr.slice(4));
     } else if (/Owner/.test(word) && /name:/.test(arr[1])) {
       // look for for end of owner name
-      for (var i = 2; i < arr.length; i++) {
+      ownerName(arr);
+    } else if (arr[0] === 'Property' && arr[1] === 'address:') {
+      propertyAddress(arr);
+    } else if (arr[0] === 'Borough,' && arr[1] === 'block' && arr[2] === '&' && arr[3] === 'lot:') {
+      taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];
+      parsing(arr.slice(7));
+    } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
+      // case if property address shows up after mailing address
+      mailingAddress(arr);
+    } 
+    // don't need this word
+    else { parsing(arr.slice(1)) }
+
+  }
+
+  function ownerName(arr) {
+    for (var i = 2; i < arr.length; i++) {
         // if over - recurse
         if(/(\d{6,})|Mailing|Quarterly/.test(arr[i])) {
           parsing(arr.slice(i))
@@ -54,37 +72,30 @@ function parse_pdf(arr) {
         } else {
           taxDoc.ownerName = taxDoc.ownerName + arr[i] + " ";
         }
-      }
-    } else if (arr[0] === 'Property' && arr[1] === 'address:') {
-      for (var i = 2; i < arr.length; i++) {
+    }
+  }
+
+  function propertyAddress(arr) {
+    for (var i = 2; i < arr.length; i++) {
         if (/Borough,|Property/.test(arr[i])){
           parsing(arr.slice(i));
           return;
         } else {
           taxDoc.propertyAddress = taxDoc.propertyAddress + arr[i] + " ";
-        }
       }
-    } else if (arr[0] === 'Borough,' && arr[1] === 'block' && arr[2] === '&' && arr[3] === 'lot:') {
-      taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];
-      parsing(arr.slice(7));
-    } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
-
-      // case if property address shows up after mailing address
-
-      for (var i =2; i < arr.length; i++){
-        if (/Statement|Outstanding|\$0.00/.test(arr[i])){
-          parsing(arr.slice(i));
-          return;
-        } else {
-          taxDoc.mailingAddress = taxDoc.mailingAddress + arr[i] + " ";
-        }
-      }
-
     }
-    // don't need this word
-    else { parsing(arr.slice(1)) }
-
   }
 
+  function mailingAddress(arr) {
+    for (var i =2; i < arr.length; i++){
+      if (/Statement|Outstanding|\$0.00/.test(arr[i])){
+        parsing(arr.slice(i));
+        return;
+      } else {
+        taxDoc.mailingAddress = taxDoc.mailingAddress + arr[i] + " ";
+      }
+    }
+  }
 
+// end of parse_pdf  
 }
