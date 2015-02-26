@@ -48,7 +48,6 @@ function to_json(chunks) {
     ownerName: chunks[owner_name_index + 1],
     bbl: chunks[bbl_index + 1],
     units: (rentStabilized) ? chunks[rentStabilized + 1] : 0,
-    stabilized_amount: (rentStabilized) ? chunks[rentStabilized + 3] : 'n/a',
     rentStabilized: (rentStabilized) ? true : false,
     propertyAddress: get_property_address(),
     annualTax: get_annual_tax(),
