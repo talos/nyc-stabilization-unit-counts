@@ -32,7 +32,8 @@ function parse_pdf(arr) {
     mailingAddress: '',
     rentStabilized: null,
     units: null,
-    annualPropertyTax: null
+    annualPropertyTax: null,
+    abatements: []
   }
   parsing(arr);
   // additional taxDoc formating here
@@ -61,10 +62,11 @@ function parse_pdf(arr) {
       mailingAddress(arr);
     } else if (arr[0] === 'Housing-Rent' && arr[1] === 'Stabilization') {
       stabilization(arr);
-    }
-    // don't need this word
-    else { 
-
+    } else if (/J-51|Mitchell|421a/g.test(arr[0])) {
+      taxDoc.abatements.push(arr[0]);
+      parsing(arr.slice(1));
+    } else { 
+       // don't need this word
       parsing(arr.slice(1)) }
 
   }
@@ -122,6 +124,10 @@ function parse_pdf(arr) {
     }
   }
 
+  function abatements(arr) {
+
+  }
+
   function annualPropertyTax(arr) {
     var tax_index = _.findLastIndex(arr, function(val){
       return (/\$\d+,?\d*\*\*/.test(val))
@@ -139,6 +145,8 @@ function parse_pdf(arr) {
       clean.units = 0;
     }
 
+    clean.abatements = _.uniq(clean.abatements);
+    
     return clean;
 
   }
