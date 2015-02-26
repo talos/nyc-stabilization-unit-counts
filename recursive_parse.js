@@ -31,10 +31,12 @@ function parse_pdf(arr) {
     bbl: '',
     mailingAddress: '',
     rentStabilized: null,
-    units: null
+    units: null,
+    annualPropertyTax: null
   }
   parsing(arr);
   // additional taxDoc formating here
+  annualPropertyTax(arr);
   return cleanUp(taxDoc); 
 
   function parsing(arr){
@@ -61,7 +63,9 @@ function parse_pdf(arr) {
       stabilization(arr);
     }
     // don't need this word
-    else { parsing(arr.slice(1)) }
+    else { 
+
+      parsing(arr.slice(1)) }
 
   }
 
@@ -116,6 +120,13 @@ function parse_pdf(arr) {
         }
       }
     }
+  }
+
+  function annualPropertyTax(arr) {
+    var tax_index = _.findLastIndex(arr, function(val){
+      return (/\$\d+,?\d*\*\*/.test(val))
+    })
+    taxDoc.annualPropertyTax = arr[tax_index];
   }
 
   // input: taxDoc
