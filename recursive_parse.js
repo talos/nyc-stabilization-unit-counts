@@ -33,7 +33,9 @@ function parse_pdf(arr) {
     rentStabilized: null,
     units: null,
     annualPropertyTax: null,
-    abatements: []
+    abatements: [],
+    billableAssessedValue: null,
+    taxRate: null
   }
   parsing(arr);
   // additional taxDoc formating here
@@ -65,6 +67,10 @@ function parse_pdf(arr) {
     } else if (/J-51|Mitchell|421a/g.test(arr[0])) {
       taxDoc.abatements.push(arr[0]);
       parsing(arr.slice(1));
+    } else if (/^\$\d+,?\d+/.test(arr[0]) && arr[1] === 'X' && /\d+\.\d+%$/.test(arr[2])) {
+      taxDoc.billableAssessedValue = arr[0];
+      taxDoc.taxRate = arr[2];
+      parsing(arr.slice(3));
     } else { 
        // don't need this word
       parsing(arr.slice(1)) }
