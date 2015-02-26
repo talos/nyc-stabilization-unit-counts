@@ -35,7 +35,7 @@ function parse_pdf(arr) {
   }
   parsing(arr);
   // additional taxDoc formating here
-  return taxDoc; 
+  return cleanUp(taxDoc); 
 
   function parsing(arr){
     // base case
@@ -57,7 +57,9 @@ function parse_pdf(arr) {
     } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
       // case if property address shows up after mailing address
       mailingAddress(arr);
-    } 
+    } else if (arr[0] === 'Housing-Rent' && arr[1] === 'Stabilization') {
+      stabilization(arr);
+    }
     // don't need this word
     else { parsing(arr.slice(1)) }
 
@@ -95,6 +97,39 @@ function parse_pdf(arr) {
         taxDoc.mailingAddress = taxDoc.mailingAddress + arr[i] + " ";
       }
     }
+  }
+
+  function stabilization(arr) {
+    taxDoc.rentStabilized = true;
+    if (/\d{1,4}/.test(arr[2])) {
+      taxDoc.units = arr[2];
+      parsing(arr.slice(2))
+    } else if (/\d{1,4}/.test(arr[7])) {
+      taxDoc.units = arr[7];
+      parsing(arr.slice(7));
+    } else {
+      for (var i = 7; i < arr.length; i++) {
+        if (arr[i] === 'remaining') {
+          taxDoc.units = arr[i+1];
+          parsing(arr.slice(i));
+          break;
+        }
+      }
+    }
+  }
+
+  // input: taxDoc
+  // output: cleaned up taxDoc
+  function cleanUp(taxDoc) {
+    var clean = taxDoc;
+
+    if (!clean.rentStabilized) {
+      clean.rentStabilized = false;
+      clean.units = 0;
+    }
+
+    return clean;
+
   }
 
 // end of parse_pdf  
