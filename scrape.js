@@ -1,16 +1,12 @@
 var textract = require('textract');
 var _ = require('underscore');
 
-
-
 var parse = function (filepath, callback) {
   textract('application/pdf', filepath, function(err, text){
     var taxDoc = parse_pdf(text.split(" "));
     callback(taxDoc);
   })
 }
-
-
 
 function parse_pdf(arr) {
 
@@ -120,15 +116,17 @@ function parse_pdf(arr) {
     }
   }
 
-  function abatements(arr) {
-
-  }
-
   function annualPropertyTax(arr) {
     var tax_index = _.findLastIndex(arr, function(val){
       return (/\$\d+,?\d*\*\*/.test(val))
     })
     taxDoc.annualPropertyTax = arr[tax_index];
+  }
+
+  function make_bbl(bbl) {
+    var arr = bbl.split(',');  
+    var exec = /\w+\((\d)\)/.exec(arr[0]);
+    return (exec) ? (exec[1] + arr[1] + arr[2]) : 'bbl error';
   }
 
   // input: taxDoc
@@ -144,6 +142,7 @@ function parse_pdf(arr) {
     clean.propertyAddress = clean.propertyAddress.trim();
     clean.mailingAddress = clean.mailingAddress.trim();
     clean.ownerName = clean.ownerName.trim();
+    clean.bbl = make_bbl(clean.bbl);
     clean.annualPropertyTax = clean.annualPropertyTax.replace("**", '');
     clean.abatements = _.uniq(clean.abatements);
     
