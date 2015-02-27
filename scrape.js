@@ -42,12 +42,12 @@ function parse_pdf(arr) {
       parsing(arr.slice(7));
     } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
       mailingAddress(arr);
-    } else if (arr[0] === 'Housing-Rent' && arr[1] === 'Stabilization') {
+    } else if ( (arr[0] === 'Housing-Rent' && arr[1]) === 'Stabilization' || (arr[0] === 'Stabilization' && arr[2] === '$10/apt.') || (arr[0] === 'Rent' && arr[1] === 'Stabilization')) {
       stabilization(arr);
     } else if (/J-51|Mitchell|421a/g.test(arr[0])) {
       taxDoc.abatements.push(arr[0]);
       parsing(arr.slice(1));
-    } else if (/^\$\d+,?\d+/.test(arr[0]) && arr[1] === 'X' && /\d+\.\d+%$/.test(arr[2])) {
+    } else if (/\$\d+,?\d*,?\d*/.test(arr[0]) && arr[1] === 'X' && /\d+\.\d+%$/.test(arr[2])) {
       taxDoc.billableAssessedValue = arr[0];
       taxDoc.taxRate = arr[2];
       parsing(arr.slice(3));
@@ -115,18 +115,19 @@ function parse_pdf(arr) {
   function stabilization(arr) {
     taxDoc.rentStabilized = true;
     for (var i = 2; i < 20; i++) {
-      if (/^\d{1,4}$/.test(arr[i])) {
+      if (/^\d{1,3}$/.test(arr[i])) {
         taxDoc.units = arr[i];
         parsing(arr.slice(i))
         return;
       }
     }
+    parsing(arr.slice(2))
   }
 
 
   function annualPropertyTax(arr) {
     var tax_index = _.findLastIndex(arr, function(val){
-      return (/\$\d+,?\d*,?\d*\*\*/.test(val))
+      return (/\$\d+,?\d*,?\d*\*\*?/.test(val))
     })
     taxDoc.annualPropertyTax = arr[tax_index];
   }
@@ -151,6 +152,7 @@ function parse_pdf(arr) {
     clean.ownerName = clean.ownerName.trim();
     clean.bbl = make_bbl(clean.bbl);
     clean.annualPropertyTax = (clean.annualPropertyTax) ? clean.annualPropertyTax.replace("**", '') : null;
+    clean.annualPropertyTax = (clean.annualPropertyTax) ? clean.annualPropertyTax.replace("*", '') : null;
     clean.abatements = _.uniq(clean.abatements);
     clean.propertyAddress = clean.propertyAddress.trim();
     clean.propertyAddress = clean.propertyAddress.replace(clean.ownerName, '');
