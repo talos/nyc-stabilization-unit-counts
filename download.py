@@ -140,13 +140,24 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
 
 
 def main(*args):
-    try:
-        search(borough=args[0], block=int(args[1]), lot=int(args[2]))
-    except ValueError:
-        search(houseNumber=args[0], street=args[1], borough=args[2])
-    except Exception as e:
-        LOGGER.error(traceback.format_exc())
-        LOGGER.error(e)
+    down_for_maintenance = True
+    while down_for_maintenance:
+        down_for_maintenance = False
+        try:
+            try:
+                search(borough=args[0], block=int(args[1]), lot=int(args[2]))
+            except ValueError:
+                search(houseNumber=args[0], street=args[1], borough=args[2])
+        except requests.ConnectionError as e:
+            if e[0] == 'Connection aborted.':
+                down_for_maintenance = True
+                LOGGER.warn("NYCServ appears to be down, waiting: '%s'", e)
+                time.sleep(10)
+            else:
+                raise
+        except Exception as e:
+            LOGGER.error(traceback.format_exc())
+            LOGGER.error(e)
 
 
 if __name__ == '__main__':
