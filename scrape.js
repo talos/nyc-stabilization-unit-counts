@@ -133,7 +133,7 @@ function parse_pdf(arr) {
 
   function annualPropertyTax(arr) {
     var tax_index = _.findLastIndex(arr, function(val){
-      return (/\$\d+,?\d*\*\*/.test(val))
+      return (/\$\d+,?\d*,?\d*\*\*/.test(val))
     })
     taxDoc.annualPropertyTax = arr[tax_index];
   }
@@ -157,7 +157,7 @@ function parse_pdf(arr) {
     clean.mailingAddress = clean.mailingAddress.trim();
     clean.ownerName = clean.ownerName.trim();
     clean.bbl = make_bbl(clean.bbl);
-    clean.annualPropertyTax = (clean.annualPropertyTax) ? cleanclean.annualPropertyTax.replace("**", '') : null;
+    clean.annualPropertyTax = (clean.annualPropertyTax) ? clean.annualPropertyTax.replace("**", '') : null;
     clean.abatements = _.uniq(clean.abatements);
     clean.propertyAddress = clean.propertyAddress.trim();
     clean.propertyAddress = clean.propertyAddress.replace(clean.ownerName, '');
