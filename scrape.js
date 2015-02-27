@@ -46,7 +46,6 @@ function parse_pdf(arr) {
       taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];
       parsing(arr.slice(7));
     } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
-      // case if property address shows up after mailing address
       mailingAddress(arr);
     } else if (arr[0] === 'Housing-Rent' && arr[1] === 'Stabilization') {
       stabilization(arr);
@@ -87,12 +86,17 @@ function parse_pdf(arr) {
   }
 
   function mailingAddress(arr) {
-    for (var i =2; i < arr.length; i++){
-      if (/Statement|Outstanding|\$0.00/.test(arr[i])){
-        parsing(arr.slice(i));
-        return;
-      } else {
-        taxDoc.mailingAddress = taxDoc.mailingAddress + arr[i] + " ";
+    // if property address shows up after mailing address
+    if (arr[2] === 'Property') {
+      pdfs_are_terrible(arr);
+    } else {
+      for (var i =2; i < arr.length; i++){
+        if (/Statement|Outstanding|\$0.00/.test(arr[i])){
+          parsing(arr.slice(i));
+          return;
+        } else {
+          taxDoc.mailingAddress = taxDoc.mailingAddress + arr[i] + " ";
+        }
       }
     }
   }
@@ -124,11 +128,27 @@ function parse_pdf(arr) {
   }
 
   function make_bbl(bbl) {
-    var arr = bbl.split(',');  
-    var exec = /\w+\((\d)\)/.exec(arr[0]);
-    return (exec) ? (exec[1] + arr[1] + arr[2]) : 'bbl error';
+    var arr = bbl.split(',');
+    console.log(arr);  
+    var exec = /\w+ ?\((\d)\)/.exec(arr[0]);
+    return (exec) ? (exec[1] + arr[1].trim() + arr[2].trim()) : 'bbl error';
   }
 
+  function pdfs_are_terrible(arr) {
+    var the_end = _.findIndex(arr, function(val){
+      return (/Outstanding|Statement/g.test(val));
+    })
+    var text = arr.slice(2,the_end).join(" ");
+    var exec = /(?:Property address: )(.*)(?:Borough, block & lot: )(\w+ ?\(\d\), \d+, \d+)(.*)/g.exec(text);
+    if (exec) {
+      taxDoc.propertyAddress = exec[1];
+      taxDoc.bbl = exec[2];
+      taxDoc.mailingAddress = exec[3];
+       parsing(arr.slice(the_end));
+    } else {
+      parsing(arr.slice(3))
+    }
+  }
   // input: taxDoc
   // output: cleaned up taxDoc
   function cleanUp(taxDoc) {
@@ -139,12 +159,13 @@ function parse_pdf(arr) {
       clean.units = 0;
     }
 
-    clean.propertyAddress = clean.propertyAddress.trim();
     clean.mailingAddress = clean.mailingAddress.trim();
     clean.ownerName = clean.ownerName.trim();
     clean.bbl = make_bbl(clean.bbl);
     clean.annualPropertyTax = clean.annualPropertyTax.replace("**", '');
     clean.abatements = _.uniq(clean.abatements);
+    clean.propertyAddress = clean.propertyAddress.trim();
+    clean.propertyAddress = clean.propertyAddress.replace(clean.ownerName, '').trim();
     
     return clean;
 
