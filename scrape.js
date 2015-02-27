@@ -30,12 +30,10 @@ function parse_pdf(arr) {
   function parsing(arr){
     // base case
     if (_.isEmpty(arr)) { return; }
-
-    if (/Activity/.test(arr[0]) && /through\s*/.test(arr[1])) {
+    if (/Activity/i.test(arr[0]) && /through\s*/i.test(arr[1])) {
       taxDoc.activityThrough = arr[2] + " " + arr[3] + " " + arr[4];
       parsing(arr.slice(4));
     } else if (/Owner/.test(arr[0]) && /name:/.test(arr[1])) {
-      // look for for end of owner name
       ownerName(arr);
     } else if (arr[0] === 'Property' && arr[1] === 'address:') {
       propertyAddress(arr);
@@ -73,7 +71,7 @@ function parse_pdf(arr) {
 
   function propertyAddress(arr) {
     for (var i = 2; i < arr.length; i++) {
-        if (/Borough,|Property/.test(arr[i])){
+        if (/Borough,|Property|Activity/.test(arr[i])){
           parsing(arr.slice(i));
           return;
         } else {
@@ -146,7 +144,7 @@ function parse_pdf(arr) {
     return (exec) ? (exec[1] + arr[1].trim() + arr[2].trim()) : 'bbl error';
   }
 
-  input: taxDoc
+  // input: taxDoc
   // output: cleaned up taxDoc
   function cleanUp(taxDoc) {
     var clean = taxDoc;
@@ -159,10 +157,10 @@ function parse_pdf(arr) {
     clean.mailingAddress = clean.mailingAddress.trim();
     clean.ownerName = clean.ownerName.trim();
     clean.bbl = make_bbl(clean.bbl);
-    clean.annualPropertyTax = clean.annualPropertyTax.replace("**", '');
+    clean.annualPropertyTax = (clean.annualPropertyTax) ? cleanclean.annualPropertyTax.replace("**", '') : null;
     clean.abatements = _.uniq(clean.abatements);
     clean.propertyAddress = clean.propertyAddress.trim();
-    clean.propertyAddress = clean.propertyAddress.replace(clean.ownerName, '').trim();
+    clean.propertyAddress = clean.propertyAddress.replace(clean.ownerName, '');
     
     return clean;
 
