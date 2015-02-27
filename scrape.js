@@ -24,7 +24,6 @@ function parse_pdf(arr) {
     taxRate: null
   }
   parsing(arr);
-  // additional taxDoc formating here
   annualPropertyTax(arr);
   return cleanUp(taxDoc); 
 
@@ -32,12 +31,10 @@ function parse_pdf(arr) {
     // base case
     if (_.isEmpty(arr)) { return; }
 
-    var word = arr[0];
-
-    if (/Activity/.test(word) && /through\s*/.test(arr[1])) {
+    if (/Activity/.test(arr[0]) && /through\s*/.test(arr[1])) {
       taxDoc.activityThrough = arr[2] + " " + arr[3] + " " + arr[4];
       parsing(arr.slice(4));
-    } else if (/Owner/.test(word) && /name:/.test(arr[1])) {
+    } else if (/Owner/.test(arr[0]) && /name:/.test(arr[1])) {
       // look for for end of owner name
       ownerName(arr);
     } else if (arr[0] === 'Property' && arr[1] === 'address:') {
@@ -101,6 +98,22 @@ function parse_pdf(arr) {
     }
   }
 
+ function pdfs_are_terrible(arr) {
+    var the_end = _.findIndex(arr, function(val){
+      return (/Outstanding|Statement/g.test(val));
+    })
+    var text = arr.slice(2,the_end).join(" ");
+    var exec = /(?:Property address: )(.*)(?:Borough, block & lot: )(\w+ ?\(\d\), \d+, \d+)(.*)/g.exec(text);
+    if (exec) {
+      taxDoc.propertyAddress = exec[1];
+      taxDoc.bbl = exec[2];
+      taxDoc.mailingAddress = exec[3];
+       parsing(arr.slice(the_end));
+    } else {
+      parsing(arr.slice(3))
+    }
+  }
+  
   function stabilization(arr) {
     taxDoc.rentStabilized = true;
     if (/\d{1,4}/.test(arr[2])) {
@@ -128,28 +141,12 @@ function parse_pdf(arr) {
   }
 
   function make_bbl(bbl) {
-    var arr = bbl.split(',');
-    console.log(arr);  
+    var arr = bbl.split(',');  
     var exec = /\w+ ?\((\d)\)/.exec(arr[0]);
     return (exec) ? (exec[1] + arr[1].trim() + arr[2].trim()) : 'bbl error';
   }
 
-  function pdfs_are_terrible(arr) {
-    var the_end = _.findIndex(arr, function(val){
-      return (/Outstanding|Statement/g.test(val));
-    })
-    var text = arr.slice(2,the_end).join(" ");
-    var exec = /(?:Property address: )(.*)(?:Borough, block & lot: )(\w+ ?\(\d\), \d+, \d+)(.*)/g.exec(text);
-    if (exec) {
-      taxDoc.propertyAddress = exec[1];
-      taxDoc.bbl = exec[2];
-      taxDoc.mailingAddress = exec[3];
-       parsing(arr.slice(the_end));
-    } else {
-      parsing(arr.slice(3))
-    }
-  }
-  // input: taxDoc
+  input: taxDoc
   // output: cleaned up taxDoc
   function cleanUp(taxDoc) {
     var clean = taxDoc;
