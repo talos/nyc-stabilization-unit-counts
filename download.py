@@ -149,7 +149,7 @@ def main(*args):
             except ValueError:
                 search(houseNumber=args[0], street=args[1], borough=args[2])
         except requests.ConnectionError as e:
-            if e[0] == 'Connection aborted.':
+            if 'Connection aborted.' in str(e[0]):
                 down_for_maintenance = True
                 LOGGER.warn("NYCServ appears to be down, waiting: '%s'", e)
                 time.sleep(10)
