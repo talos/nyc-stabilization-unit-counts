@@ -133,6 +133,8 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
         os.makedirs(os.path.join('data', bbl))
 
     resp = SESSION.post(list_url, data=form)
+    LOGGER.info(len(resp.text))
+    LOGGER.info(resp.text[0:40])
     soup = bs4.BeautifulSoup(resp.text)
 
     strain_soup(list_url, bbl, soup, 'a[href^="../../"]', handle_double_dot)
