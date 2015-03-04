@@ -29,6 +29,10 @@ DOCS_TO_DOWNLOAD = [
 ]
 
 
+class NYCServDownError(Exception):
+    pass
+
+
 def handle_double_dot(list_url, href):
     return urlparse.urljoin(list_url, href)
 
@@ -133,8 +137,11 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
         os.makedirs(os.path.join('data', bbl))
 
     resp = SESSION.post(list_url, data=form)
-    LOGGER.info(len(resp.text))
-    LOGGER.info(resp.text[0:40])
+
+    # Maintenance page?
+    if len(resp.text) == 7419:
+        raise NYCServDownError(resp.text)
+
     soup = bs4.BeautifulSoup(resp.text)
 
     strain_soup(list_url, bbl, soup, 'a[href^="../../"]', handle_double_dot)
@@ -150,17 +157,20 @@ def main(*args):
                 search(borough=args[0], block=int(args[1]), lot=int(args[2]))
             except ValueError:
                 search(houseNumber=args[0], street=args[1], borough=args[2])
+        except NYCServDownError as e:
+            down_for_maintenance = True
         except requests.ConnectionError as e:
             if 'Connection aborted.' in str(e[0]):
                 down_for_maintenance = True
-                LOGGER.warn("NYCServ appears to be down, waiting: '%s'", e)
-                time.sleep(10)
             else:
                 raise
         except Exception as e:
             LOGGER.error(traceback.format_exc())
             LOGGER.error(e)
 
+        if down_for_maintenance:
+            LOGGER.warn("NYCServ appears to be down, waiting: '%s'", e)
+            time.sleep(10)
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
