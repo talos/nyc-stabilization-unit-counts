@@ -164,7 +164,7 @@ def main(*args):
                 down_for_maintenance = True
             else:
                 raise
-        except Exception as e:
+        except Exception as e:  # pylint: disable=broad-except
             LOGGER.error(traceback.format_exc())
             LOGGER.error(e)
 
