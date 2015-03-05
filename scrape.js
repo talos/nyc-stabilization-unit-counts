@@ -1,8 +1,13 @@
 var textract = require('textract');
 var _ = require('underscore');
 
-var parse = function (filepath, callback) {
+// input: 'filepath' -> callback(object)
+var scrape = function (filepath, callback) {
   textract('application/pdf', filepath, function(err, text){
+    if (err) {
+      console.log(err)
+      console.log('error with: ' + filepath);
+    }
     var taxDoc = parse_pdf(text.split(" "));
     callback(taxDoc);
   })
@@ -164,4 +169,4 @@ function parse_pdf(arr) {
 // end of parse_pdf  
 }
 
-module.exports = parse; 
+module.exports = scrape; 
