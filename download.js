@@ -4,12 +4,15 @@ var async = require('async');
 
 var bbls = [] // array of bbls
 var error_bbls = []; // hold errors
+var bbls_file = '3219.txt';
 
-var bbls = fs.readFileSync('3441.txt').toString().split('\n');
+bbls = fs.readFileSync(bbls_file).toString().split('\n');
+
 // make queue
 var q = async.queue(function (task, callback){
+  console.log('downloading ' + task.bbl);
   download_pdfs(task.bbl, callback);
-}, 2);
+}, 1);
 
 // fill queue
 bbls.forEach(function(bbl){
@@ -33,7 +36,6 @@ q.drain = function() {
 }
 
 // input string, callback -> 
-// downloads pdfs 
 function download_pdfs(bbl, done){
   var bbl_array = bbl.split('');
   var bor = bbl_array[0];
@@ -43,7 +45,7 @@ function download_pdfs(bbl, done){
 
   exec(command, function(error, stdout, stderr){
     if (error) { 
-      console.log('bbl error'); 
+      console.log('python exec error: ' + command); 
       error_bbls.push(bbl);
     }
     done();

@@ -1,11 +1,21 @@
+var fs = require('fs');
 var textract = require('textract');
-var _ = require('underscore');
+var scrape  = require('./scrape');
 
-main(process.argv[2] + '.pdf');
+fs.readdir(process.argv[2], function(err, files){
+  if (err) {console.log('error: ' + err) }
+  files.forEach(function(file){
+    var filePath = process.argv[2] + '/' + file;
+    scrape(filePath, function(taxDoc) {
+      console.log(taxDoc);
+    })
+    // raw_text(filePath);
+  })
+})
 
-function main(filepath, callback) {
+
+function raw_text(filepath) {
   textract('application/pdf', filepath, function(err, text){
-    console.log(text.split(' '))
-    // console.log(text);
+    console.log(text);
   })
 }

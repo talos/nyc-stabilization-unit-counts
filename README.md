@@ -25,7 +25,7 @@ Make sure to put the street name in single quotes.
 
 ### To download documents for multiple addresses:
 
-1. Create a tab seperated file (eg: `addresses.tsv`) containing the house
+1. Create a tab separated file (eg: `addresses.tsv`) containing the house
    number, street name and suffix, and borough number. Separate each address by
    a new line.
 
@@ -42,7 +42,48 @@ CB 8 (Upper East Side) in Manhattan, CBs 8 & 9 in Brooklyn (Lefferts/Crown
 Heights), CB4 in the Bronx (Concourse), CBs 1 & 2 in Queens (Astoria & LIC),
 and CB1 in Staten Island (North Shore.)
 
-## To Do
+Folder scheme: Data - > borough (1,2,3,4 or 5) -> block -> bbl
 
-- [ ] Scrape PDF and HTML files after downloading them.
-- [ ] Host scraped data online
+## scraper
+
+scraper.js scrapes property tax bill and ouputs a json:
+   {
+      activityThrough: null,
+      ownerName: '',
+      propertyAddress: '',
+      bbl: '',
+      mailingAddress: '',
+      rentStabilized: null,
+      units: null,
+      annualPropertyTax: null,
+      abatements: [],
+      billableAssessedValue: null,
+      taxRate: null
+    }
+
+scrape (filepath, callback)
+
+filepath is the filepath to the tax bill
+callback is call with one argument contain the taxDoc object;
+
+## issues
+
+  * The annualPropertyTax field for November 2012 and 2013's bills scrapes incorrectly
+  * There are issues when rent-stabilized units appear more than once such as in 1-01505-0044
+
+## download.js
+
+  reads a file with a bbl on each line. bbl has to be in 10 digit format (such as 1015050044). It then downloads all the property tax bills and notice of property tax bills, once at a time.
+
+  You can change the number of concurrent download at the risk of overwhelming the sever.
+
+## to do
+
+  - [ ] distributed downloading?
+  - [ ] fix scraper issues
+  - [ ] scrape property tax bills
+  - [ ] connect database
+
+## printout.js
+
+A utility used to help create the scrape.js
