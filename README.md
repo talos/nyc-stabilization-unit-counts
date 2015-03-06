@@ -46,7 +46,7 @@ Folder scheme: Data - > borough (1,2,3,4 or 5) -> block -> bbl
 
 ## Scraper
 
-Scaper.js scrapes property tax bill and ouputs a json:
+Scraper.js scrapes property tax bill and ouputs a json:
   
   ```
   { 
