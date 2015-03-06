@@ -17,13 +17,13 @@
     "url": "https://github.com/aepyornis/nyc-stabilization-unit-counts.git"
   },
   "keywords": [
-    "['nyc'",
-    "'dof'",
-    "'scrape'",
-    "'tax'",
-    "'pdf",
-    "'node'",
-    "'python']"
+    "nyc",
+    "dof",
+    "scrape",
+    "tax",
+    "pdf",
+    "node",
+    "python"
   ],
   "author": "@talos @clhenrick, @akilism, @aepyornis, @romeboards",
   "license": "",
