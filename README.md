@@ -44,38 +44,39 @@ and CB1 in Staten Island (North Shore.)
 
 Folder scheme: Data - > borough (1,2,3,4 or 5) -> block -> bbl
 
-## scraper
+## Scraper
 
-scraper.js scrapes property tax bill and ouputs a json:
-   {
-      activityThrough: null,
-      ownerName: '',
-      propertyAddress: '',
-      bbl: '',
-      mailingAddress: '',
-      rentStabilized: null,
-      units: null,
-      annualPropertyTax: null,
-      abatements: [],
-      billableAssessedValue: null,
-      taxRate: null
-    }
+Scaper.js scrapes property tax bill and ouputs a json:
+  
+  ```
+  { 
+    activityThrough: null,
+    ownerName: '',
+    propertyAddress: '',
+    bbl: '',
+    mailingAddress: '',
+    rentStabilized: null,
+    units: null,
+    annualPropertyTax: null,
+    abatements: [],
+    billableAssessedValue: null,
+    taxRate: null
+  }
+  ```
 
-scrape (filepath, callback)
+Scrape (filepath, callback(taxDoc))
 
-filepath is the filepath to the tax bill
-callback is call with one argument contain the taxDoc object;
+Filepath is the filepath to the tax bill
+Callback is called with one argument containing the taxDoc object
 
-## issues
+## Issues
 
   * The annualPropertyTax field for November 2012 and 2013's bills scrapes incorrectly
   * There are issues when rent-stabilized units appear more than once such as in 1-01505-0044
 
 ## download.js
 
-  reads a file with a bbl on each line. bbl has to be in 10 digit format (such as 1015050044). It then downloads all the property tax bills and notice of property tax bills, once at a time.
-
-  You can change the number of concurrent download at the risk of overwhelming the sever.
+  Reads a file with a bbl on each line. bbls must be in 10 digit format (such as 1015050044). It runs download.py for each bbl one at a time. You can change the number of concurrent downloads at the risk of overwhelming the sever.
 
 ## to do
 
