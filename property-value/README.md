@@ -2,6 +2,12 @@ Scraper to extract text data from NoPV (Notice of Property Value) PDFs.
 
 ### Installation
 
+You will need to have installed [xpdf][] on your system.
+
+  [xpdf]: http://www.foolabs.com/xpdf/download.html
+
+You will also need node and npm.  Then, in this directory:
+
     npm install
 
 ### Use

@@ -9,9 +9,9 @@ var incomeTest2 = /Estimated Gross Income:(\s*)\$(.*)/;
 var expensesTest1 = /(\s*)Expenses:(\s*)We estimated expenses at \$(.*)\./;
 var expensesTest2 = /Estimated Expenses:(\s*)\$(.*)/;
 var headers = ['estimatedGrossIncome', 'estimatedExpenses'];
+var lock = false; // poor man's synchronization.  <3 node.
 
 function parse (chunks) {
-
   //var docDate, docYear;
   var income, expenses;
 
@@ -43,13 +43,24 @@ _.each(process.argv, function (path, i) {
   }
   var absPath = __dirname + "/" + path;
 
-  textract('application/pdf', absPath, {
-    preserveLineBreaks:true
-  }, function( error, text ) {
-    if (error) {
-      console.error("Could not read '" + absPath + "': " + error);
+  var synchronize = setInterval(function () {
+    if (lock === true) {
+      return;
     } else {
-      console.log(_.values(_.pick(parse(text.split('\n')), headers)).join(','));
+      lock = true;
     }
-  });
+    textract('application/pdf', absPath, {
+      preserveLineBreaks:true
+    }, function(error, text) {
+      if (error) {
+        console.error("Could not read '" + absPath + "': " + error);
+      } else {
+        console.log(
+          _.values(_.pick(parse(text.split('\n')), headers)).join(','));
+      }
+      lock = false;
+    });
+    clearInterval(synchronize);
+  }, 10);
 });
+
