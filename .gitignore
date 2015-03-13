@@ -1,3 +1,5 @@
 .DS_Store
 data
 node_modules
+property-value/output
+property-value/samples*
