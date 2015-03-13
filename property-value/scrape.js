@@ -18,14 +18,13 @@ function parse (chunks) {
   _.each(chunks, function(element) {
     if (incomeTest1.test(element)) {
       income = incomeTest1.exec(element)[3];
-    } else if (incomeTest2.test(element)){
+    } else if (incomeTest2.test(element)) {
       income = incomeTest2.exec(element)[2];
     }
 
     if (expensesTest1.test(element)){
       expenses = expensesTest1.exec(element)[3];
-    }
-    else if (expensesTest2.test(element)){
+    } else if (expensesTest2.test(element)) {
       expenses = expensesTest2.exec(element)[2];
     }
   });
