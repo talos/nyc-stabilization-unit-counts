@@ -8,12 +8,17 @@ var incomeTest1 =
 var incomeTest2 = /Estimated Gross Income:(\s*)\$(.*)/;
 var expensesTest1 = /(\s*)Expenses:(\s*)We estimated expenses at \$(.*)\./;
 var expensesTest2 = /Estimated Expenses:(\s*)\$(.*)/;
-var headers = ['estimatedGrossIncome', 'estimatedExpenses'];
+var headers = ['bbl', 'date', 'borough', 'block', 'lot',
+  'estimatedGrossIncome', 'estimatedExpenses'];
 var lock = false; // poor man's synchronization.  <3 node.
 
-function parse (chunks) {
+function parse (path, chunks) {
   //var docDate, docYear;
-  var income, expenses;
+  var income, expenses,
+      pathSplit = path.split('/'),
+      bbl = pathSplit[pathSplit.length - 2].split('-'),
+      nameComponents = pathSplit[pathSplit.length - 1].split(' - '),
+      date = new Date(nameComponents[0]).toISOString().split('T')[0];
 
   _.each(chunks, function(element) {
     if (incomeTest1.test(element)) {
@@ -30,6 +35,11 @@ function parse (chunks) {
   });
 
   return {
+    date: date,
+    borough: Number(bbl[0]),
+    block: Number(bbl[1]),
+    lot: Number(bbl[2]),
+    bbl: Number(bbl.join('')),
     estimatedGrossIncome: income ? Number(income.replace(/,/g, '')) : '',
     estimatedExpenses: expenses ? Number(expenses.replace(/,/g, '')) : ''
   };
@@ -56,7 +66,7 @@ _.each(process.argv, function (path, i) {
         console.error("Could not read '" + absPath + "': " + error);
       } else {
         console.log(
-          _.values(_.pick(parse(text.split('\n')), headers)).join(','));
+          _.values(_.pick(parse(path, text.split('\n')), headers)).join(','));
       }
       lock = false;
     });
