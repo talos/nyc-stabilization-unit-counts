@@ -1,5 +1,4 @@
 /*jshint node: true*/
-/*globals require*/
 
 var textract = require('textract');
 var _ = require('underscore');

@@ -1,3 +1,5 @@
+/*jshint node: true*/
+
 var textract = require('textract');
 var _ = require('underscore');
 
