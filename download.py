@@ -82,8 +82,7 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
                         docname, bbl)
             continue
 
-        file_path = 'data/' + bbl[0:1] + '/' + bbl[2:7]
-        bbldir = os.path.join(file_path, bbl)
+        bbldir = os.path.join('data', bbl)
         filenames = ['.'.join(f.split('.')[:-1]) or f
                      for f in os.listdir(bbldir)]
 
@@ -133,11 +132,9 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
         LOGGER.error(u'No BBL found for %s', data)
         return
 
-    file_path = 'data/' + bbl[0:1] + '/' + bbl[2:7]
-    print file_path
     LOGGER.info(u'Pulling down %s', bbl)
-    if not os.path.exists(os.path.join(file_path, bbl)):
-        os.makedirs(os.path.join(file_path, bbl))
+    if not os.path.exists(os.path.join('data', bbl)):
+        os.makedirs(os.path.join('data', bbl))
 
     resp = SESSION.post(list_url, data=form)
 
