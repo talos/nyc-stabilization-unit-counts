@@ -5,13 +5,13 @@ var _ = require('underscore');
 
 var lock = false; // poor man's synchronization.  <3 node.
 var headers = [
-    "activityThrough",
-    "ownerName",
-    "propertyAddress",
     "bbl",
-    "mailingAddress",
+    "activityThrough",
     "rentStabilized",
     "units",
+    "ownerName",
+    "propertyAddress",
+    "mailingAddress",
     "annualPropertyTax",
     "abatements",
     "billableAssessedValue",
@@ -19,6 +19,21 @@ var headers = [
 ];
 
 function callback(taxDoc) {
+  taxDoc.activityThrough = new Date(
+    taxDoc.activityThrough).toISOString().split('T')[0];
+  taxDoc.annualPropertyTax = Number(
+    taxDoc.annualPropertyTax.replace(/[$,]/g, ''));
+  taxDoc.billableAssessedValue = Number(
+    taxDoc.billableAssessedValue.replace(/[$,]/g, ''));
+  taxDoc.taxRate = Number(taxDoc.taxRate.replace(/[%]/g, ''));
+  _.each(taxDoc, function (v, k) {
+    if (typeof v === 'string') {
+      if (v.search(',') !== -1) {
+        v = v.replace(/'"'/g, '\\"');
+        taxDoc[k] = '"' + v + '"';
+      }
+    }
+  });
   console.log(_.values(_.pick(taxDoc, headers)).join(','));
   lock = false;
 }
