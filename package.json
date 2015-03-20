@@ -1,0 +1,33 @@
+{
+  "name": "nyc-stabilization-unit-counts",
+  "version": "0.1.0",
+  "description": "'Scraping NYC DOF tax documents and data'",
+  "main": "scrape.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/talos/nyc-stabilization-unit-counts.git"
+  },
+  "keywords": [
+    "nyc",
+    "housing",
+    "dof",
+    "tax",
+    "data",
+    "buildings",
+    "rent stabilization",
+    "rent regulation"
+  ],
+  "author": "Chris Henrick <chrishenrick@gmail.com> (http://chrishenrick.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/talos/nyc-stabilization-unit-counts/issues"
+  },
+  "homepage": "https://github.com/talos/nyc-stabilization-unit-counts",
+  "dependencies": {
+    "pdf-text": "^0.4.0",
+    "underscore": "^1.8.2"
+  }
+}
