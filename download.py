@@ -82,7 +82,7 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
                         docname, bbl)
             continue
 
-        bbldir = os.path.join('data', bbl)
+        bbldir = os.path.join('data', bbl.replace('-', os.path.sep))
         filenames = ['.'.join(f.split('.')[:-1]) or f
                      for f in os.listdir(bbldir)]
 
@@ -133,8 +133,8 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
         return
 
     LOGGER.info(u'Pulling down %s', bbl)
-    if not os.path.exists(os.path.join('data', bbl)):
-        os.makedirs(os.path.join('data', bbl))
+    if not os.path.exists(os.path.join('data', bbl.replace('-', os.path.sep))):
+        os.makedirs(os.path.join('data', bbl.replace('-', os.path.sep)))
 
     resp = SESSION.post(list_url, data=form)
 
@@ -169,7 +169,7 @@ def main(*args):
             LOGGER.error(e)
 
         if down_for_maintenance:
-            LOGGER.warn("NYCServ appears to be down, waiting: '%s'", e)
+            LOGGER.warn(u"NYCServ appears to be down, waiting: '%s'", e)
             time.sleep(10)
 
 if __name__ == '__main__':
