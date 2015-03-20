@@ -24,7 +24,8 @@ function callback(taxDoc) {
   taxDoc.annualPropertyTax = taxDoc.annualPropertyTax ? Number(
     taxDoc.annualPropertyTax.replace(/[$,]/g, '')) : taxDoc.annualPropertyTax;
   taxDoc.billableAssessedValue = taxDoc.billableAssessedValue ? Number(
-    taxDoc.billableAssessedValue.replace(/[$,]/g, '')) : taxDoc.billableAssessedValue;
+    taxDoc.billableAssessedValue.replace(/[$,]/g, '')) :
+    taxDoc.billableAssessedValue;
   taxDoc.taxRate = taxDoc.taxRate ? Number(taxDoc.taxRate.replace(/[%]/g, '')) :
     taxDoc.taxRate;
   _.each(taxDoc, function (v, k) {
