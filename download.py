@@ -129,8 +129,9 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
                                 form['q49_block_id'],
                                 form['q49_lot'])
     except KeyError:
-        LOGGER.error(u'No BBL found for %s', data)
-        return
+        raise NYCServDownError(resp.text)
+        #LOGGER.error(u'No BBL found for %s', data)
+        #return
 
     LOGGER.info(u'Pulling down %s', bbl)
     if not os.path.exists(os.path.join('data', bbl.replace('-', os.path.sep))):
