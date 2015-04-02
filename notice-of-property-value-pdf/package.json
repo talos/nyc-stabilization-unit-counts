@@ -8,6 +8,7 @@
   "dependencies": {
     "pdf-text": "latest",
     "underscore": "latest",
-    "textract": "latest"
+    "textract": "latest",
+    "walk": "latest"
   }
 }
