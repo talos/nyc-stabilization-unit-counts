@@ -1,0 +1,4 @@
+textract: 'unzip' does not appear to be installed, so textract will be unable to extract PDFXs.
+textract: 'drawingtotext' does not appear to be installed, so it will be unable to extract DXFs.
+textract: 'unzip' does not appear to be installed, so it will be unable to extract DOCXs.
+textract: 'catdoc' does not appear to be installed, so it will be unable to extract DOCs.

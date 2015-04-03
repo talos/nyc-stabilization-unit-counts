@@ -22,6 +22,10 @@ var headers = [
 
 function makeCallback(next) {
   return function(taxDoc) {
+    if (!taxDoc) {
+      next();
+      return;
+    }
     taxDoc.activityThrough = new Date(
       taxDoc.activityThrough).toISOString().split('T')[0];
     taxDoc.annualPropertyTax = taxDoc.annualPropertyTax ? Number(

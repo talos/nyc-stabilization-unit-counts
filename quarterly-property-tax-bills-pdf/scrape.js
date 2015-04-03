@@ -7,11 +7,19 @@ var _ = require('underscore');
 var scrape = function (filepath, callback) {
   textract('application/pdf', filepath, function(err, text){
     if (err) {
-      console.log(err)
-      console.log('error with: ' + filepath);
+      console.error(err);
+      console.error('error with: ' + filepath);
+    } else {
+      try {
+        var taxDoc = parse_pdf(text.split(" "));
+        callback(taxDoc);
+        return;
+      } catch (err) {
+        console.error(err);
+        console.error('error with: ' + filepath);
+      }
     }
-    var taxDoc = parse_pdf(text.split(" "));
-    callback(taxDoc);
+    callback();
   })
 }
 
@@ -45,7 +53,11 @@ function parse_pdf(arr) {
     } else if (arr[0] === 'Property' && arr[1] === 'address:') {
       propertyAddress(arr);
     } else if (arr[0] === 'Borough,' && arr[1] === 'block' && arr[2] === '&' && arr[3] === 'lot:') {
-      taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];
+      if (arr[4] === 'STATEN') {
+        taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7] + arr[8];
+      } else {
+        taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];
+      }
       parsing(arr.slice(7));
     } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
       mailingAddress(arr);
