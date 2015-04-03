@@ -16,9 +16,9 @@ Can be used with single file:
 
     node run.js /path/to/nopv.pdf > outputfile.csv
 
-Can also be used with multiple files:
+Can also be used with a directory full of files:
 
-    node run.js /path/to/input/*.pdf > outpufile.csv
+    node run.js /path/to/input/ > outpufile.csv
 
 A CSV is written to stdout, with errors written to stderr.
 
