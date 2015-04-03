@@ -22,50 +22,33 @@ var headers = [
 
 function makeCallback(next) {
   return function(taxDoc) {
-    if (!taxDoc) {
-      next();
-      return;
-    }
-    taxDoc.activityThrough = new Date(
-      taxDoc.activityThrough).toISOString().split('T')[0];
-    taxDoc.annualPropertyTax = taxDoc.annualPropertyTax ? Number(
-      taxDoc.annualPropertyTax.replace(/[$,]/g, '')) : taxDoc.annualPropertyTax;
-    taxDoc.billableAssessedValue = taxDoc.billableAssessedValue ? Number(
-      taxDoc.billableAssessedValue.replace(/[$,]/g, '')) :
-      taxDoc.billableAssessedValue;
-    taxDoc.taxRate = taxDoc.taxRate ?
-      Number(taxDoc.taxRate.replace(/[%]/g, '')) :
-      taxDoc.taxRate;
-    _.each(taxDoc, function (v, k) {
-      if (typeof v === 'string') {
-        if (v.search(',') !== -1) {
-          v = v.replace(/'"'/g, '\\"');
-          taxDoc[k] = '"' + v + '"';
+    if (taxDoc) {
+      taxDoc.activityThrough = new Date(
+        taxDoc.activityThrough).toISOString().split('T')[0];
+      taxDoc.annualPropertyTax = taxDoc.annualPropertyTax ? Number(
+        taxDoc.annualPropertyTax.replace(/[$,]/g, '')) :
+        taxDoc.annualPropertyTax;
+      taxDoc.billableAssessedValue = taxDoc.billableAssessedValue ? Number(
+        taxDoc.billableAssessedValue.replace(/[$,]/g, '')) :
+        taxDoc.billableAssessedValue;
+      taxDoc.taxRate = taxDoc.taxRate ?
+        Number(taxDoc.taxRate.replace(/[%]/g, '')) :
+        taxDoc.taxRate;
+      _.each(taxDoc, function (v, k) {
+        if (typeof v === 'string') {
+          if (v.search(',') !== -1) {
+            v = v.replace(/'"'/g, '\\"');
+            taxDoc[k] = '"' + v + '"';
+          }
         }
-      }
-    });
-    console.log(_.values(_.pick(taxDoc, headers)).join(','));
+      });
+      console.log(_.values(_.pick(taxDoc, headers)).join(','));
+    }
     next();
   };
 }
 
 console.log(headers.join(','));
-
-//_.each(process.argv, function (path, i) {
-//  if (i < 2) {
-//    return;
-//  }
-//  var synchronize = setInterval(function () {
-//    if (lock === true) {
-//      return;
-//    } else {
-//      lock = true;
-//    }
-//
-//    scraper(path, callback);
-//    clearInterval(synchronize);
-//  }, 10);
-//});
 
 walkOptions = {
   listeners: {

@@ -9,17 +9,17 @@ var scrape = function (filepath, callback) {
     if (err) {
       console.error(err);
       console.error('error with: ' + filepath);
+      callback();
     } else {
       try {
         var taxDoc = parse_pdf(text.split(" "));
         callback(taxDoc);
-        return;
       } catch (err) {
         console.error(err);
         console.error('error with: ' + filepath);
+        callback();
       }
     }
-    callback();
   })
 }
 

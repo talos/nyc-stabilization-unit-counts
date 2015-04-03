@@ -4,7 +4,6 @@ var textract = require('textract');
 var _ = require('underscore');
 var walk = require('walk');
 var path = require('path');
-//var fs = require('fs');
 var incomeTest1 =
   /(\s*)Gross Income:(\s*)We estimated gross income at \$(.*)\./;
 var incomeTest2 = /Estimated Gross Income:(\s*)\$(.*)/;
@@ -62,19 +61,11 @@ walkOptions = {
       });
     },
     directories: function (root, dirStatsArray, next) {
-      // dirStatsArray is an array of `stat` objects with the additional
-      // attributes
-      // * type
-      // * error
-      // * name
-
       next();
     },
     file: function (root, fileStats, next) {
-      //fs.readFile(fileStats.name, function () {
-      //});
       if (fileStats.type === 'file' &&
-          fileStats.name.match(/Notice of Property Value\.pdf/)) {
+          fileStats.name.match(/Notice of Property Value\.pdf/i)) {
         var fullPath = path.join(root, fileStats.name);
         textract('application/pdf', fullPath, {
           preserveLineBreaks:true
@@ -93,37 +84,10 @@ walkOptions = {
       }
     },
     errors: function (root, nodeStatsArray, next) {
+      console.error('walk error');
       next();
     }
   }
 };
 
-//_.each(process.argv, function (path, i) {
-//  if (i < 2) {
-//    return;
-//  }
-//  var absPath = __dirname + "/" + path;
-//
-//  var synchronize = setInterval(function () {
-//    if (lock === true) {
-//      return;
-//    } else {
-//      lock = true;
-//    }
-//    textract('application/pdf', absPath, {
-//      preserveLineBreaks:true
-//    }, function(error, text) {
-//      if (error) {
-//        console.error("Could not read '" + absPath + "': " + error);
-//      } else {
-//        console.log(
-//          _.values(_.pick(parse(path, text.split('\n')), headers)).join(','));
-//      }
-//      lock = false;
-//    });
-//    clearInterval(synchronize);
-//  }, 10);
-//});
-
 walk.walk(process.argv[2], walkOptions);
-//walk.walkSync(process.argv[2], walkOptions);
