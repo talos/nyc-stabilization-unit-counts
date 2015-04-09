@@ -82,13 +82,13 @@ def main(paths):
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
     for path in paths:
-        bbl = path.split(os.path.sep)[-2]
+        bbl = path.split(os.path.sep)[-4:-1]
         # date = path.split(os.path.sep)[-1].split(' - ')
         with open(path, 'r') as f:
             data = extract(f.read())
         data.update({
             # 'date': date,
-            'bbl': bbl.replace('-', '')
+            'bbl': ''.join(bbl)
         })
         writer.writerow(data)
 
