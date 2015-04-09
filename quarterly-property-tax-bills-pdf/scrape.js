@@ -48,12 +48,15 @@ function parse_pdf(arr) {
     if (/Activity/i.test(arr[0]) && /through\s*/i.test(arr[1])) {
       taxDoc.activityThrough = arr[2] + " " + arr[3] + " " + arr[4];
       parsing(arr.slice(4));
+    } else if (/\(Reflects/i.test(arr[0]) && /account/i.test(arr[1])) {
+      taxDoc.activityThrough = arr[8] + " " + arr[9] + " " + arr[10].replace(')', '');
+      parsing(arr.slice(11));
     } else if (/Owner/.test(arr[0]) && /name:/.test(arr[1])) {
       ownerName(arr);
     } else if (arr[0] === 'Property' && arr[1] === 'address:') {
       propertyAddress(arr);
-    } else if (arr[0] === 'Borough,' && arr[1] === 'block' && arr[2] === '&' && arr[3] === 'lot:') {
-      if (arr[4] === 'STATEN') {
+    } else if (arr[0] === 'Borough,' && arr[1].toLowerCase() === 'block' && arr[2] === '&' && arr[3].toLowerCase() === 'lot:') {
+      if (arr[4].toLowerCase() === 'staten') {
         taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7] + arr[8];
       } else {
         taxDoc.bbl = arr[4] + arr[5] + arr[6] + arr[7];

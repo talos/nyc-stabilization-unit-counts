@@ -64,7 +64,8 @@ walkOptions = {
     },
     file: function (root, fileStats, next) {
       if (fileStats.type === 'file' &&
-          fileStats.name.match(/Quarterly Property Tax Bill\.pdf/i)) {
+          (fileStats.name.match(/Quarterly Property Tax Bill\.pdf/i) ||
+           fileStats.name.match(/Quarterly Statement of Account\.pdf/i))) {
         var fullPath = path.join(root, fileStats.name);
         scraper(fullPath, makeCallback(next));
       } else {
