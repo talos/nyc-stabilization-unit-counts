@@ -62,7 +62,9 @@ function parse_pdf(arr) {
     } else if (arr[0] === 'Mailing' && arr[1] === 'address:') {
       mailingAddress(arr);
     } else if ( (arr[0] === 'Housing-Rent' && arr[1]) === 'Stabilization' || (arr[0] === 'Stabilization' && arr[2] === '$10/apt.') || (arr[0] === 'Rent' && arr[1] === 'Stabilization')) {
-      stabilization(arr);
+      if (arr[2] !== 'Abatement') {
+        stabilization(arr);
+      }
     } else if (/J-51|Mitchell|421a/g.test(arr[0])) {
       taxDoc.abatements.push(arr[0]);
       parsing(arr.slice(1));
