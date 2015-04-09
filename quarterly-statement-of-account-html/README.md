@@ -17,4 +17,5 @@ Output is written as a CSV to stdout.  Input can be any number of HTML files.
 
 Or
 
-    python scrape.py /path/to/statements/*.html > outputfile.csv
+    python scrape.py /path/to/statements/*Quarterly\ Statement\ of\
+Account.html > outputfile.csv
