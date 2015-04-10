@@ -1,0 +1,8 @@
+LOAD CSV
+  FROM quarterly-tax-bills-pdfs.csv
+    INTO postgresql:///talos?unitcounts
+  WITH skip header = 2,
+       fields optionally enclosed by '"',
+       fields escaped by double-quote,
+       fields terminated by ','
+;
