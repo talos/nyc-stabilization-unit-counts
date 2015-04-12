@@ -11,8 +11,19 @@ You'll need the following:
 - `virtualenv` or `virtualenvwrapper` (in order to install requirements without
   using `sudo`
 
-Within a virtualenv, simply install the requirements:
+The following requirements (on Debian):
 
+    sudo apt-get install python-dev python-pip python-virtualenv \
+                         build-essential libxml2-dev libxslt1-dev
+
+Or on Mac (with Homebrew):
+
+    brew install python pyenv-virtualenv libxml2
+
+Then create a virtualenv and install the requirements in it:
+
+    virtualenv .env
+    source .env/bin/activate
     pip install -r requirements.txt
 
 ## Usage
@@ -37,54 +48,11 @@ Make sure to put the street name in single quotes.
 
 You can see a sample of data being collected [here](http://www.taxbills.nyc/).
 
-These are raw records being pulled from all buildings with ten or more units in
-CB 8 (Upper East Side) in Manhattan, CBs 8 & 9 in Brooklyn (Lefferts/Crown
-Heights), CB4 in the Bronx (Concourse), CBs 1 & 2 in Queens (Astoria & LIC),
-and CB1 in Staten Island (North Shore.)
+These are raw records being pulled from all buildings with ten or more units.
+Downloading is currently in progress.
 
-Folder scheme: Data - > borough (1,2,3,4 or 5) -> block -> bbl
+There are already complete record for CB 8 (Upper East Side) in Manhattan, CBs
+8 & 9 in Brooklyn (Lefferts/Crown Heights), CB4 in the Bronx (Concourse), CBs
+1 & 2 in Queens (Astoria & LIC), and CB1 in Staten Island (North Shore.)
 
-## Scraper
-
-Scraper.js scrapes property tax bill and ouputs a json:
-  
-  ```
-  { 
-    activityThrough: null,
-    ownerName: '',
-    propertyAddress: '',
-    bbl: '',
-    mailingAddress: '',
-    rentStabilized: null,
-    units: null,
-    annualPropertyTax: null,
-    abatements: [],
-    billableAssessedValue: null,
-    taxRate: null
-  }
-  ```
-
-Scrape (filepath, callback(taxDoc))
-
-Filepath is the filepath to the tax bill
-Callback is called with one argument containing the taxDoc object
-
-## Issues
-
-  * The annualPropertyTax field for November 2012 and 2013's bills scrapes incorrectly
-  * There are issues when rent-stabilized units appear more than once such as in 1-01505-0044
-
-## download.js
-
-  Reads a file with a bbl on each line. bbls must be in 10 digit format (such as 1015050044). It runs download.py for each bbl one at a time. You can change the number of concurrent downloads at the risk of overwhelming the sever.
-
-## to do
-
-  - [ ] distributed downloading?
-  - [ ] fix scraper issues
-  - [ ] scrape property tax bills
-  - [ ] connect database
-
-## printout.js
-
-A utility used to help create the scrape.js
+Folder scheme: `data/<borough>/<block>/<lot>/`
