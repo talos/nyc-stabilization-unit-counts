@@ -35,7 +35,7 @@ Make sure to put the street name in single quotes.
 
 ## Sample
 
-You can see a sample of data being collected [here](http://104.236.234.7/).
+You can see a sample of data being collected [here](http://www.taxbills.nyc/).
 
 These are raw records being pulled from all buildings with ten or more units in
 CB 8 (Upper East Side) in Manhattan, CBs 8 & 9 in Brooklyn (Lefferts/Crown
