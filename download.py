@@ -10,6 +10,9 @@ import logging
 import traceback
 
 SEARCH_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
+LIST_URL = 'http://nycprop.nyc.gov/nycproperty/nynav/jsp/stmtassesslst.jsp'
+
+logging.basicConfig(format='%(asctime)-15s %(message)s')
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
@@ -69,7 +72,7 @@ def save_file_from_stream(resp, filename):
             fd.write(chunk)
 
 
-def strain_soup(list_url, bbl, soup, target, get_statement_url):
+def strain_soup(bbl, soup, target, get_statement_url):
     """
     Pull out all PDFs or HTML pages from a NYCServ soup, targetting certain
     links (`target`) and using `get_statement_url` to get the correct href for
@@ -91,11 +94,11 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
                         docname, bbl)
             continue
 
-        statement_url = get_statement_url(list_url, statement.get('href'))
+        statement_url = get_statement_url(LIST_URL, statement.get('href'))
         LOGGER.info(u'Downloading %s: %s', docname, statement_url)
 
         filename = os.path.join(bbldir, docname)
-        resp = SESSION.get(statement_url, headers={'Referer': list_url},
+        resp = SESSION.get(statement_url, headers={'Referer': LIST_URL},
                            stream=True)
 
         save_file_from_stream(resp, filename)
@@ -104,40 +107,78 @@ def strain_soup(list_url, bbl, soup, target, get_statement_url):
 
 
 def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
-    data = {
-        'FBORO': borough,
-    }
+    #if block and lot:
+    #    data['FBLOCK'] = ('00000%s' % block)[-5:]
+    #    data['FLOT'] = ('0000%s' % lot)[-4:]
+    #    data['FEASE'] = ''
+    #    data['FFUNC'] = 'C'
+    if not borough:
+       raise Exception("Need borough")
     if block and lot:
-        data['FBLOCK'] = ('00000%s' % block)[-5:]
-        data['FLOT'] = ('0000%s' % lot)[-4:]
-        data['FEASE'] = ''
-        data['FFUNC'] = 'C'
-    elif street and houseNumber:
-        data['FSTNAME'] = street
-        data['FHOUSENUM'] = houseNumber
-    resp = SESSION.post(SEARCH_URL, data=data)
+       block = str(block).zfill(5)
+       lot = str(lot).zfill(4)
+       bbl = '{}-{}-{}'.format(borough, block, lot)
+       form = {
+           'DFH_ENTER': 'PROCESSING',
+           'FFUNC': 'A',
+           'FMSG2': '02/03/06 10:30AM -       B4 5000-SEND-VARIABLES                                 ',
+           'bblAcctKeyIn1': borough,
+           'bblAcctKeyIn2': block, #'01280',
+           'bblAcctKeyIn3': lot, #'0058',
+           'bblAcctKeyIn4': ' ',
+           'ownerName': '                                                                     ', #'991 CARROLL ST LLC   ',
+           'ownerName1': '                                                                      ', #'991 CARROLL ST LLC                                                    ',
+           'ownerName2': '                                                                      ',
+           'ownerName3': '                                                                      ',
+           'ownerName4': '                                                                      ',
+           'ownercount': '', # '1',
+           'q49_block_id': block, #'01280',
+           'q49_boro': borough, #'3',
+           'q49_lot': lot, #'0058',
+           'q49_prp_ad_city': 'New york            ',
+           'q49_prp_ad_street_no': '', # '991     ',
+           'q49_prp_cd_addr_zip': '', #'11225',
+           'q49_prp_cd_state': 'NY',
+           'q49_prp_id_apt_num': '     ',
+           'q49_prp_nm_street': '', #'CARROLL STREET                   ',
+           'returnMsg': 'Note:'
+       }
+       #form = {
+       #     'q49_boro': borough,
+       #     'q49_block_id': block,
+       #     'q49_lot': lot
+       #}
+    else:
+        data = {
+            'FBORO': borough,
+        }
+        if street and houseNumber:
+            data['FSTNAME'] = street
+            data['FHOUSENUM'] = houseNumber
+        else:
+            raise Exception("Need street and housenumber if not searching by BBL")
+        resp = SESSION.post(SEARCH_URL, data=data)
 
-    # Extract necessary form content based off of address
-    soup = bs4.BeautifulSoup(resp.text)
-    list_url = soup.form.get('action').lower()
-    inputs = soup.form.findAll('input')
-    form = dict([(i.get('name'), i.get('value')) for i in inputs])
+        # Extract necessary form content based off of address
+        soup = bs4.BeautifulSoup(resp.text)
+        inputs = soup.form.findAll('input')
+        form = dict([(i.get('name'), i.get('value')) for i in inputs])
 
-    # Get property tax info page
-    try:
-        bbl = '{}-{}-{}'.format(form['q49_boro'],
-                                form['q49_block_id'],
-                                form['q49_lot'])
-    except KeyError:
-        raise NYCServDownError(resp.text)
-        #LOGGER.error(u'No BBL found for %s', data)
-        #return
+        # Get property tax info page
+        try:
+            bbl = '{}-{}-{}'.format(form['q49_boro'],
+                                    form['q49_block_id'],
+                                    form['q49_lot'])
+        except KeyError:
+            raise NYCServDownError(resp.text)
+            #LOGGER.error(u'No BBL found for %s', data)
+            #return
 
     LOGGER.info(u'Pulling down %s', bbl)
     if not os.path.exists(os.path.join('data', bbl.replace('-', os.path.sep))):
         os.makedirs(os.path.join('data', bbl.replace('-', os.path.sep)))
 
-    resp = SESSION.post(list_url, data=form)
+    resp = SESSION.post(LIST_URL, data=form)
 
     # Maintenance page?
     if len(resp.text) == 7419:
@@ -145,9 +186,8 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
 
     soup = bs4.BeautifulSoup(resp.text)
 
-    strain_soup(list_url, bbl, soup, 'a[href^="../../"]', handle_double_dot)
-    strain_soup(list_url, bbl, soup, 'a[href^="soalist.jsp"]', handle_soalist)
-
+    strain_soup(bbl, soup, 'a[href^="../../"]', handle_double_dot)
+    strain_soup(bbl, soup, 'a[href^="soalist.jsp"]', handle_soalist) 
 
 def main(*args):
     down_for_maintenance = True

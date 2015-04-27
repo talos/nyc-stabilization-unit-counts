@@ -75,23 +75,28 @@ def extract(data):
     return data
 
 
-def main(paths):
+def main(root):
     """
     Process a list of filenames with Quarterly Statement of Account data.
     """
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
-    for path in paths:
-        bbl = path.split(os.path.sep)[-4:-1]
-        # date = path.split(os.path.sep)[-1].split(' - ')
-        with open(path, 'r') as f:
-            data = extract(f.read())
-        data.update({
-            # 'date': date,
-            'bbl': ''.join(bbl)
-        })
-        writer.writerow(data)
+    for path, dirs, files in os.walk(root):
+        for filename in files:
+            if 'Quarterly Statement of Account.html' in filename:
+                try:
+                    bbl = path.split(os.path.sep)[-3:]
+                    # date = path.split(os.path.sep)[-1].split(' - ')
+                    with open(os.path.join(path, filename), 'r') as f:
+                        data = extract(f.read())
+                    data.update({
+                        # 'date': date,
+                        'bbl': ''.join(bbl)
+                    })
+                    writer.writerow(data)
+                except Exception as err:
+                    LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
 
 
 if __name__ == '__main__':
-    main(sys.argv[1:])
+    main(sys.argv[1])

@@ -11,11 +11,11 @@ This is best done in a `virtualenv`.
 
 ### Usage
 
-Output is written as a CSV to stdout.  Input can be any number of HTML files.
+Output is written as a CSV to stdout.  Input should be directory containing
+HTML files.
 
     python scrape.py /path/to/statement.html > outputfile.csv
 
 Or
 
-    python scrape.py /path/to/statements/*Quarterly\ Statement\ of\
-Account.html > outputfile.csv
+    python scrape.py /path/to/statements/ > outputfile.csv
