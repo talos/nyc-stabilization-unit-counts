@@ -1,8 +1,29 @@
 LOAD CSV
-  FROM quarterly-tax-bills-pdfs.csv
-    INTO postgresql:///talos?unitcounts
+  FROM data/pdf-tax-bills.csv
+  INTO postgresql:///stabilization?unitcounts
   WITH skip header = 2,
-       fields optionally enclosed by '"',
-       fields escaped by double-quote,
+       fields terminated by ','
+  BEFORE LOAD DO  
+     $$ drop table if exists unitcounts; $$,
+     $$ create table if not exists unitcounts (  
+         bbl bigint,  
+         activitythrough DATE,
+         rentstabilized VARCHAR,
+         units   INT,
+         ownername TEXT,
+         propertyaddress TEXT,
+         mailingaddress TEXT,
+         annualpropertytax REAL,
+         abatements TEXT,
+         billableassessedvalue REAL,
+         taxrate REAL
+        );  
+   $$; 
+
+LOAD CSV
+  FROM data/html-statement-of-account.csv
+  INTO postgresql:///stabilization?unitcounts
+  WITH skip header = 2,
+       fields optionally enclosed by '"',  
        fields terminated by ','
 ;

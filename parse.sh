@@ -9,3 +9,4 @@ popd
 pushd quarterly-statement-of-account-html
 python scrape.py ../data/ > ../data/html-statement-of-account.csv 2>../data/html-statement-of-account.log &
 popd
+
