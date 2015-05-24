@@ -4,6 +4,8 @@ var scraper = require('./scrape.js');
 var walk = require('walk');
 var path = require('path');
 var _ = require('underscore');
+var stringify = require('csv-stringify');
+
 var walkOptions;
 
 var headers = [
@@ -34,21 +36,18 @@ function makeCallback(next) {
       taxDoc.taxRate = taxDoc.taxRate ?
         Number(taxDoc.taxRate.replace(/[%]/g, '')) :
         taxDoc.taxRate;
-      _.each(taxDoc, function (v, k) {
-        if (typeof v === 'string') {
-          if (v.search(',') !== -1) {
-            v = v.replace(/'"'/g, '\\"');
-            taxDoc[k] = '"' + v + '"';
-          }
-        }
+      stringify([_.values(_.pick(taxDoc, headers))], {eof: false, rowDelimiter: 'unix'}, function (err, output) {
+        console.log(output);
       });
-      console.log(_.values(_.pick(taxDoc, headers)).join(','));
     }
     next();
   };
 }
 
-console.log(headers.join(','));
+//console.log(headers.join(','));
+stringify([headers], {eof: false, rowDelimiter: 'unix'},function (err, output) {
+  console.log(output);
+});
 
 walkOptions = {
   listeners: {
