@@ -1,3 +1,4 @@
 #!/bin/bash -e
 
-find /data/*/*/* -type d | wc -l
+COUNT=$(find /data/*/*/* -type d | wc -l)
+echo "$(date +'%F %T')	$COUNT"
