@@ -132,7 +132,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif i == 1:
                 # Sometimes the first line in this section is the stabilized
                 # area, so there's no overriding due_date
-                if cells[1] != '# Apts':
+                if len(cells) > 1 and cells[1] != '# Apts':
                     try:
                         due_date = parsedate(cells[1])
                     except:
@@ -160,11 +160,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 value = parseamount(cells[1])
             elif len(cells) == 3:
                 key = cells[0]
-                try:
-                    activity_date = parsedate(cells[1])
-                except:
-                    import pdb
-                    pdb.set_trace()
+                activity_date = parsedate(cells[1])
                 value = parseamount(cells[2])
             elif len(cells) == 4:
                 key = cells[0]
