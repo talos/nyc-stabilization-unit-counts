@@ -27,6 +27,16 @@ HEADERS = [
     "meta"
 ]
 
+BILL, STATEMENT = ('Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf')
+ACTIVITY_THROUGH = {
+    BILL: re.compile(r'Activity through (.*)', re.IGNORECASE),
+    STATEMENT: re.compile(r'Last Statement Through (.*?)\)', re.IGNORECASE)
+}
+OWNER_ADDRESS_AREA = re.compile(
+    r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
+    r'(Outstanding Charges|Statement Billing Summary)', re.DOTALL + re.IGNORECASE
+)
+
 def parseamount(string):
     """
     Convert string of style -$24,705.75 to float -24705.75
@@ -48,28 +58,26 @@ def parsedate(string):
     return parser.parse(string).strftime('%Y-%m-%d') #pylint: disable=no-member
 
 
-def extract(bbl, text):
+def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """
     Extract Quarterly Statement of Account data from text
 
     Yields a dict for each piece of data.
     """
-    activity_through = parsedate(re.search(r'Activity through (.*)', text).group(1))
+
+    # Unfortunately, STATEMENT filenames are laid out like BILLs sometimes...
+    try:
+        activity_through = parsedate(ACTIVITY_THROUGH[BILL].search(text).group(1))
+    except AttributeError:
+        activity_through = parsedate(ACTIVITY_THROUGH[STATEMENT].search(text).group(1))
+
     base = {
         'bbl': bbl,
         'activityThrough': activity_through
     }
 
-    owner_address_area = re.search(
-        r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
-        r'(Outstanding Charges|Statement Billing Summary)',
-        text, re.DOTALL).groups()
+    owner_address_area = OWNER_ADDRESS_AREA.search(text).groups()
     owner_address_split = [split(x) for x in owner_address_area][:-1]
-
-    #if len(owner_address_split) == 4 and len(owner_address_split[3]) == 2:
-    #    owner_name = u'\n'.join([owner_address_split[0][0],
-    #                             owner_address_split[1][0]])
-    #else:
 
     owner_name = owner_address_split[0][0]
     base.update({
@@ -78,7 +86,7 @@ def extract(bbl, text):
     })
     yield base
 
-    mailing_address = u'\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
+    mailing_address = '\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
     base.update({
         'key': 'Mailing address',
         'value': mailing_address
@@ -86,8 +94,9 @@ def extract(bbl, text):
 
     yield base
 
-    matches = re.finditer(r'(Charges You Can Pre-pay|Tax Year Charges Remaining|Current Charges).*?Total[\S ]*',
-                              text, re.DOTALL)
+    matches = re.finditer(r'(Charges You Can Pre-pay|'
+                          r'Tax Year Charges Remaining|Current Charges).*?Total[\S ]*',
+                          text, re.DOTALL)
     for match in matches:
         # TODO due_date actually needs to be figured out by determining which
         # column the line is in.
@@ -125,13 +134,15 @@ def extract(bbl, text):
                 if cells[1] != '# Apts':
                     due_date = parsedate(cells[1])
 
-            if line.startswith('\f') or cells[0].startswith('Pay today') or cells[0].startswith('Home banking payment instructions'):
+            if line.startswith('\f') or \
+               cells[0].startswith('Pay today') or \
+               cells[0].startswith('Home banking payment instructions'):
                 form_feed = True
                 continue
 
             if line == '':
                 continue
-            elif u'Rent Stabilization fee' in cells[0]:
+            elif 'Rent Stabilization fee' in cells[0]:
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
                 key = cells[0]
@@ -163,7 +174,6 @@ def extract(bbl, text):
                 'value': value,
                 'dueDate': stabilization_due_date or due_date,
                 'activityDate': activity_date,
-                'value': value,
                 'meta': meta
             })
             yield base
@@ -177,25 +187,27 @@ def main(root):
     writer.writeheader()
     for path, _, files in os.walk(root):
         for filename in files:
-            if 'Quarterly Property Tax Bill.pdf' in filename:
-                try:
-                    bbl = path.split(os.path.sep)[-3:]
-                    pdf_path = os.path.join(path, filename)
-                    text_path = pdf_path.replace('.pdf', '.txt')
-                    if not os.path.exists(text_path):
-                        subprocess.check_call("pdftotext -layout '{}'".format(
-                            pdf_path
-                        ), shell=True)
+            if BILL not in filename and STATEMENT not in filename:
+                continue
 
-                    # date = path.split(os.path.sep)[-1].split(' - ')
-                    with open(text_path, 'r') as handle:
-                        for data in extract(''.join(bbl), handle.read()):
-                            writer.writerow(data)
-                except Exception as err:  # pylint: disable=broad-except
-                    #import pdb
-                    #pdb.set_trace()
-                    LOGGER.warn(traceback.format_exc())
-                    LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
+            try:
+                bbl = path.split(os.path.sep)[-3:]
+                pdf_path = os.path.join(path, filename)
+                text_path = pdf_path.replace('.pdf', '.txt')
+                if not os.path.exists(text_path):
+                    subprocess.check_call("pdftotext -layout '{}'".format(
+                        pdf_path
+                    ), shell=True)
+
+                # date = path.split(os.path.sep)[-1].split(' - ')
+                with open(text_path, 'r') as handle:
+                    for data in extract(''.join(bbl), handle.read()):
+                        writer.writerow(data)
+            except Exception as err:  # pylint: disable=broad-except
+                #import pdb
+                #pdb.set_trace()
+                LOGGER.warn(traceback.format_exc())
+                LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
 
 
 if __name__ == '__main__':
