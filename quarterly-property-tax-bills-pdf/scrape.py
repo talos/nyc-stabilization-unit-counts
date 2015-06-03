@@ -94,8 +94,9 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
 
     yield base
 
-    matches = re.finditer(r'(Charges You Can Pre-pay|'
-                          r'Tax Year Charges Remaining|Current Charges).*?Total[\S ]*',
+    matches = re.finditer(r'(Charges You Can Pre-pay|Amount Not Due but That Can be Paid Early|'
+                          r'Current Amount Due|Previous Balance|'
+                          r'Tax Year Charges Remaining|Current Charges).*?(Total|Unpaid Balance, [iI]f Any)[\S ]*',
                           text, re.DOTALL)
     for match in matches:
         # TODO due_date actually needs to be figured out by determining which
@@ -132,7 +133,10 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 # Sometimes the first line in this section is the stabilized
                 # area, so there's no overriding due_date
                 if cells[1] != '# Apts':
-                    due_date = parsedate(cells[1])
+                    try:
+                        due_date = parsedate(cells[1])
+                    except:
+                        pass
 
             if line.startswith('\f') or \
                cells[0].startswith('Pay today') or \
@@ -142,7 +146,9 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
 
             if line == '':
                 continue
-            elif 'Rent Stabilization fee' in cells[0]:
+            elif 'rent stabilization fee' in cells[0].lower():
+                continue
+            elif cells[0].startswith('Activity Date'):
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
                 key = cells[0]
@@ -154,7 +160,11 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 value = parseamount(cells[1])
             elif len(cells) == 3:
                 key = cells[0]
-                activity_date = parsedate(cells[1])
+                try:
+                    activity_date = parsedate(cells[1])
+                except:
+                    import pdb
+                    pdb.set_trace()
                 value = parseamount(cells[2])
             elif len(cells) == 4:
                 key = cells[0]
