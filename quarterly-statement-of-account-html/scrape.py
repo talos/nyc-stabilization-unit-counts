@@ -9,8 +9,9 @@ import logging
 import csv
 import os
 import re
+import traceback
 from dateutil import parser
-from bs4 import BeautifulSoup
+#from bs4 import BeautifulSoup
 
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
@@ -20,44 +21,11 @@ HEADERS = [
     "bbl",
     "activityThrough",
     "key",
-    "date",
-    "value"
+    "dueDate",
+    "activityDate",
+    "value",
+    "meta"
 ]
-
-#OWNER_NAME = 'owner_name'
-#PROPERTY_ADDRESS = 'property_address'
-#MAILING_ADDRESS = 'mailing_address'
-#PREVIOUS_BALANCE = 'summary_previous_balance'
-#AMOUNT_PAID = 'summary_amount_paid'
-#UNPAID_BALANCE = 'summary_unpaid_blanace'
-#CURRENT_AMOUNT_DUE = 'summary_current_amount_due'
-#TOTAL_AMOUNT_DUE = 'summary_total_amount_due'
-#
-#PREVIOUS_BALANCE_TAX = 'details_previous_balance_tax'
-#PREVIOUS_BALANCE_PAYMENT = 'details_previous_balance_payment'
-#PREVIOUS_BALANCE_UNPAID = 'details_previous_balance_unpaid'
-#
-#CURRENT_AMOUNT_TAX = 'details_current_amount_tax'
-#CURRENT_AMOUNT_PAYMENT = 'details_current_amount_payment'
-#CURRENT_AMOUNT_DUE = 'details_current_amount_due'
-#
-#TAX_CLASS = 'tax_class'
-#TAX_RATE = 'tax_rate'
-
-
-#HEADERS = [
-#    "bbl",
-#    "activityThrough",
-#    "rentStabilized",
-#    "units",
-#    "ownerName",
-#    "propertyAddress",
-#    "mailingAddress",
-#    "annualPropertyTax",
-#    "abatements",
-#    "billableAssessedValue",
-#    "taxRate"
-#]
 
 
 def _mailing_address(soup):
@@ -76,69 +44,78 @@ def _mailing_address(soup):
     return '\n'.join(out).strip()
 
 
-def _owner_name(soup):
-    el = soup.find(text=re.compile('Owner Name:'))
-    return [c for c in el.parent.parent.children][-1].strip()
+def parsedate(string):
+    """
+    Use dateutil to parse an ambiguous date string into YYYY-MM-DD
+    """
+    return parser.parse(string).strftime('%Y-%m-%d') #pylint: disable=no-member
 
 
-def _activity_through(soup):
-    el = soup.find(text=re.compile('Reflects Account Activity from'))
-    match = re.search(r'Statement through\s+([^)]+)', unicode(el))
-    return parser.parse(match.group(1)).strftime('%Y-%m-%d')
+def _owner_name(html):
+    '''
+    Obtain owner name from soup
+    '''
+    #elem = soup.find(text=re.compile('Owner Name:'))
+    #return [c for c in elem.parent.parent.children][-1].strip()
+    match = re.search(r'Owner Name:.*?<img[^>]*>([^<]*)<', html, re.IGNORECASE)
+    return match.group(1).strip()
 
 
-def _rent_stabilized(soup):
+def _activity_through(html):
+    '''
+    Obtain activity through name from html
+    '''
+    match = re.search(r'Last Statement through\s+([^)]+)', html)
+    return parsedate(match.group(1))
+
+
+def _rent_stabilized(html):
     """
     Extract every rent stabilized line from the soup.
     """
-    els = soup.find_all(text=re.compile('Housing-Rent Stabilization'))
-    lines = []
-    for el in els:
-        housing_rent, stabilization, num_apts, date, id1, id2, amount = re.split(r'\s+', unicode(el).strip())
-        lines.append([housing_rent + ' ' + stabilization, int(num_apts),
-                      parser.parse(date).strftime('%Y-%m-%d'), id1 + ' ' + id2,
-                      float(amount.replace('$', ''))])
-    return lines
+    #els = soup.find_all(text=re.compile('Housing-Rent Stabilization'))
+    for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', html, re.IGNORECASE):
+        housing_rent, stabilization, num_apts, date, id1, id2, _ = \
+                re.split(r'\s+', match.group(1).strip())
+        yield {
+            'key': ' '.join([housing_rent, stabilization]),
+            'value': num_apts,
+            'dueDate': parsedate(date),
+            'meta': id1 + ' ' + id2
+        }
 
-
-        #match = re.search(r'Housing-Rent Stabilization\s+(\d+)', unicode(el))
-        #if not match:
-        #    return 0
-        #else:
-        #    return int(match.group(1))
-
-
-def extract(html):
+def extract(html, bbl):
     """
     Extract Quarterly Statement of Account data from HTML
 
     Yields a dict for each piece of data.
     """
-    soup = BeautifulSoup(html)
-    soup.find(text=re.compile('Housing-Rent Stabilization'))
+    #soup = BeautifulSoup(html)
 
-    activity_through = _activity_through(soup)
-    owner_name = _owner_name(soup)
-    mailing_address = _mailing_address(soup)
-    rent_stabilized = _rent_stabilized(soup)
+    activity_through = _activity_through(html)
 
-    import pdb
-    pdb.set_trace()
+    base = {
+        'bbl': bbl,
+        'activityThrough': activity_through
+    }
 
-    #stabilized_units = rent_stabilized(soup)
-    #data = {
-    #    "rentStabilized": stabilized_units > 0,
-    #    "units": stabilized_units,
-    #    "activityThrough": ),
-    #    "ownerName": owner_name(soup),
-    #    # "propertyAddress": property_address(soup), ## TODO
-    #    # "mailingAddress": mailing_address(soup), ## TODO
-    #    # "abatements": abatements(soup), ## TODO
-    #    # "billableAssessedValue": billable_assessed_value(soup), ## TODO
-    #    # "taxRate": tax_rate(soup) ## TODO
-    #}
-    #
-    #return data
+    owner_name = _owner_name(html)
+    base.update({
+        'key': 'Owner name',
+        'value': owner_name
+    })
+    yield base
+
+    # mailing_address = _mailing_address(html)
+    # base.update({
+    #     'key': 'Mailing address',
+    #     'value': mailing_address
+    # })
+    # yield base
+
+    for rent_stabilized in _rent_stabilized(html):
+        base.update(rent_stabilized)
+        yield base
 
 
 def main(root):
@@ -151,16 +128,12 @@ def main(root):
         for filename in files:
             if 'Quarterly Statement of Account.html' in filename:
                 try:
-                    bbl = path.split(os.path.sep)[-3:]
-                    # date = path.split(os.path.sep)[-1].split(' - ')
+                    bbl = ''.join(path.split(os.path.sep)[-3:])
                     with open(os.path.join(path, filename), 'r') as handle:
-                        data = extract(handle.read())
-                    data.update({
-                        # 'date': date,
-                        'bbl': ''.join(bbl)
-                    })
-                    writer.writerow(data)
+                        for data in extract(handle.read(), bbl):
+                            writer.writerow(data)
                 except Exception as err:  # pylint: disable=broad-except
+                    LOGGER.warn(traceback.format_exc())
                     LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
 
 
