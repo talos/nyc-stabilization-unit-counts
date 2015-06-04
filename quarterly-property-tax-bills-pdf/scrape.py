@@ -88,7 +88,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
     })
     yield base
 
-    mailing_address = '\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
+    mailing_address = '\\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
     base.update({
         'key': 'Mailing address',
         'value': mailing_address
