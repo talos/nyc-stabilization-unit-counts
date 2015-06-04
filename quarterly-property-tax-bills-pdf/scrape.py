@@ -20,11 +20,13 @@ LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 HEADERS = [
     "bbl",
     "activityThrough",
+    "section",
     "key",
     "dueDate",
     "activityDate",
     "value",
-    "meta"
+    "meta",
+    "apts"
 ]
 
 BILL, STATEMENT = ('Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf')
@@ -94,9 +96,15 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
 
     yield base
 
-    matches = re.finditer(r'(Charges You Can Pre-pay|Amount Not Due but That Can be Paid Early|'
-                          r'Current Amount Due|Previous Balance|'
-                          r'Tax Year Charges Remaining|Current Charges).*?(Total|Unpaid Balance, [iI]f Any)[\S ]*',
+    matches = re.finditer(r'(Charges You Can Pre-pay|'  # prepayment
+                          r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
+                          r'Tax Year Charges Remaining|' # prepayment
+                          r'Current Amount Due|' # due
+                          r'Current Charges|' # due
+                          r'Previous Balance|' # history
+                          r'Previous Charges' # history
+                          r')[ \n\r]+Activity Date.*?'
+                          r'(Total|Unpaid Balance, [iI]f Any)[\S ]*',
                           text, re.DOTALL)
     for match in matches:
         # TODO due_date actually needs to be figured out by determining which
@@ -111,12 +119,15 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
         if len(lines) == 1:
             continue
 
+        section = split(lines[0])[0]
+
         for i, line in enumerate(lines):
             key = None
             meta = None
             stabilization_due_date = None
             activity_date = None
             value = None
+            apts = None
 
             cells = split(line)
 
@@ -152,9 +163,16 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
                 key = cells[0]
-                value = int(cells[1])
-                stabilization_due_date = parsedate(cells[2].split()[0])
-                meta = ' '.join(cells[2].split()[1:])
+                if len(cells) == 4:
+                    apts = int(cells[1])
+                    stabilization_due_date = parsedate(cells[2].split()[0])
+                    meta = ' '.join(cells[2].split()[1:])
+                    value = parseamount(cells[3])
+                else:
+                    apts = int(cells[1])
+                    stabilization_due_date = parsedate(cells[2])
+                    meta = cells[3]
+                    value = parseamount(cells[4])
             elif len(cells) == 2:
                 key = cells[0]
                 value = parseamount(cells[1])
@@ -180,7 +198,9 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 'value': value,
                 'dueDate': stabilization_due_date or due_date,
                 'activityDate': activity_date,
-                'meta': meta
+                'meta': meta,
+                'apts': apts,
+                'section': section
             })
             yield base
 

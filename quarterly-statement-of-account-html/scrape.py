@@ -20,11 +20,13 @@ LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 HEADERS = [
     "bbl",
     "activityThrough",
+    "section",
     "key",
     "dueDate",
     "activityDate",
     "value",
-    "meta"
+    "meta",
+    "apts"
 ]
 
 
@@ -74,15 +76,28 @@ def _rent_stabilized(html):
     Extract every rent stabilized line from the soup.
     """
     #els = soup.find_all(text=re.compile('Housing-Rent Stabilization'))
-    for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', html, re.IGNORECASE):
-        housing_rent, stabilization, num_apts, date, id1, id2, _ = \
-                re.split(r'\s+', match.group(1).strip())
-        yield {
-            'key': ' '.join([housing_rent, stabilization]),
-            'value': num_apts,
-            'dueDate': parsedate(date),
-            'meta': id1 + ' ' + id2
-        }
+    #import pdb
+    #pdb.set_trace()
+    for section in re.finditer(r'(Current Amount Due|'
+                               r'Amount Not Due [bB]ut That Can be Paid Early|'
+                               r'New Charges Due \w+ \d{2}, \d{4}|'
+                               r'Remaining Balance/Credits from Your Last Statement|'
+                               r'Previous Balance'
+                               r')[^_]+?Activity Date.*?'
+                               r'_________________', html, re.DOTALL):
+        section_type = section.group(1)
+        section_text = section.group()
+        for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', section_text, re.IGNORECASE):
+            housing_rent, stabilization, num_apts, date, id1, id2, payment = \
+                    re.split(r'\s+', match.group(1).strip())
+            yield {
+                'key': ' '.join([housing_rent, stabilization]),
+                'section': section_type,
+                'apts': num_apts,
+                'value': payment,
+                'dueDate': parsedate(date),
+                'meta': id1 + ' ' + id2
+            }
 
 def extract(html, bbl):
     """
