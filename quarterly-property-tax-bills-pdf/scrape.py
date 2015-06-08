@@ -181,6 +181,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 elif len(rent_line) == 5:
                     raise Exception('Unable to parse rent stabilization line')
                 else:
+                    apts = int(rent_line[2])
                     due_date = parsedate(rent_line[3])
                     meta = ' '.join(rent_line[4:len(rent_line)-1])
                     value = parseamount(rent_line[len(rent_line)-1])
