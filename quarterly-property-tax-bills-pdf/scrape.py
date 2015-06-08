@@ -36,7 +36,7 @@ ACTIVITY_THROUGH = {
 }
 OWNER_ADDRESS_AREA = re.compile(
     r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
-    r'(Outstanding Charges|Statement Billing Summary)', re.DOTALL + re.IGNORECASE
+    r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)', re.DOTALL + re.IGNORECASE
 )
 
 def parseamount(string):
@@ -101,6 +101,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                           r'Tax Year Charges Remaining|' # prepayment
                           r'Current Amount Due|' # due
                           r'Current Charges|' # due
+                          r'Payment Agreement|' # ?
                           r'Previous Balance|' # history
                           r'Previous Charges' # history
                           r')[ \n\r]+Activity Date.*?'
@@ -129,6 +130,8 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             value = None
             apts = None
 
+            line_unstripped = line
+            line = line.strip()
             cells = split(line)
 
             # Handle case when there's a pagebreak (and thus a bunch of repeat
@@ -143,15 +146,21 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif i == 1:
                 # Sometimes the first line in this section is the stabilized
                 # area, so there's no overriding due_date
-                if len(cells) > 1 and cells[1] != '# Apts':
-                    try:
-                        due_date = parsedate(cells[1])
-                    except:
-                        pass
+                # if len(cells) > 5 and cells[1] != '# Apts':
+                #     if cells[0].lower().startswith('activity date'):
+                #         continue
+                #     due_date = parsedate(cells[1])
+                pass # since this is an inaccurate way of establishing a due
+                     # date...
+            elif i == 2:
+                if cells[0].lower().startswith('activity date'):
+                    continue
 
-            if line.startswith('\f') or \
-               cells[0].startswith('Pay today') or \
-               cells[0].startswith('Home banking payment instructions'):
+            if line_unstripped.startswith('\f') or \
+               line_unstripped.startswith('\v') or \
+               cells[0].lower().startswith('pay today') or \
+               cells[0].lower().startswith('home banking payment instructions'):
+               # or cells[0].lower().startswith('please include this coupon'):
                 form_feed = True
                 continue
 
@@ -162,28 +171,37 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif cells[0].startswith('Activity Date'):
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
-                key = cells[0]
-                if len(cells) == 4:
-                    apts = int(cells[1])
-                    stabilization_due_date = parsedate(cells[2].split()[0])
-                    meta = ' '.join(cells[2].split()[1:])
-                    value = parseamount(cells[3])
+                rent_line = re.split(r'\s+', line)
+                key = ' '.join(rent_line[0:2])
+                if len(rent_line) < 4:
+                    raise Exception('Unable to parse rent stabilization line')
+                elif len(rent_line) == 4:
+                    due_date = parsedate(rent_line[2])
+                    value = parseamount(rent_line[3])
+                elif len(rent_line) == 5:
+                    raise Exception('Unable to parse rent stabilization line')
                 else:
-                    apts = int(cells[1])
-                    stabilization_due_date = parsedate(cells[2])
-                    meta = cells[3]
-                    value = parseamount(cells[4])
+                    due_date = parsedate(rent_line[3])
+                    meta = ' '.join(rent_line[4:len(rent_line)-1])
+                    value = parseamount(rent_line[len(rent_line)-1])
             elif len(cells) == 2:
                 key = cells[0]
                 value = parseamount(cells[1])
             elif len(cells) == 3:
                 key = cells[0]
-                activity_date = parsedate(cells[1])
+                try:
+                    activity_date = parsedate(cells[1])
+                except:
+                    meta = cells[1]
                 value = parseamount(cells[2])
             elif len(cells) == 4:
                 key = cells[0]
-                activity_date = parsedate(cells[1])
-                meta = cells[2]
+                try:
+                    activity_date = parsedate(cells[1])
+                    meta = cells[2]
+                except:
+                    activity_date = parsedate(cells[2])
+                    meta = cells[1]
                 value = parseamount(cells[3])
             else:
                 if 'State law recently changed' in line:
@@ -216,22 +234,32 @@ def main(root):
             if BILL not in filename and STATEMENT not in filename:
                 continue
 
+            if 'corrupted' in filename:
+                continue
+
             try:
                 bbl = path.split(os.path.sep)[-3:]
                 pdf_path = os.path.join(path, filename)
                 text_path = pdf_path.replace('.pdf', '.txt')
                 if not os.path.exists(text_path):
-                    subprocess.check_call("pdftotext -layout '{}'".format(
-                        pdf_path
-                    ), shell=True)
+                    try:
+                        subprocess.check_call("pdftotext -layout '{}'".format(
+                            pdf_path
+                        ), shell=True)
+                    except subprocess.CalledProcessError as err:
+                        LOGGER.info('Moving & trying to repair %s', pdf_path)
+                        subprocess.check_call("mv '{}' '{}'".format(
+                            pdf_path, os.path.join(path, 'corrupted_' + filename)
+                        ), shell=True)
+                        subprocess.check_call("./download.py {}".format(
+                            ' '.join(bbl)
+                        ), shell=True)
 
                 # date = path.split(os.path.sep)[-1].split(' - ')
                 with open(text_path, 'r') as handle:
                     for data in extract(''.join(bbl), handle.read()):
                         writer.writerow(data)
             except Exception as err:  # pylint: disable=broad-except
-                #import pdb
-                #pdb.set_trace()
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
 
