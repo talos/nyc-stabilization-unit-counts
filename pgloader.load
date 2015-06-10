@@ -1,43 +1,10 @@
-/*
 LOAD CSV
   FROM data/pdf-tax-bills.csv
-  INTO postgresql://postgres:docker4data@localhost:54321/postgres?unitcounts
-  WITH skip header = 2,
-       fields terminated by ','
-  BEFORE LOAD DO  
-     $$ drop table if exists unitcounts; $$,
-     $$ create table if not exists unitcounts (  
-         bbl bigint,  
-         activitythrough DATE,
-         rentstabilized VARCHAR,
-         units   INT,
-         ownername TEXT,
-         propertyaddress TEXT,
-         mailingaddress TEXT,
-         annualpropertytax REAL,
-         abatements TEXT,
-         billableassessedvalue REAL,
-         taxrate REAL
-        );  
-   $$; 
-
-*/
-/*
-LOAD CSV
-  FROM data/html-statement-of-account.csv
-  INTO postgresql://postgres:docker4data@localhost:54321/postgres?unitcounts
-  WITH skip header = 2,
-       fields optionally enclosed by '"',  
-       fields terminated by ','
-;
-*/
-
-LOAD CSV
-  FROM data/new_pdf_out.csv
   INTO postgresql://postgres:docker4data@localhost:54321/postgres?rawdata
   WITH skip header = 2,
        fields optionally enclosed by '"',  
-       fields terminated by ','
+       fields terminated by ',',
+       batch concurrency = 1
   BEFORE LOAD DO  
      $$ drop table if exists rawdata; $$,
      $$ create table if not exists rawdata (  
@@ -53,9 +20,10 @@ LOAD CSV
         );
    $$;
 LOAD CSV
-  FROM data/new_html_out.csv
+  FROM data/html-statement-of-account.csv
   INTO postgresql://postgres:docker4data@localhost:54321/postgres?rawdata
   WITH skip header = 2,
        fields optionally enclosed by '"',  
-       fields terminated by ','
+       fields terminated by ',',
+       batch concurrency = 1
 ;

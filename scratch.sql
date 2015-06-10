@@ -82,6 +82,7 @@ AS ct ("regno" text, "2007" int, "2008" int, "2009" int,
 
 DROP TABLE IF EXISTS joined;
 CREATE TABLE joined (
+  borough TEXT,
   bbl BIGINT,
   regno TEXT,
   "2007" INT,
@@ -108,7 +109,7 @@ CREATE TABLE joined (
   ycoord INTEGER
 );
 INSERT INTO joined
-SELECT bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
+SELECT boroughtext, bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
   "2015", cd, ct2010, cb2010, council, zipcode, address, ownername,
   numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, xcoord, ycoord
 FROM registrations_by_year rby
@@ -120,21 +121,57 @@ GROUP BY bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
 ;
 
 
-select zipcode, cd, sum("2007"), sum("2008"), sum("2009"), sum("2010"),
+select sum("2007"), sum("2008"), sum("2009"), sum("2010"),
 sum("2011"), sum("2012"), sum("2015"),
 sum("2015") - sum("2007"),
 (sum("2015") - sum("2007") * 1.0) / sum("2007")
 from joined
-where "2007" is not null and
- "2008" is not null and
- "2009" is not null and
- "2010" is not null and
- "2011" is not null and
- "2012" is not null and
- "2015" is not null
-group by zipcode, cd
-order by (sum("2015") - sum("2007") * 1.0) / sum("2007")
-limit 20;
+where
+--where "2007" is not null and
+-- "2008" is not null and
+-- "2009" is not null and
+-- "2010" is not null and
+-- "2011" is not null and
+-- "2012" is not null and
+-- "2015" is not null and
+  yearbuilt > 1948
+;
+ 
+
+select borough, sum("2007") "2007",
+sum("2008") "2008", sum("2009") "2009", sum("2010") "2010",
+sum("2011") "2011", sum("2012") "2012", sum("2015") "2015",
+sum("2015") - sum("2007") change,
+(sum("2015") - sum("2007") * 1.0) / sum("2007") percent
+from joined
+--where "2007" is not null and
+-- "2008" is not null and
+-- "2009" is not null and
+-- "2010" is not null and
+-- "2011" is not null and
+-- "2012" is not null and
+-- "2015" is not null
+group by borough
+order by borough
+;
+
+select zipcode, cd, sum("2007") "2007",
+sum("2008") "2008", sum("2009") "2009", sum("2010") "2010",
+sum("2011") "2011", sum("2012") "2012", sum("2015") "2015",
+sum("2015") - sum("2007") change,
+(sum("2015") - sum("2007") * 1.0) / sum("2007") percent
+from joined
+where
+-- "2007" is not null and
+-- "2008" is not null and
+-- "2009" is not null and
+-- "2010" is not null and
+-- "2011" is not null and
+-- "2012" is not null and
+-- "2015" is not null and
+  borough = 'MN'
+group by cd
+order by cd;
 
 select bbl, sum("2007") "2007", sum("2008") "2008", sum("2009") "2009",
 sum("2010") "2010", sum("2011") "2011", sum("2012") "2012", sum("2015") "2015"
