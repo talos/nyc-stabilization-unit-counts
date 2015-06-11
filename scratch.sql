@@ -45,13 +45,17 @@ CREATE TABLE registrations (
   numbbls INT,
   maxunits INT,
   diffunits INT,
+  indhcr SMALLINT,
   PRIMARY KEY (regno, duedate)
 );
 
 INSERT INTO registrations
-SELECT meta, duedate, STRING_AGG(DISTINCT bbl::text, ', '), COUNT(DISTINCT bbl),
-       MAX(units), COUNT(DISTINCT units)
-FROM unitcounts
+SELECT meta, duedate, STRING_AGG(DISTINCT uc.bbl::text, ', '), COUNT(DISTINCT uc.bbl),
+       MAX(units), COUNT(DISTINCT units),
+       CASE WHEN max(dh.bbl) IS NOT NULL THEN 1 ELSE 0 END
+FROM unitcounts uc
+     LEFT JOIN dhcrlist dh ON
+        uc.bbl = dh.bbl AND date_part('year', duedate) = dh.year
 WHERE meta IS NOT NULL
 GROUP BY meta, duedate
 ORDER BY meta, duedate;
@@ -120,6 +124,7 @@ GROUP BY bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
   numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, xcoord, ycoord
 ;
 
+\copy joined TO '/data/nyc-rent-stabilization-data/joined.csv' WITH CSV DELIMITER ',' HEADER
 
 select sum("2007"), sum("2008"), sum("2009"), sum("2010"),
 sum("2011"), sum("2012"), sum("2015"),
@@ -155,7 +160,7 @@ group by borough
 order by borough
 ;
 
-select zipcode, cd, sum("2007") "2007",
+select cd, sum("2007") "2007",
 sum("2008") "2008", sum("2009") "2009", sum("2010") "2010",
 sum("2011") "2011", sum("2012") "2012", sum("2015") "2015",
 sum("2015") - sum("2007") change,
@@ -186,3 +191,4 @@ from joined
 where bbl = 2047130001;
 
 select * from unitcounts where meta = '022638600';
+
