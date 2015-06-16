@@ -43,7 +43,7 @@ def parseamount(string):
     """
     Convert string of style -$24,705.75 to float -24705.75
     """
-    return float(string.replace(',', '').replace('$', ''))
+    return float(string.replace(',', '').replace('$', '').replace('*', ''))
 
 
 def split(string):
@@ -82,20 +82,57 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
     owner_address_split = [split(x) for x in owner_address_area][:-1]
 
     owner_name = owner_address_split[0][0]
-    base.update({
+    data = base.copy()
+    data.update({
         'key': 'Owner name',
         'value': owner_name
     })
-    yield base
+    yield data
 
     mailing_address = '\\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
-    base.update({
+    data = base.copy()
+    data.update({
         'key': 'Mailing address',
         'value': mailing_address
     })
+    yield data
 
-    yield base
+    # Exemption lines
+    matches = re.finditer(r'(Tax [Bb]efore [Ee]xemptions [Aa]nd [Aa]batements'
+                          r'.*?Tax [Bb]efore [Aa]batements)',
+                          text, re.DOTALL)
+    for match in matches:
+        for i, line in enumerate(match.group().split('\n')):
+            if i == 0:
+                continue
+            cells = split(line)
+            splitcell = re.split(r'(\d+ [Uu]nits)', cells[0])
+            if len(splitcell) > 1:
+                cells[0] = splitcell[0].strip()
+                cells.insert(1, splitcell[1].strip())
 
+            data = base.copy()
+            data['key'] = cells[0]
+            data['section'] = 'exemptions'
+            if len(cells) == 1:
+                continue
+            elif len(cells) == 2:
+                continue
+            else:
+                data['value'] = parseamount(cells[-1])
+
+            if len(cells) > 3:
+                if cells[1].lower().endswith('units'):
+                    data['apts'] = int(cells[1].lower().replace(' units', ''))
+                else:
+                    data['meta'] = cells[1]
+
+            yield data
+
+            #import pdb
+            #pdb.set_trace()
+
+    # All other lines
     matches = re.finditer(r'(Charges You Can Pre-pay|'  # prepayment
                           r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
                           r'Tax Year Charges Remaining|' # prepayment
@@ -192,7 +229,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 key = cells[0]
                 try:
                     activity_date = parsedate(cells[1])
-                except:
+                except:  #pylint: disable=bare-except
                     meta = cells[1]
                 value = parseamount(cells[2])
             elif len(cells) == 4:
@@ -200,7 +237,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 try:
                     activity_date = parsedate(cells[1])
                     meta = cells[2]
-                except:
+                except:  #pylint: disable=bare-except
                     activity_date = parsedate(cells[2])
                     meta = cells[1]
                 value = parseamount(cells[3])
@@ -212,7 +249,8 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 #import pdb
                 #pdb.set_trace()
 
-            base.update({
+            data = base.copy()
+            data.update({
                 'key': key,
                 'value': value,
                 'dueDate': stabilization_due_date or due_date,
@@ -221,7 +259,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
                 'apts': apts,
                 'section': section
             })
-            yield base
+            yield data
 
 
 def main(root):
