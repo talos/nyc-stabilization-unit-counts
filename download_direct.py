@@ -9,7 +9,7 @@ import os
 import sys
 import time
 from dateutil import parser
-from download import save_file_from_stream, SESSION
+from download import save_file_from_stream, SESSION, find_extension
 
 
 LOGGER = logging.getLogger(__name__)
@@ -29,11 +29,10 @@ def main(period, borough, block, lot, *_):
     except: #pylint: disable=bare-except
         pass
     docname = parser.parse(period).strftime(  #pylint: disable=no-member
-        '%B %d, %Y - Quarterly Property Tax Bill.pdf')
+        '%B %-d, %Y - Quarterly Property Tax Bill')
 
-    filenames = ['.'.join(f.split('.')[:-1]) or f
-                 for f in os.listdir(bbldir)]
-    if docname in filenames:
+    filenames = os.listdir(bbldir)
+    if docname + '.pdf' in filenames:
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                     docname, bbl)
         return
@@ -41,6 +40,12 @@ def main(period, borough, block, lot, *_):
     url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
             'bbl={bbl}&stmtDate={period}&stmtType=SOA'.format(period=period, bbl=bbl)
     resp = SESSION.get(url, stream=True)
+    extension = find_extension(resp)
+
+    if extension != 'pdf':
+        LOGGER.warn('Cannot download %s, has wrong extension: %s', url, extension)
+        return
+
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
     save_file_from_stream(resp, filename)
