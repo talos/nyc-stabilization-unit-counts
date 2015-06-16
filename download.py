@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+'''
+Download all tax bills for a BBL or list of BBLs
+'''
+
 import sys
 import requests
 import bs4
