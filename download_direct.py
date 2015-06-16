@@ -44,13 +44,13 @@ def main(period, borough, block, lot, *_):
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
     save_file_from_stream(resp, filename)
+    time.sleep(1)
 
 if __name__ == '__main__':
     if len(sys.argv) == 3:
         with open(sys.argv[2]) as infile:
             for line in infile:
                 main(sys.argv[1], *line.strip().split('\t'))
-                time.sleep(1)
     else:
         sys.stderr.write(u'''
 
