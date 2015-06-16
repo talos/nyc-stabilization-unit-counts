@@ -1,3 +1,16 @@
+SELECT bbl, unitstotal, unitsres FROM
+nyc_pluto pl JOIN registrations reg
+ON pl.bbl = reg.dhcrbbl
+WHERE ucbbl IS NULL
+ORDER BY ucbbl;
+
+SELECT dhcrbbl / 1000000000 as borough, COUNT(distinct dhcrbbl) FROM
+registrations reg
+WHERE ucbbl IS NULL
+GROUP BY borough
+ORDER BY borough;
+
+
 select sum("2007"), sum("2008"), sum("2009"), sum("2010"),
 sum("2011"), sum("2012"), sum("2015"),
 sum("2015") - sum("2007"),
