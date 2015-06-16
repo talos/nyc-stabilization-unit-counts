@@ -119,7 +119,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif len(cells) == 2:
                 continue
             else:
-                data['value'] = parseamount(cells[-1])
+                data['value'] = parseamount(cells[2])
 
             if len(cells) > 3:
                 if cells[1].lower().endswith('units'):
