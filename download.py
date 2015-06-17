@@ -61,9 +61,11 @@ def handle_soalist(list_url, href):
     link_resp = SESSION.get(link_url, headers={'Referer': list_url})
     link_soup = bs4.BeautifulSoup(link_resp.text)
 
-    statement_href = link_soup.select(
-        'a[href^="../../StatementSearch"]')[0].get('href')
-    return urlparse.urljoin(list_url, statement_href)
+    statements = link_soup.select('a[href^="../../StatementSearch"]')
+
+    if statements:
+        statement_href = statements[0].get('href')
+        return urlparse.urljoin(list_url, statement_href)
 
 
 def find_extension(resp):
@@ -110,6 +112,9 @@ def strain_soup(bbl, soup, target, get_statement_url):
             continue
 
         statement_url = get_statement_url(LIST_URL, statement.get('href'))
+        if not statement_url:
+            LOGGER.warn(u'Could not get statement URL for %s in %s', docname, bbl)
+
         LOGGER.info(u'Downloading %s: %s', docname, statement_url)
 
         filename = os.path.join(bbldir, docname)
