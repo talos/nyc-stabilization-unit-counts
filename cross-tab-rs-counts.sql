@@ -213,6 +213,7 @@ FROM registrations_by_year rby
      LEFT JOIN abatements_by_year aby ON rby.ucbbl = aby.bbl
      LEFT JOIN indhcr_by_year indy ON rby.regno = indy.regno
      LEFT JOIN nyc_pluto pl ON rby.ucbbl = pl.bbl
+ORDER BY rby.ucbbl
 ;
 --GROUP BY bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
 --  "2015", cd, ct2010, cb2010, council, zipcode, address, ownername,
