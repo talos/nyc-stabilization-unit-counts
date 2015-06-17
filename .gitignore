@@ -8,3 +8,4 @@ property-value/samples*
 *.log
 tmp
 error.txt
+*.pyc
