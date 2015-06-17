@@ -16,10 +16,12 @@ import traceback
 SEARCH_URL = 'http://webapps.nyc.gov:8084/CICS/fin1/find001i'
 LIST_URL = 'http://nycprop.nyc.gov/nycproperty/nynav/jsp/stmtassesslst.jsp'
 
-logging.basicConfig(format='%(asctime)-15s %(message)s')
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
-LOGGER.addHandler(logging.StreamHandler(sys.stderr))
+HANDLER = logging.StreamHandler(sys.stderr)
+HANDLER.setFormatter(logging.Formatter('%(asctime)-15s %(message)s'))
+LOGGER.addHandler(HANDLER)
+
 SESSION = requests.session()
 DOCS_TO_DOWNLOAD = [
     u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
@@ -37,14 +39,23 @@ DOCS_TO_DOWNLOAD = [
 
 
 class NYCServDownError(Exception):
+    """
+    Special exception for NYCServ is down.
+    """
     pass
 
 
 def handle_double_dot(list_url, href):
+    """
+    Deal with URLs
+    """
     return urlparse.urljoin(list_url, href)
 
 
 def handle_soalist(list_url, href):
+    """
+    Handle list of statement of accounts.
+    """
     link_url = urlparse.urljoin(list_url, href)
 
     link_resp = SESSION.get(link_url, headers={'Referer': list_url})
@@ -71,7 +82,7 @@ def save_file_from_stream(resp, filename):
     Save a file from a streamed response
     """
     chunk_size = 1024
-    with open(filename + '.' + find_extension(resp), 'wb') as fd:
+    with open(filename + '.' + find_extension(resp), 'wb') as fd: # pylint: disable=invalid-name
         for chunk in resp.iter_content(chunk_size):
             fd.write(chunk)
 
@@ -110,55 +121,59 @@ def strain_soup(bbl, soup, target, get_statement_url):
         time.sleep(1)
 
 
-def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
+def search(borough=None, house_number=None, street=None, block=None, lot=None):
+    """
+    Search using NYCServ interface for a list of tax bills.
+    """
     #if block and lot:
     #    data['FBLOCK'] = ('00000%s' % block)[-5:]
     #    data['FLOT'] = ('0000%s' % lot)[-4:]
     #    data['FEASE'] = ''
     #    data['FFUNC'] = 'C'
     if not borough:
-       raise Exception("Need borough")
+        raise Exception("Need borough")
     if block and lot:
-       block = str(block).zfill(5)
-       lot = str(lot).zfill(4)
-       bbl = '{}-{}-{}'.format(borough, block, lot)
-       form = {
-           'DFH_ENTER': 'PROCESSING',
-           'FFUNC': 'A',
-           'FMSG2': '02/03/06 10:30AM -       B4 5000-SEND-VARIABLES                                 ',
-           'bblAcctKeyIn1': borough,
-           'bblAcctKeyIn2': block, #'01280',
-           'bblAcctKeyIn3': lot, #'0058',
-           'bblAcctKeyIn4': ' ',
-           'ownerName': '                                                                     ', #'991 CARROLL ST LLC   ',
-           'ownerName1': '                                                                      ', #'991 CARROLL ST LLC                                                    ',
-           'ownerName2': '                                                                      ',
-           'ownerName3': '                                                                      ',
-           'ownerName4': '                                                                      ',
-           'ownercount': '', # '1',
-           'q49_block_id': block, #'01280',
-           'q49_boro': borough, #'3',
-           'q49_lot': lot, #'0058',
-           'q49_prp_ad_city': 'New york            ',
-           'q49_prp_ad_street_no': '', # '991     ',
-           'q49_prp_cd_addr_zip': '', #'11225',
-           'q49_prp_cd_state': 'NY',
-           'q49_prp_id_apt_num': '     ',
-           'q49_prp_nm_street': '', #'CARROLL STREET                   ',
-           'returnMsg': 'Note:'
-       }
-       #form = {
-       #     'q49_boro': borough,
-       #     'q49_block_id': block,
-       #     'q49_lot': lot
-       #}
+        block = str(block).zfill(5)
+        lot = str(lot).zfill(4)
+        bbl = '{}-{}-{}'.format(borough, block, lot)
+        form = {
+            'DFH_ENTER': 'PROCESSING',
+            'FFUNC': 'A',
+            'FMSG2': '02/03/06 10:30AM -       B4 5000-SEND-VARIABLES         '
+                     '                        ',
+            'bblAcctKeyIn1': borough,
+            'bblAcctKeyIn2': block, #'01280',
+            'bblAcctKeyIn3': lot, #'0058',
+            'bblAcctKeyIn4': ' ',
+            'ownerName': '                                                                     ',
+            'ownerName1': '                                                                      ',
+            'ownerName2': '                                                                      ',
+            'ownerName3': '                                                                      ',
+            'ownerName4': '                                                                      ',
+            'ownercount': '', # '1',
+            'q49_block_id': block, #'01280',
+            'q49_boro': borough, #'3',
+            'q49_lot': lot, #'0058',
+            'q49_prp_ad_city': 'New york            ',
+            'q49_prp_ad_street_no': '', # '991     ',
+            'q49_prp_cd_addr_zip': '', #'11225',
+            'q49_prp_cd_state': 'NY',
+            'q49_prp_id_apt_num': '     ',
+            'q49_prp_nm_street': '', #'CARROLL STREET                   ',
+            'returnMsg': 'Note:'
+        }
+        #form = {
+        #     'q49_boro': borough,
+        #     'q49_block_id': block,
+        #     'q49_lot': lot
+        #}
     else:
         data = {
             'FBORO': borough,
         }
-        if street and houseNumber:
+        if street and house_number:
             data['FSTNAME'] = street
-            data['FHOUSENUM'] = houseNumber
+            data['FHOUSENUM'] = house_number
         else:
             raise Exception("Need street and housenumber if not searching by BBL")
         resp = SESSION.post(SEARCH_URL, data=data)
@@ -191,9 +206,12 @@ def search(borough=None, houseNumber=None, street=None, block=None, lot=None):
     soup = bs4.BeautifulSoup(resp.text)
 
     strain_soup(bbl, soup, 'a[href^="../../"]', handle_double_dot)
-    strain_soup(bbl, soup, 'a[href^="soalist.jsp"]', handle_soalist) 
+    strain_soup(bbl, soup, 'a[href^="soalist.jsp"]', handle_soalist)
 
 def main(*args):
+    """
+    Main function, called once for each BBL.
+    """
     down_for_maintenance = True
     while down_for_maintenance:
         down_for_maintenance = False
@@ -201,20 +219,20 @@ def main(*args):
             try:
                 search(borough=args[0], block=int(args[1]), lot=int(args[2]))
             except ValueError:
-                search(houseNumber=args[0], street=args[1], borough=args[2])
-        except NYCServDownError as e:
+                search(house_number=args[0], street=args[1], borough=args[2])
+        except NYCServDownError:
             down_for_maintenance = True
-        except requests.ConnectionError as e:
-            if 'Connection aborted.' in str(e[0]):
+        except requests.ConnectionError as exc:
+            if 'Connection aborted.' in str(exc[0]):
                 down_for_maintenance = True
             else:
                 raise
-        except Exception as e:  # pylint: disable=broad-except
+        except Exception as exc:  # pylint: disable=broad-except
             LOGGER.error(traceback.format_exc())
-            LOGGER.error(e)
+            LOGGER.error(exc)
 
         if down_for_maintenance:
-            LOGGER.warn(u"NYCServ appears to be down, waiting: '%s'", e)
+            LOGGER.warn(u"NYCServ appears to be down, waiting: '%s'", exc)
             time.sleep(10)
 
 if __name__ == '__main__':
