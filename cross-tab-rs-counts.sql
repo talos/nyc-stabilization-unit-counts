@@ -114,18 +114,18 @@ CREATE TABLE registrations_by_year AS
 SELECT *
 FROM crosstab(
   'SELECT
-    regno,
     ucbbl,
     ucyear,
-    maxunits
+    SUM(maxunits)
   FROM registrations
   WHERE regno IS NOT NULL
+  GROUP BY ucbbl, ucyear
   ORDER BY 1, 2, 3'
   ,$$VALUES
     ('2007'::text), ('2008'::text), ('2009'::text),
     ('2010'::text), ('2011'::text), ('2012'::text),
     ('2013'::text), ('2014'::text)$$)
-AS ct ("regno" text, "ucbbl" BIGINT, "2007" int, "2008" int, "2009" int,
+AS ct ("ucbbl" BIGINT, "2007" int, "2008" int, "2009" int,
        "2010" int, "2011" int, "2012" int, "2013" int, "2014" int);
 
 DROP TABLE IF EXISTS indhcr_by_year;
@@ -133,17 +133,17 @@ CREATE TABLE indhcr_by_year AS
 SELECT *
 FROM crosstab(
   'SELECT
-    regno,
-    ucyear,
-    indhcr
+    dhcrbbl,
+    dhcryear,
+    MAX(indhcr)
   FROM registrations
-  WHERE regno IS NOT NULL
+  GROUP BY dhcrbbl, dhcryear
   ORDER BY 1, 2'
   ,$$VALUES
     ('2007'::text), ('2008'::text), ('2009'::text),
     ('2010'::text), ('2011'::text), ('2012'::text),
     ('2013'::text), ('2014'::text)$$)
-AS ct ("regno" text, "2007" text, "2008" text, "2009" text,
+AS ct ("dhcrbbl" BIGINT, "2007" text, "2008" text, "2009" text,
        "2010" text, "2011" text, "2012" text, "2013" text, "2014" text);
 
 DROP TABLE IF EXISTS abatements_by_year;
@@ -171,7 +171,6 @@ DROP TABLE IF EXISTS joined;
 CREATE TABLE joined (
   borough TEXT,
   ucbbl BIGINT,
-  regno TEXT,
   "2007uc" INT, "2007dhcr" TEXT, "2007abat" TEXT,
   "2008uc" INT, "2008dhcr" TEXT, "2008abat" TEXT,
   "2009uc" INT, "2009dhcr" TEXT, "2009abat" TEXT,
@@ -198,7 +197,7 @@ CREATE TABLE joined (
   ycoord INTEGER
 );
 INSERT INTO joined
-SELECT boroughtext, ucbbl, rby.regno,
+SELECT boroughtext, ucbbl,
 rby."2007", indy."2007", aby."2007",
 rby."2008", indy."2008", aby."2008",
 rby."2009", indy."2009", aby."2009",
@@ -211,7 +210,7 @@ cd, ct2010, cb2010, council, zipcode, address, ownername,
   numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, xcoord, ycoord
 FROM registrations_by_year rby
      LEFT JOIN abatements_by_year aby ON rby.ucbbl = aby.bbl
-     LEFT JOIN indhcr_by_year indy ON rby.regno = indy.regno
+     LEFT JOIN indhcr_by_year indy ON rby.ucbbl = indy.dhcrbbl
      LEFT JOIN nyc_pluto pl ON rby.ucbbl = pl.bbl
 ORDER BY rby.ucbbl
 ;
