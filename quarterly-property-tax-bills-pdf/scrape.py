@@ -9,6 +9,9 @@ import logging
 import os
 import subprocess
 import sys
+#try:
+#    import re2 as re
+#except ImportError:
 import re
 import traceback
 from dateutil import parser
@@ -39,6 +42,23 @@ OWNER_ADDRESS_AREA = re.compile(
     r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)', re.DOTALL + re.IGNORECASE
 )
 
+SPLIT_RE = re.compile(r'\s{2,}')
+EXEMPTIONS_RE = re.compile(r'(Tax [Bb]efore [Ee]xemptions [Aa]nd [Aa]batements'
+                           r'.*?Tax [Bb]efore [Aa]batements)', re.DOTALL)
+UNITS_RE = re.compile(r'(\d+ [Uu]nits)')
+SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
+                         r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
+                         r'Tax Year Charges Remaining|' # prepayment
+                         r'Current Amount Due|' # due
+                         r'Current Charges|' # due
+                         r'Payment Agreement|' # ?
+                         r'Previous Balance|' # history
+                         r'Previous Charges' # history
+                         r')[ \n\r]+Activity Date.*?'
+                         r'(Total|Unpaid Balance, [iI]f Any)[\S ]*',
+                         re.DOTALL)
+RENT_LINE_RE = re.compile(r'\s+')
+
 def parseamount(string):
     """
     Convert string of style -$24,705.75 to float -24705.75
@@ -50,7 +70,7 @@ def split(string):
     """
     Split a string by any time there are multiple spaces
     """
-    return re.split(r'\s{2,}', string.strip())
+    return SPLIT_RE.split(string.strip())
 
 
 def parsedate(string):
@@ -98,15 +118,13 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
     yield data
 
     # Exemption lines
-    matches = re.finditer(r'(Tax [Bb]efore [Ee]xemptions [Aa]nd [Aa]batements'
-                          r'.*?Tax [Bb]efore [Aa]batements)',
-                          text, re.DOTALL)
+    matches = EXEMPTIONS_RE.finditer(text)
     for match in matches:
         for i, line in enumerate(match.group().split('\n')):
             if i == 0:
                 continue
             cells = split(line)
-            splitcell = re.split(r'(\d+ [Uu]nits)', cells[0])
+            splitcell = UNITS_RE.split(cells[0])
             if len(splitcell) > 1:
                 cells[0] = splitcell[0].strip()
                 cells.insert(1, splitcell[1].strip())
@@ -119,7 +137,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif len(cells) == 2:
                 continue
             else:
-                data['value'] = parseamount(cells[2])
+                data['value'] = parseamount(cells[-1])
 
             if len(cells) > 3:
                 if cells[1].lower().endswith('units'):
@@ -133,17 +151,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             #pdb.set_trace()
 
     # All other lines
-    matches = re.finditer(r'(Charges You Can Pre-pay|'  # prepayment
-                          r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
-                          r'Tax Year Charges Remaining|' # prepayment
-                          r'Current Amount Due|' # due
-                          r'Current Charges|' # due
-                          r'Payment Agreement|' # ?
-                          r'Previous Balance|' # history
-                          r'Previous Charges' # history
-                          r')[ \n\r]+Activity Date.*?'
-                          r'(Total|Unpaid Balance, [iI]f Any)[\S ]*',
-                          text, re.DOTALL)
+    matches = SECTIONS_RE.finditer(text)
     for match in matches:
         # TODO due_date actually needs to be figured out by determining which
         # column the line is in.
@@ -208,7 +216,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             elif cells[0].startswith('Activity Date'):
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
-                rent_line = re.split(r'\s+', line)
+                rent_line = RENT_LINE_RE.split(line)
                 key = ' '.join(rent_line[0:2])
                 if len(rent_line) < 4:
                     raise Exception('Unable to parse rent stabilization line')
