@@ -193,8 +193,8 @@ CREATE TABLE joined (
   unitstotal INTEGER,
   yearbuilt INTEGER,
   condono INTEGER,
-  xcoord INTEGER,
-  ycoord INTEGER
+  lon REAL,
+  lat REAL
 );
 INSERT INTO joined
 SELECT boroughtext, ucbbl,
@@ -207,7 +207,7 @@ rby."2012", indy."2012", aby."2012",
 rby."2013", indy."2013", aby."2013",
 rby."2014", indy."2014", aby."2014",
 cd, ct2010, cb2010, council, zipcode, address, ownername,
-  numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, xcoord, ycoord
+  numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, ST_X(geom), ST_Y(geom)
 FROM registrations_by_year rby
      LEFT JOIN abatements_by_year aby ON rby.ucbbl = aby.bbl
      LEFT JOIN indhcr_by_year indy ON rby.ucbbl = indy.dhcrbbl
