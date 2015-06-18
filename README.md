@@ -42,7 +42,7 @@ Make sure to put the street name in single quotes.
 
 2. Then do (running the download in the background):
 
-       python download.py /path/to/addresses.tsv >/path/to/log.txt 2>&1 &
+    python download.py /path/to/addresses.tsv >/path/to/log.txt 2>&1 &
 
 ### To parse the raw data into a CSV
 
