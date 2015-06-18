@@ -10,12 +10,14 @@ WHERE ucbbl IS NULL
 GROUP BY borough
 ORDER BY borough;
 
+-- dump TSV of manhattan bbls on hcr's list that we didn't scrape as of last
+-- import.sh
+\copy (select substr(dhcrbbl::text, 0, 2), substr(dhcrbbl::text, 2, 5)::int, substr(dhcrbbl::text, 8, 4)::int, dhcrbbl from registrations where ucbbl is null group by dhcrbbl) to input/dhcrmissingbbls.tsv
 
-select sum("2007"), sum("2008"), sum("2009"), sum("2010"),
-sum("2011"), sum("2012"), sum("2015"),
-sum("2015") - sum("2007"),
-(sum("2015") - sum("2007") * 1.0) / sum("2007")
+select borough, sum("2007uc"), sum("2008uc"), sum("2009uc"), sum("2010uc"),
+sum("2011uc"), sum("2013uc"), sum("2014uc")
 from joined
+group by borough;
 where
 --where "2007" is not null and
 -- "2008" is not null and
