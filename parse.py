@@ -32,10 +32,12 @@ HEADERS = [
     "apts"
 ]
 
-BILL, STATEMENT = ('Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf')
+BILL_PDF, STATEMENT_PDF, STATEMENT_HTML = (
+    'Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf',
+    'Quarterly Statement of Account.html')
 ACTIVITY_THROUGH = {
-    BILL: re.compile(r'Activity through (.*)', re.IGNORECASE),
-    STATEMENT: re.compile(r'Last Statement Through (.*?)\)', re.IGNORECASE)
+    BILL_PDF: re.compile(r'Activity through (.*)', re.IGNORECASE),
+    STATEMENT_PDF: re.compile(r'Last Statement Through (.*?)\)', re.IGNORECASE)
 }
 OWNER_ADDRESS_AREA = re.compile(
     r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
@@ -80,7 +82,7 @@ def parsedate(string):
     return parser.parse(string).strftime('%Y-%m-%d') #pylint: disable=no-member
 
 
-def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
+def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """
     Extract Quarterly Statement of Account data from text
 
@@ -89,9 +91,9 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
 
     # Unfortunately, STATEMENT filenames are laid out like BILLs sometimes...
     try:
-        activity_through = parsedate(ACTIVITY_THROUGH[BILL].search(text).group(1))
+        activity_through = parsedate(ACTIVITY_THROUGH[BILL_PDF].search(text).group(1))
     except AttributeError:
-        activity_through = parsedate(ACTIVITY_THROUGH[STATEMENT].search(text).group(1))
+        activity_through = parsedate(ACTIVITY_THROUGH[STATEMENT_PDF].search(text).group(1))
 
     base = {
         'bbl': bbl,
@@ -153,7 +155,7 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
     # All other lines
     matches = SECTIONS_RE.finditer(text)
     for match in matches:
-        # TODO due_date actually needs to be figured out by determining which
+        # todo due_date actually needs to be figured out by determining which
         # column the line is in.
 
         # Everything has a due date.  Only certain things (payments, additional
@@ -270,6 +272,103 @@ def extract(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-m
             yield data
 
 
+def _html_owner_name(html):
+    '''
+    Obtain owner name from soup
+    '''
+    #elem = soup.find(text=re.compile('Owner Name:'))
+    #return [c for c in elem.parent.parent.children][-1].strip()
+    match = re.search(r'Owner Name:.*?<img[^>]*>([^<]*)<', html, re.IGNORECASE)
+    return match.group(1).strip()
+
+
+def _html_activity_through(html):
+    '''
+    Obtain activity through name from html
+    '''
+    match = re.search(r'Last Statement through\s+([^)]+)', html)
+    return parsedate(match.group(1))
+
+
+def _html_rent_stabilized(html):
+    """
+    Extract every rent stabilized line from the soup.
+    """
+    #els = soup.find_all(text=re.compile('Housing-Rent Stabilization'))
+    #import pdb
+    #pdb.set_trace()
+    for section in re.finditer(r'(Current Amount Due|'
+                               r'Amount Not Due [bB]ut That Can be Paid Early|'
+                               r'New Charges Due \w+ \d{2}, \d{4}|'
+                               r'Remaining Balance/Credits from Your Last Statement|'
+                               r'Previous Balance'
+                               r')[^_]+?Activity Date.*?'
+                               r'_________________', html, re.DOTALL):
+        section_type = section.group(1)
+        section_text = section.group()
+        for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', section_text, re.IGNORECASE):
+            housing_rent, stabilization, num_apts, date, id1, id2, payment = \
+                    re.split(r'\s+', match.group(1).strip())
+            yield {
+                'key': ' '.join([housing_rent, stabilization]),
+                'section': section_type,
+                'apts': num_apts,
+                'value': payment,
+                'dueDate': parsedate(date),
+                'meta': id1 + ' ' + id2
+            }
+
+def _html_mailing_address(soup):
+    '''
+    Address to which tax bills are mailed to.
+    '''
+    mailing_address = soup.find(text=re.compile('Mailing Address:'))
+    table = mailing_address.parent.parent.parent.parent.parent
+    out = []
+    for i, row in enumerate(table.select('tr')):
+        if i == 0:
+            continue
+        cells = row.select('td')
+        if len(cells) == 2:
+            out.append(cells[1].text)
+    return '\n'.join(out).strip()
+
+
+
+def extract_html(html, bbl):
+    """
+    Extract Quarterly Statement of Account data from HTML
+
+    Yields a dict for each piece of data.
+    """
+    #soup = BeautifulSoup(html)
+
+    activity_through = _html_activity_through(html)
+
+    base = {
+        'bbl': bbl,
+        'activityThrough': activity_through
+    }
+
+    owner_name = _html_owner_name(html)
+    base.update({
+        'key': 'Owner name',
+        'value': owner_name
+    })
+    yield base
+
+    # mailing_address = _html_mailing_address(html)
+    # base.update({
+    #     'key': 'Mailing address',
+    #     'value': mailing_address
+    # })
+    # yield base
+
+    for rent_stabilized in _html_rent_stabilized(html):
+        base.update(rent_stabilized)
+        yield base
+
+
 def main(root):
     """
     Process a list of filenames with Quarterly Statement of Account data.
@@ -278,34 +377,38 @@ def main(root):
     writer.writeheader()
     for path, _, files in os.walk(root):
         for filename in files:
-            if BILL not in filename and STATEMENT not in filename:
-                continue
-
-            if 'corrupted' in filename:
-                continue
-
             try:
-                bbl = path.split(os.path.sep)[-3:]
-                pdf_path = os.path.join(path, filename)
-                text_path = pdf_path.replace('.pdf', '.txt')
-                if not os.path.exists(text_path):
-                    try:
-                        subprocess.check_call("pdftotext -layout '{}'".format(
-                            pdf_path
-                        ), shell=True)
-                    except subprocess.CalledProcessError as err:
-                        LOGGER.info('Moving & trying to repair %s', pdf_path)
-                        subprocess.check_call("mv '{}' '{}'".format(
-                            pdf_path, os.path.join(path, 'corrupted_' + filename)
-                        ), shell=True)
-                        subprocess.check_call("./download.py {}".format(
-                            ' '.join(bbl)
-                        ), shell=True)
+                if 'corrupted' in filename:
+                    continue
 
-                # date = path.split(os.path.sep)[-1].split(' - ')
-                with open(text_path, 'r') as handle:
-                    for data in extract(''.join(bbl), handle.read()):
-                        writer.writerow(data)
+                if STATEMENT_HTML in filename:
+                    bbl = ''.join(path.split(os.path.sep)[-3:])
+                    with open(os.path.join(path, filename), 'r') as handle:
+                        for data in extract_html(handle.read(), bbl):
+                            writer.writerow(data)
+
+                if BILL_PDF in filename or STATEMENT_PDF in filename:
+                    bbl = path.split(os.path.sep)[-3:]
+                    pdf_path = os.path.join(path, filename)
+                    text_path = pdf_path.replace('.pdf', '.txt')
+                    if not os.path.exists(text_path):
+                        try:
+                            subprocess.check_call("pdftotext -layout '{}'".format(
+                                pdf_path
+                            ), shell=True)
+                        except subprocess.CalledProcessError as err:
+                            LOGGER.info('Moving & trying to repair %s', pdf_path)
+                            subprocess.check_call("mv '{}' '{}'".format(
+                                pdf_path, os.path.join(path, 'corrupted_' + filename)
+                            ), shell=True)
+                            subprocess.check_call("./download.py {}".format(
+                                ' '.join(bbl)
+                            ), shell=True)
+
+                    # date = path.split(os.path.sep)[-1].split(' - ')
+                    with open(text_path, 'r') as handle:
+                        for data in extract_pdf(''.join(bbl), handle.read()):
+                            writer.writerow(data)
             except Exception as err:  # pylint: disable=broad-except
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
