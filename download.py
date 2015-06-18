@@ -225,7 +225,7 @@ def main(*args):
                 search(borough=args[0], block=int(args[1]), lot=int(args[2]))
             except ValueError:
                 search(house_number=args[0], street=args[1], borough=args[2])
-        except NYCServDownError:
+        except NYCServDownError as exc:
             down_for_maintenance = True
         except requests.ConnectionError as exc:
             if 'Connection aborted.' in str(exc[0]):
