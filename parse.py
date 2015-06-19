@@ -53,6 +53,7 @@ SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
                          r'Tax Year Charges Remaining|' # prepayment
                          r'Current Amount Due|' # due
                          r'Current Charges|' # due
+                         r'Overpayments/[Cc]redits|' # ?
                          r'Payment Agreement|' # ?
                          r'Previous Balance|' # history
                          r'Previous Charges' # history
@@ -148,9 +149,6 @@ def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,t
                     data['meta'] = cells[1]
 
             yield data
-
-            #import pdb
-            #pdb.set_trace()
 
     # All other lines
     matches = SECTIONS_RE.finditer(text)
