@@ -1,13 +1,13 @@
 LOAD CSV
-  FROM data/pdf-tax-bills.csv
+  FROM data/rawdata.csv
   INTO postgresql://postgres:docker4data@localhost:54321/postgres?rawdata
   WITH skip header = 2,
-       fields optionally enclosed by '"',  
+       fields optionally enclosed by '"',
        fields terminated by ',',
        batch concurrency = 1
-  BEFORE LOAD DO  
+  BEFORE LOAD DO
      $$ drop table if exists rawdata; $$,
-     $$ create table if not exists rawdata (  
+     $$ create table if not exists rawdata (
          bbl bigint,
          activityThrough DATE,
          section TEXT,
@@ -19,11 +19,3 @@ LOAD CSV
          apts INT
         );
    $$;
-LOAD CSV
-  FROM data/html-statement-of-account.csv
-  INTO postgresql://postgres:docker4data@localhost:54321/postgres?rawdata
-  WITH skip header = 2,
-       fields optionally enclosed by '"',  
-       fields terminated by ',',
-       batch concurrency = 1
-;
