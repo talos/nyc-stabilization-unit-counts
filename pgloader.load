@@ -4,7 +4,11 @@ LOAD CSV
   WITH skip header = 2,
        fields optionally enclosed by '"',
        fields terminated by ',',
-       batch concurrency = 1
+       batch concurrency = 1,
+       batch rows = 1000,
+       batch size = 5MB
+  SET work_mem to '16MB',
+      maintenance_work_mem to '100 MB'
   BEFORE LOAD DO
      $$ drop table if exists rawdata; $$,
      $$ create table if not exists rawdata (
