@@ -9,9 +9,6 @@ import logging
 import os
 import subprocess
 import sys
-#try:
-#    import re2 as re
-#except ImportError:
 import re
 import traceback
 from dateutil import parser
@@ -32,9 +29,10 @@ HEADERS = [
     "apts"
 ]
 
-BILL_PDF, STATEMENT_PDF, STATEMENT_HTML = (
+BILL_PDF, STATEMENT_PDF, STATEMENT_HTML, NOPV_PDF, NOPV_HTML = (
     'Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf',
-    'Quarterly Statement of Account.html')
+    'Quarterly Statement of Account.html', 'Notice of Property Value.pdf',
+    'Notice of Property Value.html')
 ACTIVITY_THROUGH = {
     BILL_PDF: re.compile(r'Activity through (.*)', re.IGNORECASE),
     STATEMENT_PDF: re.compile(r'Last Statement Through (.*?)\)', re.IGNORECASE)
@@ -61,6 +59,10 @@ SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
                          r'(Total|Unpaid Balance, [iI]f Any)[\S ]*',
                          re.DOTALL)
 RENT_LINE_RE = re.compile(r'\s+')
+GROSS_INCOME_RE = re.compile(r'(\s*Gross Income:\s*We estimated gross income at \$(.*)\.|'
+                             r'Estimated Gross Income:\s*\$(.*))')
+EXPENSES_RE = re.compile(r'(\s*Expenses:\s*We estimated expenses at \$(.*)\.|'
+                         r'Estimated Expenses:\s*\$(.*))')
 
 def parseamount(string):
     """
@@ -83,7 +85,7 @@ def parsedate(string):
     return parser.parse(string).strftime('%Y-%m-%d') #pylint: disable=no-member
 
 
-def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
+def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """
     Extract Quarterly Statement of Account data from text
 
@@ -91,34 +93,25 @@ def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,t
     """
 
     # Unfortunately, STATEMENT filenames are laid out like BILLs sometimes...
-    try:
-        activity_through = parsedate(ACTIVITY_THROUGH[BILL_PDF].search(text).group(1))
-    except AttributeError:
-        activity_through = parsedate(ACTIVITY_THROUGH[STATEMENT_PDF].search(text).group(1))
-
-    base = {
-        'bbl': bbl,
-        'activityThrough': activity_through
-    }
+    #try:
+    #    activity_through = parsedate(ACTIVITY_THROUGH[BILL_PDF].search(text).group(1))
+    #except AttributeError:
+    #    activity_through = parsedate(ACTIVITY_THROUGH[STATEMENT_PDF].search(text).group(1))
 
     owner_address_area = OWNER_ADDRESS_AREA.search(text).groups()
     owner_address_split = [split(x) for x in owner_address_area][:-1]
 
     owner_name = owner_address_split[0][0]
-    data = base.copy()
-    data.update({
+    yield {
         'key': 'Owner name',
         'value': owner_name
-    })
-    yield data
+    }
 
     mailing_address = '\\n'.join(x[1] if len(x) > 1 else '' for x in owner_address_split).strip()
-    data = base.copy()
-    data.update({
+    yield {
         'key': 'Mailing address',
         'value': mailing_address
-    })
-    yield data
+    }
 
     # Exemption lines
     matches = EXEMPTIONS_RE.finditer(text)
@@ -132,7 +125,7 @@ def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,t
                 cells[0] = splitcell[0].strip()
                 cells.insert(1, splitcell[1].strip())
 
-            data = base.copy()
+            data = {}
             data['key'] = cells[0]
             data['section'] = 'exemptions'
             if len(cells) == 1:
@@ -257,8 +250,7 @@ def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,t
                 #import pdb
                 #pdb.set_trace()
 
-            data = base.copy()
-            data.update({
+            yield {
                 'key': key,
                 'value': value,
                 'dueDate': stabilization_due_date or due_date,
@@ -266,8 +258,7 @@ def extract_pdf(bbl, text): #pylint: disable=too-many-locals,too-many-branches,t
                 'meta': meta,
                 'apts': apts,
                 'section': section
-            })
-            yield data
+            }
 
 
 def _html_owner_name(html):
@@ -278,14 +269,6 @@ def _html_owner_name(html):
     #return [c for c in elem.parent.parent.children][-1].strip()
     match = re.search(r'Owner Name:.*?<img[^>]*>([^<]*)<', html, re.IGNORECASE)
     return match.group(1).strip()
-
-
-def _html_activity_through(html):
-    '''
-    Obtain activity through name from html
-    '''
-    match = re.search(r'Last Statement through\s+([^)]+)', html)
-    return parsedate(match.group(1))
 
 
 def _html_rent_stabilized(html):
@@ -332,8 +315,7 @@ def _html_mailing_address(soup):
     return '\n'.join(out).strip()
 
 
-
-def extract_html(html, bbl):
+def extract_statement_html(html):
     """
     Extract Quarterly Statement of Account data from HTML
 
@@ -341,19 +323,12 @@ def extract_html(html, bbl):
     """
     #soup = BeautifulSoup(html)
 
-    activity_through = _html_activity_through(html)
+    #activity_through = _html_activity_through(html)
 
-    base = {
-        'bbl': bbl,
-        'activityThrough': activity_through
-    }
-
-    owner_name = _html_owner_name(html)
-    base.update({
+    yield {
         'key': 'Owner name',
-        'value': owner_name
-    })
-    yield base
+        'value': _html_owner_name(html)
+    }
 
     # mailing_address = _html_mailing_address(html)
     # base.update({
@@ -363,11 +338,57 @@ def extract_html(html, bbl):
     # yield base
 
     for rent_stabilized in _html_rent_stabilized(html):
-        base.update(rent_stabilized)
-        yield base
+        yield rent_stabilized
 
 
-def main(root):
+def extract_nopv(text):
+    """
+    Extract notice of property value data.
+
+    Yields a dict for each piece of data.
+    """
+    income = GROSS_INCOME_RE.search(text)
+    if income:
+        yield {
+            'key': 'gross income',
+            'section': 'nopv',
+            'value': parseamount(income.group(2) or income.group(3))
+        }
+    expenses = EXPENSES_RE.search(text)
+    if expenses:
+        yield {
+            'key': 'expenses',
+            'section': 'nopv',
+            'value': parseamount(expenses.group(2) or income.group(3))
+        }
+
+
+def _convert_to_txt(pdf_path, bbl_array):
+    """
+    Convert a PDF to text if it hasn't been already.  Returns the path to the
+    new text file.
+
+    If it's unable to parse an existing PDF, tries to redownload it using
+    bbl_array.
+    """
+    text_path = pdf_path.replace('.pdf', '.txt')
+    if not os.path.exists(text_path):
+        try:
+            subprocess.check_call("pdftotext -layout '{}'".format(
+                pdf_path
+            ), shell=True)
+        except subprocess.CalledProcessError as err:
+            LOGGER.info('Moving & trying to repair %s (%s)', pdf_path, err)
+            subprocess.check_call("mv '{}' '{}'".format(
+                pdf_path, os.path.join(pdf_path, pdf_path + '_corrupted')
+            ), shell=True)
+            subprocess.check_call("./download.py {}".format(
+                ' '.join(bbl_array)
+            ), shell=True)
+    return text_path
+
+
+def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """
     Process a list of filenames with Quarterly Statement of Account data.
     """
@@ -379,34 +400,34 @@ def main(root):
                 if 'corrupted' in filename:
                     continue
 
-                if STATEMENT_HTML in filename:
-                    bbl = ''.join(path.split(os.path.sep)[-3:])
-                    with open(os.path.join(path, filename), 'r') as handle:
-                        for data in extract_html(handle.read(), bbl):
-                            writer.writerow(data)
+                handler = None
+                bbl_array = path.split(os.path.sep)[-3:]
+
+                if filename.endswith('.pdf'):
+                    pdf_path = os.path.join(path, filename)
+                    data_path = _convert_to_txt(pdf_path, bbl_array)
+                else:
+                    data_path = os.path.join(path, filename)
 
                 if BILL_PDF in filename or STATEMENT_PDF in filename:
-                    bbl = path.split(os.path.sep)[-3:]
-                    pdf_path = os.path.join(path, filename)
-                    text_path = pdf_path.replace('.pdf', '.txt')
-                    if not os.path.exists(text_path):
-                        try:
-                            subprocess.check_call("pdftotext -layout '{}'".format(
-                                pdf_path
-                            ), shell=True)
-                        except subprocess.CalledProcessError as err:
-                            LOGGER.info('Moving & trying to repair %s', pdf_path)
-                            subprocess.check_call("mv '{}' '{}'".format(
-                                pdf_path, os.path.join(path, 'corrupted_' + filename)
-                            ), shell=True)
-                            subprocess.check_call("./download.py {}".format(
-                                ' '.join(bbl)
-                            ), shell=True)
+                    handler = extract_statement_pdf
+                elif NOPV_PDF in filename or NOPV_HTML in filename:
+                    handler = extract_nopv
+                elif STATEMENT_HTML in filename:
+                    handler = extract_statement_html
 
-                    # date = path.split(os.path.sep)[-1].split(' - ')
-                    with open(text_path, 'r') as handle:
-                        for data in extract_pdf(''.join(bbl), handle.read()):
-                            writer.writerow(data)
+                if handler:
+                    with open(data_path, 'r') as handle:
+                        file_data = handle.read()
+                    activity_through = parsedate(filename.split(' - ')[0])
+                    for data in handler(file_data):
+                        base = {
+                            'bbl': ''.join(bbl_array),
+                            'activityThrough': activity_through
+                        }
+                        base.update(data)
+                        writer.writerow(base)
+
             except Exception as err:  # pylint: disable=broad-except
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
