@@ -171,14 +171,14 @@ DROP TABLE IF EXISTS joined;
 CREATE TABLE joined (
   borough TEXT,
   ucbbl BIGINT,
-  "2007uc" INT, "2007dhcr" TEXT, "2007abat" TEXT,
-  "2008uc" INT, "2008dhcr" TEXT, "2008abat" TEXT,
-  "2009uc" INT, "2009dhcr" TEXT, "2009abat" TEXT,
-  "2010uc" INT, "2010dhcr" TEXT, "2010abat" TEXT,
-  "2011uc" INT, "2011dhcr" TEXT, "2011abat" TEXT,
-  "2012uc" INT, "2012dhcr" TEXT, "2012abat" TEXT,
-  "2013uc" INT, "2013dhcr" TEXT, "2013abat" TEXT,
-  "2014uc" INT, "2014dhcr" TEXT, "2014abat" TEXT,
+  "2007uc" INT, "2007est" TEXT, "2007dhcr" TEXT, "2007abat" TEXT,
+  "2008uc" INT, "2008est" TEXT, "2008dhcr" TEXT, "2008abat" TEXT,
+  "2009uc" INT, "2009est" TEXT, "2009dhcr" TEXT, "2009abat" TEXT,
+  "2010uc" INT, "2010est" TEXT, "2010dhcr" TEXT, "2010abat" TEXT,
+  "2011uc" INT, "2011est" TEXT, "2011dhcr" TEXT, "2011abat" TEXT,
+  "2012uc" INT, "2012est" TEXT, "2012dhcr" TEXT, "2012abat" TEXT,
+  "2013uc" INT, "2013est" TEXT, "2013dhcr" TEXT, "2013abat" TEXT,
+  "2014uc" INT, "2014est" TEXT, "2014dhcr" TEXT, "2014abat" TEXT,
   --"2015uc" INT, "2015dhcr" TEXT, "2015abat" TEXT,
   cd INTEGER,
   ct2010 TEXT,
@@ -198,14 +198,14 @@ CREATE TABLE joined (
 );
 INSERT INTO joined
 SELECT boroughtext, ucbbl,
-rby."2007", indy."2007", aby."2007",
-rby."2008", indy."2008", aby."2008",
-rby."2009", indy."2009", aby."2009",
-rby."2010", indy."2010", aby."2010",
-rby."2011", indy."2011", aby."2011",
-rby."2012", indy."2012", aby."2012",
-rby."2013", indy."2013", aby."2013",
-rby."2014", indy."2014", aby."2014",
+rby."2007", 'N', indy."2007", aby."2007",
+rby."2008", 'N', indy."2008", aby."2008",
+rby."2009", 'N', indy."2009", aby."2009",
+rby."2010", 'N', indy."2010", aby."2010",
+rby."2011", 'N', indy."2011", aby."2011",
+rby."2012", 'N', indy."2012", aby."2012",
+rby."2013", 'N', indy."2013", aby."2013",
+rby."2014", 'N', indy."2014", aby."2014",
 cd, ct2010, cb2010, council, zipcode, address, ownername,
   numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, ST_X(geom), ST_Y(geom)
 FROM registrations_by_year rby
@@ -214,9 +214,33 @@ FROM registrations_by_year rby
      LEFT JOIN nyc_pluto pl ON rby.ucbbl = pl.bbl
 ORDER BY rby.ucbbl
 ;
+
+/* TODO below -- very liberal with 07/08 fillins because we lack abatement
+ * info. */
+/* backfill from beginning to end. */
+UPDATE joined SET "2008uc" = "2007uc", "2008est" = 'Y' WHERE "2008uc" IS NULL AND "2007uc" IS NOT NULL;
+UPDATE joined SET "2009uc" = "2009uc", "2009est" = 'Y' WHERE "2009uc" IS NULL AND "2008uc" IS NOT NULL AND ("2009abat" = "2009abat" OR "2009abat" LIKE '%SCRIE%' OR "2009abat" LIKE '%DRIE%' OR "2009dhcr" = 'Y');
+UPDATE joined SET "2010uc" = "2009uc", "2010est" = 'Y' WHERE "2010uc" IS NULL AND "2009uc" IS NOT NULL AND ("2009abat" = "2010abat" OR "2010abat" LIKE '%SCRIE%' OR "2010abat" LIKE '%DRIE%' OR "2010dhcr" = 'Y');
+UPDATE joined SET "2011uc" = "2010uc", "2011est" = 'Y' WHERE "2011uc" IS NULL AND "2010uc" IS NOT NULL AND ("2010abat" = "2011abat" OR "2011abat" LIKE '%SCRIE%' OR "2011abat" LIKE '%DRIE%' OR "2011dhcr" = 'Y');
+UPDATE joined SET "2012uc" = "2011uc", "2012est" = 'Y' WHERE "2012uc" IS NULL AND "2011uc" IS NOT NULL AND ("2011abat" = "2012abat" OR "2012abat" LIKE '%SCRIE%' OR "2012abat" LIKE '%DRIE%' OR "2012dhcr" = 'Y');
+UPDATE joined SET "2013uc" = "2012uc", "2013est" = 'Y' WHERE "2013uc" IS NULL AND "2012uc" IS NOT NULL AND ("2012abat" = "2013abat" OR "2013abat" LIKE '%SCRIE%' OR "2013abat" LIKE '%DRIE%' OR "2013dhcr" = 'Y');
+UPDATE joined SET "2014uc" = "2013uc", "2014est" = 'Y' WHERE "2014uc" IS NULL AND "2013uc" IS NOT NULL AND ("2013abat" = "2014abat" OR "2014abat" LIKE '%SCRIE%' OR "2014abat" LIKE '%DRIE%' OR "2014dhcr" = 'Y');
+
+/* backfill from end to beginning, if abatements are unchanged. */
+UPDATE joined SET "2013uc" = "2014uc", "2013est" = 'Y' WHERE "2013uc" IS NULL AND "2014uc" IS NOT NULL AND ("2013abat" = "2014abat" OR "2013abat" LIKE '%SCRIE%' OR "2013abat" LIKE '%DRIE%' OR "2013dhcr" = 'Y');
+UPDATE joined SET "2012uc" = "2013uc", "2012est" = 'Y' WHERE "2012uc" IS NULL AND "2013uc" IS NOT NULL AND ("2012abat" = "2013abat" OR "2012abat" LIKE '%SCRIE%' OR "2012abat" LIKE '%DRIE%' OR "2012dhcr" = 'Y');
+UPDATE joined SET "2011uc" = "2012uc", "2011est" = 'Y' WHERE "2011uc" IS NULL AND "2012uc" IS NOT NULL AND ("2011abat" = "2012abat" OR "2011abat" LIKE '%SCRIE%' OR "2011abat" LIKE '%DRIE%' OR "2011dhcr" = 'Y');
+UPDATE joined SET "2010uc" = "2011uc", "2010est" = 'Y' WHERE "2010uc" IS NULL AND "2011uc" IS NOT NULL AND ("2010abat" = "2011abat" OR "2010abat" LIKE '%SCRIE%' OR "2010abat" LIKE '%DRIE%' OR "2010dhcr" = 'Y');
+UPDATE joined SET "2009uc" = "2010uc", "2009est" = 'Y' WHERE "2009uc" IS NULL AND "2010uc" IS NOT NULL AND ("2009abat" = "2010abat" OR "2009abat" LIKE '%SCRIE%' OR "2009abat" LIKE '%DRIE%' OR "2009dhcr" = 'Y');
+UPDATE joined SET "2008uc" = "2009uc", "2008est" = 'Y' WHERE "2008uc" IS NULL AND "2009uc" IS NOT NULL;
+UPDATE joined SET "2007uc" = "2008uc", "2007est" = 'Y' WHERE "2007uc" IS NULL AND "2008uc" IS NOT NULL;
+
 --GROUP BY bbl, r.regno, "2007", "2008", "2009", "2010", "2011", "2012",
 --  "2015", cd, ct2010, cb2010, council, zipcode, address, ownername,
 --  numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, xcoord, ycoord
 
 \copy joined TO '/data/nyc-rent-stabilization-data/joined.csv' WITH CSV DELIMITER ',' HEADER
 
+\copy (select cd, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined  group by cd order by cd) TO '/data/nyc-rent-stabilization-data/cds.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select borough, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined  group by borough order by borough) TO '/data/nyc-rent-stabilization-data/boroughs.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select *, 1.0 - ("2014uc"::real/"2007uc") as droppercent from joined where "2007uc" is not null and "2008uc" is not null and "2009uc" is not null and "2010uc" is not null and "2011uc" is not null and "2012uc" is not null and "2013uc" is not null and "2014uc" is not null and "2007uc" > 9 and "2014uc"::real/"2007uc" < 0.5) TO '/data/nyc-rent-stabilization-data/hqdrops.csv' WITH CSV DELIMITER ',' HEADER
