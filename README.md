@@ -202,13 +202,13 @@ This is the table that underlies the map.
   greatest number of stabilized units reported on a tax bill.
 - __j51__: Start and end year of any J51 abatement.  Earliest start possible
   is 2009.
-- __j51__: Start and end year of any 421-a abatement.  Earliest start possible
+- __421a__: Start and end year of any 421-a abatement.  Earliest start possible
   is 2009.
-- __j51__: Start and end year of any SCRIE abatement.  Earliest start possible
+- __scrie__: Start and end year of any SCRIE abatement.  Earliest start possible
   is 2009.
-- __j51__: Start and end year of any DRIE abatement.  Earliest start possible
+- __drie__: Start and end year of any DRIE abatement.  Earliest start possible
   is 2009.
-- __j51__: Start and end year of any 420C abatement.  Earliest start possible
+- __420c__: Start and end year of any 420C (LIHTC) abatement.  Earliest start possible
   is 2009.
 - *All remaining columns are from PLUTO as above.*
 
