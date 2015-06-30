@@ -57,7 +57,7 @@ Then create a virtualenv and install the requirements in it:
     source .env/bin/activate
     pip install -r requirements.txt
 
-## Usage
+## Developer Usage
 
 ### To download all documents for a single address:
 
@@ -121,13 +121,99 @@ stabilization building list history.)
 
     ./import.sh
 
-## Sample
+## Data Usage
 
-You can see a sample of data being collected [here](http://www.taxbills.nyc/).
+You can see all data [here](http://www.taxbills.nyc/).
 
-Downloading is currently in progress.  Almost all of Manhattan 6+ unit
-buildings have been downloaded, along with everything in Manhattan ever on the
-DHCR rent stabilization list.  Outside of Manhattan, all 10+ unit buildings
-have been downloaded.
+Downloading is complete.  This means all 6+ unit buildings, in addition to all
+buildings on DHCR's stabilized buildings list, are available and parsed.
 
-Folder scheme: `data/<borough>/<block>/<lot>/`
+Folder scheme for bills: `data/<borough>/<block>/<lot>/`
+
+All PDFs are converted to their textual representations in the same folder.
+
+### A [crosstab CSV with unit counts and abatements 2007-2014](http://taxbills.nyc/joined.csv)
+
+Probably the most useful file for journalists or data-minded community advocates.
+This file has a row for every possibly stabilized building in New York.  There
+could  be stabilized buildings not on the list, but it is unlikely.  Any
+building with 6 or more units as well as any building that was ever on HCR's
+own list of stabilized buildings was scraped.  Buildings are aggregated by BBL.
+
+- __borough__: Borough of this lot.
+- __ucbbl__: The BBL.
+- __2007uc__: The unit count in 2007.  This is based off of the rent
+  stabilization surcharge dated "4/1/2007", which appears in tax bills
+  starting 2008.  The parser sums these counts when a single tax bill
+  includes multiple buildings, but is careful not to double-count if previous
+  years' surcharges reappear.
+- __2007est__: Whether or not this is an estimated unit count.  As
+  registration is voluntary, it is common for a building to miss a year, or
+  even several.  In such cases, an estimate is made using the previous year's
+  count *if* a Disability Rent Increase Exemption (DRIE) or Senior Citizen
+  Rent Increase Excemption (SCRIE) appears on the tax bill, *or* if the same
+  abatements (for example, a 421a abatement) are collected as the prior year,
+  *or* if the building appeared on HCR's rent stabilized buildings list that
+  year.
+- __2007dhcr__: Whether the building appeared on DHCR's list that year.
+  Blank if DHCR did not publish a list for that year.
+- __2007abat__: A list of all abatements and exemptions claimed on that
+  year's tax bill.  This includes 421a, J51, 420C (LIHTC), SCRIE, DRIE, and
+  several others.
+- *These columns repeat for every year up to and including 2014*
+- __cd__: The community district, from PLUTO.  All remaining columns are from
+  PLUTO.
+- __ct2010__: Census tract in 2010 census.
+- __cb2010__: Census block in 2010 census.
+- __council__: The city council district.
+- __zipcode__: The zip code.
+- __address__: An address for the lot, although it could have several.
+- __ownername__: The name of the lot's owner.  Oftentimes just an LLC.
+- __numbldgs__: The number of buildings on the lot.
+- __numfloors__: The approximate number of floors on the lot's buildings.
+- __unitsres__: An approximate number of residential units in the lot's
+  buildings.
+- __unitstotal__: An approximate number of residential & commercial units in
+  the lot's buildings.
+- __yearbuilt__: An approximate year built, not particularly accurate.
+  Especially poor quality in older buildings.
+- __condono__: The condo number, which links together different lots into a
+  single condo development.
+- __lon__: The lot's centerpoint longitude.
+- __lat__: The lot's centerpoint latitude.
+
+### A CSV as above but with [a separate row for each year](http://taxbills.nyc/joined-nocrosstab.csv)
+
+The columns are the same as before, except instead of having separate columns
+for each year of observation, there is a separate row.
+
+This would be more useful for making a time-based map or doing statistical
+analysis where the year column can be fed in as a proper dimension.
+
+### A [summary of building changes](http://taxbills.nyc/joined-nocrosstab.csv) over the seven-year span.
+
+This is the table that underlies the map.
+
+- __ucbbl__: The BBL.
+- __diff__: The number of stabilized units gained or lost between 2007 and
+  2014.
+- __percentchange__: The percentage increase or loss.  The denominator for
+  this calculation is the greatest of `unitsres`, `unitstotal`, or the
+  greatest number of stabilized units reported on a tax bill.
+- __j51__: Start and end year of any J51 abatement.  Earliest start possible
+  is 2009.
+- __j51__: Start and end year of any 421-a abatement.  Earliest start possible
+  is 2009.
+- __j51__: Start and end year of any SCRIE abatement.  Earliest start possible
+  is 2009.
+- __j51__: Start and end year of any DRIE abatement.  Earliest start possible
+  is 2009.
+- __j51__: Start and end year of any 420C abatement.  Earliest start possible
+  is 2009.
+- *All remaining columns are from PLUTO as above.*
+
+### Borough/CD summary tables
+
+These are simple breakdowns of changes over the seven-year period by
+[borough](http://taxbills.nyc/boroughs.csv) and
+[community district](http://taxbills.nyc/cds.csv).
