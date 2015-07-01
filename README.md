@@ -132,6 +132,32 @@ Folder scheme for bills: `data/<borough>/<block>/<lot>/`
 
 All PDFs are converted to their textual representations in the same folder.
 
+#### Caveats
+
+The combination of self-reporting stabilization counts and occasionally missing
+tax bills means that a significant percentage of buildings miss reporting for
+some years.
+
+In order to compensate, all output files contain some *estimated* counts,
+marked as such in the `<YYYY>est` columns below.  You can exclude these
+estimates in your own aggregations by replacing those unit counts with 0.
+
+If there is no stabilized unit count for a building that had one the previous
+year, the previous year's number is used in any of the following cases:
+
+* The bill without a unit count had a SCRIE or DRIE abatement, indicating the
+  continued presence of regulated units.
+* The bill without a unit count maintained the same abatements as the previous
+  year (for example 421a or J51) indicating that restrictions mandating
+  affordability remained in effect.
+* The building appeared on HCR's stabilized building list for the year without
+  a unit count, indicating that it was in fact still stabilized.
+
+After working forwards through the years with the above criteria, they are
+re-used going backwards.  For example, if in 2008 a building reported no units,
+but it had a SCRIE or DRIE abatement in effect, the count from 2009 will be
+used if it is available.
+
 ### A [crosstab CSV with unit counts and abatements 2007-2014](http://taxbills.nyc/joined.csv)
 
 Probably the most useful file for journalists or data-minded community advocates.
@@ -149,12 +175,8 @@ own list of stabilized buildings was scraped.  Buildings are aggregated by BBL.
   years' surcharges reappear.
 - __2007est__: Whether or not this is an estimated unit count.  As
   registration is voluntary, it is common for a building to miss a year, or
-  even several.  In such cases, an estimate is made using the previous year's
-  count *if* a Disability Rent Increase Exemption (DRIE) or Senior Citizen
-  Rent Increase Excemption (SCRIE) appears on the tax bill, *or* if the same
-  abatements (for example, a 421a abatement) are collected as the prior year,
-  *or* if the building appeared on HCR's rent stabilized buildings list that
-  year.
+  even several.  See the section [Caveats](#caveats) above for information
+  about how estimates are derived.
 - __2007dhcr__: Whether the building appeared on DHCR's list that year.
   Blank if DHCR did not publish a list for that year.
 - __2007abat__: A list of all abatements and exemptions claimed on that
@@ -195,6 +217,11 @@ analysis where the year column can be fed in as a proper dimension.
 This is the table that underlies the map.
 
 - __ucbbl__: The BBL.
+- __unitstotal__: An estimate of the number of units in the building.  This is
+  the greatest of PLUTO's `unitstotal`, `unitsres`, or the highest stabilized
+  unit count ever recorded on this BBL's tax bills.
+- __unitsstab2007__: The number of stabilized units in 2007.
+- __unitsstab2014__: The number of stabilized units in 2014.
 - __diff__: The number of stabilized units gained or lost between 2007 and
   2014.
 - __percentchange__: The percentage increase or loss.  The denominator for
