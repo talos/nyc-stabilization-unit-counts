@@ -132,32 +132,6 @@ Folder scheme for bills: `data/<borough>/<block>/<lot>/`
 
 All PDFs are converted to their textual representations in the same folder.
 
-#### Caveats
-
-The combination of self-reporting stabilization counts and occasionally missing
-tax bills means that a significant percentage of buildings miss reporting for
-some years.
-
-In order to compensate, all output files contain some *estimated* counts,
-marked as such in the `<YYYY>est` columns below.  You can exclude these
-estimates in your own aggregations by replacing those unit counts with 0.
-
-If there is no stabilized unit count for a building that had one the previous
-year, the previous year's number is used in any of the following cases:
-
-* The bill without a unit count had a SCRIE or DRIE abatement, indicating the
-  continued presence of regulated units.
-* The bill without a unit count maintained the same abatements as the previous
-  year (for example 421a or J51) indicating that restrictions mandating
-  affordability remained in effect.
-* The building appeared on HCR's stabilized building list for the year without
-  a unit count, indicating that it was in fact still stabilized.
-
-After working forwards through the years with the above criteria, they are
-re-used going backwards.  For example, if in 2008 a building reported no units,
-but it had a SCRIE or DRIE abatement in effect, the count from 2009 will be
-used if it is available.
-
 ### A [crosstab CSV with unit counts and abatements 2007-2014](http://taxbills.nyc/joined.csv)
 
 Probably the most useful file for journalists or data-minded community advocates.
@@ -244,3 +218,42 @@ This is the table that underlies the map.
 These are simple breakdowns of changes over the seven-year period by
 [borough](http://taxbills.nyc/boroughs.csv) and
 [community district](http://taxbills.nyc/cds.csv).
+
+### Estimates of [income and expense](http://taxbills.nyc/nopv.csv)
+
+Every year, Finance estimates the earnings and expenses of rentals as part of
+the assessment.  For larger (10+ unit) buildings, these estimates are based
+upon real earnings and expense data filed by the landlord.
+
+This table is simply an extract and simplification of the raw data.
+
+- __bbl__: The BBL of the property
+- __activityThrough__: The date of the bill.
+- __key__: Whether this is an estimate of income or expense.
+- __value__: The dollar amount of the estimate.
+
+#### Caveats
+
+The combination of self-reporting stabilization counts and occasionally missing
+tax bills means that a significant percentage of buildings miss reporting for
+some years.
+
+In order to compensate, all output files contain some *estimated* counts,
+marked as such in the `<YYYY>est` columns below.  You can exclude these
+estimates in your own aggregations by replacing those unit counts with 0.
+
+If there is no stabilized unit count for a building that had one the previous
+year, the previous year's number is used in any of the following cases:
+
+* The bill without a unit count had a SCRIE or DRIE abatement, indicating the
+  continued presence of regulated units.
+* The bill without a unit count maintained the same abatements as the previous
+  year (for example 421a or J51) indicating that restrictions mandating
+  affordability remained in effect.
+* The building appeared on HCR's stabilized building list for the year without
+  a unit count, indicating that it was in fact still stabilized.
+
+After working forwards through the years with the above criteria, they are
+re-used going backwards.  For example, if in 2008 a building reported no units,
+but it had a SCRIE or DRIE abatement in effect, the count from 2009 will be
+used if it is available.
