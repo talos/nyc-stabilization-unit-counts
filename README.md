@@ -149,7 +149,7 @@ own list of stabilized buildings was scraped.  Buildings are aggregated by BBL.
   years' surcharges reappear.
 - __2007est__: Whether or not this is an estimated unit count.  As
   registration is voluntary, it is common for a building to miss a year, or
-  even several.  See the section [Caveats](#caveats) above for information
+  even several.  See the section [Caveats](#caveats) below for information
   about how estimates are derived.
 - __2007dhcr__: Whether the building appeared on DHCR's list that year.
   Blank if DHCR did not publish a list for that year.
