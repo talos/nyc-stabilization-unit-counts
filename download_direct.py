@@ -16,6 +16,55 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 
+PERIODS = [
+    #'20120817 - Quarterly Property Tax Bill.pdf',
+    'August 22, 2008 - Quarterly Statement of Account.html',
+    'August 22, 2014 - Quarterly Property Tax Bill.pdf',
+    'August 23, 2013 - Quarterly Property Tax Bill.pdf',
+    'August 26, 2011 - Quarterly Statement of Account.pdf',
+    'August 27, 2010 - Quarterly Statement of Account.pdf',
+    'August 28, 2009 - Quarterly Statement of Account.pdf',
+    'December 19, 2008 - Quarterly Statement of Account.html',
+    'February 18, 2011 - Quarterly Statement of Account.pdf',
+    'February 20, 2009 - Quarterly Statement of Account.html',
+    'February 20, 2015 - Quarterly Property Tax Bill.pdf',
+    'February 21, 2014 - Quarterly Property Tax Bill.pdf',
+    'February 22, 2013 - Quarterly Property Tax Bill.pdf',
+    'February 24, 2012 - Quarterly Statement of Account.pdf',
+    'February 26, 2010 - Quarterly Statement of Account.pdf',
+    'January 15, 2005 - Notice of Property Value.html',
+    'January 15, 2006 - Notice of Property Value.html',
+    'January 15, 2007 - Notice of Property Value.html',
+    'January 15, 2008 - Notice of Property Value.html',
+    'January 15, 2009 - Notice of Property Value.html',
+    'January 15, 2010 - Notice of Property Value.pdf',
+    'January 15, 2010 - Tentative Assessment Roll.html',
+    'January 15, 2011 - Notice of Property Value.pdf',
+    'January 15, 2011 - Tentative Assessment Roll.html',
+    'January 15, 2012 - Notice of Property Value.pdf',
+    'January 15, 2012 - Tentative Assessment Roll.html',
+    'January 15, 2013 - Notice of Property Value.pdf',
+    'January 15, 2013 - Tentative Assessment Roll.html',
+    'January 15, 2014 - Notice of Property Value.pdf',
+    'January 15, 2014 - Tentative Assessment Roll.html',
+    'January 15, 2015 - Notice of Property Value.pdf',
+    'January 15, 2015 - Tentative Assessment Roll.html',
+    'June 10, 2011 - Quarterly Statement of Account.pdf',
+    'June 11, 2010 - Quarterly Statement of Account.pdf',
+    'June 13, 2008 - Quarterly Statement of Account.html',
+    'June 5, 2015 - Quarterly Property Tax Bill.pdf',
+    'June 6, 2009 - Quarterly Statement of Account.pdf',
+    'June 6, 2014 - Quarterly Property Tax Bill.pdf',
+    'June 7, 2013 - Quarterly Property Tax Bill.pdf',
+    'June 8, 2012 - Quarterly Property Tax Bill.pdf',
+    'November 18, 2011 - Quarterly Statement of Account.pdf',
+    'November 19, 2010 - Quarterly Statement of Account.pdf',
+    'November 20, 2009 - Quarterly Statement of Account.pdf',
+    'November 21, 2014 - Quarterly Property Tax Bill.pdf',
+    'November 22, 2013 - Quarterly Property Tax Bill.pdf',
+    'November 30, 2012 - Quarterly Property Tax Bill.pdf',
+]
+
 def main(period, borough, block, lot, *_):
     '''
     Download a single tax bill
@@ -55,11 +104,24 @@ if __name__ == '__main__':
     if len(sys.argv) == 3:
         with open(sys.argv[2]) as infile:
             for line in infile:
-                main(sys.argv[1], *line.strip().split('\t'))
+                wait = 10
+                while True:
+                    bbl = line.strip().split('\t')
+                    try:
+                        main(sys.argv[1], *bbl)
+                        break
+                    except requests.exceptions.ConnectionError as e:
+                        LOGGER.warn(u'ConnectionError on %s: %s, waiting %s seconds',
+                                    bbl, e, wait)
+                        time.sleep(wait)
+                        wait *= 2
     else:
         sys.stderr.write(u'''
+Usage:
 
-python download_direct.py 'period of tax bill' /path/to/bbls.tsv
+   python download_direct.py ['period of tax bill'] /path/to/bbls.tsv
+
+If period is not specified, then all periods will be downloaded.
 
 ''')
         sys.exit(1)
