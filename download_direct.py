@@ -8,6 +8,7 @@ import logging
 import os
 import sys
 import time
+import requests
 from dateutil import parser
 from download import save_file_from_stream, SESSION, find_extension
 
@@ -106,13 +107,13 @@ if __name__ == '__main__':
             for line in infile:
                 wait = 10
                 while True:
-                    bbl = line.strip().split('\t')
+                    bbl_ = line.strip().split('\t')
                     try:
-                        main(sys.argv[1], *bbl)
+                        main(sys.argv[1], *bbl_)
                         break
-                    except requests.exceptions.ConnectionError as e:
+                    except requests.exceptions.ConnectionError as err:
                         LOGGER.warn(u'ConnectionError on %s: %s, waiting %s seconds',
-                                    bbl, e, wait)
+                                    bbl_, err, wait)
                         time.sleep(wait)
                         wait *= 2
     else:
