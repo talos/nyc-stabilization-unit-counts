@@ -80,6 +80,26 @@ WHERE key in (
 GROUP BY abatement, bbl, activitythrough
 ;
 
+DROP TABLE IF EXISTS owner_addresses;
+CREATE TABLE owner_addresses (
+  bbl BIGINT,
+  duedate DATE,
+  name TEXT,
+  address TEXT,
+  PRIMARY KEY (bbl, duedate)
+);
+INSERT INTO owner_addresses
+SELECT bbl, duedate, value
+FROM rawdata
+WHERE key = 'Owner name';
+
+UPDATE owner_addresses
+SET address = value
+FROM owner_addresses oa, rawdata rd
+WHERE oa.bbl = rd.bbl AND
+      oa.duedate = rd.duedate AND
+      key = 'Mailing address';
+
 DROP TABLE IF EXISTS registrations;
 CREATE TABLE registrations (
   regno TEXT,
