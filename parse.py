@@ -41,8 +41,11 @@ OWNER_ADDRESS_AREA = re.compile(
     r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
     r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)', re.DOTALL + re.IGNORECASE
 )
+PROPERTY_TAX_DETAIL_AREA = re.compile(
+    'Annual Property Tax Detail.*Annual property tax.*?\n', re.DOTALL)
 
 SPLIT_RE = re.compile(r'\s{2,}')
+SPLIT_X_RE = re.compile(r'[\sX$]{2,}')
 EXEMPTIONS_RE = re.compile(r'(Tax [Bb]efore [Ee]xemptions [Aa]nd [Aa]batements'
                            r'.*?Tax [Bb]efore [Aa]batements)', re.DOTALL)
 UNITS_RE = re.compile(r'(\d+ [Uu]nits)')
@@ -68,14 +71,17 @@ def parseamount(string):
     """
     Convert string of style -$24,705.75 to float -24705.75
     """
-    return float(string.replace(',', '').replace('$', '').replace('*', ''))
+    return float(string.replace(',', '').replace('$', '').replace('*', '').replace('X', ''))
 
 
-def split(string):
+def split(string, with_x=False):
     """
     Split a string by any time there are multiple spaces
     """
-    return SPLIT_RE.split(string.strip())
+    if with_x:
+        return SPLIT_X_RE.split(string.strip())
+    else:
+        return SPLIT_RE.split(string.strip())
 
 
 def parsedate(string):
@@ -142,6 +148,78 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     data['meta'] = cells[1]
 
             yield data
+
+    # Detail area
+    detail_area = PROPERTY_TAX_DETAIL_AREA.search(text)
+    if detail_area:
+        lines = detail_area.group().split('\n')
+        section = None
+        for i, line in enumerate(lines):
+            key = None
+            value = None
+            meta = None
+            apts = None
+
+            if line:
+                cells = split(line, with_x=True)
+
+                if not cells[0]:
+                    continue
+                elif cells[0].startswith('Tax class'):
+                    key = u'Tax class'
+                    value = cells[0].split(key)[1]
+                elif cells[0].startswith('Current tax rate'):
+                    key = cells[0]
+                    value = cells[1]
+                elif cells[0].startswith('Estimated market value'):
+                    key = cells[0]
+                    value = parseamount(cells[1])
+                elif cells[0].startswith('Tax before exemptions and abatements'):
+                    section = cells[0]
+                    key = cells[0]
+                    try:
+                        meta = parseamount(cells[1])
+                    except ValueError:
+                        apts = cells[1]
+                        meta = parseamount(cells[2])
+                    if len(cells) > 2:
+                        value = parseamount(cells[-1])
+                    else:
+                        value = parseamount(split(lines[i + 1])[-1])
+                elif cells[0].startswith('Tax before abatements'):
+                    section = cells[0]
+                    key = cells[0]
+                    try:
+                        meta = parseamount(cells[1])
+                    except ValueError:
+                        apts = cells[1]
+                        meta = parseamount(cells[2])
+
+                    if len(cells) > 2:
+                        value = parseamount(cells[-1])
+                    else:
+                        value = parseamount(split(lines[i + 1])[-1])
+                elif cells[0].startswith('Annual property tax'):
+                    section = None
+                    key = cells[0]
+                    value = parseamount(cells[-1])
+                elif section:
+                    key = cells[0]
+                    if len(cells) > 2:
+                        try:
+                            meta = parseamount(cells[1])
+                        except ValueError:
+                            apts = cells[1]
+                            meta = parseamount(cells[2])
+                    value = parseamount(cells[-1])
+
+                yield {
+                    'section': section,
+                    'apts': apts,
+                    'key': key,
+                    'value': value,
+                    'meta': meta,
+                }
 
     # All other lines
     matches = SECTIONS_RE.finditer(text)
