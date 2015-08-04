@@ -1,4 +1,3 @@
-/*
 LOAD CSV
   FROM data/rawdata.csv
   INTO postgresql://postgres:docker4data@localhost:54321/postgres?rawdata
@@ -21,15 +20,14 @@ LOAD CSV
          activityDate DATE,
          value TEXT,
          meta TEXT,
-         apts INT
+         apts TEXT
         );
    $$;
-*/
 
 LOAD CSV
   FROM data/rgb.csv
   INTO postgresql://postgres:docker4data@localhost:54321/postgres?rgb
-  WITH skip header = 2,
+  WITH skip header = 1,
        fields optionally enclosed by '"',
        fields terminated by ',',
        batch concurrency = 1,
