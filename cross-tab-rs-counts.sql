@@ -21,7 +21,7 @@ SELECT bbl,
     WHEN duedate > '2012-04-01' THEN date_part('year', duedate) - 2
     ELSE date_part('year', duedate)
   END as year,
-  right(replace(value, ',', ''), -1)::real, apts, meta
+  right(replace(value, ',', ''), -1)::real, apts::int, meta
 FROM rawdata
 WHERE key = 'Housing-Rent Stabilization';
 
