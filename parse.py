@@ -154,6 +154,7 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
     if detail_area:
         lines = detail_area.group().split('\n')
         section = None
+        abatementsFlag = False
         for i, line in enumerate(lines):
             key = None
             value = None
@@ -175,42 +176,22 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     key = cells[0]
                     value = parseamount(cells[1])
                 elif cells[0].startswith('Tax before exemptions and abatements'):
-                    section = cells[0]
+                    section = None
                     key = cells[0]
-                    try:
-                        meta = parseamount(cells[1])
-                    except ValueError:
-                        apts = cells[1]
-                        meta = parseamount(cells[2])
-                    if len(cells) > 2:
-                        value = parseamount(cells[-1])
-                    else:
-                        value = parseamount(split(lines[i + 1])[-1])
+                    value = parseamount(cells[-1])
                 elif cells[0].startswith('Tax before abatements'):
-                    section = cells[0]
+                    section = None
                     key = cells[0]
-                    try:
-                        meta = parseamount(cells[1])
-                    except ValueError:
-                        apts = cells[1]
-                        meta = parseamount(cells[2])
+                    value = parseamount(cells[-1])
+                    abatementsFlag = True
 
-                    if len(cells) > 2:
-                        value = parseamount(cells[-1])
-                    else:
-                        value = parseamount(split(lines[i + 1])[-1])
                 elif cells[0].startswith('Annual property tax'):
                     section = None
                     key = cells[0]
                     value = parseamount(cells[-1])
-                elif section:
+                elif abatementsFlag:
+                    section = 'abatements'
                     key = cells[0]
-                    if len(cells) > 2:
-                        try:
-                            meta = parseamount(cells[1])
-                        except ValueError:
-                            apts = cells[1]
-                            meta = parseamount(cells[2])
                     value = parseamount(cells[-1])
 
                 yield {
