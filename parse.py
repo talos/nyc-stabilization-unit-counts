@@ -149,12 +149,14 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
 
             yield data
 
+
     # Detail area
     detail_area = PROPERTY_TAX_DETAIL_AREA.search(text)
     if detail_area:
         lines = detail_area.group().split('\n')
-        section = None
+        section = 'details'
         abatementsFlag = False
+        exemptionsFlag = False
         for i, line in enumerate(lines):
             key = None
             value = None
@@ -176,23 +178,64 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     key = cells[0]
                     value = parseamount(cells[1])
                 elif cells[0].startswith('Tax before exemptions and abatements'):
-                    section = None
+                    section = 'details'
                     key = cells[0]
-                    value = parseamount(cells[-1])
+                    try:
+                        meta = parseamount(cells[1])
+                    except ValueError:
+                        apts = cells[1]
+                        meta = parseamount(cells[2])
+                    if len(cells) > 2:
+                        value = parseamount(cells[-1])
+                    else:
+                        value = parseamount(split(lines[i + 1])[-1])  
+                    exemptionsFlag = True
+
                 elif cells[0].startswith('Tax before abatements'):
-                    section = None
+                    section = 'details'
                     key = cells[0]
+                    try:
+                        meta = parseamount(cells[1])
+                    except ValueError:
+                        apts = cells[1]
+                        meta = parseamount(cells[2])
+
                     value = parseamount(cells[-1])
+                    #Still not sure what we are checking for here, but under normal conditions
+                    #this line is only 2 cells, and the desired value is cells[-1]
+                    #if len(cells) > 2:
+                        #value = parseamount(cells[-1])
+                    #else:
+                        #value = parseamount(split(lines[i + 1])[-1])
+
                     abatementsFlag = True
 
                 elif cells[0].startswith('Annual property tax'):
-                    section = None
+                    section = 'details'
                     key = cells[0]
                     value = parseamount(cells[-1])
                 elif abatementsFlag:
-                    section = 'abatements'
+                    section = 'details-abatements'
                     key = cells[0]
+                    if len(cells) > 2:
+                        try:
+                            meta = parseamount(cells[1])
+                        except ValueError:
+                            apts = cells[1]
+                            meta = parseamount(cells[2])
                     value = parseamount(cells[-1])
+
+                elif exemptionsFlag:
+                    section = 'details-exemptions'
+                    key = cells[0]
+                    if len(cells) > 2:
+                        try:
+                            meta = parseamount(cells[1])
+                        except ValueError:
+                            apts = cells[1]
+                            meta = parseamount(cells[2])
+                    value = parseamount(cells[-1])
+
 
                 yield {
                     'section': section,
@@ -455,6 +498,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     writer.writeheader()
     for path, _, files in os.walk(root):
         for filename in files:
+            LOGGER.warn(filename);
             try:
                 if 'corrupted' in filename:
                     continue
@@ -490,7 +534,6 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
             except Exception as err:  # pylint: disable=broad-except
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
-
 
 if __name__ == '__main__':
     main(sys.argv[1])
