@@ -42,12 +42,11 @@ OWNER_ADDRESS_AREA = re.compile(
     r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)', re.DOTALL + re.IGNORECASE
 )
 PROPERTY_TAX_DETAIL_AREA = re.compile(
-    'Annual Property Tax Detail.*Annual property tax.*?\n', re.DOTALL)
+    '(Annual [Pp]roperty [Tt]ax [Dd]etail|How We Calculated Your Property Tax).*'
+    '[Aa]nnual [Pp]roperty [Tt]ax.*?\n', re.DOTALL + re.IGNORECASE)
 
 SPLIT_RE = re.compile(r'\s{2,}')
 SPLIT_X_RE = re.compile(r'[\sX$]{2,}')
-EXEMPTIONS_RE = re.compile(r'(Tax [Bb]efore [Ee]xemptions [Aa]nd [Aa]batements'
-                           r'.*?Tax [Bb]efore [Aa]batements)', re.DOTALL)
 UNITS_RE = re.compile(r'(\d+ [Uu]nits)')
 SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
                          r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
@@ -119,123 +118,113 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
         'value': mailing_address
     }
 
-    # Exemption lines
-    matches = EXEMPTIONS_RE.finditer(text)
-    for match in matches:
-        for i, line in enumerate(match.group().split('\n')):
-            if i == 0:
-                continue
-            cells = split(line)
-            splitcell = UNITS_RE.split(cells[0])
-            if len(splitcell) > 1:
-                cells[0] = splitcell[0].strip()
-                cells.insert(1, splitcell[1].strip())
-
-            data = {}
-            data['key'] = cells[0]
-            data['section'] = 'exemptions'
-            if len(cells) == 1:
-                continue
-            elif len(cells) == 2:
-                continue
-            else:
-                data['value'] = parseamount(cells[-1])
-
-            if len(cells) > 3:
-                if cells[1].lower().endswith('units'):
-                    data['apts'] = int(cells[1].lower().replace(' units', ''))
-                else:
-                    data['meta'] = cells[1]
-
-            yield data
-
-
     # Detail area
     detail_area = PROPERTY_TAX_DETAIL_AREA.search(text)
     if detail_area:
         lines = detail_area.group().split('\n')
         section = 'details'
-        abatementsFlag = False
-        exemptionsFlag = False
+        abatements_flag = False
+        exemptions_flag = False
+        revocation_flag = False
         for i, line in enumerate(lines):
             key = None
             value = None
             meta = None
             apts = None
 
+            if i == 0:
+                continue
+
             if line:
                 cells = split(line, with_x=True)
 
                 if not cells[0]:
                     continue
-                elif cells[0].startswith('Tax class'):
-                    key = u'Tax class'
-                    value = cells[0].split(key)[1]
-                elif cells[0].startswith('Current tax rate'):
-                    key = cells[0]
+
+                cell0 = cells[0].lower()
+
+                if cell0 in ('value', 'tax rate', 'overall'):
+                    continue
+                elif cell0.startswith('tax class'):
+                    key = u'tax class'
+                    value = cell0.split(key)[1]
+                elif cell0.startswith('current tax rate'):
+                    key = cell0
                     value = cells[1]
-                elif cells[0].startswith('Estimated market value'):
-                    key = cells[0]
+                elif cell0.startswith('estimated market value'):
+                    key = cell0
                     value = parseamount(cells[1])
-                elif cells[0].startswith('Tax before exemptions and abatements'):
+                elif cell0.startswith('tax before exemptions and abatements'):
                     section = 'details'
-                    key = cells[0]
-                    try:
-                        meta = parseamount(cells[1])
-                    except ValueError:
-                        apts = cells[1]
-                        meta = parseamount(cells[2])
-                    if len(cells) > 2:
-                        value = parseamount(cells[-1])
-                    else:
-                        value = parseamount(split(lines[i + 1])[-1])  
-                    exemptionsFlag = True
-
-                elif cells[0].startswith('Tax before abatements'):
-                    section = 'details'
-                    key = cells[0]
-                    try:
-                        meta = parseamount(cells[1])
-                    except ValueError:
-                        apts = cells[1]
-                        meta = parseamount(cells[2])
-
+                    key = cell0
+                    meta = parseamount(cells[1])
                     value = parseamount(cells[-1])
-                    #Still not sure what we are checking for here, but under normal conditions
-                    #this line is only 2 cells, and the desired value is cells[-1]
-                    #if len(cells) > 2:
-                        #value = parseamount(cells[-1])
-                    #else:
-                        #value = parseamount(split(lines[i + 1])[-1])
-
-                    abatementsFlag = True
-
-                elif cells[0].startswith('Annual property tax'):
+                    exemptions_flag = True
+                elif cell0.startswith('tax before abatements'):
                     section = 'details'
-                    key = cells[0]
+                    key = cell0
+                    meta = parseamount(cells[1])
                     value = parseamount(cells[-1])
-                elif abatementsFlag:
+                    abatements_flag = True
+                elif cell0 == 'annual property tax':
+                    section = 'details'
+                    key = cell0
+                    value = parseamount(cells[-1])
+                elif cell0.startswith('original tax rate'):
+                    section = 'details'
+                    key = 'original tax rate'
+                    meta = cell0.split(key)[1]
+                    value = cells[-1]
+                elif cell0 == 'new tax rate':
+                    section = 'details'
+                    key = cell0
+                    value = cells[-1]
+                elif cell0 == 'revocation':
+                    revocation_flag = True
+                    continue
+                elif revocation_flag:
+                    section = 'details-revocation'
+                    key = cell0
+                    value = parseamount(cells[-1])
+                elif abatements_flag:
                     section = 'details-abatements'
-                    key = cells[0]
+                    key = cell0
                     if len(cells) > 2:
-                        try:
-                            meta = parseamount(cells[1])
-                        except ValueError:
-                            apts = cells[1]
+                        if len(cells[1].lower().split('unit')) > 1:
+                            apts = int(cells[1].lower()\
+                                       .replace(' units', '').replace(' unit', ''))
                             meta = parseamount(cells[2])
-                    value = parseamount(cells[-1])
+                        elif cells[1].endswith('%'):
+                            meta = parseamount(cells[2])
+                        else:
+                            meta = parseamount(cells[1])
 
-                elif exemptionsFlag:
+                    value = parseamount(cells[-1])
+                elif exemptions_flag:
                     section = 'details-exemptions'
-                    key = cells[0]
+                    key = cell0
                     if len(cells) > 2:
-                        try:
-                            meta = parseamount(cells[1])
-                        except ValueError:
-                            apts = cells[1]
+                        if len(cells[1].lower().split('unit')) > 1:
+                            apts = int(cells[1].lower()\
+                                       .replace(' units', '').replace(' unit', ''))
                             meta = parseamount(cells[2])
+                        elif cells[1].endswith('%'):
+                            meta = parseamount(cells[2])
+                        else:
+                            meta = parseamount(cells[1])
+
+                    value = parseamount(cells[-1])
+                elif len(cells) == 1:
+                    continue
+                else:
+                    key = cell0
                     value = parseamount(cells[-1])
 
+                for unit in (' units', ' unit'):
+                    if key.lower().endswith(unit):
+                        key = key.lower().replace(unit, '')
+                        apts = int(key.split(' ')[-1])
+                        key = ' '.join(key.split(' ')[0:-1])
 
                 yield {
                     'section': section,
@@ -497,8 +486,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
     for path, _, files in os.walk(root):
-        for filename in files:
-            LOGGER.warn(filename);
+        for filename in sorted(files):
             try:
                 if 'corrupted' in filename:
                     continue
