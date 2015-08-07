@@ -21,7 +21,7 @@ SELECT bbl,
     WHEN duedate > '2012-04-01' THEN date_part('year', duedate) - 2
     ELSE date_part('year', duedate)
   END as year,
-  right(replace(value, ',', ''), -1)::real, apts::int, meta
+  right(replace(value, ',', ''), -1)::real, apts, meta
 FROM rawdata
 WHERE key = 'Housing-Rent Stabilization';
 
@@ -231,7 +231,7 @@ cd, ct2010, cb2010, council, zipcode, address, ownername,
 FROM registrations_by_year rby
      LEFT JOIN abatements_by_year aby ON rby.ucbbl = aby.bbl
      LEFT JOIN indhcr_by_year indy ON rby.ucbbl = indy.dhcrbbl
-     LEFT JOIN nyc_pluto pl ON rby.ucbbl = pl.bbl
+     LEFT JOIN pluto pl ON rby.ucbbl = pl.bbl
 ORDER BY rby.ucbbl
 ;
 
