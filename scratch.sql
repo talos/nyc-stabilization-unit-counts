@@ -160,3 +160,19 @@ where bbl = 2047130001;
 
 select * from unitcounts where meta = '022638600';
 
+
+/* figure out what stabilized bbls we missed */
+create table rawdata_bbls as (select bbl, left(bbl::text, 1)::int as borough, substr(bbl::text, 2, 5)::int as block, substr(bbl::text, 7, 4)::int as lot, min(activitythrough) as earliest, max(activitythrough) as last from rawdata
+  group by bbl order by bbl);
+alter table rawdata_bbls add column oneyear boolean;
+update rawdata_bbls set oneyear = (last = '2015-06-05' and earliest = '2015-06-05');
+create table rawdata_bbls_stabilized as (select bbl from rawdata where key = 'Housing-Rent Stabilization' group by bbl);
+alter table rawdata_bbls add column stabilized boolean default 'f';
+update rawdata_bbls a set stabilized = 't' from rawdata_bbls_stabilized b where a.bbl = b.bbl;
+
+copy (select borough,block,lot from rawdata_bbls where oneyear = 't' and stabilized = 't') to '/tmp/missingstabilized.tsv';
+
+/* determine size of issue with non-numeric RS Fee identifiers */
+SELECT * FROM unitcounts
+WHERE meta !~ '^[\d ]+$'
+ORDER BY units DESC;
