@@ -1,0 +1,25 @@
+{
+  "name": "taxbills.nyc",
+  "version": "0.0.1",
+  "homepage": "https://github.com/GovLab/LegisLetters",
+  "authors": [
+    "John Krauss <irving.krauss@gmail.com>",
+    "Chris Whong"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "jquery-ui": "latest",
+    "bootstrap": "latest",
+    "bootstrap-table": "git@github.com:wenzhixin/bootstrap-table.git#master",
+    "moment": "latest"
+  }
+}

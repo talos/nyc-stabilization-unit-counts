@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>taxbills.nyc</title>
+
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/taxbills.css" />
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="js/taxbills.js"></script>
+
+  </head>
+  <body>
+    <header class="navbar navbar-static-top bg-info" role="banner">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="/" class="navbar-brand">taxbills.nyc</a>
+        </div>
+        <nav class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="#about" data-toggle="modal" data-target="#aboutModal">About</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="https://github.com/talos/nyc-stabilization-unit-counts" target="_blank">On GitHub</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <noscript>
+      <div class="text-center">
+        <h3>Sorry, you must have JavaScript enabled in order to use taxbills.nyc.</h3>
+      </div>
+    </noscript>
+
+    <div class="container">
+      <div>
+        <form id="bbl-form">
+          <!--
+          <label for="borough">Borough:</label><input id="borough" name="borough" />
+          <label for="block">Block:</label><input id="block" name="block" />
+          <label for="lot">Lot:</label><input id="lot" name="lot" />
+          -->
+          <label for="borough">Borough:</label>
+          <select id="borough" name="borough">
+            <option value="1">Manhattan</option>
+            <option value="2">Bronx</option>
+            <option value="3">Brooklyn</option>
+            <option value="4">Queens</option>
+            <option value="5">Staten Island</option>
+          </select>
+          <label for="houseNumber">House Number:</label><input id="houseNumber" name="houseNumber" />
+          <label for="street">Street:</label><input id="street" name="street" />
+          <button type="submit">Look up</button>
+        </form>
+      </div>
+      <div id="content">
+      </div>
+    </div>
+
+    <table id="tableTemplate" class="template" data-row-style="rowStyle" data-striped="true" data-id-field="name" data-search="true">
+      <thead>
+        <tr>
+          <th data-field="activityThrough" data-sortable="true">Bill Date</th>
+          <th data-field="key" data-sortable="true">Key</th>
+          <th data-field="section" data-sortable="true">Section</th>
+          <th data-field="value" data-sortable="true">Value</th>
+          <th data-field="apts" data-sortable="true">Apts</th>
+          <th data-field="meta" data-sortable="true">Meta</th>
+          <!--
+          <th data-field="date" data-formatter="utcTimeSinceFormatter" data-sortable="true">Last Check</th>
+          <th data-field="total" data-sortable="true">Total Datasets</th>
+          <th data-field="checked" data-sortable="true">% Checked</th>
+-->
+        </tr>
+      </thead>
+    </table>
+
+
+    <div class="modal" id="aboutModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">About taxbills.nyc</h4>
+          </div>
+          <div class="modal-body">
+            <p>TODO</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+  </body>
+</html>
