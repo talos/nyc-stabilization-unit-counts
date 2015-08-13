@@ -4,6 +4,7 @@
 Convert quarterly property tax bill into CSV
 '''
 
+import json
 import csv
 import logging
 import os
@@ -486,6 +487,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
     for path, _, files in os.walk(root):
+        bbl_json = []
         for filename in sorted(files):
             try:
                 if 'corrupted' in filename:
@@ -518,10 +520,13 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
                         }
                         base.update(data)
                         writer.writerow(base)
+                        bbl_json.append(data)
 
             except Exception as err:  # pylint: disable=broad-except
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
+        with open(os.path.join(path, 'data.json'), 'w') as json_outfile:
+            json.dump(bbl_json, json_outfile)
 
 if __name__ == '__main__':
     main(sys.argv[1])
