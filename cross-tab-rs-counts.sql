@@ -1,4 +1,4 @@
-CREATE INDEX key on rawdata (key);
+--CREATE INDEX key on rawdata (key);
 --CREATE INDEX key_activity_due on rawdata (key, "activitythrough", "duedate");
 --CREATE INDEX bbl on rawdata (bbl);
 
@@ -87,13 +87,14 @@ GROUP BY abatement, bbl, activitythrough
 DROP TABLE IF EXISTS owner_addresses;
 CREATE TABLE owner_addresses (
   bbl BIGINT,
-  duedate DATE,
+  year INT,
   name TEXT,
-  address TEXT,
-  PRIMARY KEY (bbl, duedate)
+  address TEXT
 );
+CREATE UNIQUE INDEX owner_addresses_uk on owner_addresses
+  (bbl, year, name, address);
 INSERT INTO owner_addresses
-SELECT bbl, duedate, value
+SELECT DISTINCT bbl, DATE_PART('year', activitythrough), value
 FROM rawdata
 WHERE key = 'Owner name';
 
@@ -101,7 +102,7 @@ UPDATE owner_addresses
 SET address = value
 FROM owner_addresses oa, rawdata rd
 WHERE oa.bbl = rd.bbl AND
-      oa.duedate = rd.duedate AND
+      oa.year = DATE_PART('year', rd.activitythrough) AND
       key = 'Mailing address';
 
 DROP TABLE IF EXISTS registrations;
@@ -133,6 +134,7 @@ ORDER BY meta, duedate, uc.bbl, dh.bbl;
 CREATE UNIQUE INDEX bbl_duedate ON registrations (ucbbl, dhcrbbl, regno, duedate);
 
 -- note requires doing `CREATE EXTENSION tablefunc;`
+CREATE EXTENSION tablefunc;
 DROP TABLE IF EXISTS registrations_by_year;
 CREATE TABLE registrations_by_year AS
 SELECT *
@@ -235,7 +237,7 @@ cd, ct2010, cb2010, council, zipcode, address, ownername,
 FROM registrations_by_year rby
      LEFT JOIN abatements_by_year aby ON rby.ucbbl = aby.bbl
      LEFT JOIN indhcr_by_year indy ON rby.ucbbl = indy.dhcrbbl
-     LEFT JOIN pluto pl ON rby.ucbbl = pl.bbl
+     LEFT JOIN "contrib/us/ny/nyc".pluto pl ON rby.ucbbl = pl.bbl
 ORDER BY rby.ucbbl
 ;
 
