@@ -13,8 +13,9 @@
           block = addressData.address.bblTaxBlock,
           lot = addressData.address.bblTaxLot;
       if (borough && block && lot) {
+        var taxUrl = '/' + borough + '/' + block + '/' + lot + '/data.json'
         $.ajax({
-          url: '/' + borough + '/' + block + '/' + lot + '/data.json',
+          url: taxUrl,
           dataType: 'json'
         }).done(function (data) {
           if ($.isArray($('#table').bootstrapTable('getData'))) {
@@ -27,6 +28,14 @@
             $('#table').bootstrapTable({
               data: data
             });
+            // Add a title
+            var $title =$('<h4 />')
+              .append($('<a />').text('Tax Data for BBL ' + borough + block + lot).attr({
+                'href': taxUrl,
+                'target': '_blank'
+              }))
+              .addClass('odc-title');
+            $('.fixed-table-toolbar').prepend($title);
           }
         }).error(function (err) {
           $('#content').empty().append($('<div />').addClass('error').text(

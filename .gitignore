@@ -10,3 +10,5 @@ tmp
 error.txt
 *.pyc
 input
+site/node_modules
+site/bower_components
