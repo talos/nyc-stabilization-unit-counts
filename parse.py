@@ -30,6 +30,8 @@ HEADERS = [
     "apts"
 ]
 
+ROW_BUFFER = 10000
+
 BILL_PDF, STATEMENT_PDF, STATEMENT_HTML, NOPV_PDF, NOPV_HTML = (
     'Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf',
     'Quarterly Statement of Account.html', 'Notice of Property Value.pdf',
@@ -486,6 +488,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     """
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
+    rows_to_write = []
     for path, _, files in os.walk(root):
         bbl_json = []
         for filename in sorted(files):
@@ -514,12 +517,10 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
                         file_data = handle.read()
                     activity_through = parsedate(filename.split(' - ')[0])
                     for data in handler(file_data):
-                        base = {
-                            'bbl': ''.join(bbl_array),
-                            'activityThrough': activity_through
-                        }
-                        base.update(data)
-                        writer.writerow(base)
+                        data['bbl'] = ''.join(bbl_array)
+                        data['activityThrough'] = activity_through
+                        #writer.writerow(base)
+                        rows_to_write.append(data)
                         bbl_json.append(data)
 
             except Exception as err:  # pylint: disable=broad-except
@@ -527,6 +528,12 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
         with open(os.path.join(path, 'data.json'), 'w') as json_outfile:
             json.dump(bbl_json, json_outfile)
+
+        if len(rows_to_write) >= ROW_BUFFER:
+            writer.writerows(rows_to_write)
+            rows_to_write = []
+    writer.writerows(rows_to_write)
+
 
 if __name__ == '__main__':
     main(sys.argv[1])

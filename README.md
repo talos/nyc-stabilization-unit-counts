@@ -113,13 +113,12 @@ building and tax period the data applies to.
 
 ### To import the CSV into postgres
 
-*In progress*
+You should have [docker4data](http://dockerfordata.com) installed and set up on
+your system.
 
-There are a few complicated dependencies here, including
-[pgloader](http://pgloader.io), and a few external tables (PLUTO and the DHCR
-stabilization building list history.)
+    ./reparse.sh
 
-    ./import.sh
+This will directly parse the `data` folder into docker4data's postgres.
 
 ## Data Usage
 
