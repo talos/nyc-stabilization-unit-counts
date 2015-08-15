@@ -20,6 +20,10 @@
     "jquery-ui": "latest",
     "bootstrap": "latest",
     "bootstrap-table": "git@github.com:wenzhixin/bootstrap-table.git#master",
-    "moment": "latest"
+    "moment": "latest",
+    "d3": "latest",
+    "jslinq": "latest",
+    "handlebars": "latest",
+    "querystring": "latest"
   }
 }

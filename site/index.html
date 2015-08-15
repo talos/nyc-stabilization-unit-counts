@@ -10,7 +10,56 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="bower_components/jslinq/dist/linq.min.js"></script>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/querystring/querystring.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+
     <script src="js/taxbills.js"></script>
+
+    <script id="alertTemplate" type="text/handlebars">
+<div class="alert alert-danger alert-dismissable fade in" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ message }}
+</div>
+    </script>
+
+    <script id="summaryTemplate" type="text/handlebars">
+<h3>Summary for {{ lastActivity }}</h3>
+<ul>
+  <li>Property tax: {{ propertyTax }}
+  {{#if lastStabilized}}
+  <li>Number of stabilized units: {{ lastStabilized.apts }} (Registered {{ lastStabilized.dueDate }})
+  {{/if }}
+</ul>
+    </script>
+
+    <script id="graphTemplate" type="text/handlebars">
+    </script>
+
+    <script id="rawDataTemplate" type="text/handlebars">
+      <table id="table" data-row-style="rowStyle" data-striped="true" data-id-field="name" data-search="true">
+        <thead>
+          <tr>
+            <th data-field="activityThrough" data-sortable="true">Bill Date</th>
+            <th data-field="key" data-sortable="true">Key</th>
+            <th data-field="section" data-sortable="true">Section</th>
+            <th data-field="value" data-sortable="true">Value</th>
+            <th data-field="apts" data-sortable="true">Apts</th>
+            <th data-field="meta" data-sortable="true">Meta</th>
+            <th data-field="dueDate" data-sortable="true">Due Date</th>
+            <th data-field="activityDate" data-sortable="true">Activity Date</th>
+            <!--
+            <th data-field="date" data-formatter="utcTimeSinceFormatter" data-sortable="true">Last Check</th>
+            <th data-field="total" data-sortable="true">Total Datasets</th>
+            <th data-field="checked" data-sortable="true">% Checked</th>
+  -->
+          </tr>
+        </thead>
+      </table>
+    </script>
 
   </head>
   <body>
@@ -47,49 +96,58 @@
     </noscript>
 
     <div class="container">
-      <div>
-        <form id="bbl-form">
+      <div class="col-xs-12"> 
+        <form class="form-inline" id="bbl-form">
           <!--
           <label for="borough">Borough:</label><input id="borough" name="borough" />
           <label for="block">Block:</label><input id="block" name="block" />
           <label for="lot">Lot:</label><input id="lot" name="lot" />
           -->
-          <label for="borough">Borough:</label>
-          <select id="borough" name="borough">
-            <option value="1">Manhattan</option>
-            <option value="2">Bronx</option>
-            <option value="3">Brooklyn</option>
-            <option value="4">Queens</option>
-            <option value="5">Staten Island</option>
-          </select>
-          <label for="houseNumber">House Number:</label><input id="houseNumber" name="houseNumber" />
-          <label for="street">Street:</label><input id="street" name="street" />
-          <button type="submit">Look up</button>
+          <div class="form-group">
+            <label class="control-label" for="borough">Borough:</label>
+            <select class="form-control" id="borough" name="borough">
+              <option value="0"></option>
+              <option value="1">Manhattan</option>
+              <option value="2">Bronx</option>
+              <option value="3">Brooklyn</option>
+              <option value="4">Queens</option>
+              <option value="5">Staten Island</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="houseNumber">House Number:</label>
+              <input class="form-control" id="houseNumber" name="houseNumber" />
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="street">Street:</label>
+              <input class="form-control" id="street" name="street" />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-default" type="submit">Look up</button>
+          </div>
         </form>
       </div>
-      <div id="content">
+
+      <div class="col-xs-12">
+
+        <div id="alerts"></div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a></li>
+          <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">History</a></li>
+          <li role="presentation"><a href="#raw-data" aria-controls="raw-data" role="tab" data-toggle="tab">Raw data</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="summary"></div>
+          <div role="tabpanel" class="tab-pane" id="history"></div>
+          <div role="tabpanel" class="tab-pane" id="raw-data"></div>
+        </div>
+
       </div>
     </div>
-
-    <table id="tableTemplate" class="template" data-row-style="rowStyle" data-striped="true" data-id-field="name" data-search="true">
-      <thead>
-        <tr>
-          <th data-field="activityThrough" data-sortable="true">Bill Date</th>
-          <th data-field="key" data-sortable="true">Key</th>
-          <th data-field="section" data-sortable="true">Section</th>
-          <th data-field="value" data-sortable="true">Value</th>
-          <th data-field="apts" data-sortable="true">Apts</th>
-          <th data-field="meta" data-sortable="true">Meta</th>
-          <th data-field="dueDate" data-sortable="true">Due Date</th>
-          <th data-field="activityDate" data-sortable="true">Activity Date</th>
-          <!--
-          <th data-field="date" data-formatter="utcTimeSinceFormatter" data-sortable="true">Last Check</th>
-          <th data-field="total" data-sortable="true">Total Datasets</th>
-          <th data-field="checked" data-sortable="true">% Checked</th>
--->
-        </tr>
-      </thead>
-    </table>
 
 
     <div class="modal" id="aboutModal">
