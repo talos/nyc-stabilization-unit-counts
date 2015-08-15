@@ -83,10 +83,11 @@ def save_file_from_stream(resp, filename):
     """
     Save a file from a streamed response
     """
-    chunk_size = 1024
+    #chunk_size = 1024
     with open(filename + '.' + find_extension(resp), 'wb') as fd: # pylint: disable=invalid-name
-        for chunk in resp.iter_content(chunk_size):
-            fd.write(chunk)
+        fd.write(resp.content)
+        #for chunk in resp.iter_content(chunk_size):
+        #    fd.write(chunk)
 
 
 def strain_soup(bbl, soup, target, get_statement_url):
