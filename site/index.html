@@ -15,6 +15,8 @@
     <script src="bower_components/querystring/querystring.min.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
 
+    <script src="//maps.googleapis.com/maps/api/js?signed_in=true&libraries=places" ></script>
+
     <script src="js/taxbills.js"></script>
 
     <script id="alertTemplate" type="text/handlebars">
@@ -97,13 +99,14 @@
 
     <div class="container">
       <div class="col-xs-12"> 
-        <form class="form-inline" id="bbl-form">
+        <form class="form" id="bbl-form">
           <!--
           <label for="borough">Borough:</label><input id="borough" name="borough" />
           <label for="block">Block:</label><input id="block" name="block" />
           <label for="lot">Lot:</label><input id="lot" name="lot" />
           -->
           <div class="form-group">
+            <!--
             <label class="control-label" for="borough">Borough:</label>
             <select class="form-control" id="borough" name="borough">
               <option value="0"></option>
@@ -121,10 +124,15 @@
           <div class="form-group">
             <label class="control-label" for="street">Street:</label>
               <input class="form-control" id="street" name="street" />
+          -->
+            <input id="location" class="form-control" type="text" placeholder="Enter a location">
           </div>
+
+          <!--
           <div class="form-group">
             <button class="btn btn-default" type="submit">Look up</button>
           </div>
+          -->
         </form>
       </div>
 
