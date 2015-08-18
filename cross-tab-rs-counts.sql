@@ -375,12 +375,56 @@ SELECT
 FROM joined_nocrosstab
 GROUP BY ucbbl;
 
+DROP TABLE IF EXISTS rgb_comparison;
+CREATE TABLE rgb_comparison AS
+SELECT
+  DATE_PART('year', latter.year) AS year,
+  former.ucbbl/1000000000 AS borough,
+  SUM(latter.unitcount - former.unitcount) AS dof_diff,
+  0 AS rgb_diff,
+  0 AS diff_diff,
+  SUM(CASE WHEN former.unitcount > latter.unitcount THEN latter.unitcount - former.unitcount ELSE 0 END) AS dof_loss,
+  0 AS rgb_loss,
+  0 AS diff_loss,
+  SUM(CASE WHEN former.unitcount < latter.unitcount THEN latter.unitcount - former.unitcount ELSE 0 END) AS dof_gain,
+  0 AS rgb_gain,
+  0 AS diff_gain
+FROM joined_nocrosstab former, joined_nocrosstab latter
+  WHERE former.ucbbl = latter.ucbbl AND
+        former.year = latter.year - '1 year'::interval
+GROUP BY former.ucbbl/1000000000, latter.year
+ORDER BY former.ucbbl/1000000000, latter.year;
+
+UPDATE rgb_comparison comp
+SET rgb_diff = rgb.net,
+    rgb_loss = rgb.total_sub,
+    rgb_gain = rgb.total_add,
+    diff_diff = dof_diff - rgb.net,
+    diff_loss = dof_loss - rgb.total_sub,
+    diff_gain = dof_gain - rgb.total_add
+FROM rgb WHERE comp.year = rgb.year
+     AND comp.borough = rgb.borough;
+
+SELECT * FROM rgb_comparison order by borough, year;
+SELECT borough,
+  sum(dof_diff) as dof_diff,
+  sum(rgb_diff) as rgb_diff,
+  sum(diff_diff) as diff_diff,
+  sum(dof_loss) as dof_loss,
+  sum(rgb_loss) as rgb_loss,
+  sum(diff_loss) as diff_loss,
+  sum(dof_gain) as dof_gain,
+  sum(rgb_gain) as rgb_gain,
+  sum(diff_gain) as diff_gain
+FROM rgb_comparison
+GROUP BY borough
+ORDER BY borough;
 
 \copy joined TO '/data/nyc-rent-stabilization-data/joined.csv' WITH CSV DELIMITER ',' HEADER
 \copy joined_nocrosstab TO '/data/nyc-rent-stabilization-data/joined-nocrosstab.csv' WITH CSV DELIMITER ',' HEADER
 \copy changes_summary TO '/data/nyc-rent-stabilization-data/changes-summary.csv' WITH CSV DELIMITER ',' HEADER
 
-\copy (select cd, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined  group by cd order by cd) TO '/data/nyc-rent-stabilization-data/cds.csv' WITH CSV DELIMITER ',' HEADER
-\copy (select borough, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined  group by borough order by borough) TO '/data/nyc-rent-stabilization-data/boroughs.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select cd, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined group by cd order by cd) TO '/data/nyc-rent-stabilization-data/cds.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select ucbbl/1000000000, sum("2007uc") as start, sum("2014uc") as end, 1 - (sum("2014uc")::real/sum("2007uc")) as change from joined group by ucbbl/1000000000 order by ucbbl/1000000000) TO '/data/nyc-rent-stabilization-data/boroughs.csv' WITH CSV DELIMITER ',' HEADER
 \copy (select *, 1.0 - ("2014uc"::real/"2007uc") as droppercent from joined where "2007uc" is not null and "2008uc" is not null and "2009uc" is not null and "2010uc" is not null and "2011uc" is not null and "2012uc" is not null and "2013uc" is not null and "2014uc" is not null and "2007uc" > 9 and "2014uc"::real/"2007uc" < 0.5) TO '/data/nyc-rent-stabilization-data/hqdrops.csv' WITH CSV DELIMITER ',' HEADER
 \copy (SELECT bbl, activityThrough, key, value FROM rawdata WHERE section = 'nopv' ORDER BY bbl, activityThrough) TO '/data/nyc-rent-stabilization-data/nopv.csv' WITH CSV DELIMITER ',' HEADER
