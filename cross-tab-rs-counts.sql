@@ -39,47 +39,51 @@ CREATE TABLE abatements (
 );
 INSERT INTO abatements
 SELECT bbl, activitythrough,
-  CASE key
-    WHEN 'SCRIE Rent Stabilization Abatement' THEN 'scrie'
-    WHEN 'J51 Abatement' THEN 'j51'
-    WHEN 'Coop Condo Abatement' THEN 'coco'
-    WHEN 'Basic Star - School Tax Relief' THEN 'star'
-    WHEN 'Basic STAR - School Tax Relief' THEN 'star'
-    WHEN 'Drie Disability Rent Increase Abate' THEN 'drie'
-    WHEN 'Senior Citizens Homeowners’ Exemption' THEN 'sche'
-    WHEN 'J-51 Exemption' THEN 'j51'
-    WHEN 'Veteran Exemption' THEN 'vet'
-    WHEN 'Co-op Condo Abatement' THEN 'coco'
-    WHEN 'Enhanced STAR - School Tax Relief' THEN 'estar'
-    WHEN 'Co-op Condo Abatement 2013/14*' THEN 'coco'
-    WHEN 'New Mult Dwellings - 421a' THEN '421a'
-    WHEN 'J-51 Alteration' THEN 'j51'
-    WHEN '421a (25 Yr Not Cap' THEN '421a'
-    WHEN '420C Housing' THEN '420c'
-    WHEN '421a (15 Yr Not Cap)' THEN '421a'
-    WHEN 'New Mult Dwellings' THEN '421a'
+  CASE LOWER(key)
+    WHEN 'scrie rent stabilization abatement' THEN 'scrie'
+    WHEN 'j51 abatement' THEN 'j51'
+    WHEN 'coop condo abatement' THEN 'coco'
+    WHEN 'basic star - school tax relief' THEN 'star'
+    WHEN 'basic star - school tax relief' THEN 'star'
+    WHEN 'drie disability rent increase abate' THEN 'drie'
+    WHEN 'senior citizens homeowners’ exemption' THEN 'sche'
+    WHEN 'j-51 exemption' THEN 'j51'
+    WHEN 'veteran exemption' THEN 'vet'
+    WHEN 'co-op condo abatement' THEN 'coco'
+    WHEN 'enhanced star - school tax relief' THEN 'estar'
+    WHEN 'co-op condo abatement 2013/14*' THEN 'coco'
+    WHEN 'new mult dwellings - 421a' THEN '421a'
+    WHEN 'j-51 alteration' THEN 'j51'
+    WHEN '421a (25 yr not cap' THEN '421a'
+    WHEN '420c housing' THEN '420c'
+    WHEN '421a (15 yr not cap)' THEN '421a'
+    WHEN 'new mult dwellings' THEN '421a'
+    WHEN '421a (10 yr cap)' THEN '421a'
+    WHEN '421a (20 yr not cap' THEN '421a'
   END as abatement,
   COUNT(*) as cnt
 FROM rawdata
-WHERE key in (
-  'SCRIE Rent Stabilization Abatement',
-  'J51 Abatement',
-  'Coop Condo Abatement',
-  'Basic Star - School Tax Relief',
-  'Basic STAR - School Tax Relief',
-  'Drie Disability Rent Increase Abate',
-  'Senior Citizens Homeowners’ Exemption',
-  'J-51 Exemption',
-  'Veteran Exemption',
-  'Co-op Condo Abatement',
-  'Enhanced STAR - School Tax Relief',
-  'Co-op Condo Abatement 2013/14*',
-  'New Mult Dwellings - 421a',
-  'J-51 Alteration',
-  '421a (25 Yr Not Cap',
-  '420C Housing',
-  '421a (15 Yr Not Cap)',
-  'New Mult Dwellings'
+WHERE LOWER(key) in (
+  'scrie rent stabilization abatement',
+  'j51 abatement',
+  'coop condo abatement',
+  'basic star - school tax relief',
+  'basic star - school tax relief',
+  'drie disability rent increase abate',
+  'senior citizens homeowners’ exemption',
+  'j-51 exemption',
+  'veteran exemption',
+  'co-op condo abatement',
+  'enhanced star - school tax relief',
+  'co-op condo abatement 2013/14*',
+  'new mult dwellings - 421a',
+  'j-51 alteration',
+  '421a (25 yr not cap',
+  '420c housing',
+  '421a (15 yr not cap)',
+  'new mult dwellings',
+  '421a (10 yr cap)',
+  '421a (20 yr not cap'
 )
 GROUP BY abatement, bbl, activitythrough
 ;
