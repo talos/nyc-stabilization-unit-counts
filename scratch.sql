@@ -176,3 +176,72 @@ copy (select borough,block,lot from rawdata_bbls where oneyear = 't' and stabili
 SELECT * FROM unitcounts
 WHERE meta !~ '^[\d ]+$'
 ORDER BY units DESC;
+
+/* find all properties with 421a or rent stabilization */
+SELECT *
+INTO rawdata_exempt_stabilized
+FROM rawdata
+WHERE lower(key) IN (
+  'new mult dwellings - 421a',
+  'j-51 alteration',
+  '421a (25 yr not cap',
+  '420c housing',
+  '421a (15 yr not cap)',
+  'new mult dwellings',
+  '421a (10 yr cap)',
+  '421a (20 yr not cap'
+);
+DROP TABLE IF EXISTS exempt_stabilized;
+CREATE TABLE exempt_stabilized (
+  bbl BIGINT,
+  exemptions TEXT,
+  registered_stabilized_apts INT,
+  pluto_apts INT,
+  estimated_gross_income REAL,
+  estimated_expenses REAL
+);
+
+
+INSERT INTO exempt_stabilized
+SELECT bbl, STRING_AGG(distinct key, ',')
+FROM rawdata_exempt_stabilized
+WHERE activitythrough = '2015-06-05'
+  AND lower(key) IN (
+    'new mult dwellings - 421a', '421a (25 yr not cap', '421a (15 yr not cap)', 'new mult dwellings'
+    '421a (10 yr cap)', '421a (20 yr not cap'
+   )
+  AND RIGHT(bbl::text, 4)::INT < 1000
+GROUP BY bbl
+ORDER BY bbl;
+
+UPDATE exempt_stabilized xs
+  SET registered_stabilized_apts = "2014uc"
+FROM joined
+WHERE joined.ucbbl = xs.bbl AND
+  "2014est" = 'N';
+
+UPDATE exempt_stabilized xs
+  SET pluto_apts = COALESCE(unitsres, unitstotal)
+FROM "contrib/us/ny/nyc".pluto pl
+WHERE pl.bbl = xs.bbl;
+
+UPDATE exempt_stabilized xs
+  SET estimated_gross_income = value::real
+FROM nopv
+WHERE nopv.bbl = xs.bbl AND nopv.key = 'gross income';
+
+UPDATE exempt_stabilized xs
+  SET estimated_expenses = value::real
+FROM nopv
+WHERE nopv.bbl = xs.bbl AND nopv.key = 'expenses';
+
+/* show that there are 79018 apts in PLUTO collecting 421a in 2015, of which
+ * 51312 are registered stabilized. */
+select sum(pluto_apts), sum (registered_stabilized_apts) from exempt_stabilized ;
+
+\copy (select * from exempt_stabilized) TO '/data/nyc-rent-stabilization-data/exempt_stabilized.csv' WITH CSV DELIMITER ',' HEADER
+
+/** see the concentration of different keys **/
+select key, count(*) into concentration_keys from rawdata group by key order by count(*);
+
+
