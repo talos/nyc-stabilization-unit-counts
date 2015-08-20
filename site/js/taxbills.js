@@ -8,10 +8,10 @@
   /**
    * Get BBL from borough, street & housenumber
    */
-  function getBBL(borough, street, houseNumber) {
+  function getBBL(data) {
     return $.ajax({
       url: 'https://who.owns.nyc/geoclient/address.json?' + $.param({
-        borough: borough, street: street, houseNumber: houseNumber
+        borough: data.borough, street: data.street, houseNumber: data.houseNumber
       }),
       dataType: 'json'
     }).then(function (addressData) {
@@ -111,6 +111,63 @@
   }
 
   /**
+   * Convert a county to an NYC borough.  Returns undefined if no borough
+   * matches.
+   */
+  function county2borough(county) {
+    if (county.match(/^new york/i)) {
+      return 1;
+    } else if (county.match(/^bronx/i)) {
+      return 2;
+    } else if (county.match(/^kings/i)) {
+      return 3;
+    } else if (county.match(/^queens/i)) {
+      return 4;
+    } else if (county.match(/^richmond/i)) {
+      return 5;
+    }
+  }
+
+  /**
+   * Parse google's location output for street number, street name, and
+   * borough.
+   */
+  function parseGoogle(place) {
+    var $dfd = new $.Deferred();
+
+    if (!place.address_components) {
+      return $dfd.reject("Sorry, I can't work with that address");
+    }
+    if (!place.address_components[0].types.contains('street_number')) {
+      return $dfd.reject("Double-check this address, I can't find it");
+    }
+    var houseNumber = place.address_components[0].short_name,
+        street = place.address_components[1].short_name,
+        borough;
+
+    for (var i = 0; i < place.address_components.length; i += 1) {
+      var county = place.address_components[i].long_name;
+      if (county.match(/county$/i)) {
+        borough = county2borough(county);
+      }
+      if (borough) {
+        break;
+      }
+    }
+
+    if (!borough) {
+      return $dfd.reject("Unknown borough");
+    }
+
+    $dfd.resolve({
+      houseNumber: houseNumber,
+      street: street,
+      borough: borough
+    });
+    return $dfd.promise();
+  }
+
+  /**
    * Show an error message.
    */
   function showError(errorMsg) {
@@ -124,16 +181,6 @@
   /**
    * Main
    */
-  $(document).ready(function () {
-    $.extend($.fn.bootstrapTable.defaults,
-             $.fn.bootstrapTable.locales['en-US']);
-
-    summaryTemplate = Handlebars.compile($('#summaryTemplate').text());
-    graphTemplate = Handlebars.compile($('#graphTemplate').text());
-    rawDataTemplate = Handlebars.compile($('#rawDataTemplate').text());
-    alertTemplate = Handlebars.compile($('#alertTemplate').text());
-
-    var query = querystring.parse(window.location.search.substr(1));
         //$borough = $('#borough'),
         //$street = $('#street'),
         //$houseNumber = $("#houseNumber");
@@ -150,57 +197,37 @@
     }
    */
 
+  $(document).ready(function () {
+    $.extend($.fn.bootstrapTable.defaults,
+             $.fn.bootstrapTable.locales['en-US']);
+
+    summaryTemplate = Handlebars.compile($('#summaryTemplate').text());
+    graphTemplate = Handlebars.compile($('#graphTemplate').text());
+    rawDataTemplate = Handlebars.compile($('#rawDataTemplate').text());
+    alertTemplate = Handlebars.compile($('#alertTemplate').text());
+
+    //var query = querystring.parse(window.location.search.substr(1));
+
     $('#bbl-form').on('submit', function (evt) {
       evt.preventDefault();
     });
 
     var autocomplete = new google.maps.places.Autocomplete($('#location')[0]);
     autocomplete.setTypes(['address']);
+    autocomplete.setBounds(new google.maps.LatLngBounds(
+      new google.maps.LatLng(40.49,-74.27),
+      new google.maps.LatLng(40.87,-73.68)
+    ));
     autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
 
-      if (!place.address_components) {
-        showError("Sorry, I can't work with that address");
-        return;
-      }
-      if (!place.address_components[0].types.contains('street_number')) {
-        showError("Double-check this address, I can't find it");
-        return;
-      }
-      var houseNumber = place.address_components[0].short_name,
-          street = place.address_components[1].short_name,
-          borough;
-
-      for (var i = 0; i < place.address_components.length; i += 1) {
-        var county = place.address_components[i].long_name;
-        if (county.match(/County$/i)) {
-          if (county.match(/^new york/i)) {
-            borough = 1;
-          } else if (county.match(/^bronx/i)) {
-            borough = 2;
-          } else if (county.match(/^kings/i)) {
-            borough = 3;
-          } else if (county.match(/^queens/i)) {
-            borough = 4;
-          } else if (county.match(/^richmond/i)) {
-            borough = 5;
-          }
-        }
-        if (borough) {
-          break;
-        }
-      }
-
-      if (!borough) {
-        showError("Unknown borough");
-        return;
-      }
 
         //history.pushState(null, null, window.location.pathname + '?' +
         //                  $.param({borough: borough,
         //                          street: street,
         //                          houseNumber: houseNumber }));
-      getBBL(borough, street, houseNumber)
+      parseGoogle(place)
+        .then(getBBL)
         .then(getTaxData)
         .then(function (data) {
           showRawData(data);
