@@ -1,4 +1,5 @@
---CREATE INDEX key on rawdata (key);
+UPDATE rawdata SET key = LOWER(key);
+CREATE INDEX key on rawdata (key);
 --CREATE INDEX key_activity_due on rawdata (key, "activitythrough", "duedate");
 --CREATE INDEX bbl on rawdata (bbl);
 
@@ -23,7 +24,7 @@ SELECT bbl,
   END as year,
   value::money, apts::int, meta
 FROM rawdata
-WHERE key = 'Housing-Rent Stabilization';
+WHERE key = 'housing-rent stabilization';
 
 UPDATE unitcounts
 SET units = (amount / 10)::numeric
@@ -39,7 +40,7 @@ CREATE TABLE abatements (
 );
 INSERT INTO abatements
 SELECT bbl, activitythrough,
-  CASE LOWER(key)
+  CASE key
     WHEN 'scrie rent stabilization abatement' THEN 'scrie'
     WHEN 'j51 abatement' THEN 'j51'
     WHEN 'coop condo abatement' THEN 'coco'
@@ -63,7 +64,7 @@ SELECT bbl, activitythrough,
   END as abatement,
   COUNT(*) as cnt
 FROM rawdata
-WHERE LOWER(key) in (
+WHERE key in (
   'scrie rent stabilization abatement',
   'j51 abatement',
   'coop condo abatement',
@@ -100,14 +101,14 @@ CREATE UNIQUE INDEX owner_addresses_uk on owner_addresses
 INSERT INTO owner_addresses
 SELECT DISTINCT bbl, DATE_PART('year', activitythrough), value
 FROM rawdata
-WHERE key = 'Owner name';
+WHERE key = 'owner name';
 
 UPDATE owner_addresses
 SET address = value
 FROM owner_addresses oa, rawdata rd
 WHERE oa.bbl = rd.bbl AND
       oa.year = DATE_PART('year', rd.activitythrough) AND
-      key = 'Mailing address';
+      key = 'mailing address';
 
 DROP TABLE IF EXISTS registrations;
 CREATE TABLE registrations (
