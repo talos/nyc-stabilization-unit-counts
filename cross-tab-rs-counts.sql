@@ -414,21 +414,22 @@ SET rgb_diff = rgb.net,
 FROM rgb WHERE comp.year = rgb.year
      AND comp.borough = rgb.borough;
 
-SELECT * FROM rgb_comparison order by borough, year;
-SELECT borough,
-  sum(dof_diff) as dof_diff,
-  sum(rgb_diff) as rgb_diff,
-  sum(diff_diff) as diff_diff,
-  sum(dof_loss) as dof_loss,
-  sum(rgb_loss) as rgb_loss,
-  sum(diff_loss) as diff_loss,
-  sum(dof_gain) as dof_gain,
-  sum(rgb_gain) as rgb_gain,
-  sum(diff_gain) as diff_gain
-FROM rgb_comparison
-GROUP BY borough
-ORDER BY borough;
+-- SELECT * FROM rgb_comparison order by borough, year;
+-- SELECT borough,
+--   sum(dof_diff) as dof_diff,
+--   sum(rgb_diff) as rgb_diff,
+--   sum(diff_diff) as diff_diff,
+--   sum(dof_loss) as dof_loss,
+--   sum(rgb_loss) as rgb_loss,
+--   sum(diff_loss) as diff_loss,
+--   sum(dof_gain) as dof_gain,
+--   sum(rgb_gain) as rgb_gain,
+--   sum(diff_gain) as diff_gain
+-- FROM rgb_comparison
+-- GROUP BY borough
+-- ORDER BY borough;
 
+DROP TABLE IF EXISTS nopv;
 CREATE TABLE nopv AS
 SELECT bbl, activityThrough, key, value
 FROM rawdata
