@@ -453,7 +453,7 @@ def extract_nopv(text):
         yield {
             'key': 'expenses',
             'section': 'nopv',
-            'value': parseamount(expenses.group(2) or income.group(3))
+            'value': parseamount(expenses.group(2) or expenses.group(3))
         }
 
 
@@ -527,6 +527,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
                 LOGGER.warn(traceback.format_exc())
                 LOGGER.warn('Could not parse %s, error: %s', os.path.join(path, filename), err)
         with open(os.path.join(path, 'data.json'), 'w') as json_outfile:
+            # TODO something is wrong here, for BBL http://taxbills.nyc/1/00274/0004/data.json an erroneous 243609 is appearing for nopv "gross income"/"expenses" instead of a much smaller number
             json.dump(bbl_json, json_outfile)
 
         if len(rows_to_write) >= ROW_BUFFER:
