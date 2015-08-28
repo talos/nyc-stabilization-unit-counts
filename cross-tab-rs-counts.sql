@@ -89,26 +89,30 @@ WHERE key in (
 GROUP BY abatement, bbl, activitythrough
 ;
 
-DROP TABLE IF EXISTS owner_addresses;
-CREATE TABLE owner_addresses (
-  bbl BIGINT,
-  year INT,
-  name TEXT,
-  address TEXT
-);
-CREATE UNIQUE INDEX owner_addresses_uk on owner_addresses
-  (bbl, year, name, address);
-INSERT INTO owner_addresses
-SELECT DISTINCT bbl, DATE_PART('year', activitythrough), value
+DROP TABLE IF EXISTS owners;
+CREATE UNLOGGED TABLE owners AS
+SELECT bbl, DATE_PART('year', activitythrough)::INT AS year, MAX(value) AS owner
 FROM rawdata
-WHERE key = 'owner name';
+WHERE key = 'owner name'
+GROUP BY bbl, DATE_PART('year', activitythrough);
+CREATE UNIQUE INDEX owners_uk on owners (bbl, year);
 
-UPDATE owner_addresses
-SET address = value
-FROM owner_addresses oa, rawdata rd
-WHERE oa.bbl = rd.bbl AND
-      oa.year = DATE_PART('year', rd.activitythrough) AND
-      key = 'mailing address';
+DROP TABLE IF EXISTS addresses;
+CREATE UNLOGGED TABLE addresses AS
+SELECT bbl, DATE_PART('year', activitythrough)::INT AS year, MAX(value) AS address
+FROM rawdata
+WHERE key =  'mailing address'
+GROUP BY bbl, DATE_PART('year', activitythrough)::INT;
+CREATE UNIQUE INDEX "addresses_uk" on addresses (bbl, year);
+
+DROP TABLE IF EXISTS owner_addresses;
+CREATE TABLE owner_addresses AS
+SELECT o.bbl, o.year, o.owner, a.address
+FROM owners o, addresses a
+WHERE o.bbl = a.bbl AND o.year = a.year;
+
+DROP TABLE owners;
+DROP TABLE addresses;
 
 DROP TABLE IF EXISTS registrations;
 CREATE TABLE registrations (
