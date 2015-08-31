@@ -24,6 +24,7 @@
     "d3": "latest",
     "jslinq": "latest",
     "handlebars": "latest",
-    "querystring": "latest"
+    "querystring": "latest",
+    "nvd3": "latest"
   }
 }

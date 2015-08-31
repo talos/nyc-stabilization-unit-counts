@@ -5,6 +5,8 @@
 
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap-table/dist/bootstrap-table.min.css" />
+    <link type="text/css" rel="stylesheet" href="bower_components/nvd3/build/nv.d3.min.css" />
+
     <link type="text/css" rel="stylesheet" href="css/taxbills.css" />
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -14,6 +16,7 @@
     <script src="bower_components/handlebars/handlebars.min.js"></script>
     <script src="bower_components/querystring/querystring.min.js"></script>
     <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/nvd3/build/nv.d3.min.js"></script>
 
     <script src="//maps.googleapis.com/maps/api/js?signed_in=true&libraries=places" ></script>
 
@@ -39,6 +42,9 @@
     </script>
 
     <script id="graphTemplate" type="text/handlebars">
+<div id="graphs">
+  <svg style="height:300px;width:1000px;"/>
+</div>
     </script>
 
     <script id="rawDataTemplate" type="text/handlebars">
