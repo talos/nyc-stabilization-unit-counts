@@ -244,4 +244,27 @@ select sum(pluto_apts), sum (registered_stabilized_apts) from exempt_stabilized 
 /** see the concentration of different keys **/
 select key, count(*) into concentration_keys from rawdata group by key order by count(*);
 
+/** landmark comparisons **/
+create table landmark_comparison_no421a as
+select cd,
+       sum("2007uc") "2007",
+       sum("2014uc") "2014",
+      (sum("2014uc") - sum("2007uc"))::float / sum("2007uc") * 100 change,
+      (histdist is not null) or (landmark is not null) ishist
+from joined_with_landmark
+where "2014abat" not like '%421a%'
+group by ishist, cd
+order by cd, ishist;
 
+create table landmark_comparison_421a as
+select cd,
+       sum("2007uc") "2007",
+       sum("2014uc") "2014",
+      (sum("2014uc") - sum("2007uc"))::float / sum("2007uc") * 100 change,
+      (histdist is not null) or (landmark is not null) ishist
+from joined_with_landmark
+group by ishist, cd
+order by cd, ishist;
+
+\copy (select * from landmark_comparison_no421a) TO '/data/nyc-rent-stabilization-data/landmark_comparison_no421a.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select * from landmark_comparison_421a) TO '/data/nyc-rent-stabilization-data/landmark_comparison_421a.csv' WITH CSV DELIMITER ',' HEADER
