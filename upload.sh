@@ -9,6 +9,7 @@ find data/ -iname *.pdf | head -n 100 | while read pdf; do
   txtpath="$path/$filename.txt"
 
   if [ -e "$txtpath" ]; then
-    aws s3 cp "$pdf" "s3://taxbills.nyc.test/$pdf"
+    aws s3 cp "$pdf" "s3://taxbills.nyc/$pdf" --acl public-read
+    rm "$pdf"
   fi
 done
