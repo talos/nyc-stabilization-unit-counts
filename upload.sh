@@ -2,8 +2,7 @@
 
 # Upload PDFs that have been converted to text to S3, then delete
 
-find data/ -iname *.pdf | head -n 100 | while read pdf; do
-  #echo "$pdf"
+find data/ -iname *.pdf | while read pdf; do
   filename=$(basename "$pdf" .pdf)
   path=$(dirname "$pdf")
   txtpath="$path/$filename.txt"
