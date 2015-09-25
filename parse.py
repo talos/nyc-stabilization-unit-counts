@@ -30,11 +30,11 @@ HEADERS = [
     "apts"
 ]
 
-ROW_BUFFER = 10000
+ROW_BUFFER = 1
 
 BILL_PDF, STATEMENT_PDF, STATEMENT_HTML, NOPV_PDF, NOPV_HTML = (
-    'Quarterly Property Tax Bill.pdf', 'Quarterly Statement of Account.pdf',
-    'Quarterly Statement of Account.html', 'Notice of Property Value.pdf',
+    'Quarterly Property Tax Bill.txt', 'Quarterly Statement of Account.txt',
+    'Quarterly Statement of Account.html', 'Notice of Property Value.txt',
     'Notice of Property Value.html')
 ACTIVITY_THROUGH = {
     BILL_PDF: re.compile(r'Activity through (.*)', re.IGNORECASE),
@@ -47,6 +47,14 @@ OWNER_ADDRESS_AREA = re.compile(
 PROPERTY_TAX_DETAIL_AREA = re.compile(
     '(Annual [Pp]roperty [Tt]ax [Dd]etail|How We Calculated Your Property Tax).*'
     '[Aa]nnual [Pp]roperty [Tt]ax.*?\n', re.DOTALL + re.IGNORECASE)
+
+STABILIZED_RE = re.compile(r'(Current Amount Due|'
+                           r'Amount Not Due [bB]ut That Can be Paid Early|'
+                           r'New Charges Due \w+ \d{2}, \d{4}|'
+                           r'Remaining Balance/Credits from Your Last Statement|'
+                           r'Previous Balance'
+                           r')[^_]+?Activity Date.*?'
+                           r'_________________')
 
 SPLIT_RE = re.compile(r'\s{2,}')
 SPLIT_X_RE = re.compile(r'[\sX$]{2,}')
@@ -369,16 +377,7 @@ def _html_rent_stabilized(html):
     """
     Extract every rent stabilized line from the soup.
     """
-    #els = soup.find_all(text=re.compile('Housing-Rent Stabilization'))
-    #import pdb
-    #pdb.set_trace()
-    for section in re.finditer(r'(Current Amount Due|'
-                               r'Amount Not Due [bB]ut That Can be Paid Early|'
-                               r'New Charges Due \w+ \d{2}, \d{4}|'
-                               r'Remaining Balance/Credits from Your Last Statement|'
-                               r'Previous Balance'
-                               r')[^_]+?Activity Date.*?'
-                               r'_________________', html, re.DOTALL):
+    for section in STABILIZED_RE.finditer(html, re.DOTALL):
         section_type = section.group(1)
         section_text = section.group()
         for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', section_text, re.IGNORECASE):
@@ -467,18 +466,24 @@ def _convert_to_txt(pdf_path, bbl_array):
     """
     text_path = pdf_path.replace('.pdf', '.txt')
     if not os.path.exists(text_path):
+        if os.stat(pdf_path).st_size == 0:
+            LOGGER.info('Deleting %s as it is empty', pdf_path)
+            os.remove(pdf_path)
+            return None
         try:
             subprocess.check_call("pdftotext -layout '{}'".format(
                 pdf_path
             ), shell=True)
         except subprocess.CalledProcessError as err:
-            LOGGER.info('Moving & trying to repair %s (%s)', pdf_path, err)
-            subprocess.check_call("mv '{}' '{}'".format(
-                pdf_path, os.path.join(pdf_path, pdf_path + '_corrupted')
-            ), shell=True)
-            subprocess.check_call("./download.py {}".format(
-                ' '.join(bbl_array)
-            ), shell=True)
+            LOGGER.info('Skipping %s (%s) as it is corrupted', pdf_path, err)
+            return None
+            #LOGGER.info('Moving & trying to repair %s (%s)', pdf_path, err)
+            #subprocess.check_call("mv '{}' '{}'".format(
+            #    pdf_path, pdf_path + '_corrupted'
+            #), shell=True)
+            #subprocess.check_call("./download.py {}".format(
+            #    ' '.join(bbl_array)
+            #), shell=True)
     return text_path
 
 
@@ -491,9 +496,12 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     rows_to_write = []
     for path, _, files in os.walk(root):
         bbl_json = []
-        for filename in sorted(files):
+        for filename in files:
             try:
                 if 'corrupted' in filename:
+                    continue
+
+                if 'data.json' in filename:
                     continue
 
                 handler = None
@@ -502,26 +510,29 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
                 if filename.endswith('.pdf'):
                     pdf_path = os.path.join(path, filename)
                     data_path = _convert_to_txt(pdf_path, bbl_array)
+                    if data_path is None:
+                        continue
                 else:
                     data_path = os.path.join(path, filename)
 
-                if BILL_PDF in filename or STATEMENT_PDF in filename:
+                if BILL_PDF in data_path or STATEMENT_PDF in data_path:
                     handler = extract_statement_pdf
-                elif NOPV_PDF in filename or NOPV_HTML in filename:
+                elif NOPV_PDF in data_path or NOPV_HTML in data_path:
                     handler = extract_nopv
-                elif STATEMENT_HTML in filename:
+                elif STATEMENT_HTML in data_path:
                     handler = extract_statement_html
+                else:
+                    continue
 
-                if handler:
-                    with open(data_path, 'r') as handle:
-                        file_data = handle.read()
-                    activity_through = parsedate(filename.split(' - ')[0])
-                    for data in handler(file_data):
-                        data['bbl'] = ''.join(bbl_array)
-                        data['activityThrough'] = activity_through
-                        #writer.writerow(base)
-                        rows_to_write.append(data)
-                        bbl_json.append(data)
+                with open(data_path, 'r') as handle:
+                    file_data = handle.read()
+                activity_through = parsedate(filename.split(' - ')[0])
+                for data in handler(file_data):
+                    data['bbl'] = ''.join(bbl_array)
+                    data['activityThrough'] = activity_through
+                    #writer.writerow(base)
+                    rows_to_write.append(data)
+                    bbl_json.append(data)
 
             except Exception as err:  # pylint: disable=broad-except
                 LOGGER.warn(traceback.format_exc())
