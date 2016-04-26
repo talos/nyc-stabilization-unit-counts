@@ -185,7 +185,7 @@ for each year of observation, there is a separate row.
 This would be more useful for making a time-based map or doing statistical
 analysis where the year column can be fed in as a proper dimension.
 
-### A [summary of building changes](http://taxbills.nyc/joined-nocrosstab.csv) over the seven-year span.
+### A [summary of building changes](http://taxbills.nyc/changes-summary.csv) over the seven-year span.
 
 This is the table that underlies the map.
 
