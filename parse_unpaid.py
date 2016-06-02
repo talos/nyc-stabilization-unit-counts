@@ -69,13 +69,13 @@ OLD_SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
                          r'Previous Balance|' # history
                          r'Previous Charges' # history
                          r')[ \n\r]+Activity Date.*?'
-                         # r'(Total|Unpaid Balance, [iI]f Any)[\S ]*',
-                         r'(Total|Unpaid [bB]alance, [iI]f [aA]ny|Unpaid [cC]harges, [iI]f [aA]ny)[\S ]*',
+                         # r'(Previous charges|Total|Unpaid Balance, [iI]f Any)[\S ]*',
+                         r'(Previous charges|Total|Unpaid [bB]alance, [iI]f [aA]ny|Unpaid [cC]harges, [iI]f [aA]ny)[\S ]*',
 #                                 Unpaid charges, if any
                          re.DOTALL)
 
 SECTIONS_RE = re.compile(
-                         r'(Total|Unpaid [bB]alance, [iI]f [aA]ny|Unpaid [cC]harges, [iI]f [aA]ny)[\S ]*'
+                         r'(Previous charges|Total|Unpaid [bB]alance, [iI]f [aA]ny|Unpaid [cC]harges, [iI]f [aA]ny)[\S ]*'
                          #r'Unpaid'
                          ,re.DOTALL
                          )
@@ -89,7 +89,10 @@ def parseamount(string):
     """
     Convert string of style -$24,705.75 to float -24705.75
     """
-    return float(string.replace(',', '').replace('$', '').replace('*', '').replace('X', ''))
+    try:
+        return float(string.replace(',', '').replace('$', '').replace('*', '').replace('X', ''))
+    except Exception,e:
+        return -1
 
 
 def split(string, with_x=False):
@@ -155,103 +158,106 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                 continue
 
             if line:
-                cells = split(line, with_x=True)
+                try:
+                    cells = split(line, with_x=True)
 
-                if not cells[0]:
-                    continue
+                    if not cells[0]:
+                        continue
 
-                cell0 = cells[0].lower()
+                    cell0 = cells[0].lower()
 
-                if cell0 in ('value', 'tax rate', 'overall'):
-                    continue
-                elif cell0.startswith('tax class'):
-                    key = u'tax class'
-                    value = cell0.split(key)[1]
-                elif cell0.startswith('current tax rate'):
-                    key = cell0
-                    value = cells[1]
-                elif cell0.startswith('estimated market value'):
-                    key = cell0
-                    value = parseamount(cells[1])
-                elif cell0.startswith('tax before exemptions and abatements'):
-                    section = 'details'
-                    key = cell0
-                    meta = parseamount(cells[1])
-                    value = parseamount(cells[-1])
-                    exemptions_flag = True
-                elif cell0.startswith('tax before abatements'):
-                    section = 'details'
-                    key = cell0
-                    meta = parseamount(cells[1])
-                    value = parseamount(cells[-1])
-                    abatements_flag = True
-                elif cell0 == 'annual property tax':
-                    section = 'details'
-                    key = cell0
-                    value = parseamount(cells[-1])
-                elif cell0.startswith('original tax rate'):
-                    section = 'details'
-                    key = 'original tax rate'
-                    meta = cell0.split(key)[1]
-                    value = cells[-1]
-                elif cell0 == 'new tax rate':
-                    section = 'details'
-                    key = cell0
-                    value = cells[-1]
-                elif cell0 == 'revocation':
-                    revocation_flag = True
-                    continue
-                elif revocation_flag:
-                    section = 'details-revocation'
-                    key = cell0
-                    value = parseamount(cells[-1])
-                elif abatements_flag:
-                    section = 'details-abatements'
-                    key = cell0
-                    if len(cells) > 2:
-                        if len(cells[1].lower().split('unit')) > 1:
-                            apts = int(cells[1].lower()\
-                                       .replace(' units', '').replace(' unit', ''))
-                            meta = parseamount(cells[2])
-                        elif cells[1].endswith('%'):
-                            meta = parseamount(cells[2])
-                        else:
-                            meta = parseamount(cells[1])
+                    if cell0 in ('value', 'tax rate', 'overall'):
+                        continue
+                    elif cell0.startswith('tax class'):
+                        key = u'tax class'
+                        value = cell0.split(key)[1]
+                    elif cell0.startswith('current tax rate'):
+                        key = cell0
+                        value = cells[1]
+                    elif cell0.startswith('estimated market value'):
+                        key = cell0
+                        value = parseamount(cells[1])
+                    elif cell0.startswith('tax before exemptions and abatements'):
+                        section = 'details'
+                        key = cell0
+                        meta = parseamount(cells[1])
+                        value = parseamount(cells[-1])
+                        exemptions_flag = True
+                    elif cell0.startswith('tax before abatements'):
+                        section = 'details'
+                        key = cell0
+                        meta = parseamount(cells[1])
+                        value = parseamount(cells[-1])
+                        abatements_flag = True
+                    elif cell0 == 'annual property tax':
+                        section = 'details'
+                        key = cell0
+                        value = parseamount(cells[-1])
+                    elif cell0.startswith('original tax rate'):
+                        section = 'details'
+                        key = 'original tax rate'
+                        meta = cell0.split(key)[1]
+                        value = cells[-1]
+                    elif cell0 == 'new tax rate':
+                        section = 'details'
+                        key = cell0
+                        value = cells[-1]
+                    elif cell0 == 'revocation':
+                        revocation_flag = True
+                        continue
+                    elif revocation_flag:
+                        section = 'details-revocation'
+                        key = cell0
+                        value = parseamount(cells[-1])
+                    elif abatements_flag:
+                        section = 'details-abatements'
+                        key = cell0
+                        if len(cells) > 2:
+                            if len(cells[1].lower().split('unit')) > 1:
+                                apts = int(cells[1].lower()\
+                                           .replace(' units', '').replace(' unit', ''))
+                                meta = parseamount(cells[2])
+                            elif cells[1].endswith('%'):
+                                meta = parseamount(cells[2])
+                            else:
+                                meta = parseamount(cells[1])
 
-                    value = parseamount(cells[-1])
-                elif exemptions_flag:
-                    section = 'details-exemptions'
-                    key = cell0
-                    if len(cells) > 2:
-                        if len(cells[1].lower().split('unit')) > 1:
-                            apts = int(cells[1].lower()\
-                                       .replace(' units', '').replace(' unit', ''))
-                            meta = parseamount(cells[2])
-                        elif cells[1].endswith('%'):
-                            meta = parseamount(cells[2])
-                        else:
-                            meta = parseamount(cells[1])
+                        value = parseamount(cells[-1])
+                    elif exemptions_flag:
+                        section = 'details-exemptions'
+                        key = cell0
+                        if len(cells) > 2:
+                            if len(cells[1].lower().split('unit')) > 1:
+                                apts = int(cells[1].lower()\
+                                           .replace(' units', '').replace(' unit', ''))
+                                meta = parseamount(cells[2])
+                            elif cells[1].endswith('%'):
+                                meta = parseamount(cells[2])
+                            else:
+                                meta = parseamount(cells[1])
 
-                    value = parseamount(cells[-1])
-                elif len(cells) == 1:
-                    continue
-                else:
-                    key = cell0
-                    value = parseamount(cells[-1])
+                        value = parseamount(cells[-1])
+                    elif len(cells) == 1:
+                        continue
+                    else:
+                        key = cell0
+                        value = parseamount(cells[-1])
 
-                for unit in (' units', ' unit'):
-                    if key.lower().endswith(unit):
-                        key = key.lower().replace(unit, '')
-                        apts = int(key.split(' ')[-1])
-                        key = ' '.join(key.split(' ')[0:-1])
+                    for unit in (' units', ' unit'):
+                        if key.lower().endswith(unit):
+                            key = key.lower().replace(unit, '')
+                            apts = int(key.split(' ')[-1])
+                            key = ' '.join(key.split(' ')[0:-1])
 
-                yield {
-                    'section': section,
-                    'apts': apts,
-                    'key': key,
-                    'value': value,
-                    'meta': meta,
-                }
+                    yield {
+                        'section': section,
+                        'apts': apts,
+                        'key': key,
+                        'value': value,
+                        'meta': meta,
+                    }
+                except Exception,e:
+                     pass
 
     # All other lines
     #print 'text',text
