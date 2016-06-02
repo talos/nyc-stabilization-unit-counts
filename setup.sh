@@ -1,6 +1,8 @@
 #!
 sudo apt-get install python-dev python-pip python-virtualenv \
                          build-essential libxml2-dev libxslt1-dev xpdf
+# macos
+# brew install python pyenv-virtualenv libxml2 xpdf
 virtualenv .env
 source .env/bin/activate
 pip install -r requirements.txt
