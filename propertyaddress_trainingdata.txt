@@ -81,21 +81,253 @@ data/1/00416/0036/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00416/0036/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       58 RIVINGTON ST.                                     58 RIVINGTON ST.
 data/1/00416/0036/January 15, 2013 - Notice of Property Value.txt:     Property Address                         58 RIVINGTON STREET
 data/1/00416/0036/January 15, 2013 - Notice of Property Value.txt:    Property Address: 58 RIVINGTON STREET                                           Borough: MANHATTAN
+data/1/00489/0003/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/January 15, 2011 - Notice of Property Value.txt:                   SPRICE INC                                                        PROPERTY ADDRESS:
+data/1/00489/0003/January 15, 2011 - Notice of Property Value.txt: Property Address: 59 SULLIVAN STREET                                      Borough: MANHATTAN
+data/1/00489/0003/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                                59 SULLIVAN ST.
+data/1/00489/0003/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       59 SULLIVAN ST.                                       59 SULLIVAN ST.
+data/1/00489/0003/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                           59 SULLIVAN ST.
+data/1/00489/0003/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     59 Sullivan St.                                             59 Sullivan St.
+data/1/00489/0003/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                              59 SULLIVAN ST.
+data/1/00489/0003/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0003/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4306                                         PROPERTY ADDRESS
+data/1/00489/0003/January 15, 2016 - Notice of Property Value.txt:    Property Address: 59 SULLIVAN STREET                                           Borough: Manhattan
+data/1/00489/0003/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/January 15, 2010 - Notice of Property Value.txt:                    SPRICE INC                                                       PROPERTY ADDRESS:
+data/1/00489/0003/January 15, 2010 - Notice of Property Value.txt: Property Address: 59 SULLIVAN STREET                                    Borough: MANHATTAN
+data/1/00489/0003/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                              59 SULLIVAN ST.
+data/1/00489/0003/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0003/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                                59 SULLIVAN ST.
+data/1/00489/0003/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     59 Sullivan St.                      59 Sullivan St.
+data/1/00489/0003/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4306                                          PROPERTY ADDRESS
+data/1/00489/0003/January 15, 2015 - Notice of Property Value.txt:    Property Address: 59 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0003/January 15, 2014 - Notice of Property Value.txt: Property Address                            59 SULLIVAN STREET
+data/1/00489/0003/January 15, 2014 - Notice of Property Value.txt:    Property Address: 59 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0003/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     59 Sullivan St.                      59 Sullivan St.
+data/1/00489/0003/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                       59 SULLIVAN ST.
+data/1/00489/0003/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                              59 SULLIVAN ST.
+data/1/00489/0003/January 15, 2012 - Notice of Property Value.txt:                   SPRICE INC                                                    PROPERTY ADDRESS:
+data/1/00489/0003/January 15, 2012 - Notice of Property Value.txt: Property Address: 59 SULLIVAN STREET                                     Borough: MANHATTAN
+data/1/00489/0003/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0003/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     59 Sullivan St.                     59 Sullivan St.
+data/1/00489/0003/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 59 SULLIVAN ST.                                              59 SULLIVAN ST.
+data/1/00489/0003/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     59 SULLIVAN ST.                                             59 SULLIVAN ST.
+data/1/00489/0003/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       59 SULLIVAN ST.                                      59 SULLIVAN ST.
+data/1/00489/0003/January 15, 2013 - Notice of Property Value.txt:     Property Address                         59 SULLIVAN STREET
+data/1/00489/0003/January 15, 2013 - Notice of Property Value.txt:    Property Address: 59 SULLIVAN STREET                                            Borough: MANHATTAN
+data/1/00489/0022/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                          NEW YORK, NY 10012-3605
+data/1/00489/0022/January 15, 2011 - Notice of Property Value.txt:                   K REISDORF                                                        PROPERTY ADDRESS:
+data/1/00489/0022/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                                 4211 NORTHERN BLVD.
+data/1/00489/0022/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                       188 SPRING ST.
+data/1/00489/0022/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       188 SPRING ST.                                        188 SPRING ST.
+data/1/00489/0022/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                           NEW YORK , NY 10012-3605
+data/1/00489/0022/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     188 Spring St.                                             188 Spring St.
+data/1/00489/0022/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                              NEW YORK , NY 10012-3605
+data/1/00489/0022/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0022/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                           NEW YORK, NY 10012-3605
+data/1/00489/0022/January 15, 2016 - Notice of Property Value.txt:                        LONG ISLAND CITY NY 11101-1536                                 PROPERTY ADDRESS
+data/1/00489/0022/January 15, 2016 - Notice of Property Value.txt:    Property Address: 188 SPRING STREET                                            Borough: Manhattan
+data/1/00489/0022/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     188 SPRING ST.                                              188 SPRING ST.
+data/1/00489/0022/January 15, 2010 - Notice of Property Value.txt:                    K REISDORF                                                       PROPERTY ADDRESS:
+data/1/00489/0022/January 15, 2010 - Notice of Property Value.txt: Property Address: 188 SPRING STREET                                     Borough: MANHATTAN
+data/1/00489/0022/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                               4211 NORTHERN BLVD.
+data/1/00489/0022/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                       188 SPRING ST.
+data/1/00489/0022/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0022/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                       188 SPRING ST.
+data/1/00489/0022/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                                 4211 NORTHERN BLVD.
+data/1/00489/0022/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     188 Spring St.                       188 Spring St.
+data/1/00489/0022/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-3605                                          PROPERTY ADDRESS
+data/1/00489/0022/January 15, 2015 - Notice of Property Value.txt:    Property Address: 188 SPRING STREET                                          Borough: MANHATTAN
+data/1/00489/0022/January 15, 2014 - Notice of Property Value.txt: Property Address                            188 SPRING STREET
+data/1/00489/0022/January 15, 2014 - Notice of Property Value.txt:    Property Address: 188 SPRING STREET                                          Borough: MANHATTAN
+data/1/00489/0022/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     188 Spring St.                       188 Spring St.
+data/1/00489/0022/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     188 SPRING ST.                                              188 SPRING ST.
+data/1/00489/0022/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                     NEW YORK, NY 10012-3605
+data/1/00489/0022/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                      188 SPRING ST.
+data/1/00489/0022/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                               4211 NORTHERN BLVD.
+data/1/00489/0022/January 15, 2012 - Notice of Property Value.txt:                   K REISDORF                                                    PROPERTY ADDRESS:
+data/1/00489/0022/January 15, 2012 - Notice of Property Value.txt: Property Address: 188 SPRING STREET                                      Borough: MANHATTAN
+data/1/00489/0022/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                  NEW YORK, NY 10012-3605
+data/1/00489/0022/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     188 SPRING ST.                                              188 SPRING ST.
+data/1/00489/0022/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0022/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     188 Spring St.                      188 Spring St.
+data/1/00489/0022/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 188 SPRING ST.                                              4211 NORTHERN BLVD.
+data/1/00489/0022/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     188 SPRING ST.                                              188 SPRING ST.
+data/1/00489/0022/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       188 SPRING ST.                                     NEW YORK, NY 10012-3605
+data/1/00489/0022/January 15, 2013 - Notice of Property Value.txt:     Property Address                         188 SPRING STREET
+data/1/00489/0022/January 15, 2013 - Notice of Property Value.txt:    Property Address: 188 SPRING STREET                                             Borough: MANHATTAN
+data/1/00489/0014/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                         NEW YORK, NY 10012-4306
+data/1/00489/0014/January 15, 2011 - Notice of Property Value.txt:                   83 SULLIVAN ST                                                    PROPERTY ADDRESS:
+data/1/00489/0014/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                                NEW YORK , NY 10012-4306
+data/1/00489/0014/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                      NEW YORK, NY 10012-4306
+data/1/00489/0014/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       83 SULLIVAN ST.                                       NEW YORK, NY 10012-4306
+data/1/00489/0014/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0014/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     83 Sullivan St.                                            New York, NY 10012-4306
+data/1/00489/0014/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0014/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                               NEW YORK, NY 10012-4306
+data/1/00489/0014/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4306                                         PROPERTY ADDRESS
+data/1/00489/0014/January 15, 2016 - Notice of Property Value.txt:    Property Address: 83 SULLIVAN STREET                                           Borough: Manhattan
+data/1/00489/0014/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/January 15, 2010 - Notice of Property Value.txt:                     83 SULLIVAN ST                                                  PROPERTY ADDRESS:
+data/1/00489/0014/January 15, 2010 - Notice of Property Value.txt: Property Address: 83 SULLIVAN STREET                                    Borough: MANHATTAN
+data/1/00489/0014/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0014/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                      NEW YORK, NY 10012-4306
+data/1/00489/0014/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                      NEW YORK, NY 10012-4306
+data/1/00489/0014/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                               NEW YORK , NY 10012-4306
+data/1/00489/0014/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     83 Sullivan St.                      New York, NY 10012-4306
+data/1/00489/0014/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4306                                          PROPERTY ADDRESS
+data/1/00489/0014/January 15, 2015 - Notice of Property Value.txt:    Property Address: 83 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0014/January 15, 2014 - Notice of Property Value.txt: Property Address                            83 SULLIVAN STREET
+data/1/00489/0014/January 15, 2014 - Notice of Property Value.txt:    Property Address: 83 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0014/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     83 Sullivan St.                      New York, NY 10012-4306
+data/1/00489/0014/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                      NEW YORK, NY 10012-4306
+data/1/00489/0014/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                     NEW YORK, NY 10012-4306
+data/1/00489/0014/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                               NEW YORK , NY 10012-4306
+data/1/00489/0014/January 15, 2012 - Notice of Property Value.txt:                   83 SULLIVAN ST                                                PROPERTY ADDRESS:
+data/1/00489/0014/January 15, 2012 - Notice of Property Value.txt: Property Address: 83 SULLIVAN STREET                                     Borough: MANHATTAN
+data/1/00489/0014/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                      NEW YORK, NY 10012-4306
+data/1/00489/0014/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     83 Sullivan St.                     New York, NY 10012-4306
+data/1/00489/0014/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 83 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0014/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     83 SULLIVAN ST.
+data/1/00489/0014/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       83 SULLIVAN ST.                                         NEW YORK, NY 10012-4306
+data/1/00489/0014/January 15, 2013 - Notice of Property Value.txt:     Property Address                         83 SULLIVAN STREET
+data/1/00489/0014/January 15, 2013 - Notice of Property Value.txt:    Property Address: 83 SULLIVAN STREET                                            Borough: MANHATTAN
+data/1/00489/0015/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                                85 SULLIVAN ST.
+data/1/00489/0015/January 15, 2011 - Notice of Property Value.txt:                   SULLIVAN LLC                                                      PROPERTY ADDRESS:
+data/1/00489/0015/January 15, 2011 - Notice of Property Value.txt: Property Address: 85 SULLIVAN STREET                                     Borough: MANHATTAN
+data/1/00489/0015/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                               85 SULLIVAN ST.
+data/1/00489/0015/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:        85 SULLIVAN ST.                                        85 SULLIVAN ST.
+data/1/00489/0015/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       85 SULLIVAN ST.                                           85 SULLIVAN ST.
+data/1/00489/0015/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                                 85 SULLIVAN ST.
+data/1/00489/0015/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     85 Sullivan St.                                          85 Sullivan St.
+data/1/00489/0015/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                              85 SULLIVAN ST.
+data/1/00489/0015/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0015/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                                 85 SULLIVAN ST.
+data/1/00489/0015/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4306                                         PROPERTY ADDRESS
+data/1/00489/0015/January 15, 2016 - Notice of Property Value.txt:    Property Address: 85 SULLIVAN STREET                                           Borough: Manhattan
+data/1/00489/0015/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     85 SULLIVAN ST.                                            85 SULLIVAN ST.
+data/1/00489/0015/January 15, 2010 - Notice of Property Value.txt:                    SULLIVAN LLC                                                     PROPERTY ADDRESS:
+data/1/00489/0015/January 15, 2010 - Notice of Property Value.txt: Property Address: 85 SULLIVAN STREET                                    Borough: MANHATTAN
+data/1/00489/0015/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                           85 SULLIVAN ST.
+data/1/00489/0015/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       85 SULLIVAN ST.                                      85 SULLIVAN ST.
+data/1/00489/0015/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0015/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       85 SULLIVAN ST.                                      85 SULLIVAN ST.
+data/1/00489/0015/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                               85 SULLIVAN ST.
+data/1/00489/0015/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     85 Sullivan St.                      85 Sullivan St.
+data/1/00489/0015/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4306                                          PROPERTY ADDRESS
+data/1/00489/0015/January 15, 2015 - Notice of Property Value.txt:    Property Address: 85 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0015/January 15, 2014 - Notice of Property Value.txt: Property Address                            85 SULLIVAN STREET
+data/1/00489/0015/January 15, 2014 - Notice of Property Value.txt:    Property Address: 85 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0015/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     85 Sullivan St.                      85 Sullivan St.
+data/1/00489/0015/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     85 SULLIVAN ST.                                            85 SULLIVAN ST.
+data/1/00489/0015/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:        85 SULLIVAN ST.                                        85 SULLIVAN ST.
+data/1/00489/0015/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       85 SULLIVAN ST.                                         85 SULLIVAN ST.
+data/1/00489/0015/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                                 85 SULLIVAN ST.
+data/1/00489/0015/January 15, 2012 - Notice of Property Value.txt:                   SULLIVAN LLC                                                  PROPERTY ADDRESS:
+data/1/00489/0015/January 15, 2012 - Notice of Property Value.txt: Property Address: 85 SULLIVAN STREET                                     Borough: MANHATTAN
+data/1/00489/0015/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:        85 SULLIVAN ST.                                         85 SULLIVAN ST.
+data/1/00489/0015/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     85 SULLIVAN ST.                                           85 SULLIVAN ST.
+data/1/00489/0015/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00489/0015/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     85 Sullivan St.                     85 Sullivan St.
+data/1/00489/0015/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 85 SULLIVAN ST.                                           85 SULLIVAN ST.
+data/1/00489/0015/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     85 SULLIVAN ST.                                           85 SULLIVAN ST.
+data/1/00489/0015/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        85 SULLIVAN ST.                                         85 SULLIVAN ST.
+data/1/00489/0015/January 15, 2013 - Notice of Property Value.txt:     Property Address                         85 SULLIVAN STREET
+data/1/00489/0015/January 15, 2013 - Notice of Property Value.txt:    Property Address: 85 SULLIVAN STREET                                            Borough: MANHATTAN
+data/1/00489/0021/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                                 NEW YORK, NY 10012-3605
+data/1/00489/0021/January 15, 2011 - Notice of Property Value.txt:                   190 SPRING ST                                                     PROPERTY ADDRESS:
+data/1/00489/0021/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                                NEW YORK , NY 10012-3605
+data/1/00489/0021/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       190 SPRING ST.                                            NEW YORK, NY 10012-3605
+data/1/00489/0021/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                          NEW YORK , NY 10012-3605
+data/1/00489/0021/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     190 Spring St.                                           New York, NY 10012-3605
+data/1/00489/0021/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                            NEW YORK , NY 10012-3605
+data/1/00489/0021/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                          NEW YORK, NY 10012-3605
+data/1/00489/0021/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-3605                                         PROPERTY ADDRESS
+data/1/00489/0021/January 15, 2016 - Notice of Property Value.txt:    Property Address: 190 SPRING STREET                                            Borough: Manhattan
+data/1/00489/0021/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/January 15, 2010 - Notice of Property Value.txt:                    190 SPRING ST                                                    PROPERTY ADDRESS:
+data/1/00489/0021/January 15, 2010 - Notice of Property Value.txt: Property Address: 190 SPRING STREET                                     Borough: MANHATTAN
+data/1/00489/0021/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                            NEW YORK , NY 10012-3605
+data/1/00489/0021/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:        190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                                NEW YORK , NY 10012-3605
+data/1/00489/0021/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     190 Spring St.                       New York, NY 10012-3605
+data/1/00489/0021/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-3605                                          PROPERTY ADDRESS
+data/1/00489/0021/January 15, 2015 - Notice of Property Value.txt:    Property Address: 190 SPRING STREET                                          Borough: MANHATTAN
+data/1/00489/0021/January 15, 2014 - Notice of Property Value.txt: Property Address                            190 SPRING STREET
+data/1/00489/0021/January 15, 2014 - Notice of Property Value.txt:    Property Address: 190 SPRING STREET                                          Borough: MANHATTAN
+data/1/00489/0021/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     190 Spring St.                       New York, NY 10012-3605
+data/1/00489/0021/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       190 SPRING ST.                                          NEW YORK, NY 10012-3605
+data/1/00489/0021/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                            NEW YORK , NY 10012-3605
+data/1/00489/0021/January 15, 2012 - Notice of Property Value.txt:                   190 SPRING ST                                                 PROPERTY ADDRESS:
+data/1/00489/0021/January 15, 2012 - Notice of Property Value.txt: Property Address: 190 SPRING STREET                                      Borough: MANHATTAN
+data/1/00489/0021/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     190 Spring St.                      New York, NY 10012-3605
+data/1/00489/0021/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 190 SPRING ST.                                            NEW YORK , NY 10012-3605
+data/1/00489/0021/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     190 SPRING ST.
+data/1/00489/0021/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        190 SPRING ST.                                         NEW YORK, NY 10012-3605
+data/1/00489/0021/January 15, 2013 - Notice of Property Value.txt:     Property Address                         190 SPRING STREET
+data/1/00489/0021/January 15, 2013 - Notice of Property Value.txt:    Property Address: 190 SPRING STREET                                             Borough: MANHATTAN
+data/1/00489/0002/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                                NEW YORK, NY 10012-4306
 data/1/00489/0002/January 15, 2011 - Notice of Property Value.txt:                   57 SULLIVAN ST                                                    PROPERTY ADDRESS:
 data/1/00489/0002/January 15, 2011 - Notice of Property Value.txt: Property Address: 57 SULLIVAN STREET                                      Borough: MANHATTAN
 data/1/00489/0002/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                               NEW YORK , NY 10012-4306
+data/1/00489/0002/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       57 SULLIVAN ST.                                        NEW YORK, NY 10012-4306
+data/1/00489/0002/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       57 SULLIVAN ST.                                           NEW YORK, NY 10012-4306
+data/1/00489/0002/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0002/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     57 Sullivan St.                                           New York, NY 10012-4306
+data/1/00489/0002/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0002/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                                  NEW YORK, NY 10012-4306
 data/1/00489/0002/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4306                                         PROPERTY ADDRESS
 data/1/00489/0002/January 15, 2016 - Notice of Property Value.txt:    Property Address: 57 SULLIVAN STREET                                           Borough: Manhattan
+data/1/00489/0002/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
 data/1/00489/0002/January 15, 2010 - Notice of Property Value.txt:                    57 SULLIVAN ST                                                   PROPERTY ADDRESS:
 data/1/00489/0002/January 15, 2010 - Notice of Property Value.txt: Property Address: 57 SULLIVAN STREET                                    Borough: MANHATTAN
+data/1/00489/0002/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0002/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       57 SULLIVAN ST.                                        NEW YORK, NY 10012-4306
+data/1/00489/0002/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:        57 SULLIVAN ST.                                        NEW YORK, NY 10012-4306
 data/1/00489/0002/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                               NEW YORK , NY 10012-4306
+data/1/00489/0002/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     57 Sullivan St.                      New York, NY 10012-4306
 data/1/00489/0002/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4306                                          PROPERTY ADDRESS
 data/1/00489/0002/January 15, 2015 - Notice of Property Value.txt:    Property Address: 57 SULLIVAN STREET                                         Borough: MANHATTAN
 data/1/00489/0002/January 15, 2014 - Notice of Property Value.txt: Property Address                            57 SULLIVAN STREET
 data/1/00489/0002/January 15, 2014 - Notice of Property Value.txt:    Property Address: 57 SULLIVAN STREET                                         Borough: MANHATTAN
+data/1/00489/0002/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     57 Sullivan St.                      New York, NY 10012-4306
+data/1/00489/0002/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       57 SULLIVAN ST.                                          NEW YORK, NY 10012-4306
+data/1/00489/0002/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       57 SULLIVAN ST.                                         NEW YORK, NY 10012-4306
+data/1/00489/0002/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                                 NEW YORK , NY 10012-4306
 data/1/00489/0002/January 15, 2012 - Notice of Property Value.txt:                   57 SULLIVAN ST                                                PROPERTY ADDRESS:
 data/1/00489/0002/January 15, 2012 - Notice of Property Value.txt: Property Address: 57 SULLIVAN STREET                                     Borough: MANHATTAN
+data/1/00489/0002/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       57 SULLIVAN ST.                                          NEW YORK, NY 10012-4306
+data/1/00489/0002/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     57 Sullivan St.                     New York, NY 10012-4306
 data/1/00489/0002/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 57 SULLIVAN ST.                                           NEW YORK , NY 10012-4306
+data/1/00489/0002/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     57 SULLIVAN ST.
+data/1/00489/0002/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        57 SULLIVAN ST.                                         NEW YORK, NY 10012-4306
 data/1/00489/0002/January 15, 2013 - Notice of Property Value.txt:     Property Address                         57 SULLIVAN STREET
 data/1/00489/0002/January 15, 2013 - Notice of Property Value.txt:    Property Address: 57 SULLIVAN STREET                                            Borough: MANHATTAN
 data/1/00450/0010/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 310 E. 9TH ST.                                            REM RESIDENTIAL
@@ -1782,6 +2014,48 @@ data/1/00464/0019/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00464/0019/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       218 E. 9TH ST.                                      218 E. 9TH ST.
 data/1/00464/0019/January 15, 2013 - Notice of Property Value.txt:     Property Address                         218 EAST      9 STREET
 data/1/00464/0019/January 15, 2013 - Notice of Property Value.txt:    Property Address: 218 EAST      9 STREET                                        Borough: MANHATTAN
+data/1/00490/0027/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                  C/O MADISON EQUITIES
+data/1/00490/0027/January 15, 2011 - Notice of Property Value.txt:                                                                                    PROPERTY ADDRESS:
+data/1/00490/0027/January 15, 2011 - Notice of Property Value.txt: Property Address: AVENUE OF THE AMER                                       Borough: MANHATTAN
+data/1/00490/0027/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                         140 AVENUE OF THE AMER
+data/1/00490/0027/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                               C/O MADISON EQUITIES
+data/1/00490/0027/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       140 AVENUE OF THE AMER                                6922 HOLLYWOOD BLVD. STE 9
+data/1/00490/0027/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                    C/O MADISON EQUITIES
+data/1/00490/0027/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     140 Avenue of The Amer                                       Bad Location Address
+data/1/00490/0027/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                       C/O MADISON EQUITIES
+data/1/00490/0027/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00490/0027/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                    C/O MADISON EQUITIES
+data/1/00490/0027/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10013                                              PROPERTY ADDRESS
+data/1/00490/0027/January 15, 2016 - Notice of Property Value.txt:    Property Address: 140 AVENUE OF THE AMER                                                 Borough: Manhattan
+data/1/00490/0027/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     140 AVENUE OF THE AMER                                      BAD LOCATION ADDRESS
+data/1/00490/0027/January 15, 2010 - Notice of Property Value.txt:                                                                                       PROPERTY ADDRESS:
+data/1/00490/0027/January 15, 2010 - Notice of Property Value.txt: Property Address: 140 AVENUE OF THE AMER                                   Borough: MANHATTAN
+data/1/00490/0027/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                    140 AVENUE OF THE AMER
+data/1/00490/0027/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                                6922 HOLLYWOOD BLVD. STE 9
+data/1/00490/0027/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00490/0027/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                                6922 HOLLYWOOD BLVD. STE 9
+data/1/00490/0027/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                         140 AVENUE OF THE AMER
+data/1/00490/0027/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     140 6th Ave.                                                          Bad Location Address
+data/1/00490/0027/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10013                                                  PROPERTY ADDRESS
+data/1/00490/0027/January 15, 2015 - Notice of Property Value.txt:    Property Address: 140 AVENUE OF THE AMER                                      Borough: MANHATTAN
+data/1/00490/0027/January 15, 2014 - Notice of Property Value.txt: Property Address                             140 AVENUE OF THE AMER
+data/1/00490/0027/January 15, 2014 - Notice of Property Value.txt:    Property Address: 140 AVENUE OF THE AMER                                      Borough: MANHATTAN
+data/1/00490/0027/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     140 Avenue of The Amer                                             Bad Location Address
+data/1/00490/0027/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     AVENUE OF THE AMER                                          BAD LOCATION ADDRESS
+data/1/00490/0027/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                               C/O MADISON EQUITIES
+data/1/00490/0027/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                                  C/O MADISON EQUITIES
+data/1/00490/0027/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 140 AVENUE OF THE AMER                                        140 AVENUE OF THE AMER
+data/1/00490/0027/January 15, 2012 - Notice of Property Value.txt:                   72 SULLIVAN (NY), LLC                                         PROPERTY ADDRESS:
+data/1/00490/0027/January 15, 2012 - Notice of Property Value.txt: Property Address: 140 AVENUE OF THE AMER                                Borough: MANHATTAN
+data/1/00490/0027/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                              C/O MADISON EQUITIES
+data/1/00490/0027/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     140 AVENUE OF THE AMER                                      BAD LOCATION ADDRESS
+data/1/00490/0027/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00490/0027/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:                                                                Bad Location Address
+data/1/00490/0027/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 124 AVE. OF THE AMER                                      124 AVE. OF THE AMER
+data/1/00490/0027/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     140 AVENUE OF THE AMER                                      BAD LOCATION ADDRESS
+data/1/00490/0027/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       140 AVENUE OF THE AMER                                  C/O MADISON EQUITIES
+data/1/00490/0027/January 15, 2013 - Notice of Property Value.txt:     Property Address                         140 AVENUE OF THE AMER
+data/1/00490/0027/January 15, 2013 - Notice of Property Value.txt:    Property Address: 140 AVENUE OF THE AMER                                    Borough: MANHATTAN
 data/1/00298/0035/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 45 CANAL ST.                                                  45 CANAL ST.
 data/1/00298/0035/January 15, 2011 - Notice of Property Value.txt:                   45 CANAL ASSOCIATES LLC                                           PROPERTY ADDRESS:
 data/1/00298/0035/January 15, 2011 - Notice of Property Value.txt:    Property Address: 45 CANAL STREET                                       Borough: MANHATTAN
@@ -2286,6 +2560,129 @@ data/1/00210/0002/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00210/0002/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       325 CHURCH ST.                                      17 AVENUE OF THE AMERIC APT. 3A
 data/1/00210/0002/January 15, 2013 - Notice of Property Value.txt:     Property Address                         325 CHURCH STREET
 data/1/00210/0002/January 15, 2013 - Notice of Property Value.txt:    Property Address: 325 CHURCH STREET                                             Borough: MANHATTAN
+data/1/00494/0037/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                           8202 138TH ST.
+data/1/00494/0037/January 15, 2011 - Notice of Property Value.txt:                   SPRING CHARM, INC.                                                PROPERTY ADDRESS:
+data/1/00494/0037/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                                 8202 138TH ST.
+data/1/00494/0037/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       33 SPRING ST.                                         8202 138TH ST.
+data/1/00494/0037/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                           8202 138TH ST.
+data/1/00494/0037/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     33 Spring St.                                               33 Spring St.
+data/1/00494/0037/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                             8202 138TH ST.
+data/1/00494/0037/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0037/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                              8202 138TH ST.
+data/1/00494/0037/January 15, 2016 - Notice of Property Value.txt:                        JAMAICA NY 11435-1324                                          PROPERTY ADDRESS
+data/1/00494/0037/January 15, 2016 - Notice of Property Value.txt:    Property Address: 33 SPRING STREET                                              Borough: Manhattan
+data/1/00494/0037/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     33 SPRING ST.                                               33 SPRING ST.
+data/1/00494/0037/January 15, 2010 - Notice of Property Value.txt:                   SPRING CHARM, INC.                                                  PROPERTY ADDRESS:
+data/1/00494/0037/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                             8202 138TH ST.
+data/1/00494/0037/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0037/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                           8202 138TH ST.
+data/1/00494/0037/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                                 8202 138TH ST.
+data/1/00494/0037/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     33 Spring St.                        33 Spring St.
+data/1/00494/0037/January 15, 2015 - Notice of Property Value.txt:                JAMAICA NY 11435-1324                                           PROPERTY ADDRESS
+data/1/00494/0037/January 15, 2015 - Notice of Property Value.txt:    Property Address: 33 SPRING STREET                                            Borough: MANHATTAN
+data/1/00494/0037/January 15, 2014 - Notice of Property Value.txt: Property Address                             33 SPRING STREET
+data/1/00494/0037/January 15, 2014 - Notice of Property Value.txt:    Property Address: 33 SPRING STREET                                            Borough: MANHATTAN
+data/1/00494/0037/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     33 Spring St.                        33 Spring St.
+data/1/00494/0037/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     33 SPRING ST.                                               33 SPRING ST.
+data/1/00494/0037/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                             8202 138TH ST.
+data/1/00494/0037/January 15, 2012 - Notice of Property Value.txt:                  SPRING CHARM, INC.                                           PROPERTY ADDRESS:
+data/1/00494/0037/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     33 SPRING ST.                                               33 SPRING ST.
+data/1/00494/0037/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0037/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     33 Spring St.                       33 Spring St.
+data/1/00494/0037/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 33 SPRING ST.                                             8202 138TH ST.
+data/1/00494/0037/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     33 SPRING ST.                                               33 SPRING ST.
+data/1/00494/0037/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       33 SPRING ST.                                        8202 138TH ST.
+data/1/00494/0037/January 15, 2013 - Notice of Property Value.txt:     Property Address                         33 SPRING STREET
+data/1/00494/0037/January 15, 2013 - Notice of Property Value.txt:    Property Address: 33 SPRING STREET                                         Borough: MANHATTAN
+data/1/00494/0038/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/January 15, 2011 - Notice of Property Value.txt:                   35 SPRING STREET LLC                                              PROPERTY ADDRESS:
+data/1/00494/0038/January 15, 2011 - Notice of Property Value.txt: Property Address: 35 SPRING STREET                                       Borough: MANHATTAN
+data/1/00494/0038/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                  35 SPRING ST.
+data/1/00494/0038/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       35 SPRING ST.                                         35 SPRING ST.
+data/1/00494/0038/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                             35 SPRING ST.
+data/1/00494/0038/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     35 Spring St.                                               35 Spring St.
+data/1/00494/0038/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                35 SPRING ST.
+data/1/00494/0038/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0038/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4106                                         PROPERTY ADDRESS
+data/1/00494/0038/January 15, 2016 - Notice of Property Value.txt:    Property Address: 35 SPRING STREET                                             Borough: Manhattan
+data/1/00494/0038/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/January 15, 2010 - Notice of Property Value.txt:                    35 SPRING STREET LLC                                             PROPERTY ADDRESS:
+data/1/00494/0038/January 15, 2010 - Notice of Property Value.txt: Property Address: 35 SPRING STREET                                      Borough: MANHATTAN
+data/1/00494/0038/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                35 SPRING ST.
+data/1/00494/0038/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0038/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                  35 SPRING ST.
+data/1/00494/0038/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     35 Spring St.                        35 Spring St.
+data/1/00494/0038/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4106                                          PROPERTY ADDRESS
+data/1/00494/0038/January 15, 2015 - Notice of Property Value.txt:    Property Address: 35 SPRING STREET                                           Borough: MANHATTAN
+data/1/00494/0038/January 15, 2014 - Notice of Property Value.txt: Property Address                            35 SPRING STREET
+data/1/00494/0038/January 15, 2014 - Notice of Property Value.txt:    Property Address: 35 SPRING STREET                                           Borough: MANHATTAN
+data/1/00494/0038/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     35 Spring St.                        35 Spring St.
+data/1/00494/0038/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                         35 SPRING ST.
+data/1/00494/0038/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                35 SPRING ST.
+data/1/00494/0038/January 15, 2012 - Notice of Property Value.txt:                   35 SPRING STREET LLC                                          PROPERTY ADDRESS:
+data/1/00494/0038/January 15, 2012 - Notice of Property Value.txt: Property Address: 35 SPRING STREET                                       Borough: MANHATTAN
+data/1/00494/0038/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0038/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     35 Spring St.                       35 Spring St.
+data/1/00494/0038/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 35 SPRING ST.                                                35 SPRING ST.
+data/1/00494/0038/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     35 SPRING ST.                                               35 SPRING ST.
+data/1/00494/0038/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       35 SPRING ST.                                        35 SPRING ST.
+data/1/00494/0038/January 15, 2013 - Notice of Property Value.txt:     Property Address                         35 SPRING STREET
+data/1/00494/0038/January 15, 2013 - Notice of Property Value.txt:    Property Address: 35 SPRING STREET                                              Borough: MANHATTAN
+data/1/00494/0040/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                 ANDREWS BUILDING CORP.
+data/1/00494/0040/January 15, 2011 - Notice of Property Value.txt:                   39 SPRING ST OWNERS CORP                                          PROPERTY ADDRESS:
+data/1/00494/0040/January 15, 2011 - Notice of Property Value.txt: Property Address: 39 SPRING STREET                                        Borough: MANHATTAN
+data/1/00494/0040/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                  ANDREWS BUILDING CORP.
+data/1/00494/0040/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       39 SPRING ST.                                            ANDREWS BUILDING CORP.
+data/1/00494/0040/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       39 SPRING ST.                                             ANDREWS BUILDING CORP.
+data/1/00494/0040/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     39 Spring St.                                             Andrews Building Corp.
+data/1/00494/0040/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                 ANDREWS BUILDING CORP.
+data/1/00494/0040/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0040/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                   ANDREWS BUILDING CORP.
+data/1/00494/0040/January 15, 2016 - Notice of Property Value.txt:                        666 BROADWAY FL 12                                             PROPERTY ADDRESS
+data/1/00494/0040/January 15, 2016 - Notice of Property Value.txt:    Property Address: 39 SPRING STREET                                             Borough: Manhattan
+data/1/00494/0040/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     39 SPRING ST.
+data/1/00494/0040/January 15, 2010 - Notice of Property Value.txt:                     39 SPRING ST OWNERS CORP                                        PROPERTY ADDRESS:
+data/1/00494/0040/January 15, 2010 - Notice of Property Value.txt: Property Address: 39 SPRING STREET                                      Borough: MANHATTAN
+data/1/00494/0040/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                 ANDREWS BUILDING CORP.
+data/1/00494/0040/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0040/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:        39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                  ANDREWS BUILDING CORP.
+data/1/00494/0040/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     39 Spring St.                        39 Spring St.
+data/1/00494/0040/January 15, 2015 - Notice of Property Value.txt:                666 BROADWAY FL 12                                              PROPERTY ADDRESS
+data/1/00494/0040/January 15, 2015 - Notice of Property Value.txt:    Property Address: 39 SPRING STREET                                           Borough: MANHATTAN
+data/1/00494/0040/January 15, 2014 - Notice of Property Value.txt: Property Address                            39 SPRING STREET
+data/1/00494/0040/January 15, 2014 - Notice of Property Value.txt:    Property Address: 39 SPRING STREET                                           Borough: MANHATTAN
+data/1/00494/0040/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     39 Spring St.                        Andrews Building Corp.
+data/1/00494/0040/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     39 SPRING ST.
+data/1/00494/0040/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                   ANDREWS BUILDING CORP.
+data/1/00494/0040/January 15, 2012 - Notice of Property Value.txt:                   39 SPRING ST OWNERS CORP                                      PROPERTY ADDRESS:
+data/1/00494/0040/January 15, 2012 - Notice of Property Value.txt: Property Address: 39 SPRING STREET                                       Borough: MANHATTAN
+data/1/00494/0040/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     39 SPRING ST.
+data/1/00494/0040/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00494/0040/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     39 Spring St.                       39 Spring St.
+data/1/00494/0040/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 39 SPRING ST.                                                 ANDREWS BUILDING CORP.
+data/1/00494/0040/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     39 SPRING ST.
+data/1/00494/0040/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        39 SPRING ST.                                           ANDREWS BUILDING CORP.
+data/1/00494/0040/January 15, 2013 - Notice of Property Value.txt:     Property Address                         39 SPRING STREET
+data/1/00494/0040/January 15, 2013 - Notice of Property Value.txt:    Property Address: 39 SPRING STREET                                              Borough: MANHATTAN
 data/1/00465/0012/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 110 E. 10TH ST.                                           111 NORTH CENTRAL PARK A SUITE 400
 data/1/00465/0012/January 15, 2011 - Notice of Property Value.txt:                   1106 & 110 EAST TENTH LLC                                         PROPERTY ADDRESS:
 data/1/00465/0012/January 15, 2011 - Notice of Property Value.txt:    Property Address: 110 EAST 10 STREET                                    Borough: MANHATTAN
@@ -2989,6 +3386,20 @@ data/1/00465/0019/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00465/0019/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        124 E. 10TH ST.                                        NEW YORK, NY 10003-7507
 data/1/00465/0019/January 15, 2013 - Notice of Property Value.txt:     Property Address                         124 EAST 10 STREET
 data/1/00465/0019/January 15, 2013 - Notice of Property Value.txt:    Property Address: 124 EAST 10 STREET                                            Borough: MANHATTAN
+data/1/00496/0015/January 15, 2011 - Notice of Property Value.txt:                   68 PRINCE STREET LLC                                              PROPERTY ADDRESS:
+data/1/00496/0015/January 15, 2011 - Notice of Property Value.txt: Property Address: 68 PRINCE STREET                                        Borough: MANHATTAN
+data/1/00496/0015/January 15, 2016 - Notice of Property Value.txt:                        LONG ISLAND CITY NY 11102-2346                                 PROPERTY ADDRESS
+data/1/00496/0015/January 15, 2016 - Notice of Property Value.txt:    Property Address: 68 PRINCE STREET                                             Borough: Manhattan
+data/1/00496/0015/January 15, 2010 - Notice of Property Value.txt:                    68 PRINCE STREET LLC                                             PROPERTY ADDRESS:
+data/1/00496/0015/January 15, 2010 - Notice of Property Value.txt: Property Address: 68 PRINCE STREET                                      Borough: MANHATTAN
+data/1/00496/0015/January 15, 2015 - Notice of Property Value.txt:                LONG ISLAND CITY NY 11102-2346                                  PROPERTY ADDRESS
+data/1/00496/0015/January 15, 2015 - Notice of Property Value.txt:    Property Address: 68 PRINCE STREET                                           Borough: MANHATTAN
+data/1/00496/0015/January 15, 2014 - Notice of Property Value.txt: Property Address                            68 PRINCE STREET
+data/1/00496/0015/January 15, 2014 - Notice of Property Value.txt:    Property Address: 68 PRINCE STREET                                           Borough: MANHATTAN
+data/1/00496/0015/January 15, 2012 - Notice of Property Value.txt:                   68 PRINCE STREET LLC                                          PROPERTY ADDRESS:
+data/1/00496/0015/January 15, 2012 - Notice of Property Value.txt: Property Address: 68 PRINCE STREET                                       Borough: MANHATTAN
+data/1/00496/0015/January 15, 2013 - Notice of Property Value.txt:     Property Address                         68 PRINCE STREET
+data/1/00496/0015/January 15, 2013 - Notice of Property Value.txt:    Property Address: 68 PRINCE STREET                                              Borough: MANHATTAN
 data/1/01718/0119/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 49 W. 119TH ST.                                               NEW YORK, NY 10027-3827
 data/1/01718/0119/January 15, 2011 - Notice of Property Value.txt:                  347 LENOX AVE                                                      PROPERTY ADDRESS:
 data/1/01718/0119/January 15, 2011 - Notice of Property Value.txt:    Property Address: 49 WEST 119 STREET                                    Borough: MANHATTAN
@@ -5155,6 +5566,46 @@ data/1/00355/0045/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00355/0045/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       182 NORFOLK ST.                                         NEW YORK, NY 10023-7035
 data/1/00355/0045/January 15, 2013 - Notice of Property Value.txt:     Property Address                         182 NORFOLK STREET
 data/1/00355/0045/January 15, 2013 - Notice of Property Value.txt:    Property Address: 182 NORFOLK STREET                                            Borough: MANHATTAN
+data/1/00493/0021/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                             209 ELIZABETH ST.
+data/1/00493/0021/January 15, 2011 - Notice of Property Value.txt:                   OWNER/AGENT                                                       PROPERTY ADDRESS:
+data/1/00493/0021/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                             209 ELIZABETH ST.
+data/1/00493/0021/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                       209 ELIZABETH ST.
+data/1/00493/0021/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       209 ELIZABETH ST.                                     209 ELIZABETH ST.
+data/1/00493/0021/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                       209 ELIZABETH ST.
+data/1/00493/0021/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     209 Elizabeth St.                                          209 Elizabeth St.
+data/1/00493/0021/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                            209 ELIZABETH ST.
+data/1/00493/0021/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00493/0021/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                           209 ELIZABETH ST.
+data/1/00493/0021/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10012-4205                                         PROPERTY ADDRESS
+data/1/00493/0021/January 15, 2016 - Notice of Property Value.txt:    Property Address: 209 ELIZABETH STREET                                         Borough: Manhattan
+data/1/00493/0021/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     209 ELIZABETH ST.                                          209 ELIZABETH ST.
+data/1/00493/0021/January 15, 2010 - Notice of Property Value.txt:                   OWNER/AGENT                                                         PROPERTY ADDRESS:
+data/1/00493/0021/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                         209 ELIZABETH ST.
+data/1/00493/0021/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                   209 ELIZABETH ST.
+data/1/00493/0021/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00493/0021/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                    209 ELIZABETH ST.
+data/1/00493/0021/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                             209 ELIZABETH ST.
+data/1/00493/0021/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     209 Elizabeth St.                    209 Elizabeth St.
+data/1/00493/0021/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10012-4205                                             PROPERTY ADDRESS
+data/1/00493/0021/January 15, 2015 - Notice of Property Value.txt:    Property Address: 209 ELIZABETH STREET                                        Borough: MANHATTAN
+data/1/00493/0021/January 15, 2014 - Notice of Property Value.txt: Property Address                             209 ELIZABETH STREET
+data/1/00493/0021/January 15, 2014 - Notice of Property Value.txt:    Property Address: 209 ELIZABETH STREET                                        Borough: MANHATTAN
+data/1/00493/0021/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     209 Elizabeth St.                    209 Elizabeth St.
+data/1/00493/0021/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     209 ELIZABETH ST.                                          209 ELIZABETH ST.
+data/1/00493/0021/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                    209 ELIZABETH ST.
+data/1/00493/0021/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                   209 ELIZABETH ST.
+data/1/00493/0021/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                             209 ELIZABETH ST.
+data/1/00493/0021/January 15, 2012 - Notice of Property Value.txt:                     OWNER/AGENT                                                    PROPERTY ADDRESS:
+data/1/00493/0021/January 15, 2012 - Notice of Property Value.txt:    Property Address: 209 ELIZABETH STREET                                  Borough: MANHATTAN
+data/1/00493/0021/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                   209 ELIZABETH ST.
+data/1/00493/0021/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     209 ELIZABETH ST.                                           209 ELIZABETH ST.
+data/1/00493/0021/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00493/0021/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     209 Elizabeth St.                   209 Elizabeth St.
+data/1/00493/0021/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 209 ELIZABETH ST.                                         209 ELIZABETH ST.
+data/1/00493/0021/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     209 ELIZABETH ST.                                          209 ELIZABETH ST.
+data/1/00493/0021/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       209 ELIZABETH ST.                                    209 ELIZABETH ST.
+data/1/00493/0021/January 15, 2013 - Notice of Property Value.txt:     Property Address                         209 ELIZABETH STREET
+data/1/00493/0021/January 15, 2013 - Notice of Property Value.txt:    Property Address: 209 ELIZABETH STREET                                     Borough: MANHATTAN
 data/1/00238/0031/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 77 ELIZABETH ST.                                        34 E. BROADWAY APT. 101
 data/1/00238/0031/January 15, 2011 - Notice of Property Value.txt:                   YFM LLC                                                           PROPERTY ADDRESS:
 data/1/00238/0031/January 15, 2011 - Notice of Property Value.txt: Property Address: 77 ELIZABETH STREET                                     Borough: MANHATTAN
@@ -5936,6 +6387,48 @@ data/1/00078/0040/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00078/0040/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:        86 NASSAU ST.                                          86 NASSAU ST.
 data/1/00078/0040/January 15, 2013 - Notice of Property Value.txt:     Property Address                         86 NASSAU STREET
 data/1/00078/0040/January 15, 2013 - Notice of Property Value.txt:    Property Address: 86 NASSAU STREET                                              Borough: MANHATTAN
+data/1/00495/0037/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                          11068 MALAYSIA CIR.
+data/1/00495/0037/January 15, 2011 - Notice of Property Value.txt:                   ERNOLD INDUSTRIES INC                                             PROPERTY ADDRESS:
+data/1/00495/0037/January 15, 2011 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                   Borough: MANHATTAN
+data/1/00495/0037/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                               11068 MALAYSIA CIR.
+data/1/00495/0037/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     50 SPRING ST.
+data/1/00495/0037/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       223 MULBERRY ST.                                      50 SPRING ST.
+data/1/00495/0037/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                         11068 MALAYSIA CIR.
+data/1/00495/0037/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     223 Mulberry St.                                            223 Mulberry St.
+data/1/00495/0037/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                            11068 MALAYSIA CIR.
+data/1/00495/0037/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00495/0037/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                          11068 MALAYSIA CIR.
+data/1/00495/0037/January 15, 2016 - Notice of Property Value.txt:                        BOYNTON BEACH FL 33437-7054                                    PROPERTY ADDRESS
+data/1/00495/0037/January 15, 2016 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                           Borough: Manhattan
+data/1/00495/0037/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     223 MULBERRY ST.                                            223 MULBERRY ST.
+data/1/00495/0037/January 15, 2010 - Notice of Property Value.txt:                   ERNOLD INDUSTRIES INC                                               PROPERTY ADDRESS:
+data/1/00495/0037/January 15, 2010 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                   Borough: MANHATTAN
+data/1/00495/0037/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                            11068 MALAYSIA CIR.
+data/1/00495/0037/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     50 SPRING ST.
+data/1/00495/0037/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00495/0037/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     50 SPRING ST.
+data/1/00495/0037/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                               11068 MALAYSIA CIR.
+data/1/00495/0037/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     223 Mulberry St.                     223 Mulberry St.
+data/1/00495/0037/January 15, 2015 - Notice of Property Value.txt:                BOYNTON BEACH FL 33437-7054                                     PROPERTY ADDRESS
+data/1/00495/0037/January 15, 2015 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                        Borough: MANHATTAN
+data/1/00495/0037/January 15, 2014 - Notice of Property Value.txt: Property Address                            223 MULBERRY STREET
+data/1/00495/0037/January 15, 2014 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                        Borough: MANHATTAN
+data/1/00495/0037/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     223 Mulberry St.                     223 Mulberry St.
+data/1/00495/0037/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     223 MULBERRY ST.                                            50 SPRING ST.
+data/1/00495/0037/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     11068 MALAYSIA CIR.
+data/1/00495/0037/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                      50 SPRING ST.
+data/1/00495/0037/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                            11068 MALAYSIA CIR.
+data/1/00495/0037/January 15, 2012 - Notice of Property Value.txt:                     ERNOLD INDUSTRIES INC                                         PROPERTY ADDRESS:
+data/1/00495/0037/January 15, 2012 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                   Borough: MANHATTAN
+data/1/00495/0037/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     50 SPRING ST.
+data/1/00495/0037/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     223 MULBERRY ST.                                            223 MULBERRY ST.
+data/1/00495/0037/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00495/0037/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     223 Mulberry St.                    223 Mulberry St.
+data/1/00495/0037/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 223 MULBERRY ST.                                          11068 MALAYSIA CIR.
+data/1/00495/0037/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     223 MULBERRY ST.                                            223 MULBERRY ST.
+data/1/00495/0037/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       223 MULBERRY ST.                                     50 SPRING ST.
+data/1/00495/0037/January 15, 2013 - Notice of Property Value.txt:     Property Address                         223 MULBERRY STREET
+data/1/00495/0037/January 15, 2013 - Notice of Property Value.txt:    Property Address: 223 MULBERRY STREET                                           Borough: MANHATTAN
 data/1/00306/0010/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 80 FORSYTH ST.                                                 80 FORSYTH ST.
 data/1/00306/0010/January 15, 2011 - Notice of Property Value.txt:                   RESNICK MILTON                                                    PROPERTY ADDRESS:
 data/1/00306/0010/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 80 FORSYTH ST.                                                 80 FORSYTH ST.
@@ -7601,6 +8094,47 @@ data/1/00458/0047/August 27, 2010 - Quarterly Statement of Account.txt:        P
 data/1/00458/0047/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       4 E. 2ND ST.                                             131 VARICK ST. APT. RM. 1003
 data/1/00458/0047/January 15, 2013 - Notice of Property Value.txt:     Property Address                         4 EAST     2 STREET
 data/1/00458/0047/January 15, 2013 - Notice of Property Value.txt:    Property Address: 4 EAST     2 STREET                                           Borough: MANHATTAN
+data/1/00492/0044/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                                 405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/January 15, 2011 - Notice of Property Value.txt:                   SPRING STREET PROPERTIES LLC                                      PROPERTY ADDRESS:
+data/1/00492/0044/November 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                                  405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/November 30, 2012 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                      405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/February 24, 2012 - Quarterly Statement of Account.txt:        Property address:       11 SPRING ST.                                        405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/August 22, 2014 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                            405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/February 26, 2010 - Quarterly Statement of Account.txt:        Property Address:     11 Spring St.                                              405 Lexington Ave.
+data/1/00492/0044/November 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                               405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/November 18, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00492/0044/June 6, 2014 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                            405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/January 15, 2016 - Notice of Property Value.txt:                        NEW YORK NY 10174-0002                                         PROPERTY ADDRESS
+data/1/00492/0044/January 15, 2016 - Notice of Property Value.txt:    Property Address: 11 SPRING STREET                                             Borough: Manhattan
+data/1/00492/0044/November 19, 2010 - Quarterly Statement of Account.txt:        Property Address:     11 SPRING ST.                                               405 LEXINGTON AVE.
+data/1/00492/0044/January 15, 2010 - Notice of Property Value.txt:                     SPRING STREET PROPERTIES LLC                                    PROPERTY ADDRESS:
+data/1/00492/0044/January 15, 2010 - Notice of Property Value.txt: Property Address: 11 SPRING STREET                                       Borough: MANHATTAN
+data/1/00492/0044/February 20, 2015 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                             405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/August 17, 2012 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                       405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/June 10, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00492/0044/June 8, 2012 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                       405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/August 21, 2015 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                                  405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/August 28, 2009 - Quarterly Statement of Account.txt:        Property Address:     11 Spring St.                        4801 Pga Blvd.
+data/1/00492/0044/January 15, 2015 - Notice of Property Value.txt:                NEW YORK NY 10174-0002                                          PROPERTY ADDRESS
+data/1/00492/0044/January 15, 2015 - Notice of Property Value.txt:    Property Address: 11 SPRING STREET                                           Borough: MANHATTAN
+data/1/00492/0044/January 15, 2014 - Notice of Property Value.txt: Property Address                            11 SPRING STREET
+data/1/00492/0044/January 15, 2014 - Notice of Property Value.txt:    Property Address: 11 SPRING STREET                                           Borough: MANHATTAN
+data/1/00492/0044/November 20, 2009 - Quarterly Statement of Account.txt:        Property Address:     11 Spring St.                        4801 Pga Blvd.
+data/1/00492/0044/February 18, 2011 - Quarterly Statement of Account.txt:        Property Address:     11 SPRING ST.                                              405 LEXINGTON AVE.
+data/1/00492/0044/November 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                      405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/February 22, 2013 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                   405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/June 5, 2015 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                                 405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/January 15, 2012 - Notice of Property Value.txt:                   SPRING STREET PROPERTIES LLC                                  PROPERTY ADDRESS:
+data/1/00492/0044/January 15, 2012 - Notice of Property Value.txt: Property Address: 11 SPRING STREET                                       Borough: MANHATTAN
+data/1/00492/0044/August 23, 2013 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                      405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/June 11, 2010 - Quarterly Statement of Account.txt:        Property Address:     11 SPRING ST.                                               405 LEXINGTON AVE.
+data/1/00492/0044/August 26, 2011 - Quarterly Statement of Account.txt:        Property Address:
+data/1/00492/0044/June 6, 2009 - Quarterly Statement of Account.txt:            Property Address:     11 Spring St.                       1107 N. Olive Ave.
+data/1/00492/0044/February 19, 2016 - Quarterly Property Tax Bill.txt:       Property address: 11 SPRING ST.                                             405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/August 27, 2010 - Quarterly Statement of Account.txt:        Property Address:     11 SPRING ST.                                              405 LEXINGTON AVE.
+data/1/00492/0044/June 7, 2013 - Quarterly Property Tax Bill.txt:        Property address:       11 SPRING ST.                                      405 LEXINGTON AVE. FL. 43
+data/1/00492/0044/January 15, 2013 - Notice of Property Value.txt:     Property Address                         11 SPRING STREET
+data/1/00492/0044/January 15, 2013 - Notice of Property Value.txt:    Property Address: 11 SPRING STREET                                              Borough: MANHATTAN
 data/1/00434/0055/February 21, 2014 - Quarterly Property Tax Bill.txt:       Property address: 405 E. 6TH ST.                                                 214 E. 12TH ST.
 data/1/00434/0055/January 15, 2011 - Notice of Property Value.txt:                   405 LP/AA LLC                                                     PROPERTY ADDRESS:
 data/1/00434/0055/January 15, 2011 - Notice of Property Value.txt: Property Address: 405 EAST      6 STREET                                  Borough: MANHATTAN
