@@ -1,0 +1,312 @@
+data/1/00189/0039/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $166.48
+data/1/00189/0039/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $166.48
+data/1/00189/0042/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $8,951.55
+data/1/00189/0042/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $8,951.55
+data/1/00189/0042/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $53.46
+data/1/00189/0042/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $53.46
+data/1/00189/0042/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $82.81
+data/1/00189/0042/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                       $82.81
+data/1/00189/0042/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $39.39
+data/1/00189/0042/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $39.39
+data/1/00179/0050/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $86.95
+data/1/00179/0050/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $262.84
+data/1/00199/0026/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $3,874.68
+data/1/00199/0026/November 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $3,801.09
+data/1/00470/0044/November 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $2,490.67
+data/1/00470/0044/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $9.91
+data/1/00470/0044/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $2,380.72
+data/1/00470/0044/February 19, 2016 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $5,128.86
+data/1/00210/0002/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $3,191.13
+data/1/00465/0043/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $3,256.63
+data/1/00465/0043/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $3,256.63
+data/1/00465/0043/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $3,145.45
+data/1/00465/0043/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $3,145.45
+data/1/00465/0043/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $3,292.84
+data/1/00465/0043/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $3,292.84
+data/1/00465/0043/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,436.44
+data/1/00465/0043/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $3,436.44
+data/1/00465/0022/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $5,130.65
+data/1/00465/0022/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                         $5,130.65
+data/1/00465/0022/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $2,145.65
+data/1/00465/0022/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $2,145.65
+data/1/00465/0022/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $4,340.52
+data/1/00465/0022/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $4,340.52
+data/1/00465/0022/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $89.89
+data/1/00465/0022/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $89.89
+data/1/00465/0022/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $2,630.40
+data/1/00465/0022/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                          $2,630.40
+data/1/00465/0022/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                       $5,542.59
+data/1/00465/0026/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $95.05
+data/1/00465/0044/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $57.80
+data/1/00465/0044/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $57.80
+data/1/00465/0027/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $15.00
+data/1/00465/0027/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $15.00
+data/1/01718/0119/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $953,936.43
+data/1/01718/0119/November 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $1,111,665.57
+data/1/01718/0119/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $843,247.05
+data/1/01718/0119/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                  $1,002,436.46
+data/1/01718/0119/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                       $698,555.49
+data/1/01718/0119/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                           $571,836.18
+data/1/01718/0119/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                  $1,024,498.90
+data/1/01718/0119/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $776,625.14
+data/1/01718/0119/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $659,035.64
+data/1/01718/0119/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $982,003.88
+data/1/01718/0119/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $743,085.62
+data/1/01718/0119/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                    $608,547.55
+data/1/01718/0119/February 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $1,045,229.92
+data/1/01718/0119/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $825,981.99
+data/1/01718/0119/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $745,217.75
+data/1/01718/0119/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                      $632,111.05
+data/1/01718/0119/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $809,046.15
+data/1/01718/0119/August 21, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $1,089,221.12
+data/1/01718/0119/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $670,458.38
+data/1/01718/0119/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                 $548,658.37
+data/1/01718/0119/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                  $684,487.40
+data/1/01718/0119/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                  $560,225.43
+data/1/01718/0119/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $730,220.39
+data/1/01718/0119/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $619,266.20
+data/1/01718/0119/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $928,754.07
+data/1/01718/0119/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                        $860,612.83
+data/1/01718/0119/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                  $1,066,570.97
+data/1/01718/0119/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $904,007.79
+data/1/01718/0119/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                       $713,034.34
+data/1/01718/0119/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $583,780.17
+data/1/01718/0119/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $760,770.88
+data/1/01718/0119/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $645,444.86
+data/1/01718/0119/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                       $656,697.01
+data/1/01718/0119/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                 $537,309.40
+data/1/01718/0119/February 19, 2016 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $1,134,436.85
+data/1/01718/0119/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                       $727,915.06
+data/1/01718/0119/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                           $596,045.83
+data/1/01718/0119/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $880,140.90
+data/1/00471/0002/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $4,260.95
+data/1/00471/0002/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $4,260.95
+data/1/00471/0004/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $7,729.14
+data/1/00471/0004/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $7,729.14
+data/1/00471/0004/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $24,214.50
+data/1/00471/0004/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $24,214.50
+data/1/00471/0004/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $15,877.42
+data/1/00471/0004/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $15,877.42
+data/1/00471/0004/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $7,874.01
+data/1/00471/0004/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $7,874.01
+data/1/00471/0004/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $8,324.18
+data/1/00471/0004/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $8,324.18
+data/1/00471/0004/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $15,783.78
+data/1/00471/0004/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $15,783.78
+data/1/00143/0020/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $102.27
+data/1/00143/0020/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $102.27
+data/1/00143/0020/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $102.24
+data/1/00224/0027/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $12,446.58
+data/1/00224/0027/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $12,446.58
+data/1/00132/0024/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $28,581.13
+data/1/00132/0024/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $28,581.13
+data/1/00132/0024/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $10,772.50
+data/1/00132/0024/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $10,772.50
+data/1/00132/0024/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $20,024.56
+data/1/00132/0024/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $20,024.56
+data/1/00132/0024/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $20,814.17
+data/1/00132/0024/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                             $20,814.17
+data/1/00132/0024/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,850.22
+data/1/00132/0024/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $3,850.22
+data/1/00132/0024/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $12,383.22
+data/1/00132/0024/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $12,383.22
+data/1/00132/0024/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $11,676.64
+data/1/00132/0024/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $11,676.64
+data/1/00214/0010/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $3,743.47
+data/1/00214/0010/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $3,743.47
+data/1/00193/0018/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $66.33
+data/1/00193/0018/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $66.33
+data/1/00142/0017/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $48.91
+data/1/00142/0017/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $48.91
+data/1/00142/0017/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $189.70
+data/1/00142/0017/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $189.70
+data/1/00142/0017/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                           $16.82
+data/1/00142/0017/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $16.82
+data/1/00142/0011/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $9,110.60
+data/1/00142/0011/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                          $9,110.60
+data/1/00142/0011/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $12,073.85
+data/1/00142/0011/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $12,073.85
+data/1/00142/0011/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,751.73
+data/1/00142/0011/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $3,751.73
+data/1/00142/0011/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,871.96
+data/1/00142/0011/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $3,871.96
+data/1/00142/0011/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $13,455.21
+data/1/00142/0011/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                        $13,455.21
+data/1/00142/0011/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $17,266.53
+data/1/00142/0011/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                          $17,266.53
+data/1/00142/0011/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $7,926.40
+data/1/00142/0011/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $7,926.40
+data/1/00142/0011/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $9,709.38
+data/1/00142/0011/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                           $9,709.38
+data/1/00142/0011/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $3,751.73
+data/1/00142/0011/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $3,751.73
+data/1/00142/0018/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $127.04
+data/1/00142/0018/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $127.04
+data/1/00142/0013/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $9,853.50
+data/1/00142/0013/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $9,853.50
+data/1/00142/0013/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $3,024.21
+data/1/00142/0013/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $3,024.21
+data/1/00142/0013/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,121.13
+data/1/00142/0013/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $3,121.13
+data/1/00142/0013/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $2,809.18
+data/1/00142/0013/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                             $2,809.18
+data/1/00142/0013/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $5,682.80
+data/1/00142/0013/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $5,682.80
+data/1/00142/0013/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $6,449.14
+data/1/00142/0013/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $6,449.14
+data/1/00097/0144/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $12,031.38
+data/1/00097/0144/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $12,031.38
+data/1/00097/0144/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $20.00
+data/1/00097/0144/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                             $20.00
+data/1/00097/0144/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $6,797.59
+data/1/00097/0144/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                          $6,797.59
+data/1/00097/0144/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $20.00
+data/1/00097/0144/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $20.00
+data/1/00097/0144/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $8,920.76
+data/1/00097/0144/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                          $8,920.76
+data/1/00097/0144/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $10,932.64
+data/1/00097/0144/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                           $10,932.64
+data/1/00097/0144/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $8,955.04
+data/1/00097/0144/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $8,955.04
+data/1/00097/0144/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $8,147.74
+data/1/00097/0144/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                           $8,147.74
+data/1/00097/0144/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $20.00
+data/1/00097/0144/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $20.00
+data/1/00097/0144/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $8,953.98
+data/1/00097/0144/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $8,953.98
+data/1/00097/0144/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $10,277.80
+data/1/00097/0144/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                         $10,277.80
+data/1/00141/0009/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $31,397.30
+data/1/00141/0009/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $31,397.30
+data/1/00141/0009/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $105.29
+data/1/00141/0009/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $105.29
+data/1/00141/0011/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                        $129.31
+data/1/00141/0011/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $129.31
+data/1/00141/0011/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $421.37
+data/1/00141/0011/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $421.37
+data/1/00141/0011/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $303.17
+data/1/00141/0011/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $303.17
+data/1/00141/0114/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $33.32
+data/1/00141/0114/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $33.32
+data/1/00141/0013/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $5.25
+data/1/00141/0013/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $5.25
+data/1/00141/0013/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $891.81
+data/1/00141/0013/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $891.81
+data/1/00141/0013/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                                $5.49
+data/1/00141/0013/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $5.49
+data/1/00246/1020/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $5,889.36
+data/1/00246/1020/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $5,889.36
+data/1/00246/1020/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $4,197.89
+data/1/00246/1020/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $4,197.89
+data/1/00246/1020/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $5,022.55
+data/1/00246/1020/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $5,022.55
+data/1/00246/1020/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $6,777.25
+data/1/00246/1020/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $6,777.25
+data/1/00246/1020/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $3,391.75
+data/1/00246/1020/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $3,391.75
+data/1/00246/1026/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $790.58
+data/1/00246/1026/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $790.58
+data/1/00246/1026/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                        $763.59
+data/1/00246/1026/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $763.59
+data/1/00246/1004/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $17.00
+data/1/00246/1004/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                          $17.00
+data/1/00246/1021/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                              $9.97
+data/1/00246/1021/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                      $9.97
+data/1/00246/1005/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                  $1,791.49
+data/1/00246/1005/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $857.62
+data/1/00246/1012/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $905.24
+data/1/00246/1012/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $905.24
+data/1/00246/1013/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $28.04
+data/1/00246/1013/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                          $28.04
+data/1/00466/0045/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                           $4,359.20
+data/1/00176/0013/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $19,543.12
+data/1/00176/0013/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $213.95
+data/1/00176/0013/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $213.95
+data/1/00176/0013/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $52,326.33
+data/1/00176/0013/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $204.46
+data/1/00176/0013/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                        $204.46
+data/1/00176/0013/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $24,720.61
+data/1/00180/0017/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $69.32
+data/1/00180/0017/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $69.32
+data/1/00180/0017/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $921.62
+data/1/00180/0017/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $921.62
+data/1/00180/0017/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $104.59
+data/1/00180/0017/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                $104.59
+data/1/00180/0017/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                         $52.12
+data/1/00180/0017/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $52.12
+data/1/00180/0017/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                       $54.54
+data/1/00180/0017/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $54.54
+data/1/00180/0017/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                          $269.30
+data/1/00180/0017/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $269.30
+data/1/00180/0017/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $19,861.27
+data/1/00180/0017/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $19,861.27
+data/1/00180/0126/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $4,448.18
+data/1/00180/0126/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $4,448.18
+data/1/00180/0126/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $4,200.47
+data/1/00180/0126/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $4,200.47
+data/1/00180/0126/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $3,394.30
+data/1/00180/0126/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $3,394.30
+data/1/00180/0126/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $37.79
+data/1/00180/0126/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $37.79
+data/1/00218/0011/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                         $64.97
+data/1/00218/0011/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                             $64.97
+data/1/00218/0011/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $14.61
+data/1/00218/0011/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                             $14.61
+data/1/00218/0011/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $2,871.94
+data/1/00218/0011/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                       $2,871.94
+data/1/00467/0053/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $2,845.55
+data/1/00467/0053/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $2,845.55
+data/1/00467/0053/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $2,886.07
+data/1/00467/0053/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $2,886.07
+data/1/00236/0017/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $214.19
+data/1/00236/0016/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $204.39
+data/1/00236/0018/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $301.39
+data/1/00236/0018/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $215.41
+data/1/00236/0018/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $704.61
+data/1/00236/0018/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $389.15
+data/1/00236/0018/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $590.53
+data/1/00236/0018/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $479.00
+data/1/00236/0021/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $5,600.42
+data/1/00236/0021/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $5,600.42
+data/1/00236/0021/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $5,836.57
+data/1/00236/0021/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $5,836.57
+data/1/00236/0020/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $47.09
+data/1/00236/0020/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $48.14
+data/1/00236/0020/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                           $48.14
+data/1/00236/0020/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $98.61
+data/1/00236/0020/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                          $98.61
+data/1/00236/0020/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $46.03
+data/1/00236/0020/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $103.11
+data/1/00236/0020/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                              $103.11
+data/1/00236/0020/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                         $46.03
+data/1/00236/0020/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                             $46.03
+data/1/00236/0020/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                       $47.09
+data/1/00236/0020/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                             $47.09
+data/1/00236/0020/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $100.82
+data/1/00236/0020/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                        $100.82
+data/1/00236/0020/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $98.61
+data/1/00236/0020/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $48.14
+data/1/00236/0020/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $96.40
+data/1/00236/0020/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $49.24
+data/1/00236/0020/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                           $49.24
+data/1/00236/0020/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $96.40
+data/1/00236/0020/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                             $96.40
+data/1/00236/0020/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $49.24
+data/1/00236/0019/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $304.00
+data/1/00236/0019/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $217.26
+data/1/00236/0019/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $709.94
+data/1/00236/0019/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $392.54
+data/1/00236/0019/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $595.28
+data/1/00236/0019/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $483.17
+data/1/00230/0001/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $47.09
+data/1/00230/0001/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $275.10
+data/1/00230/0001/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $275.10
+data/1/00230/0001/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $46.03
+data/1/00230/0001/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $98.61
+data/1/00230/0001/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $48.14
+data/1/00230/0001/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $96.40
+data/1/00230/0001/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $46.03
+data/1/00230/0001/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $46.03
+data/1/00230/0001/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $49.24
+data/1/00230/0002/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $278.04
+data/1/00230/0002/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $278.04
