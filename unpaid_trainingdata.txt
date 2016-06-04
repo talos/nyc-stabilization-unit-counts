@@ -264,6 +264,32 @@ data/1/00539/0018/June 11, 2010 - Quarterly Statement of Account.txt:           
 data/1/00539/0018/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $32,377.34
 data/1/00539/0018/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $57,179.79
 data/1/00539/0018/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                         $57,179.79
+data/1/00607/0056/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $282.96
+data/1/00607/0056/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $282.96
+data/1/00607/0044/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $4,569.71
+data/1/00607/0044/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $5,163.15
+data/1/00607/0044/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $4,727.82
+data/1/00607/0044/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $9,224.15
+data/1/00607/0044/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $3,693.30
+data/1/00607/0044/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                     $3,693.30
+data/1/00607/0058/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $7,227.71
+data/1/00607/0058/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $7,227.71
+data/1/00607/0058/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $6,553.31
+data/1/00607/0058/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $6,553.31
+data/1/00607/0058/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $7,227.71
+data/1/00607/0058/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                         $7,227.71
+data/1/00607/0058/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $7,064.10
+data/1/00607/0058/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $7,064.10
+data/1/00607/0060/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $63.53
+data/1/00607/0060/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $63.53
+data/1/00607/0060/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $60.71
+data/1/00607/0060/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $60.71
+data/1/00607/0032/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00607/0032/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00607/0050/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $6,151.86
+data/1/00607/0050/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $6,151.86
+data/1/00607/0050/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $52.01
+data/1/00607/0050/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $52.01
 data/1/00279/0014/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $1,703.25
 data/1/00279/0014/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $1,703.25
 data/1/00279/0005/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $7,450.01
@@ -367,6 +393,28 @@ data/1/00540/0040/February 21, 2014 - Quarterly Property Tax Bill.txt:          
 data/1/00540/0040/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $373.63
 data/1/00540/0040/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $755.83
 data/1/00540/0040/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $755.83
+data/1/00605/0039/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $24.41
+data/1/00605/0039/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                            $24.41
+data/1/00605/0049/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $17.08
+data/1/00605/0049/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                            $17.08
+data/1/00605/0046/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $28.64
+data/1/00605/0046/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                      $28.64
+data/1/00605/0046/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $1,007.22
+data/1/00605/0046/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $1,007.22
+data/1/00605/0046/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $58.47
+data/1/00605/0046/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                         $58.47
+data/1/00605/0029/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $19.45
+data/1/00605/0029/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                           $19.45
+data/1/00605/0048/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $20.56
+data/1/00605/0048/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                             $20.56
+data/1/00605/0030/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $24.13
+data/1/00605/0030/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                            $24.13
+data/1/00605/0047/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $31.84
+data/1/00605/0047/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $31.84
+data/1/00605/0047/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $25,045.77
+data/1/00605/0047/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                         $25,045.77
+data/1/00605/0047/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $1,187.04
+data/1/00605/0047/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $1,187.04
 data/1/00189/0039/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $166.48
 data/1/00189/0039/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $166.48
 data/1/00189/0042/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $8,951.55
@@ -621,6 +669,28 @@ data/1/00288/0047/November 30, 2012 - Quarterly Property Tax Bill.txt:          
 data/1/00288/0047/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $1,913.59
 data/1/00288/0047/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $287.85
 data/1/00288/0047/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $287.85
+data/1/00593/0049/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $4,783.98
+data/1/00593/0049/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $4,783.98
+data/1/00593/0049/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $5,003.03
+data/1/00593/0049/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $5,003.03
+data/1/00593/0049/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $5,800.46
+data/1/00593/0049/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $5,800.46
+data/1/00593/0049/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $108.23
+data/1/00593/0049/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $108.23
+data/1/00593/0049/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $94.60
+data/1/00593/0049/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                     $94.60
+data/1/00593/0049/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $105.81
+data/1/00593/0049/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $105.81
+data/1/00593/0006/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00593/0006/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                    $13.00
+data/1/00593/0006/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                      $4,086.83
+data/1/00593/0006/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $4,086.83
+data/1/00593/0006/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00593/0006/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $13.00
+data/1/00593/0006/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $3,997.15
+data/1/00593/0006/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                            $3,997.15
+data/1/00593/0006/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $13.00
+data/1/00593/0006/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
 data/1/00558/0026/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,997.47
 data/1/00558/0026/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $8,997.47
 data/1/00558/0026/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                  $4,358.55
@@ -854,6 +924,26 @@ data/1/00298/0014/August 21, 2015 - Quarterly Property Tax Bill.txt:            
 data/1/00298/0014/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $28.13
 data/1/00298/0014/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $39.19
 data/1/00298/0014/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $39.19
+data/1/00611/0011/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                     $862.90
+data/1/00611/0011/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                $862.90
+data/1/00611/0011/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $276.98
+data/1/00611/0011/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $276.98
+data/1/00611/0011/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $15,693.04
+data/1/00611/0011/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $15,693.04
+data/1/00611/0011/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $7,159.23
+data/1/00611/0011/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $7,159.23
+data/1/00611/0011/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $6,673.21
+data/1/00611/0011/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $6,673.21
+data/1/00611/0011/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $147.26
+data/1/00611/0011/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $147.26
+data/1/00611/0007/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $4,964.75
+data/1/00611/0007/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                           $4,964.75
+data/1/00611/0007/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $6,421.02
+data/1/00611/0007/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $6,421.02
+data/1/00611/0008/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                     $502.14
+data/1/00611/0008/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                   $502.14
+data/1/00611/0006/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $7,326.44
+data/1/00611/0006/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $7,326.44
 data/1/00284/0015/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $130.86
 data/1/00284/0015/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $130.86
 data/1/00284/0015/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $11,430.30
@@ -1624,6 +1714,71 @@ data/1/00443/0019/August 23, 2013 - Quarterly Property Tax Bill.txt:            
 data/1/00443/0019/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $8.07
 data/1/00443/0019/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $1,441.56
 data/1/00443/0019/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $1,441.56
+data/1/00609/0070/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $40,578.44
+data/1/00609/0070/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $40,578.44
+data/1/00609/0070/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $259.01
+data/1/00609/0070/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                          $259.01
+data/1/00609/0070/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $18,628.00
+data/1/00609/0070/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $18,628.00
+data/1/00609/0070/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $19,492.40
+data/1/00609/0070/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $19,492.40
+data/1/00609/0070/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $41,029.15
+data/1/00609/0070/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $41,029.15
+data/1/00609/0070/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $109.82
+data/1/00609/0070/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $109.82
+data/1/00609/0070/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $63,580.86
+data/1/00609/0070/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $63,580.86
+data/1/00609/0044/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                         $71.61
+data/1/00609/0044/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                     $71.61
+data/1/00609/0044/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                       $73.25
+data/1/00609/0044/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $73.25
+data/1/00609/0044/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $71.61
+data/1/00609/0044/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                         $71.61
+data/1/00609/0074/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $9,275.91
+data/1/00609/0074/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $9,275.91
+data/1/00609/0074/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $9,238.38
+data/1/00609/0074/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $9,238.38
+data/1/00609/0074/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $9,815.04
+data/1/00609/0074/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $9,815.04
+data/1/00609/0074/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                   $8,467.25
+data/1/00609/0074/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $10,219.32
+data/1/00609/0074/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $10,219.32
+data/1/00609/0045/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                        $536.14
+data/1/00609/0045/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $536.14
+data/1/00609/0045/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $548.44
+data/1/00609/0045/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $548.44
+data/1/00609/0045/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                           $524.11
+data/1/00609/0045/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $524.11
+data/1/00609/0072/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $28,050.12
+data/1/00609/0072/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $28,050.12
+data/1/00609/0072/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $21,988.88
+data/1/00609/0072/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $21,988.88
+data/1/00609/0051/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                       $8,423.61
+data/1/00609/0051/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                              $412.92
+data/1/00609/0051/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $170.74
+data/1/00609/0051/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $170.74
+data/1/00609/0051/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $404.41
+data/1/00609/0051/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $404.41
+data/1/00609/0051/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $181.84
+data/1/00609/0051/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $181.84
+data/1/00609/0051/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $527.70
+data/1/00609/0051/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $189.57
+data/1/00609/0051/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $189.57
+data/1/00609/0051/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $516.67
+data/1/00609/0051/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $163.78
+data/1/00609/0051/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $163.78
+data/1/00609/0051/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $167.26
+data/1/00609/0051/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $167.26
+data/1/00609/0051/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $185.64
+data/1/00609/0051/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $185.64
+data/1/00609/0051/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $174.33
+data/1/00609/0051/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $174.33
+data/1/00609/0051/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $395.97
+data/1/00609/0051/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $395.97
+data/1/00609/0051/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $178.04
+data/1/00609/0051/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $178.04
+data/1/00609/0076/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                   $62.73
+data/1/00609/0076/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $62.73
 data/1/00573/0068/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $61,449.23
 data/1/00573/0068/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $61,449.23
 data/1/00573/0068/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $1,000.07
@@ -1697,6 +1852,112 @@ data/1/00140/0024/February 20, 2015 - Quarterly Property Tax Bill.txt:          
 data/1/00140/0024/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $252.81
 data/1/00468/0025/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                            $29,864.06
 data/1/00468/0025/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                           $29,864.06
+data/1/00608/1501/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                          $7.45
+data/1/00608/1501/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                       $7.45
+data/1/00608/0012/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                         $30.64
+data/1/00608/0012/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $30.64
+data/1/00608/0012/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,848.27
+data/1/00608/0012/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $7,848.27
+data/1/00608/0011/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $514.57
+data/1/00608/0011/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $514.57
+data/1/00608/0011/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $254.37
+data/1/00608/0011/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $254.37
+data/1/00608/0068/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,296.25
+data/1/00608/0068/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $8,296.25
+data/1/00608/0068/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $8,968.50
+data/1/00608/0068/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $8,968.50
+data/1/00608/0068/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $16,014.59
+data/1/00608/0068/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $16,014.59
+data/1/00608/0068/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                     $664.44
+data/1/00608/0068/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                 $664.44
+data/1/00608/0068/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $25,689.92
+data/1/00608/0068/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $25,689.92
+data/1/00608/0068/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $44,169.00
+data/1/00608/0068/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $44,169.00
+data/1/00608/0068/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $34,801.38
+data/1/00608/0068/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $34,801.38
+data/1/00608/0068/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $16,782.79
+data/1/00608/0068/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $16,782.79
+data/1/00608/0068/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $13,396.42
+data/1/00608/0068/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $13,396.42
+data/1/00608/0068/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,596.08
+data/1/00608/0068/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $8,596.08
+data/1/00608/0068/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $27,830.08
+data/1/00608/0068/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $27,830.08
+data/1/00608/0068/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $1,343.96
+data/1/00608/0068/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $1,343.96
+data/1/00608/0068/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $30,251.62
+data/1/00608/0068/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $30,251.62
+data/1/00608/0068/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $37,034.24
+data/1/00608/0068/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                           $37,034.24
+data/1/00608/0068/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $20,529.79
+data/1/00608/0068/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $20,529.79
+data/1/00608/0068/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $23,880.26
+data/1/00608/0068/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $23,880.26
+data/1/00608/0068/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $40,441.99
+data/1/00608/0068/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $40,441.99
+data/1/00608/0068/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $23,621.10
+data/1/00608/0068/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $23,621.10
+data/1/00608/0068/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $18,546.95
+data/1/00608/0068/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $18,546.95
+data/1/00608/0068/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $6,622.25
+data/1/00608/0068/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $6,622.25
+data/1/00608/0068/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $31,930.28
+data/1/00608/0068/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $31,930.28
+data/1/00608/0052/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $241.20
+data/1/00608/0052/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $241.20
+data/1/00608/0052/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,697.88
+data/1/00608/0052/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $8,697.88
+data/1/00608/0052/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $13.00
+data/1/00608/0052/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                    $13.00
+data/1/00608/0018/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $192.86
+data/1/00608/0018/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $192.86
+data/1/00608/0018/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $6,392.65
+data/1/00608/0018/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                             $6,392.65
+data/1/00608/0018/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $443.94
+data/1/00608/0018/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $443.94
+data/1/00608/0018/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                          $989.09
+data/1/00608/0018/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $989.09
+data/1/00608/0069/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $8,017.87
+data/1/00608/0069/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $8,017.87
+data/1/00608/0058/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $534.86
+data/1/00608/0058/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $534.86
+data/1/00608/0058/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,326.45
+data/1/00608/0058/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $7,326.45
+data/1/00608/0058/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $9,886.28
+data/1/00608/0058/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $9,886.28
+data/1/00608/0058/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $18,879.27
+data/1/00608/0058/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $18,879.27
+data/1/00608/0058/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $1,081.98
+data/1/00608/0058/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $28,033.68
+data/1/00608/0058/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $28,033.68
+data/1/00608/0058/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $25,973.12
+data/1/00608/0058/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $25,973.12
+data/1/00608/0058/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $15,109.49
+data/1/00608/0058/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $15,109.49
+data/1/00608/0058/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $1,075.82
+data/1/00608/0058/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $1,075.82
+data/1/00608/0058/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $23,072.82
+data/1/00608/1502/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $5,241.62
+data/1/00608/1502/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $5,241.62
+data/1/00608/0033/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $23,399.54
+data/1/00608/0033/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $23,399.54
+data/1/00608/0033/June 5, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $11,354.86
+data/1/00608/0033/June 5, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $11,354.86
+data/1/00608/0033/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                           $13.83
+data/1/00608/0033/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                     $13.83
+data/1/00608/0033/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $12,269.57
+data/1/00608/0033/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $12,269.57
+data/1/00608/0013/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $7.94
+data/1/00608/0013/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $7.94
+data/1/00608/0013/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $6,575.66
+data/1/00608/0013/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $6,414.52
+data/1/00608/0013/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $6,414.52
+data/1/00608/0013/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $4,650.02
+data/1/00608/0013/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $4,650.02
+data/1/00608/0013/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $6,419.31
+data/1/00608/0013/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                          $935.82
+data/1/00608/0013/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $935.82
 data/1/00471/0039/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                       $94.62
 data/1/00471/0039/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $94.62
 data/1/00471/0001/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $4,516.45
@@ -1967,6 +2228,24 @@ data/1/00436/0008/August 23, 2013 - Quarterly Property Tax Bill.txt:            
 data/1/00436/0008/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $1,181.60
 data/1/00436/0008/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $171.77
 data/1/00436/0008/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $171.77
+data/1/00594/0071/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $37,647.00
+data/1/00594/0071/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $37,647.00
+data/1/00594/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $38,583.73
+data/1/00594/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                           $38,583.73
+data/1/00594/0071/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $29,105.26
+data/1/00594/0071/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $29,105.26
+data/1/00594/0071/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $40,374.13
+data/1/00594/0071/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $40,374.13
+data/1/00594/0071/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $42,840.31
+data/1/00594/0071/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $42,840.31
+data/1/00594/0071/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $40,894.45
+data/1/00594/0071/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $40,894.45
+data/1/00594/0071/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $33,844.33
+data/1/00594/0071/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $33,844.33
+data/1/00594/0071/June 5, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $65.25
+data/1/00594/0071/June 5, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $65.25
+data/1/00594/0071/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $42,497.33
+data/1/00594/0071/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $42,497.33
 data/1/00583/0010/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $4,718.53
 data/1/00583/0010/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $4,718.53
 data/1/00583/0010/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,504.25
@@ -2659,6 +2938,64 @@ data/1/00589/0104/November 20, 2015 - Quarterly Property Tax Bill.txt:          
 data/1/00589/0104/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $4,347.92
 data/1/00589/0104/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $8,973.57
 data/1/00589/0104/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $8,973.57
+data/1/00589/0035/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                              $156.87
+data/1/00589/0035/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $153.40
+data/1/00589/0035/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $153.40
+data/1/00589/0035/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $73.25
+data/1/00589/0035/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $73.25
+data/1/00589/0035/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $235.73
+data/1/00589/0035/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $76.59
+data/1/00589/0035/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                             $76.59
+data/1/00589/0035/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                          $160.43
+data/1/00589/0035/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00589/0035/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $13.00
+data/1/00589/0035/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $74.89
+data/1/00589/0035/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $74.89
+data/1/00589/0035/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00589/0035/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $149.96
+data/1/00589/0035/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                           $149.96
+data/1/00589/0035/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $71.61
+data/1/00589/0035/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                          $71.61
+data/1/00589/0044/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $3,883.53
+data/1/00589/0044/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $3,883.53
+data/1/00589/0044/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $31.15
+data/1/00589/0044/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                      $31.15
+data/1/00589/0044/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $11,903.52
+data/1/00589/0044/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $11,903.52
+data/1/00589/0044/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $16,043.75
+data/1/00589/0044/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $16,043.75
+data/1/00589/0044/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $7,856.13
+data/1/00589/0044/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $7,856.13
+data/1/00589/0044/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $2,798.73
+data/1/00589/0044/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $2,798.73
+data/1/00589/0044/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $20,255.27
+data/1/00589/0044/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $20,255.27
+data/1/00589/0044/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $30.45
+data/1/00589/0044/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                      $30.45
+data/1/00589/0044/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $31.85
+data/1/00589/0044/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                      $31.85
+data/1/00589/0044/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $33.32
+data/1/00589/0044/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                      $33.32
+data/1/00589/0044/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $32.57
+data/1/00589/0044/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                     $32.57
+data/1/00589/0033/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                           $1,054.80
+data/1/00589/0033/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $634.75
+data/1/00589/0033/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                             $634.75
+data/1/00589/0033/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $73.25
+data/1/00589/0033/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $73.25
+data/1/00589/0033/August 17, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                       $1,175.10
+data/1/00589/0033/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $76.59
+data/1/00589/0033/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                             $76.59
+data/1/00589/0033/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                       $1,078.73
+data/1/00589/0033/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00589/0033/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $13.00
+data/1/00589/0033/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $74.89
+data/1/00589/0033/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $74.89
+data/1/00589/0033/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $84.61
+data/1/00589/0033/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $620.51
+data/1/00589/0033/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                           $620.51
+data/1/00589/0033/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $71.61
+data/1/00589/0033/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                          $71.61
 data/1/00306/0010/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,040.64
 data/1/00306/0010/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $3,040.64
 data/1/00306/0010/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $2,784.46
@@ -2728,6 +3065,8 @@ data/1/00572/0013/June 7, 2013 - Quarterly Property Tax Bill.txt:            Out
 data/1/00572/0013/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $22,922.74
 data/1/00310/0014/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $746.85
 data/1/00310/0014/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $746.85
+data/1/00602/0064/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                   $24.36
+data/1/00602/0064/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                     $24.36
 data/1/00412/0072/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                             $34.66
 data/1/00412/0072/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                             $34.66
 data/1/00412/0072/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $2,139.17
@@ -2745,6 +3084,87 @@ data/1/00454/0039/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Ba
 data/1/00454/0039/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $2,218.32
 data/1/00454/0039/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,218.32
 data/1/00454/0039/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                        $800.67
+data/1/00595/0071/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $14,661.94
+data/1/00595/0071/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $16,705.46
+data/1/00595/0071/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $16,705.46
+data/1/00595/0071/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $9,246.51
+data/1/00595/0071/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $9,246.51
+data/1/00595/0071/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                  $5,343.46
+data/1/00595/0071/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                               $5,343.46
+data/1/00595/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $19,954.09
+data/1/00595/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $19,954.09
+data/1/00595/0071/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $21,675.54
+data/1/00595/0071/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $21,675.54
+data/1/00595/0071/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $2,539.91
+data/1/00595/0071/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $2,539.91
+data/1/00595/0071/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $18,226.23
+data/1/00595/0071/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $1,487.55
+data/1/00595/0071/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $1,487.55
+data/1/00595/0071/February 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $23,427.31
+data/1/00595/0071/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $11,269.19
+data/1/00595/0071/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $11,269.19
+data/1/00595/0071/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $8,210.62
+data/1/00595/0071/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $18,925.08
+data/1/00595/0071/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $18,925.08
+data/1/00595/0071/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                      $2,380.19
+data/1/00595/0071/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                             $2,380.19
+data/1/00595/0071/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $4,788.06
+data/1/00595/0071/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $4,788.06
+data/1/00595/0071/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $18,143.40
+data/1/00595/0071/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $18,143.40
+data/1/00595/0071/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $10,316.12
+data/1/00595/0071/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $19,106.51
+data/1/00595/0071/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $14,778.75
+data/1/00595/0071/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $14,778.75
+data/1/00595/0071/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $2,550.08
+data/1/00595/0071/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $2,550.08
+data/1/00595/0071/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $14,021.45
+data/1/00595/0071/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $14,021.45
+data/1/00595/0071/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $29.05
+data/1/00595/0071/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                  $29.05
+data/1/00595/0071/June 7, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $13,457.93
+data/1/00595/0039/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $3,680.83
+data/1/00595/0039/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $3,680.83
+data/1/00595/0039/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $11,397.68
+data/1/00595/0039/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $11,397.68
+data/1/00595/0039/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $15,439.93
+data/1/00595/0039/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $15,439.93
+data/1/00595/0039/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,446.09
+data/1/00595/0039/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $7,446.09
+data/1/00595/0075/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $2,779.36
+data/1/00595/0075/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $2,779.36
+data/1/00595/0075/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $2,333.08
+data/1/00595/0075/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,333.08
+data/1/00595/0075/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $2,762.22
+data/1/00595/0075/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $2,762.22
+data/1/00595/0075/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $2,099.37
+data/1/00595/0075/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                           $2,099.37
+data/1/00595/0075/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $2,689.69
+data/1/00595/0075/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $2,066.00
+data/1/00595/0075/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $2,066.00
+data/1/00595/0075/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $2,132.21
+data/1/00595/0075/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                       $2,132.21
+data/1/00595/0075/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $2,302.15
+data/1/00595/0075/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,302.15
+data/1/00595/0075/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $2,013.52
+data/1/00595/0075/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                     $2,013.52
+data/1/00595/0075/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $2,521.44
+data/1/00595/0075/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,521.44
+data/1/00595/0075/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $2,751.76
+data/1/00595/0075/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $2,085.20
+data/1/00595/0075/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                     $2,085.20
+data/1/00595/0075/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $1,918.45
+data/1/00595/0075/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $1,918.45
+data/1/00595/0075/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $2,425.78
+data/1/00595/0075/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,425.78
+data/1/00595/0037/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                       $25.42
+data/1/00595/0037/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                    $25.42
+data/1/00595/0037/June 5, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $3,908.88
+data/1/00595/0037/June 5, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $3,908.88
+data/1/00595/0083/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $76.88
+data/1/00595/0083/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                     $76.88
+data/1/00595/0083/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $43.05
+data/1/00595/0083/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                     $43.05
 data/1/00386/0061/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $742.08
 data/1/00386/0061/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $742.08
 data/1/00386/0061/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $335.33
@@ -2822,6 +3242,78 @@ data/1/00193/0018/August 21, 2015 - Quarterly Property Tax Bill.txt:            
 data/1/00193/0018/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $2,745.29
 data/1/00193/0018/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $66.33
 data/1/00193/0018/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $66.33
+data/1/00606/0061/February 20, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $1,372.77
+data/1/00606/0039/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                           $187.20
+data/1/00606/0039/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                        $187.20
+data/1/00606/0034/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                  $4,445.43
+data/1/00606/0034/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                 $4,445.43
+data/1/00606/0034/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,836.72
+data/1/00606/0034/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $8,836.72
+data/1/00606/0034/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $31.31
+data/1/00606/0034/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $31.31
+data/1/00606/0034/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $4,445.43
+data/1/00606/0034/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $4,445.43
+data/1/00606/0034/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $24.11
+data/1/00606/0034/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $24.11
+data/1/00606/0034/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $4,458.62
+data/1/00606/0034/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $4,458.62
+data/1/00606/0034/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $4,085.88
+data/1/00606/0034/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $4,085.88
+data/1/00606/0090/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00606/0090/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0090/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $13.00
+data/1/00606/0090/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0090/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $13.00
+data/1/00606/0090/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0090/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00606/0090/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0090/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0090/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0075/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0075/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0075/August 21, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0037/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $6,683.16
+data/1/00606/0037/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $6,683.16
+data/1/00606/0037/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $5,414.41
+data/1/00606/0037/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $5,414.41
+data/1/00606/0027/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $44.22
+data/1/00606/0027/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $44.22
+data/1/00606/0027/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $24.80
+data/1/00606/0027/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $24.80
+data/1/00606/0027/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $25.99
+data/1/00606/0074/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0074/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0074/August 21, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0045/November 30, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $5,251.36
+data/1/00606/0045/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $6,126.02
+data/1/00606/0045/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $6,126.02
+data/1/00606/0045/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $5,085.09
+data/1/00606/0045/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $5,085.09
+data/1/00606/0045/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                          $382.63
+data/1/00606/0045/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                       $382.63
+data/1/00606/0082/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $13.00
+data/1/00606/0082/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0082/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                      $13.00
+data/1/00606/0082/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0082/November 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0082/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0086/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $13.00
+data/1/00606/0086/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0086/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $13.00
+data/1/00606/0086/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $13.00
+data/1/00606/0073/August 22, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0073/November 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0073/August 21, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                           $13.00
+data/1/00606/0032/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $3,305.12
+data/1/00606/0032/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $3,305.12
+data/1/00606/0032/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $3,040.74
+data/1/00606/0032/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $3,040.74
+data/1/00606/0032/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $3,253.70
+data/1/00606/0032/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $3,253.70
+data/1/00606/0032/June 5, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                   $22.70
+data/1/00606/0032/June 5, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $22.70
+data/1/00606/0032/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                              $6,743.65
+data/1/00606/0032/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $6,743.65
 data/1/00309/0020/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $28,409.14
 data/1/00309/0020/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $1,725.81
 data/1/00309/0020/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $1,725.81
@@ -3678,12 +4170,84 @@ data/1/00555/0020/August 27, 2010 - Quarterly Statement of Account.txt:         
 data/1/00555/0020/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                     $28,720.28
 data/1/00555/0020/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $105,386.63
 data/1/00555/0020/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $105,386.63
+data/1/00592/0016/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $2,630.38
+data/1/00592/0016/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $2,630.38
+data/1/00592/0016/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                      $2,237.86
+data/1/00592/0016/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $2,237.86
+data/1/00592/0056/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                      $25,179.23
+data/1/00592/0056/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                    $25,179.23
+data/1/00592/0056/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $23,018.27
+data/1/00592/0056/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $23,018.27
+data/1/00592/0056/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                 $24,086.40
+data/1/00592/0056/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $24,086.40
+data/1/00592/0056/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                            $47.44
+data/1/00592/0056/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                        $47.44
+data/1/00592/0014/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $8,255.65
+data/1/00592/0014/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $8,255.65
+data/1/00592/0014/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $7,802.25
+data/1/00592/0014/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $7,802.25
+data/1/00592/0014/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $6,322.82
+data/1/00592/0014/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $6,322.82
+data/1/00592/0014/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,645.45
+data/1/00592/0014/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $7,645.45
+data/1/00592/0014/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $6,136.70
+data/1/00592/0014/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $6,136.70
+data/1/00592/0014/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $15,748.07
+data/1/00592/0014/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $15,748.07
+data/1/00592/0014/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $5,687.40
+data/1/00592/0014/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                   $5,687.40
+data/1/00592/0014/June 5, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $23,878.07
+data/1/00592/0014/June 5, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $23,878.07
 data/1/00592/0008/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $8,883.81
 data/1/00592/0008/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $8,883.81
+data/1/00592/0015/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $9,984.51
+data/1/00592/0015/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                        $9,984.51
 data/1/00592/0005/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,045.79
 data/1/00592/0005/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $7,045.79
 data/1/00592/0005/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $6,248.70
 data/1/00592/0005/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $6,248.70
+data/1/00592/0079/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                  $7,320.07
+data/1/00592/0079/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                              $7,320.07
+data/1/00592/0057/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $6.00
+data/1/00592/0057/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                     $6.00
+data/1/00592/0057/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                $83,969.05
+data/1/00592/0057/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                               $83,969.05
+data/1/00592/0057/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $53,913.45
+data/1/00592/0057/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                          $53,913.45
+data/1/00592/0057/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $24,442.95
+data/1/00592/0057/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $24,442.95
+data/1/00592/0057/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $28,012.83
+data/1/00592/0057/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $28,012.83
+data/1/00592/0057/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $51,919.71
+data/1/00592/0057/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $51,919.71
+data/1/00592/0057/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $24,168.85
+data/1/00592/0057/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $24,168.85
+data/1/00592/0057/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $25,290.37
+data/1/00592/0057/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $25,290.37
+data/1/00592/0057/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $49,641.79
+data/1/00592/0057/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                           $49,641.79
+data/1/00592/0057/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $29,078.06
+data/1/00592/0057/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $29,078.06
+data/1/00592/0057/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $51,522.64
+data/1/00592/0057/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $51,522.64
+data/1/00592/0057/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $24,077.44
+data/1/00592/0057/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                               $24,077.44
+data/1/00592/0057/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $7.08
+data/1/00592/0057/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $7.08
+data/1/00592/0057/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $23,359.02
+data/1/00592/0057/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                            $23,359.02
+data/1/00592/0060/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                       $57.18
+data/1/00592/0060/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                   $57.18
+data/1/00592/0060/June 8, 2012 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $38.89
+data/1/00592/0060/August 23, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                         $105.80
+data/1/00592/0013/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,767.99
+data/1/00592/0013/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $8,767.99
+data/1/00592/0013/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $9,487.88
+data/1/00592/0013/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $9,487.88
+data/1/00592/0013/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $11,146.19
+data/1/00592/0013/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $11,146.19
+data/1/00592/0013/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                         $5,241.40
+data/1/00592/0013/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                       $5,241.40
 data/1/00349/1101/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $10.44
 data/1/00349/1101/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                    $10.44
 data/1/00349/1101/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $9.36
@@ -3762,6 +4326,108 @@ data/1/00514/0025/August 28, 2009 - Quarterly Statement of Account.txt:         
 data/1/00514/0025/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                  $2,600.62
 data/1/00514/0025/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $2,887.03
 data/1/00514/0025/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $2,887.03
+data/1/00588/0012/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $9,119.18
+data/1/00588/0012/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $9,119.18
+data/1/00588/0012/November 19, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $4,119.72
+data/1/00588/0012/November 19, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $4,119.72
+data/1/00588/0012/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                       $21,981.04
+data/1/00588/0012/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                             $21,981.04
+data/1/00588/0012/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $12,948.63
+data/1/00588/0012/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                           $12,948.63
+data/1/00588/0011/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $32,041.36
+data/1/00588/0011/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $32,041.36
+data/1/00588/0011/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $71.12
+data/1/00588/0011/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                 $71.12
+data/1/00588/0011/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $427.05
+data/1/00588/0011/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $427.05
+data/1/00588/0011/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                        $229.50
+data/1/00588/0011/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                    $229.50
+data/1/00588/0011/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                    $238.56
+data/1/00588/0011/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                 $238.56
+data/1/00588/0011/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                           $66.47
+data/1/00588/0011/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                      $66.47
+data/1/00588/0016/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $31,647.02
+data/1/00588/0016/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $31,647.02
+data/1/00588/0016/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $33,986.68
+data/1/00588/0016/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $33,986.68
+data/1/00588/0016/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $30,648.35
+data/1/00588/0016/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $30,648.35
+data/1/00588/0016/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $30,497.34
+data/1/00588/0016/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $30,497.34
+data/1/00588/0016/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $32,480.10
+data/1/00588/0016/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $32,480.10
+data/1/00588/0016/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                        $24,709.05
+data/1/00588/0016/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                          $24,709.05
+data/1/00588/0016/February 22, 2013 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                     $30,112.77
+data/1/00588/0034/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $7,225.24
+data/1/00588/0034/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $7,225.24
+data/1/00588/0034/June 11, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $6,084.63
+data/1/00588/0034/June 11, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                              $6,084.63
+data/1/00588/0014/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $14.25
+data/1/00588/0014/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $14.25
+data/1/00588/0015/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $10,647.74
+data/1/00588/0015/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $10,647.74
+data/1/00588/0037/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                           $6,321.42
+data/1/00588/0041/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $821.45
+data/1/00588/0041/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $821.45
+data/1/00588/0041/February 24, 2012 - Quarterly Statement of Account.txt:            Unpaid charges, if any                                                                                            $4,586.92
+data/1/00588/0041/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $412.64
+data/1/00588/0041/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $412.64
+data/1/00588/0002/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $14,191.84
+data/1/00588/0002/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $14,191.84
+data/1/00588/0002/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $23.06
+data/1/00588/0002/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $23.06
+data/1/00588/0002/February 24, 2012 - Quarterly Statement of Account.txt:            Outstanding Charges                                  $4,692.77
+data/1/00588/0002/February 24, 2012 - Quarterly Statement of Account.txt:Outstanding charges including interest and payments                                                                                                 $4,692.77
+data/1/00588/0002/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                             $20,809.88
+data/1/00588/0002/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                           $20,809.88
+data/1/00588/0002/November 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $24,267.90
+data/1/00588/0002/November 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $24,267.90
+data/1/00588/0002/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $17,416.45
+data/1/00588/0002/February 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                $27,767.96
+data/1/00588/0002/February 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                             $27,767.96
+data/1/00588/0002/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $9,910.39
+data/1/00588/0002/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $9,910.39
+data/1/00588/0002/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $7,227.87
+data/1/00588/0002/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $7,227.87
+data/1/00588/0002/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $36,788.48
+data/1/00588/0002/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $36,788.48
+data/1/00588/0002/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $11,042.20
+data/1/00588/0002/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $11,042.20
+data/1/00588/0002/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $2,616.06
+data/1/00588/0002/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $2,616.06
+data/1/00588/0002/June 5, 2015 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $31,367.59
+data/1/00588/0002/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $8,134.55
+data/1/00588/0002/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $8,134.55
+data/1/00588/0002/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $5,292.11
+data/1/00588/0002/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $5,292.11
+data/1/00588/0082/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $3,333.68
+data/1/00588/0082/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                             $3,333.68
+data/1/00588/0082/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $3,655.70
+data/1/00588/0082/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $3,655.70
+data/1/00588/0004/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $6,053.10
+data/1/00588/0004/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $6,053.10
+data/1/00588/0033/June 6, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                    $12,106.29
+data/1/00588/0033/August 28, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                     $33,556.70
+data/1/00588/0033/August 28, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $33,556.70
+data/1/00588/0033/November 20, 2009 - Quarterly Statement of Account.txt:            Unpaid Balance, if Any                                                                                                   $34,730.02
+data/1/00588/0033/November 20, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                              $34,730.02
+data/1/00588/0033/November 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $22,971.31
+data/1/00588/0033/November 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $22,971.31
+data/1/00588/0033/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $11,361.98
+data/1/00588/0033/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $11,361.98
+data/1/00588/0033/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $9,445.12
+data/1/00588/0033/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $9,445.12
+data/1/00588/0033/June 6, 2009 - Quarterly Statement of Account.txt:             Unpaid Balance, if Any                                                                                        $15,992.09
+data/1/00588/0033/June 6, 2009 - Quarterly Statement of Account.txt:Unpaid Balance, if Any                                                                                $15,992.09
+data/1/00588/0081/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $4,602.02
+data/1/00588/0081/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                            $4,602.02
+data/1/00588/0081/June 8, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $4,934.39
+data/1/00588/0081/June 8, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $4,934.39
+data/1/00588/0081/August 27, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $1,151.11
+data/1/00588/0081/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                               $1,151.11
+data/1/00588/0013/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $350.94
+data/1/00588/0013/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $350.94
 data/1/00578/0061/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                        $80.13
 data/1/00578/0061/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                   $80.13
 data/1/00578/0061/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                         $79.10
@@ -3818,6 +4484,44 @@ data/1/00578/0064/August 27, 2010 - Quarterly Statement of Account.txt:         
 data/1/00578/0064/August 27, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $63.37
 data/1/00578/0064/June 7, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $1,035.53
 data/1/00578/0064/June 7, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $1,035.53
+data/1/00603/0071/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $4,378.73
+data/1/00603/0071/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $4,378.73
+data/1/00603/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                   $24.43
+data/1/00603/0071/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $24.43
+data/1/00603/0171/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $4,378.73
+data/1/00603/0171/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $4,378.73
+data/1/00603/0171/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $24.43
+data/1/00603/0171/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                $24.43
+data/1/00603/0060/February 21, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $298.90
+data/1/00603/0060/February 21, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $298.90
+data/1/00603/0060/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                  $10,432.06
+data/1/00603/0060/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $10,432.06
+data/1/00603/0060/November 30, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $4,397.38
+data/1/00603/0060/November 30, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $4,397.38
+data/1/00603/0060/August 22, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $5,536.60
+data/1/00603/0060/August 22, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $5,536.60
+data/1/00603/0060/February 26, 2010 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $127.76
+data/1/00603/0060/February 26, 2010 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $127.76
+data/1/00603/0060/November 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $9,336.79
+data/1/00603/0060/November 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                                                           $9,336.79
+data/1/00603/0060/June 6, 2014 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $631.87
+data/1/00603/0060/June 6, 2014 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                 $631.87
+data/1/00603/0060/August 17, 2012 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                     $20.45
+data/1/00603/0060/August 17, 2012 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $20.45
+data/1/00603/0060/June 10, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                            $940.69
+data/1/00603/0060/June 10, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                      $940.69
+data/1/00603/0060/August 21, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                    $5,139.76
+data/1/00603/0060/August 21, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $5,139.76
+data/1/00603/0060/February 18, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $124.19
+data/1/00603/0060/February 18, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                $124.19
+data/1/00603/0060/February 22, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $9,045.26
+data/1/00603/0060/February 22, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                              $9,045.26
+data/1/00603/0060/August 23, 2013 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                 $4,463.96
+data/1/00603/0060/August 23, 2013 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                               $4,463.96
+data/1/00603/0060/August 26, 2011 - Quarterly Statement of Account.txt:            Unpaid Balance, If Any                                                                                          $5,091.17
+data/1/00603/0060/August 26, 2011 - Quarterly Statement of Account.txt:Unpaid Balance, If Any                                                                                   $5,091.17
+data/1/00603/0060/February 19, 2016 - Quarterly Property Tax Bill.txt:            Outstanding Charges                               $16,056.27
+data/1/00603/0060/February 19, 2016 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                            $16,056.27
 data/1/00415/0009/February 21, 2014 - Quarterly Property Tax Bill.txt:            Unpaid charges, if any                                                                                      $104.54
 data/1/00415/0009/November 20, 2015 - Quarterly Property Tax Bill.txt:            Outstanding Charges                                       $237.11
 data/1/00415/0009/November 20, 2015 - Quarterly Property Tax Bill.txt:Outstanding charges including interest and payments                                                                                                  $237.11
