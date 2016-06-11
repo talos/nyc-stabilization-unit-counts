@@ -16,3 +16,4 @@ sed "s?\(.*\),.*\([0-9]/.*/[0-9][0-9][0-9][0-9]/\).*?\1,\2,_SSS_:\2 _XXX_:\2 _YY
 # http://nycprop.nyc.gov/nycproperty/StatementSearch?bbl=1013770064&stmtDate=20160603&stmtType=SOA
 
 # ./createcsv.py *_traindata.txt
+sed "s?\(.*\)\([0-9]/.*/[0-9][0-9][0-9][0-9]/\).*:\(.*\)?\2 \3?" propertyaddress_trainingdata.txt  |sed "s/  */ /g" |sort -u |sed "s?/??g" |sed "s/ /,/" |grep PROPERTY > property_mapping.csv
