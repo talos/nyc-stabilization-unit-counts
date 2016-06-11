@@ -124,7 +124,7 @@ def strain_soup(bbl, soup, target, get_statement_url):
 
         save_file_from_stream(resp, filename)
 
-        time.sleep(1)
+        time.sleep(.2)
 
 
 def search(borough=None, house_number=None, street=None, block=None, lot=None):
