@@ -17,4 +17,5 @@ sed "s?\(.*\),.*\([0-9]/.*/[0-9][0-9][0-9][0-9]/\).*?\1,\2,_SSS_:\2 _XXX_:\2 _YY
 
 # ./createcsv.py *_traindata.txt
 echo bbl,address >property_mapping.csv
-sed "s?\(.*\)\([0-9]/.*/[0-9][0-9][0-9][0-9]/\).*:\(.*\)?\2 \3?" propertyaddress_trainingdata.txt  |sed "s/  */ /g" |sort -u |sed "s?/??g" |sed "s/ /,/" |grep PROPERTY >> property_mapping.csv
+sed "s?\(.*\)\([0-9]/.*/[0-9][0-9][0-9][0-9]/\).*:\(.*\)?\2 \3?" propertyaddress_trainingdata.txt  |sed "s/  */ /g" |sort -u |sed "s?/??g" |sed "s/ /,/" |grep PROPERTY |iconv -f latin1 -t ascii//TRANSLIT --unicode-subst=ERROR1 --byte-subst=ERROR2   --widechar-subst=ERROR3 >> property_mapping.csv
+
