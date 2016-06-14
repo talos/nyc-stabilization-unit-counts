@@ -24,7 +24,7 @@ LOGGER.addHandler(HANDLER)
 
 SESSION = requests.session()
 DOCS_TO_DOWNLOAD = [
-    u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
+    # u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
                                         # charges, mailing address
     u'Quarterly Property Tax Bill',  # Amounts paid, stabilized fees, other
                                      # charges, mailing address, mortgagee
@@ -33,7 +33,7 @@ DOCS_TO_DOWNLOAD = [
     # skipping this because they're very, very slow
     u'Notice of Property Value',  # Estimated sq. footage, gross income,
                                   # expenses, RoI
-    u'Tentative Assessment Roll',  # Real Estate billing name and address
+    # u'Tentative Assessment Roll',  # Real Estate billing name and address
                                    # (mortgagee payer)
 ]
 
