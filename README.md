@@ -75,6 +75,10 @@ Make sure to put the street name in single quotes.
 
     python download.py /path/to/addresses.tsv >/path/to/log.txt 2>&1 &
 
+### To download a single tax bill for many BBLS:
+
+    python download_direct.py YYYYMMDD /path/to/bbls.csv > path/to/log.txt 2>&1 &
+
 ### To parse the raw data into a CSV
 
 You'll probably want to background this too, as it takes a while.  The text PDF
