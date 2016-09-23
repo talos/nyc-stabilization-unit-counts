@@ -19,6 +19,10 @@ LOGGER.addHandler(logging.StreamHandler(sys.stderr))
 
 PERIODS = [
     #'20120817 - Quarterly Property Tax Bill.pdf',
+    'February 19, 2016 - Quarterly Property Tax Bill.pdf',
+    'January 15, 2016 - Notice of Property Value.pdf',
+    'January 15, 2016 - Tentative Assessment Roll.html',
+    'June 3, 2016 - Quarterly Property Tax Bill.pdf',
     'August 22, 2008 - Quarterly Statement of Account.html',
     'August 22, 2014 - Quarterly Property Tax Bill.pdf',
     'August 23, 2013 - Quarterly Property Tax Bill.pdf',
