@@ -436,6 +436,38 @@ FROM rawdata
 WHERE section = 'nopv'
 ORDER BY bbl, activityThrough;
 
+CREATE UNIQUE INDEX ON nopv (bbl, year, key);
+SELECT n.bbl, MAX(ST_X(geom)) as lon, MAX(ST_Y(geom)) as lat,
+MAX(cd) cd,
+MAX(ct2010)    ct2010,
+MAX(council)   council,
+MAX(zipcode)   zipcode,
+MAX(address)   address,
+MAX(ownertype) ownertype,
+MAX(ownername) ownername,
+MAX(numbldgs)  numbldgs,
+MAX(numfloors) numfloors,
+MAX(unitsres)  unitsres,
+MAX(unitstotal) unitstotal,
+MAX(yearbuilt) yearbuilt,
+MAX(condono)   condono,
+MAX(CASE WHEN date_part('year', activitythrough) = 2005 THEN value ELSE NULL END) AS income05,
+MAX(CASE WHEN date_part('year', activitythrough) = 2006 THEN value ELSE NULL END) AS income06,
+MAX(CASE WHEN date_part('year', activitythrough) = 2007 THEN value ELSE NULL END) AS income07,
+MAX(CASE WHEN date_part('year', activitythrough) = 2008 THEN value ELSE NULL END) AS income08,
+MAX(CASE WHEN date_part('year', activitythrough) = 2009 THEN value ELSE NULL END) AS income09,
+MAX(CASE WHEN date_part('year', activitythrough) = 2010 THEN value ELSE NULL END) AS income10,
+MAX(CASE WHEN date_part('year', activitythrough) = 2011 THEN value ELSE NULL END) AS income11,
+MAX(CASE WHEN date_part('year', activitythrough) = 2012 THEN value ELSE NULL END) AS income12,
+MAX(CASE WHEN date_part('year', activitythrough) = 2013 THEN value ELSE NULL END) AS income13,
+MAX(CASE WHEN date_part('year', activitythrough) = 2014 THEN value ELSE NULL END) AS income14,
+MAX(CASE WHEN date_part('year', activitythrough) = 2015 THEN value ELSE NULL END) AS income15
+INTO gross_income
+FROM nopv n JOIN "contrib/us/ny/nyc".pluto p ON n.bbl = p.bbl
+WHERE key = 'gross income'
+GROUP BY n.bbl;
+
+\copy gross_income to '/data/nyc-rent-stabilization-data/gross_income.csv' with csv header
 \copy joined TO '/data/nyc-rent-stabilization-data/joined.csv' WITH CSV DELIMITER ',' HEADER
 \copy joined_nocrosstab TO '/data/nyc-rent-stabilization-data/joined-nocrosstab.csv' WITH CSV DELIMITER ',' HEADER
 \copy changes_summary TO '/data/nyc-rent-stabilization-data/changes-summary.csv' WITH CSV DELIMITER ',' HEADER
