@@ -96,9 +96,13 @@ def main(period, borough, block, lot, *_):
     resp = SESSION.get(url, stream=True)
     extension = find_extension(resp)
 
+    if resp.url == u'http://nycprop.nyc.gov/nycproperty/nynav/jsp/StatementNotFound.jsp':
+        LOGGER.warn('No statement for %s', url)
+        return
+
     if extension != 'pdf':
         LOGGER.warn('Cannot download %s, has wrong extension: %s', url, extension)
-        return
+        raise requests.exceptions.ConnectionError()
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
