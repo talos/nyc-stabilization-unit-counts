@@ -9,13 +9,17 @@ import os
 import sys
 import time
 import requests
+import subprocess
 from dateutil import parser
 from download import save_file_from_stream, SESSION, find_extension
 
 
+HANDLER = logging.StreamHandler(sys.stderr)
+HANDLER.setFormatter(logging.Formatter('%(asctime)s %(message)s'))
+
 LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
-LOGGER.addHandler(logging.StreamHandler(sys.stderr))
+LOGGER.addHandler(HANDLER)
 
 PERIODS = [
     #'20120817 - Quarterly Property Tax Bill.pdf',
@@ -86,18 +90,23 @@ def main(period, borough, block, lot, *_):
         '%B %-d, %Y - Quarterly Property Tax Bill')
 
     filenames = os.listdir(bbldir)
+    nostatement_fname = 'nostatement.' + period + '.txt'
     if docname + '.pdf' in filenames:
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                     docname, bbl)
         return
+    elif nostatement_fname in filenames:
+        LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
+        return
 
     url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
             'bbl={bbl}&stmtDate={period}&stmtType=SOA'.format(period=period, bbl=bbl)
-    resp = SESSION.get(url, stream=True)
+    resp = requests.get(url, stream=True)
     extension = find_extension(resp)
 
     if resp.url == u'http://nycprop.nyc.gov/nycproperty/nynav/jsp/StatementNotFound.jsp':
         LOGGER.warn('No statement for %s', url)
+        subprocess.check_call('touch "{}/{}" &'.format(bbldir, nostatement_fname), shell=True)
         return
 
     if extension != 'pdf':
