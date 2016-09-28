@@ -95,13 +95,19 @@ def main(period, borough, block, lot, *_):
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                     docname, bbl)
         return
+    elif docname in filenames:
+        subprocess.check_call('mv "{bbldir}/{docname}" "{bbldir}/{docname}.pdf"'.format(
+            bbldir=bbldir, docname=docname), shell=True)
+        LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
+                    docname, bbl)
+        return
     elif nostatement_fname in filenames:
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
 
     url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
             'bbl={bbl}&stmtDate={period}&stmtType=SOA'.format(period=period, bbl=bbl)
-    resp = requests.get(url, stream=True)
+    resp = requests.get(url)
     extension = find_extension(resp)
 
     if resp.url == u'http://nycprop.nyc.gov/nycproperty/nynav/jsp/StatementNotFound.jsp':
@@ -116,7 +122,7 @@ def main(period, borough, block, lot, *_):
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
     #save_file_from_stream(resp, filename)
-    subprocess.check_call('wget -O "{filename}" "{url}" &'.format(
+    subprocess.check_call('wget -O "{filename}.pdf" "{url}" &'.format(
         filename=filename,
         url=url
     ), shell=True)
