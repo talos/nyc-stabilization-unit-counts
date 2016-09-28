@@ -115,8 +115,12 @@ def main(period, borough, block, lot, *_):
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
-    save_file_from_stream(resp, filename)
-    time.sleep(1)
+    #save_file_from_stream(resp, filename)
+    subprocess.check_call('wget -O "{filename}" "{url}" &'.format(
+        filename=filename,
+        url=url
+    ), shell=True)
+    time.sleep(2)
 
 if __name__ == '__main__':
     if len(sys.argv) == 3:
