@@ -21,60 +21,60 @@ LOGGER = logging.getLogger(__name__)
 LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(HANDLER)
 
-PERIODS = [
+PERIODS = {
     #'20120817 - Quarterly Property Tax Bill.pdf',
-    'February 19, 2016 - Quarterly Property Tax Bill.pdf',
-    'January 15, 2016 - Notice of Property Value.pdf',
-    'January 15, 2016 - Tentative Assessment Roll.html',
-    'June 3, 2016 - Quarterly Property Tax Bill.pdf',
-    'August 22, 2008 - Quarterly Statement of Account.html',
-    'August 22, 2014 - Quarterly Property Tax Bill.pdf',
-    'August 23, 2013 - Quarterly Property Tax Bill.pdf',
-    'August 26, 2011 - Quarterly Statement of Account.pdf',
-    'August 27, 2010 - Quarterly Statement of Account.pdf',
-    'August 28, 2009 - Quarterly Statement of Account.pdf',
-    'December 19, 2008 - Quarterly Statement of Account.html',
-    'February 18, 2011 - Quarterly Statement of Account.pdf',
-    'February 20, 2009 - Quarterly Statement of Account.html',
-    'February 20, 2015 - Quarterly Property Tax Bill.pdf',
-    'February 21, 2014 - Quarterly Property Tax Bill.pdf',
-    'February 22, 2013 - Quarterly Property Tax Bill.pdf',
-    'February 24, 2012 - Quarterly Statement of Account.pdf',
-    'February 26, 2010 - Quarterly Statement of Account.pdf',
-    'January 15, 2005 - Notice of Property Value.html',
-    'January 15, 2006 - Notice of Property Value.html',
-    'January 15, 2007 - Notice of Property Value.html',
-    'January 15, 2008 - Notice of Property Value.html',
-    'January 15, 2009 - Notice of Property Value.html',
-    'January 15, 2010 - Notice of Property Value.pdf',
-    'January 15, 2010 - Tentative Assessment Roll.html',
-    'January 15, 2011 - Notice of Property Value.pdf',
-    'January 15, 2011 - Tentative Assessment Roll.html',
-    'January 15, 2012 - Notice of Property Value.pdf',
-    'January 15, 2012 - Tentative Assessment Roll.html',
-    'January 15, 2013 - Notice of Property Value.pdf',
-    'January 15, 2013 - Tentative Assessment Roll.html',
-    'January 15, 2014 - Notice of Property Value.pdf',
-    'January 15, 2014 - Tentative Assessment Roll.html',
-    'January 15, 2015 - Notice of Property Value.pdf',
-    'January 15, 2015 - Tentative Assessment Roll.html',
-    'June 10, 2011 - Quarterly Statement of Account.pdf',
-    'June 11, 2010 - Quarterly Statement of Account.pdf',
-    'June 13, 2008 - Quarterly Statement of Account.html',
-    'June 5, 2015 - Quarterly Property Tax Bill.pdf',
-    'June 6, 2009 - Quarterly Statement of Account.pdf',
-    'June 6, 2014 - Quarterly Property Tax Bill.pdf',
-    'June 7, 2013 - Quarterly Property Tax Bill.pdf',
-    'June 8, 2012 - Quarterly Property Tax Bill.pdf',
-    'November 18, 2011 - Quarterly Statement of Account.pdf',
-    'November 19, 2010 - Quarterly Statement of Account.pdf',
-    'November 20, 2009 - Quarterly Statement of Account.pdf',
-    'November 21, 2014 - Quarterly Property Tax Bill.pdf',
-    'November 22, 2013 - Quarterly Property Tax Bill.pdf',
-    'November 30, 2012 - Quarterly Property Tax Bill.pdf',
-]
+    ('20160219', 'SOA'): 'February 19, 2016 - Quarterly Property Tax Bill.pdf',
+    ('20160115', 'NOPV'): 'January 15, 2016 - Notice of Property Value.pdf',
+    ('20160115', 'TAR'): 'January 15, 2016 - Tentative Assessment Roll.html',
+    ('20160603', 'SOA'): 'June 3, 2016 - Quarterly Property Tax Bill.pdf',
+    ('20080822', 'SOA'): 'August 22, 2008 - Quarterly Statement of Account.html',
+    ('20140822', 'SOA'): 'August 22, 2014 - Quarterly Property Tax Bill.pdf',
+    ('20130823', 'SOA'): 'August 23, 2013 - Quarterly Property Tax Bill.pdf',
+    ('20110826', 'SOA'): 'August 26, 2011 - Quarterly Statement of Account.pdf',
+    ('20100827', 'SOA'): 'August 27, 2010 - Quarterly Statement of Account.pdf',
+    ('20090828', 'SOA'): 'August 28, 2009 - Quarterly Statement of Account.pdf',
+    ('20081219', 'SOA'): 'December 19, 2008 - Quarterly Statement of Account.html',
+    ('20110218', 'SOA'): 'February 18, 2011 - Quarterly Statement of Account.pdf',
+    ('20090220', 'SOA'): 'February 20, 2009 - Quarterly Statement of Account.html',
+    ('20150220', 'SOA'): 'February 20, 2015 - Quarterly Property Tax Bill.pdf',
+    ('20140221', 'SOA'): 'February 21, 2014 - Quarterly Property Tax Bill.pdf',
+    ('20130222', 'SOA'): 'February 22, 2013 - Quarterly Property Tax Bill.pdf',
+    ('20120224', 'SOA'): 'February 24, 2012 - Quarterly Statement of Account.pdf',
+    ('20100226', 'SOA'): 'February 26, 2010 - Quarterly Statement of Account.pdf',
+    ('20050115', 'NOPV'): 'January 15, 2005 - Notice of Property Value.html',
+    ('20060115', 'NOPV'): 'January 15, 2006 - Notice of Property Value.html',
+    ('20070115', 'NOPV'): 'January 15, 2007 - Notice of Property Value.html',
+    ('20080115', 'NOPV'): 'January 15, 2008 - Notice of Property Value.html',
+    ('20090115', 'NOPV'): 'January 15, 2009 - Notice of Property Value.html',
+    ('20100115', 'NOPV'): 'January 15, 2010 - Notice of Property Value.pdf',
+    ('20100115', 'TAR'): 'January 15, 2010 - Tentative Assessment Roll.html',
+    ('20110115', 'NOPV'): 'January 15, 2011 - Notice of Property Value.pdf',
+    ('20110115', 'TAR'): 'January 15, 2011 - Tentative Assessment Roll.html',
+    ('20120115', 'NOPV'): 'January 15, 2012 - Notice of Property Value.pdf',
+    ('20120115', 'TAR'): 'January 15, 2012 - Tentative Assessment Roll.html',
+    ('20130115', 'NOPV'): 'January 15, 2013 - Notice of Property Value.pdf',
+    ('20130115', 'TAR'): 'January 15, 2013 - Tentative Assessment Roll.html',
+    ('20140115', 'NOPV'): 'January 15, 2014 - Notice of Property Value.pdf',
+    ('20140115', 'TAR'): 'January 15, 2014 - Tentative Assessment Roll.html',
+    ('20150115', 'NOPV'): 'January 15, 2015 - Notice of Property Value.pdf',
+    ('20150115', 'TAR'): 'January 15, 2015 - Tentative Assessment Roll.html',
+    ('20110610', 'SOA'): 'June 10, 2011 - Quarterly Statement of Account.pdf',
+    ('20100611', 'SOA'): 'June 11, 2010 - Quarterly Statement of Account.pdf',
+    ('20080613', 'SOA'): 'June 13, 2008 - Quarterly Statement of Account.html',
+    ('20150605', 'SOA'): 'June 5, 2015 - Quarterly Property Tax Bill.pdf',
+    ('20090606', 'SOA'): 'June 6, 2009 - Quarterly Statement of Account.pdf',
+    ('20140606', 'SOA'): 'June 6, 2014 - Quarterly Property Tax Bill.pdf',
+    ('20130607', 'SOA'): 'June 7, 2013 - Quarterly Property Tax Bill.pdf',
+    ('20120608', 'SOA'): 'June 8, 2012 - Quarterly Property Tax Bill.pdf',
+    ('20111118', 'SOA'): 'November 18, 2011 - Quarterly Statement of Account.pdf',
+    ('20101119', 'SOA'): 'November 19, 2010 - Quarterly Statement of Account.pdf',
+    ('20091120', 'SOA'): 'November 20, 2009 - Quarterly Statement of Account.pdf',
+    ('20141121', 'SOA'): 'November 21, 2014 - Quarterly Property Tax Bill.pdf',
+    ('20131122', 'SOA'): 'November 22, 2013 - Quarterly Property Tax Bill.pdf',
+    ('20121130', 'SOA'): 'November 30, 2012 - Quarterly Property Tax Bill.pdf',
+}
 
-def main(period, borough, block, lot, *_):
+def main(period, doc_type, borough, block, lot, *_):
     '''
     Download a single tax bill
     '''
@@ -86,12 +86,13 @@ def main(period, borough, block, lot, *_):
         os.makedirs(bbldir)
     except: #pylint: disable=bare-except
         pass
-    docname = parser.parse(period).strftime(  #pylint: disable=no-member
-        '%B %-d, %Y - Quarterly Property Tax Bill')
+    #docname = parser.parse(period).strftime(  #pylint: disable=no-member
+    #    '%B %-d, %Y - Quarterly Property Tax Bill')
+    docname = PERIODS[(period, doc_type)]
 
     filenames = os.listdir(bbldir)
     nostatement_fname = 'nostatement.' + period + '.txt'
-    if (docname + '.pdf' in filenames) or (docname + '.txt' in filenames):
+    if (docname in filenames) or (docname.replace('.pdf', '.txt') in filenames):
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                     docname, bbl)
         return
@@ -106,7 +107,8 @@ def main(period, borough, block, lot, *_):
         return
 
     url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
-            'bbl={bbl}&stmtDate={period}&stmtType=SOA'.format(period=period, bbl=bbl)
+            'bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
+                period=period, bbl=bbl, doc_type=doc_type)
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
@@ -119,18 +121,16 @@ def main(period, borough, block, lot, *_):
     #time.sleep(1)
 
 if __name__ == '__main__':
-    if len(sys.argv) == 3:
-        with open(sys.argv[2]) as infile:
+    if len(sys.argv) == 4:
+        with open(sys.argv[3]) as infile:
             for line in infile:
                 bbl_ = line.strip().split('\t')
-                main(sys.argv[1], *bbl_)
+                main(sys.argv[1], sys.argv[2], *bbl_)
     else:
         sys.stderr.write(u'''
 Usage:
 
-   python download_direct.py ['period of tax bill'] /path/to/bbls.tsv
-
-If period is not specified, then all periods will be downloaded.
+   python download_direct.py ['period of tax bill'] [SOA|NOPV|TAR] /path/to/bbls.tsv
 
 ''')
         sys.exit(1)
