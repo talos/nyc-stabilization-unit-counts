@@ -1,7 +1,7 @@
-UPDATE rawdata SET key = LOWER(key);
-CREATE INDEX key on rawdata (key);
-CREATE INDEX key_activity_due on rawdata (key, "activitythrough", "duedate");
-CREATE INDEX bbl on rawdata (bbl);
+--UPDATE rawdata SET key = LOWER(key);
+--CREATE INDEX key on rawdata (key);
+--CREATE INDEX key_activity_due on rawdata (key, "activitythrough", "duedate");
+--CREATE INDEX bbl on rawdata (bbl);
 
 DROP TABLE IF EXISTS unitcounts;
 CREATE TABLE unitcounts (
@@ -24,7 +24,7 @@ SELECT bbl,
   END as year,
   value::money, apts::int, meta
 FROM rawdata
-WHERE key = 'housing-rent stabilization';
+WHERE lower(key) = 'housing-rent stabilization';
 
 UPDATE unitcounts
 SET units = (amount / 10)::numeric
@@ -40,7 +40,7 @@ CREATE TABLE abatements (
 );
 INSERT INTO abatements
 SELECT bbl, activitythrough,
-  CASE key
+  CASE lower(key)
     WHEN 'scrie rent stabilization abatement' THEN 'scrie'
     WHEN 'j51 abatement' THEN 'j51'
     WHEN 'coop condo abatement' THEN 'coco'
@@ -64,7 +64,7 @@ SELECT bbl, activitythrough,
   END as abatement,
   COUNT(*) as cnt
 FROM rawdata
-WHERE key in (
+WHERE lower(key) in (
   'scrie rent stabilization abatement',
   'j51 abatement',
   'coop condo abatement',
@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS owners;
 CREATE UNLOGGED TABLE owners AS
 SELECT bbl, DATE_PART('year', activitythrough)::INT AS year, MAX(value) AS owner
 FROM rawdata
-WHERE key = 'owner name'
+WHERE lower(key) = 'owner name'
 GROUP BY bbl, DATE_PART('year', activitythrough);
 CREATE UNIQUE INDEX owners_uk on owners (bbl, year);
 
@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS addresses;
 CREATE UNLOGGED TABLE addresses AS
 SELECT bbl, DATE_PART('year', activitythrough)::INT AS year, MAX(value) AS address
 FROM rawdata
-WHERE key =  'mailing address'
+WHERE lower(key) =  'mailing address'
 GROUP BY bbl, DATE_PART('year', activitythrough)::INT;
 CREATE UNIQUE INDEX "addresses_uk" on addresses (bbl, year);
 
@@ -440,7 +440,7 @@ FROM rgb WHERE comp.year = rgb.year
 
 DROP TABLE IF EXISTS nopv;
 CREATE TABLE nopv AS
-SELECT bbl, activityThrough, key, value
+SELECT bbl, activityThrough, lower(key), value
 FROM rawdata
 WHERE section = 'nopv'
 ORDER BY bbl, activityThrough;
@@ -473,7 +473,7 @@ MAX(CASE WHEN date_part('year', activitythrough) = 2014 THEN value ELSE NULL END
 MAX(CASE WHEN date_part('year', activitythrough) = 2015 THEN value ELSE NULL END) AS income15
 INTO gross_income
 FROM nopv n JOIN "contrib/us/ny/nyc".pluto p ON n.bbl = p.bbl
-WHERE key = 'gross income'
+WHERE lower(key) = 'gross income'
 GROUP BY n.bbl;
 
 \copy gross_income to '/data/nyc-rent-stabilization-data/gross_income.csv' with csv header
