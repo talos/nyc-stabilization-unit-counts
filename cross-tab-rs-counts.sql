@@ -440,7 +440,7 @@ FROM rgb WHERE comp.year = rgb.year
 
 DROP TABLE IF EXISTS nopv;
 CREATE TABLE nopv AS
-SELECT bbl, activityThrough, lower(key), value
+SELECT bbl, activityThrough, lower(key) key, value
 FROM rawdata
 WHERE section = 'nopv'
 ORDER BY bbl, activityThrough;
