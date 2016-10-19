@@ -74,10 +74,20 @@ PERIODS = {
     ('20121130', 'SOA'): 'November 30, 2012 - Quarterly Property Tax Bill.pdf',
 }
 
+BOROUGHS = {
+    'MN': '1',
+    'BX': '2',
+    'BK': '3',
+    'QN': '4',
+    'SI': '5',
+}
+
 def main(period, doc_type, borough, block, lot, *_):
     '''
     Download a single tax bill
     '''
+    if borough in BOROUGHS:
+        borough = BOROUGHS[borough]
     block = str(block).zfill(5)
     lot = str(lot).zfill(4)
     bbl = ''.join([borough, block, lot])
@@ -96,12 +106,20 @@ def main(period, doc_type, borough, block, lot, *_):
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
                     docname, bbl)
         return
-    elif docname in filenames:
-        subprocess.check_call('mv "{bbldir}/{docname}" "{bbldir}/{docname}.pdf"'.format(
+    elif docname + '.pdf' in filenames:
+        subprocess.check_call('mv "{bbldir}/{docname}.pdf" "{bbldir}/{docname}"'.format(
             bbldir=bbldir, docname=docname), shell=True)
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
                     docname, bbl)
         return
+    elif docname in filenames:
+        return
+    #elif docname in filenames:
+    #    subprocess.check_call('mv "{bbldir}/{docname}" "{bbldir}/{docname}.pdf"'.format(
+    #        bbldir=bbldir, docname=docname), shell=True)
+    #    LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
+    #                docname, bbl)
+    #    return
     elif nostatement_fname in filenames:
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
@@ -112,8 +130,8 @@ def main(period, doc_type, borough, block, lot, *_):
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
-    subprocess.check_call('wget --max-redirect=0 -O "{filename}.pdf" "{url}" '
-                          ' || (rm "{filename}".pdf && touch "{nofilemarker}")'.format(
+    subprocess.check_call('wget --max-redirect=0 -O "{filename}" "{url}" '
+                          ' || (rm "{filename}" && touch "{nofilemarker}")'.format(
                               filename=filename,
                               url=url,
                               nofilemarker=os.path.join(bbldir, nostatement_fname)
@@ -126,11 +144,19 @@ if __name__ == '__main__':
             for line in infile:
                 bbl_ = line.strip().split('\t')
                 main(sys.argv[1], sys.argv[2], *bbl_)
+    elif len(sys.argv) == 3:
+        for line in sys.stdin:
+            bbl_ = line.strip().split('\t')
+            main(sys.argv[1], sys.argv[2], *bbl_)
     else:
         sys.stderr.write(u'''
 Usage:
 
    python download_direct.py ['period of tax bill'] [SOA|NOPV|TAR] /path/to/bbls.tsv
+
+or
+
+   cat /path/to/bbls.tsv | python download_direct.py ['period of tax bill'] [SOA|NOPV|TAR]
 
 ''')
         sys.exit(1)
