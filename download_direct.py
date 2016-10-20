@@ -112,14 +112,6 @@ def main(period, doc_type, borough, block, lot, *_):
         LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
                     docname, bbl)
         return
-    elif docname in filenames:
-        return
-    #elif docname in filenames:
-    #    subprocess.check_call('mv "{bbldir}/{docname}" "{bbldir}/{docname}.pdf"'.format(
-    #        bbldir=bbldir, docname=docname), shell=True)
-    #    LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
-    #                docname, bbl)
-    #    return
     elif nostatement_fname in filenames:
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
