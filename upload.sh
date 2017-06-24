@@ -8,6 +8,7 @@ find data/ -iname *.pdf | while read pdf; do
   txtpath="$path/$filename.txt"
 
   if [ -e "$txtpath" ]; then
+    echo "copy and delete $pdf"
     aws s3 cp "$pdf" "s3://taxbills.nyc/$pdf" --acl public-read && rm "$pdf"
   fi
 done
