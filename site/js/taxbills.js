@@ -11,7 +11,7 @@ d3: false, nv: false*/
    */
   function getBBL(data) {
     return $.ajax({
-      url: 'https://who.owns.nyc/geoclient/address.json?' + $.param({
+      url: '/geoclient/address.json?' + $.param({
         borough: data.borough, street: data.street, houseNumber: data.houseNumber
       }),
       dataType: 'json'
