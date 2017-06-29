@@ -474,6 +474,7 @@ def _convert_to_txt(pdf_path, bbl_array):
             subprocess.check_call("pdftotext -layout '{}'".format(
                 pdf_path
             ), shell=True)
+            LOGGER.info('Converted %s to text', pdf_path)
         except subprocess.CalledProcessError as err:
             LOGGER.info('Skipping %s (%s) as it is corrupted', pdf_path, err)
             return None
@@ -493,6 +494,7 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
     """
     writer = csv.DictWriter(sys.stdout, HEADERS)
     writer.writeheader()
+    dirs_processed = 0
     rows_to_write = []
     for path, _, files in os.walk(root):
         bbl_json = []
@@ -540,10 +542,15 @@ def main(root): #pylint: disable=too-many-locals,too-many-branches,too-many-stat
         with open(os.path.join(path, 'data.json'), 'w') as json_outfile:
             # TODO something is wrong here, for BBL http://taxbills.nyc/1/00274/0004/data.json an erroneous 243609 is appearing for nopv "gross income"/"expenses" instead of a much smaller number
             json.dump(bbl_json, json_outfile)
+        dirs_processed += 1
 
         if len(rows_to_write) >= ROW_BUFFER:
             writer.writerows(rows_to_write)
             rows_to_write = []
+
+        if dirs_processed % 1000 == 0:
+            LOGGER.info('Dirs processed: %s', dirs_processed)
+
     writer.writerows(rows_to_write)
 
 
