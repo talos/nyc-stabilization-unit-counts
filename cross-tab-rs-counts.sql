@@ -159,10 +159,12 @@ FROM crosstab(
   ,$$VALUES
     ('2007'::text), ('2008'::text), ('2009'::text),
     ('2010'::text), ('2011'::text), ('2012'::text),
-    ('2013'::text), ('2014'::text), ('2015'::text)$$)
+    ('2013'::text), ('2014'::text), ('2015'::text),
+    ('2016'::text)
+    $$)
 AS ct ("ucbbl" BIGINT, "2007" int, "2008" int, "2009" int,
        "2010" int, "2011" int, "2012" int, "2013" int,
-       "2014" int, "2015" int);
+       "2014" int, "2015" int, "2016" int);
 
 DROP TABLE IF EXISTS indhcr_by_year;
 CREATE TABLE indhcr_by_year AS
@@ -178,10 +180,12 @@ FROM crosstab(
   ,$$VALUES
     ('2007'::text), ('2008'::text), ('2009'::text),
     ('2010'::text), ('2011'::text), ('2012'::text),
-    ('2013'::text), ('2014'::text), ('2015'::text)$$)
+    ('2013'::text), ('2014'::text), ('2015'::text),
+    ('2016'::text)
+    $$)
 AS ct ("dhcrbbl" BIGINT, "2007" text, "2008" text, "2009" text,
        "2010" text, "2011" text, "2012" text, "2013" text,
-       "2014" text, "2015" text);
+       "2014" text, "2015" text, "2016" text);
 
 DROP TABLE IF EXISTS abatements_by_year;
 CREATE TABLE abatements_by_year AS
@@ -197,10 +201,12 @@ FROM crosstab(
   ,$$VALUES
     ('2007'::text), ('2008'::text), ('2009'::text),
     ('2010'::text), ('2011'::text), ('2012'::text),
-    ('2013'::text), ('2014'::text), ('2015'::text)$$)
+    ('2013'::text), ('2014'::text), ('2015'::text),
+    ('2016'::text)
+    $$)
 AS ct ("bbl" bigint, "2007" text, "2008" text, "2009" text,
        "2010" text, "2011" text, "2012" text, "2013" text,
-       "2014" text, "2015" text);
+       "2014" text, "2015" text, "2016" text);
 
 
 
@@ -217,6 +223,7 @@ CREATE TABLE joined (
   "2013uc" INT, "2013est" TEXT, "2013dhcr" TEXT, "2013abat" TEXT,
   "2014uc" INT, "2014est" TEXT, "2014dhcr" TEXT, "2014abat" TEXT,
   "2015uc" INT, "2015est" TEXT, "2015dhcr" TEXT, "2015abat" TEXT,
+  "2016uc" INT, "2016est" TEXT, "2016dhcr" TEXT, "2016abat" TEXT,
   cd INTEGER,
   ct2010 TEXT,
   cb2010 TEXT,
@@ -244,6 +251,7 @@ rby."2012", 'N', indy."2012", aby."2012",
 rby."2013", 'N', indy."2013", aby."2013",
 rby."2014", 'N', indy."2014", aby."2014",
 rby."2015", 'N', indy."2015", aby."2015",
+rby."2016", 'N', indy."2016", aby."2016",
 cd, ct2010, cb2010, council, zipcode, address, ownername,
   numbldgs, numfloors, unitsres, unitstotal, yearbuilt, condono, ST_X(geom), ST_Y(geom)
 FROM registrations_by_year rby
@@ -264,8 +272,10 @@ UPDATE joined SET "2012uc" = "2011uc", "2012est" = 'Y' WHERE "2012uc" IS NULL AN
 UPDATE joined SET "2013uc" = "2012uc", "2013est" = 'Y' WHERE "2013uc" IS NULL AND "2012uc" IS NOT NULL AND ("2012abat" = "2013abat" OR "2013abat" LIKE '%SCRIE%' OR "2013abat" LIKE '%DRIE%' OR "2013dhcr" = 'Y');
 UPDATE joined SET "2014uc" = "2013uc", "2014est" = 'Y' WHERE "2014uc" IS NULL AND "2013uc" IS NOT NULL AND ("2013abat" = "2014abat" OR "2014abat" LIKE '%SCRIE%' OR "2014abat" LIKE '%DRIE%' OR "2014dhcr" = 'Y');
 UPDATE joined SET "2015uc" = "2014uc", "2015est" = 'Y' WHERE "2015uc" IS NULL AND "2014uc" IS NOT NULL AND ("2014abat" = "2015abat" OR "2015abat" LIKE '%SCRIE%' OR "2015abat" LIKE '%DRIE%' OR "2015dhcr" = 'Y');
+UPDATE joined SET "2016uc" = "2015uc", "2016est" = 'Y' WHERE "2016uc" IS NULL AND "2015uc" IS NOT NULL AND ("2015abat" = "2016abat" OR "2016abat" LIKE '%SCRIE%' OR "2016abat" LIKE '%DRIE%' OR "2016dhcr" = 'Y');
 
 /* backfill from end to beginning, if abatements are unchanged. */
+UPDATE joined SET "2015uc" = "2016uc", "2015est" = 'Y' WHERE "2015uc" IS NULL AND "2016uc" IS NOT NULL AND ("2015abat" = "2016abat" OR "2015abat" LIKE '%SCRIE%' OR "2015abat" LIKE '%DRIE%' OR "2015dhcr" = 'Y');
 UPDATE joined SET "2014uc" = "2015uc", "2014est" = 'Y' WHERE "2014uc" IS NULL AND "2015uc" IS NOT NULL AND ("2014abat" = "2015abat" OR "2014abat" LIKE '%SCRIE%' OR "2014abat" LIKE '%DRIE%' OR "2014dhcr" = 'Y');
 UPDATE joined SET "2013uc" = "2014uc", "2013est" = 'Y' WHERE "2013uc" IS NULL AND "2014uc" IS NOT NULL AND ("2013abat" = "2014abat" OR "2013abat" LIKE '%SCRIE%' OR "2013abat" LIKE '%DRIE%' OR "2013dhcr" = 'Y');
 UPDATE joined SET "2012uc" = "2013uc", "2012est" = 'Y' WHERE "2012uc" IS NULL AND "2013uc" IS NOT NULL AND ("2012abat" = "2013abat" OR "2012abat" LIKE '%SCRIE%' OR "2012abat" LIKE '%DRIE%' OR "2012dhcr" = 'Y');
@@ -336,13 +346,17 @@ INSERT INTO joined_nocrosstab
   SELECT ucbbl, '2015-01-01', "2015uc", "2015est", "2015dhcr", "2015abat", cd, ct2010,
   cb2010, council, zipcode, address, ownername, numbldgs, numfloors, unitsres,
   unitstotal, yearbuilt, condono, lon, lat FROM joined;
+INSERT INTO joined_nocrosstab
+  SELECT ucbbl, '2016-01-01', "2016uc", "2016est", "2016dhcr", "2016abat", cd, ct2010,
+  cb2010, council, zipcode, address, ownername, numbldgs, numfloors, unitsres,
+  unitstotal, yearbuilt, condono, lon, lat FROM joined;
 
 DROP TABLE IF EXISTS changes_summary;
 CREATE TABLE changes_summary (
   ucbbl BIGINT,
   unitstotal INTEGER,
   unitsstab2007 INTEGER,
-  unitsstab2015 INTEGER,
+  unitsstab2016 INTEGER,
   diff INT,
   percentchange TEXT,
   j51 text,
@@ -372,10 +386,10 @@ SELECT
   ucbbl,
   MAX(GREATEST(unitsres, unitstotal, unitcount, 1)) AS unitstotal,
   MAX(CASE year WHEN '2007-01-01' THEN unitcount ELSE 0 END) AS unitsstab2007,
-  MAX(CASE year WHEN '2015-01-01' THEN unitcount ELSE 0 END) AS unitsstab2015,
-  MAX(CASE year WHEN '2015-01-01' THEN unitcount ELSE 0 END) -
+  MAX(CASE year WHEN '2016-01-01' THEN unitcount ELSE 0 END) AS unitsstab2016,
+  MAX(CASE year WHEN '2016-01-01' THEN unitcount ELSE 0 END) -
   MAX(CASE year WHEN '2007-01-01' THEN unitcount ELSE 0 END) AS diff,
-  TO_CHAR((MAX(CASE year WHEN '2015-01-01' THEN unitcount ELSE 0 END) -
+  TO_CHAR((MAX(CASE year WHEN '2016-01-01' THEN unitcount ELSE 0 END) -
   MAX(CASE year WHEN '2007-01-01' THEN unitcount ELSE 0 END))::real / MAX(
     GREATEST(unitsres, unitstotal, unitcount, 1)) * 100, '999D99')::real AS percentchange,
   MIN(CASE WHEN abatements ILIKE '%j51%' THEN DATE_PART('year', year) ELSE NULL END)::text || ' - ' ||
@@ -471,6 +485,7 @@ MAX(CASE WHEN date_part('year', activitythrough) = 2012 THEN value ELSE NULL END
 MAX(CASE WHEN date_part('year', activitythrough) = 2013 THEN value ELSE NULL END) AS income13,
 MAX(CASE WHEN date_part('year', activitythrough) = 2014 THEN value ELSE NULL END) AS income14,
 MAX(CASE WHEN date_part('year', activitythrough) = 2015 THEN value ELSE NULL END) AS income15
+MAX(CASE WHEN date_part('year', activitythrough) = 2016 THEN value ELSE NULL END) AS income15
 INTO gross_income
 FROM nopv n JOIN "contrib/us/ny/nyc".pluto p ON n.bbl = p.bbl
 WHERE lower(key) = 'gross income'
@@ -481,7 +496,7 @@ GROUP BY n.bbl;
 \copy joined_nocrosstab TO '/data/nyc-rent-stabilization-data/joined-nocrosstab.csv' WITH CSV DELIMITER ',' HEADER
 \copy changes_summary TO '/data/nyc-rent-stabilization-data/changes-summary.csv' WITH CSV DELIMITER ',' HEADER
 
-\copy (select cd, sum("2007uc") as start, sum("2015uc") as end, 1 - (sum("2015uc")::real/sum("2007uc")) as change from joined group by cd order by cd) TO '/data/nyc-rent-stabilization-data/cds.csv' WITH CSV DELIMITER ',' HEADER
-\copy (select ucbbl/1000000000, sum("2007uc") as start, sum("2015uc") as end, 1 - (sum("2015uc")::real/sum("2007uc")) as change from joined group by ucbbl/1000000000 order by ucbbl/1000000000) TO '/data/nyc-rent-stabilization-data/boroughs.csv' WITH CSV DELIMITER ',' HEADER
-\copy (select *, 1.0 - ("2015uc"::real/"2007uc") as droppercent from joined where "2007uc" is not null and "2008uc" is not null and "2009uc" is not null and "2010uc" is not null and "2011uc" is not null and "2012uc" is not null and "2013uc" is not null and "2015uc" is not null and "2007uc" > 9 and "2015uc"::real/"2007uc" < 0.5) TO '/data/nyc-rent-stabilization-data/hqdrops.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select cd, sum("2007uc") as start, sum("2016uc") as end, 1 - (sum("2016uc")::real/sum("2007uc")) as change from joined group by cd order by cd) TO '/data/nyc-rent-stabilization-data/cds.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select ucbbl/1000000000, sum("2007uc") as start, sum("2016uc") as end, 1 - (sum("2016uc")::real/sum("2007uc")) as change from joined group by ucbbl/1000000000 order by ucbbl/1000000000) TO '/data/nyc-rent-stabilization-data/boroughs.csv' WITH CSV DELIMITER ',' HEADER
+\copy (select *, 1.0 - ("2016uc"::real/"2007uc") as droppercent from joined where "2007uc" is not null and "2008uc" is not null and "2009uc" is not null and "2010uc" is not null and "2011uc" is not null and "2012uc" is not null and "2013uc" is not null and "2016uc" is not null and "2007uc" > 9 and "2016uc"::real/"2007uc" < 0.5) TO '/data/nyc-rent-stabilization-data/hqdrops.csv' WITH CSV DELIMITER ',' HEADER
 \copy (select * from nopv) TO '/data/nyc-rent-stabilization-data/nopv.csv' WITH CSV DELIMITER ',' HEADER
