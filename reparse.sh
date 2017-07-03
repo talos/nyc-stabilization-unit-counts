@@ -8,18 +8,6 @@ export PGHOST=localhost
 export PGPORT=54321
 export PGDATABASE=postgres
 
-psql -c 'drop table if exists rawdata cascade;'
-psql -c 'create table rawdata (
-         bbl bigint,
-         activityThrough DATE,
-         section TEXT,
-         key TEXT,
-         dueDate DATE,
-         activityDate DATE,
-         value TEXT,
-         meta TEXT,
-         apts TEXT
-        );'
 psql -c 'drop table if exists rgb cascade;'
 psql -c 'create table rgb (
          source VARCHAR,
@@ -47,4 +35,19 @@ psql -c 'create table rgb (
         );'
 time cat data/rgb.csv | psql -c "COPY rgb FROM stdin WITH CSV HEADER NULL '' QUOTE'\"';"
 
-time python parse.py data/ 2>data/rawdata.log | psql -c "COPY rawdata FROM stdin WITH CSV HEADER NULL '' QUOTE '\"';"
+time python parse.py data/ > data/rawdata.csv 2>data/rawdata.log # | psql -c "COPY rawdata FROM stdin WITH CSV HEADER NULL '' QUOTE '\"';"
+
+psql -c 'drop table if exists rawdata cascade;'
+psql -c 'create table rawdata (
+         bbl bigint,
+         activityThrough DATE,
+         section TEXT,
+         key TEXT,
+         dueDate DATE,
+         activityDate DATE,
+         value TEXT,
+         meta TEXT,
+         apts TEXT
+        );'
+time psql -c "\\copy rawdata FROM 'data/rawdata.csv' WITH CSV HEADER NULL '' QUOTE '\"';"
+
