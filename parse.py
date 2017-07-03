@@ -476,12 +476,14 @@ def _convert_to_txt(pdf_path, bbl_array):
             ), shell=True)
             LOGGER.info('Converted %s to text', pdf_path)
         except subprocess.CalledProcessError as err:
-            LOGGER.info('Skipping %s (%s) as it is corrupted', pdf_path, err)
+            #LOGGER.info('Skipping %s (%s) as it is corrupted', pdf_path, err)
+            #return None
+            LOGGER.info('Moving & trying to repair %s (%s)', pdf_path, err)
+            cmd = "mv '{}' '{}'".format(
+                pdf_path, pdf_path + '_corrupted'
+            )
+            subprocess.check_call(cmd, shell=True)
             return None
-            #LOGGER.info('Moving & trying to repair %s (%s)', pdf_path, err)
-            #subprocess.check_call("mv '{}' '{}'".format(
-            #    pdf_path, pdf_path + '_corrupted'
-            #), shell=True)
             #subprocess.check_call("./download.py {}".format(
             #    ' '.join(bbl_array)
             #), shell=True)
