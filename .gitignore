@@ -12,3 +12,4 @@ error.txt
 input
 site/node_modules
 site/bower_components
+.pytest_cache/
