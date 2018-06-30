@@ -7,7 +7,6 @@ Directly download tax bills from BBL and billing date
 import logging
 import os
 import sys
-import time
 import subprocess
 from subprocess import CalledProcessError
 from dateutil import parser
@@ -131,13 +130,13 @@ def main(period, doc_type, borough, block, lot, *_):
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
-    subprocess.check_call('wget --no-check-certificate --max-redirect=0 -O "{filename}" "{url}" '
-                          ' || (rm "{filename}" && touch "{nofilemarker}")'.format(
-                              filename=filename,
-                              url=url,
-                              nofilemarker=os.path.join(bbldir, nostatement_fname)
-                          ), shell=True)
-    #time.sleep(1)
+    return subprocess.check_call(
+        'wget --no-check-certificate --max-redirect=0 -O "{filename}" "{url}" '
+        ' || (rm "{filename}" && touch "{nofilemarker}")'.format(
+            filename=filename,
+            url=url,
+            nofilemarker=os.path.join(bbldir, nostatement_fname)
+        ), shell=True)
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
