@@ -125,13 +125,13 @@ def main(period, doc_type, borough, block, lot, *_):
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
 
-    url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
+    url = 'https://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
             'bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
                 period=period, bbl=bbl, doc_type=doc_type)
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
-    subprocess.check_call('wget --max-redirect=0 -O "{filename}" "{url}" '
+    subprocess.check_call('wget --no-check-certificate --max-redirect=0 -O "{filename}" "{url}" '
                           ' || (rm "{filename}" && touch "{nofilemarker}")'.format(
                               filename=filename,
                               url=url,
