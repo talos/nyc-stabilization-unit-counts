@@ -1,5 +1,7 @@
 # NYC Stabilization Unit Counts
 
+[![Build Status](https://travis-ci.org/talos/nyc-stabilization-unit-counts.svg?branch=master)](https://travis-ci.org/talos/nyc-stabilization-unit-counts)
+
 Liberate NYC DOF tax documents to a machine readable format.
 
 See why [here](http://blog.johnkrauss.com/betanyc-stabilization-presentation/#0).
