@@ -5,3 +5,4 @@ before_install:
   - sudo apt-get install -y libxml2-dev libxslt1-dev xpdf
 install:
   - pip install -r requirements.txt
+script: py.test
