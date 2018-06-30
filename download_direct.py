@@ -23,6 +23,11 @@ LOGGER.addHandler(HANDLER)
 
 PERIODS = {
     #'20120817 - Quarterly Property Tax Bill.pdf',
+    ('20180601', 'SOA'): 'June 1, 2018 - Quarterly Property Tax Bill.pdf',
+    ('20180223', 'SOA'): 'February 23, 2018 - Quarterly Property Tax Bill.pdf',
+    ('20180115', 'NOPV'): 'January 15, 2018 - Notice of Property Value.pdf',
+    ('20171117', 'SOA'):  'November 17, 2017 - Quarterly Property Tax Bill.pdf',
+    ('20170825', 'SOA'):  'August 25, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170602', 'SOA'): 'June 2, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170224', 'SOA'): 'February 24, 2017 - Quarterly Property Tax Bill.pdf',
     ('20161118', 'SOA'): 'November 18, 2016 - Quarterly Property Tax Bill.pdf',
