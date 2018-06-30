@@ -23,6 +23,11 @@ LOGGER.addHandler(HANDLER)
 
 PERIODS = {
     #'20120817 - Quarterly Property Tax Bill.pdf',
+    ('20180601', 'SOA'): 'June 1, 2018 - Quarterly Property Tax Bill.pdf',
+    ('20180223', 'SOA'): 'February 23, 2018 - Quarterly Property Tax Bill.pdf',
+    ('20180115', 'NOPV'): 'January 15, 2018 - Notice of Property Value.pdf',
+    ('20171117', 'SOA'):  'November 17, 2017 - Quarterly Property Tax Bill.pdf',
+    ('20170825', 'SOA'):  'August 25, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170602', 'SOA'): 'June 2, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170224', 'SOA'): 'February 24, 2017 - Quarterly Property Tax Bill.pdf',
     ('20161118', 'SOA'): 'November 18, 2016 - Quarterly Property Tax Bill.pdf',
@@ -120,13 +125,13 @@ def main(period, doc_type, borough, block, lot, *_):
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
 
-    url = 'http://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
+    url = 'https://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
             'bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
                 period=period, bbl=bbl, doc_type=doc_type)
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
-    subprocess.check_call('wget --max-redirect=0 -O "{filename}" "{url}" '
+    subprocess.check_call('wget --no-check-certificate --max-redirect=0 -O "{filename}" "{url}" '
                           ' || (rm "{filename}" && touch "{nofilemarker}")'.format(
                               filename=filename,
                               url=url,
