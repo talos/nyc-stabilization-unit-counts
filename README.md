@@ -51,7 +51,7 @@ The following requirements (on Debian):
 
 Or on Mac (with Homebrew):
 
-    brew install python pyenv-virtualenv libxml2 xpdf
+    brew install python pyenv-virtualenv libxml2 xpdf mdbtools
 
 Then create a virtualenv and install the requirements in it:
 

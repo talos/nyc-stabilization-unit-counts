@@ -143,7 +143,13 @@ if __name__ == '__main__':
         with open(sys.argv[3]) as infile:
             for line in infile:
                 bbl_ = line.strip().split('\t')
-                main(sys.argv[1], sys.argv[2], *bbl_)
+                if len(bbl_) == 3:
+                    main(sys.argv[1], sys.argv[2], *bbl_)
+                elif len(bbl_) == 1:
+                    borough, block, lot = bbl_[0][0], bbl_[0][1:6], bbl_[0][6:10]
+                    main(sys.argv[1], sys.argv[2], borough, block, lot)
+                else:
+                    raise Exception('BBL row should have either one or three cells')
     elif len(sys.argv) == 3:
         for line in sys.stdin:
             bbl_ = line.strip().split('\t')
