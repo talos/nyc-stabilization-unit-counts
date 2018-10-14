@@ -2,7 +2,7 @@
 
 # Upload PDFs that have been converted to text to S3, then delete
 
-find data/ -iname *.pdf | while read pdf; do
+find data/ -iname "*.pdf" | while read pdf; do
   filename=$(basename "$pdf" .pdf)
   path=$(dirname "$pdf")
   txtpath="$path/$filename.txt"
@@ -13,7 +13,7 @@ find data/ -iname *.pdf | while read pdf; do
   fi
 done
 
-find data/ -iname *.txt | while read txt; do
+find data/ -iname "*.txt" | while read txt; do
   filename=$(basename "$txt" .txt)
   path=$(dirname "$txt")
 
@@ -21,7 +21,7 @@ find data/ -iname *.txt | while read txt; do
   aws s3 cp "$txt" "s3://taxbills.nyc/$txt" --acl public-read
 done
 
-find data/ -iname *.html | while read html; do
+find data/ -iname "*.html" | while read html; do
   filename=$(basename "$html" .html)
   path=$(dirname "$html")
 
