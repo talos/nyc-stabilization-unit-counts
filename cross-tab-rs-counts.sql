@@ -485,13 +485,17 @@ FROM rgb WHERE comp.year = rgb.year
 -- GROUP BY borough
 -- ORDER BY borough;
 
+/*
+ * Below is commented out because nopv has not been updated
+ */
 DROP TABLE IF EXISTS nopv;
 CREATE TABLE nopv AS
-SELECT bbl, activityThrough, lower(key) key, value
+SELECT bbl, activityThrough, lower(key) as "key", value
 FROM rawdata
 WHERE section = 'nopv'
 ORDER BY bbl, activityThrough;
 
+DROP TABLE IF EXISTS gross_income;
 CREATE UNIQUE INDEX ON nopv (bbl, year, key);
 SELECT n.bbl, MAX(ST_X(geom)) as lon, MAX(ST_Y(geom)) as lat,
 MAX(cd) cd,

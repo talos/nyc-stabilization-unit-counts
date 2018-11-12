@@ -29,6 +29,7 @@ PERIODS = {
     ('20170825', 'SOA'):  'August 25, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170602', 'SOA'): 'June 2, 2017 - Quarterly Property Tax Bill.pdf',
     ('20170224', 'SOA'): 'February 24, 2017 - Quarterly Property Tax Bill.pdf',
+    ('20170115', 'NOPV'): 'January 15, 2017 - Notice of Property Value.pdf',
     ('20161118', 'SOA'): 'November 18, 2016 - Quarterly Property Tax Bill.pdf',
     ('20160826', 'SOA'): 'August 26, 2016 - Quarterly Property Tax Bill.pdf',
     ('20160219', 'SOA'): 'February 19, 2016 - Quarterly Property Tax Bill.pdf',
