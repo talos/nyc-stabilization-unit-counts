@@ -389,7 +389,7 @@ CREATE TABLE changes_summary (
   ucbbl BIGINT,
   unitstotal INTEGER,
   unitsstab2007 INTEGER,
-  unitsstab2016 INTEGER,
+  unitsstab2017 INTEGER,
   diff INT,
   percentchange TEXT,
   j51 text,
@@ -419,7 +419,7 @@ SELECT
   ucbbl,
   MAX(GREATEST(unitsres, unitstotal, unitcount, 1)) AS unitstotal,
   MAX(CASE year WHEN '2007-01-01' THEN unitcount ELSE 0 END) AS unitsstab2007,
-  MAX(CASE year WHEN '2017-01-01' THEN unitcount ELSE 0 END) AS unitsstab2016,
+  MAX(CASE year WHEN '2017-01-01' THEN unitcount ELSE 0 END) AS unitsstab2017,
   MAX(CASE year WHEN '2017-01-01' THEN unitcount ELSE 0 END) -
   MAX(CASE year WHEN '2007-01-01' THEN unitcount ELSE 0 END) AS diff,
   TO_CHAR((MAX(CASE year WHEN '2017-01-01' THEN unitcount ELSE 0 END) -
