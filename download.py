@@ -24,7 +24,7 @@ LOGGER.addHandler(HANDLER)
 
 SESSION = requests.session()
 DOCS_TO_DOWNLOAD = [
-    u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
+    # u'Quarterly Statement of Account',  # Amounts paid, stabilized fees, other
                                         # charges, mailing address
     u'Quarterly Property Tax Bill',  # Amounts paid, stabilized fees, other
                                      # charges, mailing address, mortgagee
@@ -33,7 +33,7 @@ DOCS_TO_DOWNLOAD = [
     # skipping this because they're very, very slow
     u'Notice of Property Value',  # Estimated sq. footage, gross income,
                                   # expenses, RoI
-    u'Tentative Assessment Roll',  # Real Estate billing name and address
+    # u'Tentative Assessment Roll',  # Real Estate billing name and address
                                    # (mortgagee payer)
 ]
 
@@ -124,7 +124,7 @@ def strain_soup(bbl, soup, target, get_statement_url):
 
         save_file_from_stream(resp, filename)
 
-        time.sleep(1)
+        time.sleep(.2)
 
 
 def search(borough=None, house_number=None, street=None, block=None, lot=None):
@@ -222,6 +222,7 @@ def main(*args):
     while down_for_maintenance:
         down_for_maintenance = False
         try:
+            print ('LEN',len(args))
             try:
                 search(borough=args[0], block=int(args[1]), lot=int(args[2]))
             except ValueError:
@@ -245,7 +246,12 @@ if __name__ == '__main__':
     if len(sys.argv) == 2:
         with open(sys.argv[1]) as infile:
             for line in infile:
-                main(*line.strip().split('\t'))
+                #main(*line.strip().split('\t'))
+                line=line.strip()
+                boro=line[0:1]
+                block=line[1:6]
+                lot=line[6:10]
+                main(boro,block,lot)
     elif len(sys.argv) == 4:
         main(sys.argv[1], sys.argv[2], sys.argv[3])
     else:
