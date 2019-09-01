@@ -22,6 +22,7 @@ LOGGER.addHandler(HANDLER)
 
 PERIODS = {
     #'20120817 - Quarterly Property Tax Bill.pdf',
+    ('20190605', 'SOA'): 'June 5, 2019 - Quarterly Property Tax Bill.pdf',
     ('20180601', 'SOA'): 'June 1, 2018 - Quarterly Property Tax Bill.pdf',
     ('20180223', 'SOA'): 'February 23, 2018 - Quarterly Property Tax Bill.pdf',
     ('20180115', 'NOPV'): 'January 15, 2018 - Notice of Property Value.pdf',
@@ -125,8 +126,8 @@ def main(period, doc_type, borough, block, lot, *_):
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
 
-    url = 'https://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
-            'bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
+    url = 'https://a836-edms.nyc.gov/dctm-rest/repositories/dofedmspts/' + \
+            'StatementSearch?bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
                 period=period, bbl=bbl, doc_type=doc_type)
 
     filename = os.path.join(bbldir, docname)
