@@ -2,11 +2,11 @@
 
 source .env/bin/activate
 
-export PGPASSWORD=docker4data
-export PGUSER=postgres
-export PGHOST=localhost
-export PGPORT=54321
-export PGDATABASE=postgres
+export PGPASSWORD=${docker4data:-}
+export PGUSER=${postgres:-postgres}
+export PGHOST=${localhost:-postgres}
+export PGPORT=${54321:-5432}
+export PGDATABASE=${postgres:-}
 
 psql -c 'drop table if exists rgb cascade;'
 psql -c 'create table rgb (
