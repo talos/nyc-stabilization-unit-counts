@@ -1,0 +1,18 @@
+{
+  "version": "2.4",
+  "services": {
+    "main": {
+      "build": ".",
+      "volumes": [
+        ".:/nyc-stabilization-unit-counts",
+      ],
+      "environment": {
+        "PGHOST": "postgres",
+        "PGUSER": "postgres",
+      }
+    },
+    "postgres": {
+      "image": "postgres:11",
+    }
+  }
+}
