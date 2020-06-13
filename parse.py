@@ -42,8 +42,7 @@ ACTIVITY_THROUGH = {
 }
 OWNER_ADDRESS_AREA = re.compile(
     r'Owner name:(.*)Property address:(.*)Borough, block & lot:(.*)'
-    r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)', re.DOTALL + re.IGNORECASE
-)
+    r'(Statement\s+Billing\s+Summary|Statement\s+Details)', re.DOTALL + re.IGNORECASE) #r'(Outstanding\s+Charges|Statement\s+Billing\s+Summary)'
 PROPERTY_TAX_DETAIL_AREA = re.compile(
     '(Annual [Pp]roperty [Tt]ax [Dd]etail|How We Calculated Your Property Tax).*'
     '[Aa]nnual [Pp]roperty [Tt]ax.*?\n', re.DOTALL + re.IGNORECASE)
@@ -60,9 +59,10 @@ SPLIT_RE = re.compile(r'\s{2,}')
 SPLIT_X_RE = re.compile(r'[\sX$]{2,}')
 UNITS_RE = re.compile(r'(\d+ [Uu]nits)')
 SECTIONS_RE = re.compile(r'(Charges You Can Pre-pay|'  # prepayment
-                         r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'  #prepayment
+                         r'If you want to pay everything .* please pay|'  #prepayment r'Amount Not Due [bB]ut That Can [bB]e Paid Early|'
+                         r'If you pay everything .* you would save|'  #prepayment
                          r'Tax Year Charges Remaining|' # prepayment
-                         r'Current Amount Due|' # due
+                         r'Total Amount Due|' # due r'Current Amount Due|'
                          r'Current Charges|' # due
                          r'Overpayments/[Cc]redits|' # ?
                          r'Payment Agreement|' # ?
@@ -82,7 +82,6 @@ def parseamount(string):
     Convert string of style -$24,705.75 to float -24705.75
     """
     return float(string.replace(',', '').replace('$', '').replace('*', '').replace('X', ''))
-
 
 def split(string, with_x=False):
     """
@@ -165,6 +164,16 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                 elif cell0.startswith('estimated market value'):
                     key = cell0
                     value = parseamount(cells[1])
+                elif cell0.startswith('billable assessed value'):
+                    key = cell0
+                    value = parseamount(cells[1])
+                elif cell0.startswith('taxable value'):
+                    section = 'details'
+                    key = cell0
+                    splitcells = cells[1].split(' ',3)
+                    meta = parseamount(splitcells[0]) #parseamount(cells[1])
+                    value = splitcells[2]
+                    exemptions_flag = True
                 elif cell0.startswith('tax before exemptions and abatements'):
                     section = 'details'
                     key = cell0
@@ -176,6 +185,8 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     key = cell0
                     meta = parseamount(cells[1])
                     value = parseamount(cells[-1])
+                    if value == meta:
+                        meta = None
                     abatements_flag = True
                 elif cell0 == 'annual property tax':
                     section = 'details'
@@ -193,6 +204,17 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                 elif cell0 == 'revocation':
                     revocation_flag = True
                     continue
+                elif cell0.startswith('damp'):
+                        section = 'details'
+                        key = "Damp / Article XI"
+                        value = parseamount(cells[-1])
+                elif cell0.startswith('article'):
+                    if cells[1]== 'i':
+                        section = 'details'
+                        key = "Article XI"
+                        value = parseamount(cells[-1])
+                    else:
+                        continue
                 elif revocation_flag:
                     section = 'details-revocation'
                     key = cell0
@@ -267,6 +289,7 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
             meta = None
             stabilization_due_date = None
             activity_date = None
+            due_date = None
             value = None
             apts = None
 
@@ -306,8 +329,25 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
 
             if line == '':
                 continue
-            elif 'rent stabilization fee' in cells[0].lower():
-                continue
+            elif cells[0].lower().startswith('rent stabilization'):
+                #print(cells[0].lower())
+                if 'rent stabilization fee- chg' in cells[0].lower():
+                    rent_line = RENT_LINE_RE.split(line) #line
+                    #print(rent_line, len(rent_line))
+                    key = ' '.join(rent_line[0:3])[:-1]
+                    if len(rent_line) < 7:
+                        raise Exception('Unable to parse rent stabilization line')
+                    elif len(rent_line) == 7:
+                        apts = int(rent_line[4]) #int(rent_line[2])
+                        due_date = parsedate(rent_line[5]) #parsedate(rent_line[3])
+                        value = parseamount(rent_line[-1]) #parseamount(rent_line[len(rent_line)-1])
+                    else:
+                        apts = int(rent_line[4]) #int(rent_line[2])
+                        due_date = parsedate(rent_line[5]) #parsedate(rent_line[3])
+                        meta = rent_line[6] #meta = ' '.join(rent_line[4:len(rent_line)-1])
+                        value = parseamount(rent_line[7]) #parseamount(rent_line[len(rent_line)-1])
+                else:
+                    continue
             elif cells[0].startswith('Activity Date'):
                 continue
             elif cells[0] == 'Housing-Rent Stabilization':
@@ -334,6 +374,9 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     activity_date = parsedate(cells[1])
                 except:  #pylint: disable=bare-except
                     meta = cells[1]
+                if key.find('Tax')>0 or key.find('Fee')>0 or key.find('Chg')>0:
+                    due_date = activity_date
+                    activity_date=None
                 value = parseamount(cells[2])
             elif len(cells) == 4:
                 key = cells[0]
@@ -349,8 +392,6 @@ def extract_statement_pdf(text): #pylint: disable=too-many-locals,too-many-branc
                     continue
                 elif 'Due to this change,' in line:
                     continue
-                #import pdb
-                #pdb.set_trace()
 
             yield {
                 'key': key,
@@ -380,7 +421,7 @@ def _html_rent_stabilized(html):
     for section in STABILIZED_RE.finditer(html, re.DOTALL):
         section_type = section.group(1)
         section_text = section.group()
-        for match in re.finditer(r'(Housing-Rent Stabilization.*?)<', section_text, re.IGNORECASE):
+        for match in re.finditer(r'((Housing-Rent Stabilization)|(Rent Stabilization Fee- Chg).*?)<', section_text, re.IGNORECASE):
             housing_rent, stabilization, num_apts, date, id1, id2, payment = \
                     re.split(r'\s+', match.group(1).strip())
             yield {
