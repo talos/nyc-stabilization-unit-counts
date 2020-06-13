@@ -39,7 +39,7 @@ Under the following terms:
 
 You'll need the following:
 
-- Linux, BSD, or MacOSX machine
+- Linux, BSD, or MacOSX machine (or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10))
 - Python 2.6 or greater (not tested on 3)
 - `virtualenv` or `virtualenvwrapper` (in order to install requirements without
   using `sudo`
@@ -79,14 +79,22 @@ Make sure to put the street name in single quotes.
 
 ### To download a single tax bill for many BBLS:
 
-    python download_direct.py YYYYMMDD /path/to/bbls.csv > path/to/log.txt 2>&1 &
+1. Create a `csv` of BBLs to download, with each separated by a new line. (E.g. all BBLs with 3/6+ units from [PLUTO](https://www1.nyc.gov/site/planning/data-maps/open-data/dwn-pluto-mappluto.page))
+
+2. Then run:
+
+    ```python download_direct.py YYYYMMDD [SOA/NPV] /path/to/input/bbls.csv > path/to/log.log 2>&1 &```
+    
+_more specific example_
+
+    python download_direct.py 20200606 SOA ./input/MN_bbls.csv > ./output/log$(date +"%Y%m%d_%H.%M.%S").log 2>&1 | tee -a ./output/wget-log
 
 ### To parse the raw data into a CSV
 
 You'll probably want to background this too, as it takes a while.  The text PDF
 bills are turned into txt files using `pdftotext`.
 
-    python parse.py /path/to/input >/path/to/output.csv 2>/path/to/log.txt &
+    python parse.py ./data/ >/path/to/output.csv 2>/path/to/log.log &
 
 The structure of the CSV is as follows, including types:
 
