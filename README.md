@@ -6,11 +6,11 @@ Liberate NYC DOF tax documents to a machine readable format.
 
 See why [here](http://blog.johnkrauss.com/betanyc-stabilization-presentation/#0).
 
-Grab the latest parsed data [here](http://taxbills.nyc/joined.csv).
+Grab the latest parsed data [here](https://taxbillsnyc.s3.amazonaws.com/joined.csv).
 
 __Parsed data__ is licensed [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)
 ![CC BY-SA](https://licensebuttons.net/l/by-sa/3.0/88x31.png).  See
-[DATALICENSE-CC-BY-SA.html](http://taxbills.nyc/DATALICENSE-CC-BY-SA.html) for details.
+[DATALICENSE-CC-BY-SA.html](https://taxbillsnyc.s3.amazonaws.com/DATALICENSE-CC-BY-SA.html) for details.
 
 You are free to:
 
@@ -128,7 +128,7 @@ This will directly parse the `data` folder into docker4data's postgres.
 
 ## Data Usage
 
-You can see all data [here](http://www.taxbills.nyc/).
+The [taxbills.nyc](http://www.taxbills.nyc/) website is currently down, but you can access the [Wayback Machine archive of taxbills.nyc](http://web.archive.org/web/20200808040422/http://taxbills.nyc/) to see all the data. 
 
 Downloading is complete.  This means all 6+ unit buildings, in addition to all
 buildings on DHCR's stabilized buildings list, are available and parsed.
@@ -137,7 +137,18 @@ Folder scheme for bills: `data/<borough>/<block>/<lot>/`
 
 All PDFs are converted to their textual representations in the same folder.
 
-### A [crosstab CSV with unit counts and abatements 2007-2014](http://taxbills.nyc/joined.csv)
+The most widely used CSV files for analysis are also now hosted elsewhere for consistent access. These files are linked below with descriptions of their contents. 
+
+* [`joined.csv`](https://taxbillsnyc.s3.amazonaws.com/joined.csv)
+* [`nocrosstab.csv`](https://taxbillsnyc.s3.amazonaws.com/joined-nocrosstab.csv)
+* [`changes-summary.csv`](https://taxbillsnyc.s3.amazonaws.com/changes-summary.csv)
+* [`boroughs.csv`](https://taxbillsnyc.s3.amazonaws.com/boroughs.csv)
+* [`cds.csv`](https://taxbillsnyc.s3.amazonaws.com/cds.csv)
+* [`nopv.csv`](https://taxbillsnyc.s3.amazonaws.com/nopv.csv)
+
+---
+
+### A [crosstab CSV with unit counts and abatements 2007-2014](https://taxbillsnyc.s3.amazonaws.com/joined.csv)
 
 Probably the most useful file for journalists or data-minded community advocates.
 This file has a row for every possibly stabilized building in New York.  There
@@ -183,7 +194,7 @@ own list of stabilized buildings was scraped.  Buildings are aggregated by BBL.
 - __lon__: The lot's centerpoint longitude.
 - __lat__: The lot's centerpoint latitude.
 
-### A CSV as above but with [a separate row for each year](http://taxbills.nyc/joined-nocrosstab.csv)
+### A CSV as above but with [a separate row for each year](https://taxbillsnyc.s3.amazonaws.com/joined-nocrosstab.csv)
 
 The columns are the same as before, except instead of having separate columns
 for each year of observation, there is a separate row.
@@ -191,7 +202,7 @@ for each year of observation, there is a separate row.
 This would be more useful for making a time-based map or doing statistical
 analysis where the year column can be fed in as a proper dimension.
 
-### A [summary of building changes](http://taxbills.nyc/changes-summary.csv) over the seven-year span.
+### A [summary of building changes](https://taxbillsnyc.s3.amazonaws.com/changes-summary.csv) over the seven-year span.
 
 This is the table that underlies the map.
 
@@ -221,10 +232,10 @@ This is the table that underlies the map.
 ### Borough/CD summary tables
 
 These are simple breakdowns of changes over the seven-year period by
-[borough](http://taxbills.nyc/boroughs.csv) and
-[community district](http://taxbills.nyc/cds.csv).
+[borough](https://taxbillsnyc.s3.amazonaws.com/boroughs.csv) and
+[community district](https://taxbillsnyc.s3.amazonaws.com/cds.csv).
 
-### Estimates of [income and expense](http://taxbills.nyc/nopv.csv)
+### Estimates of [income and expense](https://taxbillsnyc.s3.amazonaws.com/nopv.csv)
 
 Every year, Finance estimates the earnings and expenses of rentals as part of
 the assessment.  For larger (10+ unit) buildings, these estimates are based
