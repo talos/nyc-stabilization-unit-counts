@@ -1,5 +1,5 @@
 beautifulsoup4==4.6.0
 requests==2.19.1
-lxml==4.2.3
+lxml==4.9.1
 python-dateutil==2.7.3
 pytest==3.6.2
