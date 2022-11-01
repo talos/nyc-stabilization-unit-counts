@@ -21,7 +21,17 @@ LOGGER.setLevel(logging.INFO)
 LOGGER.addHandler(HANDLER)
 
 PERIODS = {
-    #'20120817 - Quarterly Property Tax Bill.pdf',
+    ('20200606', 'SOA'): 'June 6, 2020 - Quarterly Property Tax Bill.pdf',
+    ('20200222', 'SOA'): 'February 22, 2020 - Quarterly Property Tax Bill.pdf',
+    ('20200115', 'NOPV'): 'January 15, 2020 - Notice of Property Value.pdf',
+    ('20191205', 'SOA'): 'December 5, 2019 - Quarterly Property Tax Bill.pdf',
+    ('20190829', 'SOA'): 'August 29, 2019 - Quarterly Property Tax Bill.pdf',
+    ('20190605', 'SOA'): 'June 5, 2019 - Quarterly Property Tax Bill.pdf',
+    #Note - new url will only  work for Tax Bills above. Use previous url for below.
+    ('20190201', 'SOA'): 'February 1, 2019 - Quarterly Property Tax Bill.pdf',
+    ('20190115', 'NOPV'): 'January 15, 2019 - Notice of Property Value.pdf',
+    ('20181116', 'SOA'): 'November 16, 2018 - Quarterly Property Tax Bill.pdf',
+    ('20180824', 'SOA'): 'August 24, 2018 - Quarterly Property Tax Bill.pdf',
     ('20180601', 'SOA'): 'June 1, 2018 - Quarterly Property Tax Bill.pdf',
     ('20180223', 'SOA'): 'February 23, 2018 - Quarterly Property Tax Bill.pdf',
     ('20180115', 'NOPV'): 'January 15, 2018 - Notice of Property Value.pdf',
@@ -112,22 +122,17 @@ def main(period, doc_type, borough, block, lot, *_):
     filenames = os.listdir(bbldir)
     nostatement_fname = 'nostatement.' + period + '.txt'
     if (docname in filenames) or (docname.replace('.pdf', '.txt') in filenames):
-        LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping',
-                    docname, bbl)
+        LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping', docname, bbl)
         return
     elif docname + '.pdf' in filenames:
-        subprocess.check_call('mv "{bbldir}/{docname}.pdf" "{bbldir}/{docname}"'.format(
-            bbldir=bbldir, docname=docname), shell=True)
-        LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)',
-                    docname, bbl)
+        subprocess.check_call('mv "{bbldir}/{docname}.pdf" "{bbldir}/{docname}"'.format(bbldir=bbldir, docname=docname), shell=True)
+        LOGGER.info(u'Already downloaded "%s" for BBL %s, skipping (fixed path)', docname, bbl)
         return
     elif nostatement_fname in filenames:
         LOGGER.info(u'There is no "%s" for BBL %s, skipping', docname, bbl)
         return
 
-    url = 'https://nycprop.nyc.gov/nycproperty/StatementSearch?' + \
-            'bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(
-                period=period, bbl=bbl, doc_type=doc_type)
+    url = 'https://a836-edms.nyc.gov/dctm-rest/repositories/dofedmspts/' + 'StatementSearch?bbl={bbl}&stmtDate={period}&stmtType={doc_type}'.format(period=period, bbl=bbl, doc_type=doc_type)
 
     filename = os.path.join(bbldir, docname)
     LOGGER.info('Saving %s for %s', filename, bbl)
